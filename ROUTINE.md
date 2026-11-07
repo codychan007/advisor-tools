@@ -14,7 +14,8 @@
 - 唔好改 `functions/`（密碼）、`assets/vendor/`、`_headers`。
 
 ## 步驟
-1. 環境：`pip install pypdf`；確認有 `node`。
+1. 環境：系統 python3 嘅 cryptography 壞咗（import pypdf 會 panic，2026-11-07 試跑發現），**一開始就用 venv**：`python3 -m venv /tmp/v && /tmp/v/bin/pip install -q pypdf` ，之後所有 python 指令用 `/tmp/v/bin/python`。確認有 `node`。
+   - 唔使收錄：標明「不適用於新申請」嘅舊產品（例如尊尚／尊顯／尊裕 vhis-prime／privilege／privilege-plus）；危疾＋醫療組合（例如 Metro Trio）。
 2. **產品清單**：開 `https://www.aia.com.hk/zh-hk/products/health/medical-protection`（頁面有「展示更多」，用頁面 HTML／JSON 或 `https://www.aia.com.hk/sitemap.xml` 搵晒 `/zh-hk/products/health/` 下面嘅產品頁）。同 `scripts/build_premiums.py` 嘅 `PLANS` 同 `NO_PUBLIC_TABLE` 對：
    - **新產品**：開佢產品頁搵「保費表」PDF。
      - 有公開保費表 → 加入 `PLANS`（name、riderCode 唔知就 `None`、riderAvailable、category `basic`／`high_end`、page、brochure、premiumPdf），寫一個 `parse_<key>()` 加入 `PARSERS`。每張表要有 type（basic／rider）、sex、ward、deductible（{HKD, USD}）、area、0–100 歲。
