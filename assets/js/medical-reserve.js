@@ -74,7 +74,7 @@
       planKey: $("f-plan").value, ward: $("f-ward").value || null,
       deductible: $("f-ded").value === "" ? null : +$("f-ded").value, area: $("f-area").value || null,
       rider: radio("rider") === "1", surname: $("f-surname").value.trim() || "VIP",
-      startYear: $("f-start").value === "" ? NaN : +$("f-start").value, endAge: C.END_AGE
+      startYear: $("f-start").value === "" ? NaN : +$("f-start").value, endAge: $("f-end").value === "" ? C.END_AGE : +$("f-end").value
     };
   }
 
@@ -166,7 +166,7 @@
   $("checkBtn").addEventListener("click", function () {
     if (!SCHED) return;
     var ip = C.parseIpgs($("ipgsText").value, F.age);
-    var need = C.END_AGE - F.age, msg = $("parseMsg");
+    var need = F.endAge - F.age, msg = $("parseMsg");
     msg.classList.remove("hidden", "bad", "good");
     if (!ip.count) {
       msg.classList.add("bad");

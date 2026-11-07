@@ -17,7 +17,7 @@
       brochure: "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/zh-hk/global-power-multi-currency-plan-3/GlobalPowerMultiCurrencyPlan3_tc.pdf"
     }
   };
-  var HKD_RATE = 7.84, RIDER_FACTOR = 0.9, END_AGE = 90, MIN_START_YEAR = 3;
+  var HKD_RATE = 7.84, RIDER_FACTOR = 0.9, END_AGE = 90, MAX_END_AGE = 100, MIN_START_YEAR = 3;  // END_AGE = 預設；AIA 保費表同 iPGS 都計到 100 歲
 
   function termLabel(t) { return t === 0 ? "一次過繳費" : t + "年"; }
 
@@ -87,7 +87,9 @@
       if (f.rider && (plan.riderAvailable === false || f.planKey === "standard")) p.push("13. " + plan.name + " 冇附加契約版本");
     }
     if (!(f.startYear >= MIN_START_YEAR)) p.push("15. 最早由第 " + MIN_START_YEAR + " 年開始提取");
-    else if (f.age + f.startYear > END_AGE) p.push("15. 開始提取歲數超過 " + END_AGE + " 歲");
+    var endAge = f.endAge || END_AGE;
+    if (!(endAge >= 1 && endAge <= MAX_END_AGE && Math.floor(endAge) === endAge)) p.push("16. 提取到幾多歲要係整數，最高 " + MAX_END_AGE + " 歲");
+    else if (f.startYear >= MIN_START_YEAR && f.age + f.startYear > endAge) p.push("15／16. 開始提取（" + (f.age + f.startYear) + " 歲）遲過提取到嘅歲數（" + endAge + " 歲）");
     return p;
   }
 
@@ -197,7 +199,7 @@
     return Number(v).toLocaleString("en-US", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 });
   }
 
-  var api = { SAVINGS: SAVINGS, HKD_RATE: HKD_RATE, END_AGE: END_AGE, MIN_START_YEAR: MIN_START_YEAR,
+  var api = { SAVINGS: SAVINGS, HKD_RATE: HKD_RATE, END_AGE: END_AGE, MAX_END_AGE: MAX_END_AGE, MIN_START_YEAR: MIN_START_YEAR,
     termLabel: termLabel, schedule: schedule, validate: validate, parseIpgs: parseIpgs, check: check,
     estimateMinPremium: estimateMinPremium, fmt: fmt };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.MedCalc = api;

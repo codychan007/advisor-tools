@@ -68,4 +68,19 @@ ok(Math.abs(rd.rows[0].usd - data.plans.flexi.tables.find(t => t.sex === "M" && 
   const e2 = C.estimateMinPremium(half, 15, 2500);
   ok(e2 && e2.extrapolated && Math.abs(e2.min - 3037) / 3037 < 0.05, "唔夠錢個案（US$2,500）：估計最少約 US$" + (e2 && Math.round(e2.min)) + "，同真值 3,037 差 5% 內");
 }
+
+// 提取到幾多歲可以改（預設 90，最高 100）
+{
+  const s95 = C.schedule(data, { planKey: "selectwise", age: 25, deductible: 18000, startYear: 15, endAge: 95 });
+  ok(s95.rows.length === 71 && s95.rows[70].age === 95, "提取到 95 歲：計到 95 歲（71 行）");
+  const s100 = C.schedule(data, { planKey: "flexi", age: 40, sex: "F", ward: "普通房", startYear: 10, endAge: 100 });
+  ok(s100.rows[s100.rows.length - 1].age === 100 && s100.rows[s100.rows.length - 1].usd > 0, "提取到 100 歲：100 歲都有保費");
+  const base = { name: "A", age: 25, sex: "M", savings: "GF", payYears: 5, premium: 5000, planKey: "selectwise", deductible: 18000, rider: false, startYear: 15 };
+  ok(C.validate(data, { ...base, endAge: 101 }).length === 1, "101 歲會攔");
+  ok(C.validate(data, { ...base, endAge: 39 }).length === 1, "開始 40 歲但提取到 39 歲會攔");
+  ok(C.validate(data, { ...base, endAge: 100 }).length === 0 && C.validate(data, base).length === 0, "100 歲同唔填（預設 90）都得");
+  // 檢查只睇到 endAge：VIP iPGS 數字計到 100 歲，揀 95 歲都要逐年夠
+  const r95 = C.check(s95, C.parseIpgs(txt, 25), 25, 15, 95);
+  ok(r95.rows.length === 70 && r95.rows[69].age === 95, "檢查計到 95 歲（" + (r95.ok ? "夠錢" : "唔夠：" + r95.problems[0]) + "）");
+}
 process.exit(fail ? 1 : 0);

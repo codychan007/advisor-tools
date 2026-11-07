@@ -16,7 +16,7 @@
 
 <main class="wrap">
   <h1><span class="brush">醫療儲備計劃</span></h1>
-  <p class="muted">用 AIA 美元儲蓄計劃（GF 環宇盈活／GP3 盈御多元貨幣 3）逐年提取，交醫保保費到 90 歲。客人資料只喺你部機計，唔會上傳。</p>
+  <p class="muted">用 AIA 美元儲蓄計劃（GF 環宇盈活／GP3 盈御多元貨幣 3）逐年提取，交醫保保費到指定歲數（預設 90 歲，最高 100 歲）。客人資料只喺你部機計，唔會上傳。</p>
   <p id="dataInfo" class="muted" style="font-size:14px"></p>
 
   <!-- 一：資料 -->
@@ -53,8 +53,9 @@
       <div class="field"><label for="f-start"><span class="no">15.</span>由保單第幾年開始提取</label>
         <input id="f-start" type="number" inputmode="numeric" min="3" placeholder="最早第 3 年">
         <div class="hint" id="startHint"></div></div>
-      <div class="field"><label><span class="no">16.</span>提取到幾多歲</label>
-        <input type="text" value="90" disabled></div>
+      <div class="field"><label for="f-end"><span class="no">16.</span>提取到幾多歲</label>
+        <input id="f-end" type="number" inputmode="numeric" min="1" max="100" value="90">
+        <div class="hint">預設 90，最高 100（AIA 保費表同 iPGS 都計到 100 歲）</div></div>
       <div class="full">
         <div class="note bad hidden" id="formErr"></div>
         <div class="actions"><button class="btn" type="submit">計醫保保費 →</button></div>
