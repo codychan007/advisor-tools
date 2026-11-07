@@ -1,0 +1,8 @@
+{
+  "name": "advisor-tools",
+  "private": true,
+  "description": "TC Team專屬AI工具箱 – Cloudflare Pages Functions 用嘅程式庫（網站本身係靜態，唔使 build）",
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.3.0"
+  }
+}

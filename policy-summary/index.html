@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>保單整理器 – TC Team專屬AI工具箱</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="seal">工</span><span>TC Team專屬AI工具箱<small>同事內部使用</small></span></a>
+  <a class="head-link" href="/">← 全部工具</a>
+</div></header>
+
+<main class="wrap">
+  <h1><span class="brush">保單整理器</span></h1>
+  <p class="muted">將客人手上嘅保單整理成一張 Policy Summary（Excel）。每份保單可以人手填，或者上載保單／週年報表等 AI 讀；資料未齊會停低叫你補。</p>
+  <div class="note" id="aiStatus">檢查緊 AI 設定…</div>
+
+  <section class="card" id="clientCard" style="margin-top:18px">
+    <div class="step-head"><span class="step-no">一</span><h2>客人</h2></div>
+    <div class="form">
+      <div class="field"><label for="c-sal">稱謂</label>
+        <select id="c-sal"><option>Mr.</option><option>Ms.</option><option>Mrs.</option><option>Miss</option><option value="">（唔使）</option></select></div>
+      <div class="field"><label for="c-name">客人英文名</label>
+        <input id="c-name" type="text" autocomplete="off" placeholder="例：Choi Chin Long">
+        <div class="hint">用喺 Excel 標題；上載文件時會自動遮住，唔會交俾 AI</div></div>
+      <div class="field"><label for="c-year">出生年份（標題用，可以唔填）</label>
+        <input id="c-year" type="number" inputmode="numeric" placeholder="例：2001"></div>
+      <div class="field"><label for="c-month">整理月份</label>
+        <input id="c-month" type="month"></div>
+      <div class="field full"><label for="c-other">其他要遮嘅名（中文名、家人名，用逗號分隔）</label>
+        <input id="c-other" type="text" autocomplete="off" placeholder="例：蔡展朗, Chan Tai Man">
+        <div class="hint">文件入面見到呢啲名都會變成 [客人姓名]，先交俾 AI</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="step-head"><span class="step-no">二</span><h2>保單</h2></div>
+    <div id="policies"></div>
+    <div class="actions"><button class="btn" id="addPolicy" type="button">＋ 加一份保單</button></div>
+  </section>
+
+  <section class="card">
+    <div class="step-head"><span class="step-no">三</span><h2>出 Excel</h2></div>
+    <div id="checkList"></div>
+    <div class="actions">
+      <button class="btn" id="dlBtn" type="button">下載 Excel</button>
+      <button class="btn ghost" id="clearAll" type="button">清除全部（換新客人）</button>
+      <span id="dlMsg" class="muted" style="align-self:center;font-size:14px"></span>
+    </div>
+    <p class="muted" style="font-size:13px;margin:10px 0 0">資料會自動儲喺你呢部機（瀏覽器），閂咗網頁再開會繼續；做完記得撳「清除全部」。上載嘅文件唔會儲。</p>
+  </section>
+</main>
+<footer class="site-footer"><div class="wrap">只供同事內部參考，以保險公司正式文件為準。AI 讀出嚟嘅資料一定要人手核對。</div></footer>
+
+<script src="/assets/js/ps-core.js"></script>
+<script src="/assets/js/ps-docs.js"></script>
+<script src="/assets/vendor/exceljs.min.js" defer></script>
+<script src="/assets/js/ps-excel.js" defer></script>
+<script src="/assets/js/ps-app.js" defer></script>
+</body>
+</html>
