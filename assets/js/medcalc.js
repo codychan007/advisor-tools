@@ -141,11 +141,12 @@
   function check(sched, ipgs, issueAge, startYear, endAge) {
     endAge = endAge || END_AGE;
     var need = {}; sched.rows.forEach(function (r) { need[r.age] = r.withdrawal; });
-    var problems = [], rows = [], firstShort = null;
+    var problems = [], rows = [], firstShort = null, early = [];
     for (var n = 1; n <= endAge - issueAge; n++) {
       var age = issueAge + n, p = ipgs.rows[n];
       if (!p) { problems.push("iPGS 數字冇第 " + n + " 年（" + age + " 歲）"); continue; }
       var req = n >= startYear ? need[age] : 0;
+      if (n < startYear && p.withdrawal > 0) early.push({ n: n, age: age, withdrawal: p.withdrawal });
       if (n >= startYear && p.withdrawal + 1 < req) {
         problems.push(age + " 歲（第 " + n + " 年）要提 US$" + fmt(req) + "，iPGS 只提到 US$" + fmt(p.withdrawal) + "，差 US$" + fmt(req - p.withdrawal));
         if (firstShort === null) firstShort = age;
@@ -156,7 +157,40 @@
       }
       rows.push({ n: n, age: age, need: req, paidTotal: p.paidTotal, withdrawal: p.withdrawal, base: p.base, surrender: p.surrender });
     }
-    return { ok: problems.length === 0, problems: problems, rows: rows, firstShort: firstShort };
+    return { ok: problems.length === 0, problems: problems, rows: rows, firstShort: firstShort, early: early };
+  }
+
+  /* 估計最少首年保費（唔係 AIA 計算，只係用今次 iPGS 數字推算）：
+     每年「提取前價值 ÷ 上年提取後價值」= 保單自己嘅增長率 g，假設保費加減唔會改變 g，
+     第 S−1 年價值跟保費按比例，逐年 A = A × g − 提取，搵 A 一直 > 0 嘅最細倍數 k。
+     k = 1 時會完全還原 iPGS 結果。錢用完之後冇 g，用最後 5 年平均。 */
+  function estimateMinPremium(rows, startYear, premium) {
+    var byN = {}; rows.forEach(function (r) { byN[r.n] = r; });
+    var g = {}, known = [];
+    rows.forEach(function (r) {
+      var p = byN[r.n - 1];
+      if (r.n >= 2 && p && p.surrender > 0 && r.surrender > 0 && r.paidTotal <= p.paidTotal + 0.5) {
+        g[r.n] = (r.surrender + r.withdrawal) / p.surrender; known.push(r.n);
+      }
+    });
+    var start = byN[startYear - 1];
+    if (!start || !(start.surrender > 0) || !known.length) return null;
+    var tail = known.slice(-5).map(function (n) { return g[n]; });
+    var gx = Math.pow(tail.reduce(function (a, b) { return a * b; }, 1), 1 / tail.length);
+    function ok(k) {
+      var A = k * start.surrender;
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i]; if (r.n < startYear) continue;
+        A = A * (g[r.n] || gx) - r.need;
+        if (A <= 0) return false;
+      }
+      return true;
+    }
+    var lo = 0, hi = 1;
+    while (!ok(hi)) { hi *= 1.5; if (hi > 100) return null; }
+    for (var j = 0; j < 50; j++) { var m = (lo + hi) / 2; if (ok(m)) hi = m; else lo = m; }
+    var min = premium * hi;
+    return { min: min, suggest: Math.ceil(min * 1.03 / 100) * 100, ratio: hi, extrapolated: rows.some(function (r) { return r.n >= startYear && !g[r.n]; }) };
   }
 
   function fmt(v, d) {
@@ -164,6 +198,7 @@
   }
 
   var api = { SAVINGS: SAVINGS, HKD_RATE: HKD_RATE, END_AGE: END_AGE, MIN_START_YEAR: MIN_START_YEAR,
-    termLabel: termLabel, schedule: schedule, validate: validate, parseIpgs: parseIpgs, check: check, fmt: fmt };
+    termLabel: termLabel, schedule: schedule, validate: validate, parseIpgs: parseIpgs, check: check,
+    estimateMinPremium: estimateMinPremium, fmt: fmt };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.MedCalc = api;
 })(this);

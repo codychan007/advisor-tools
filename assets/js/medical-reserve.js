@@ -185,6 +185,20 @@
         + "<ul>" + res.problems.slice(0, 8).map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + (res.problems.length > 8 ? "<li>…仲有 " + (res.problems.length - 8) + " 項</li>" : "") + "</ul>"
         + "<p style='margin:8px 0 0'>可以加首年保費、改供款年期，或者遲啲先開始提取，再返第一步重新計同重做 iPGS。<b>唔夠錢唔好生成建議書。</b></p></div>";
     }
+    if (res.early.length) {
+      html += "<div class='note' style='margin-top:12px'><b>⚠️ iPGS 喺開始提取之前已經有提取：</b>"
+        + res.early.map(function (r) { return r.age + " 歲 US$" + C.fmt(r.withdrawal); }).join("、")
+        + "。計劃係 " + (F.age + F.startYear) + " 歲先開始。請返 iPGS 檢查「多次提取」開始歲數同「進階設定」，呢啲年份應該係 0，改好再貼過。</div>";
+    }
+    var est = C.estimateMinPremium(res.rows, F.startYear, F.premium);
+    if (est) {
+      var lower = est.min < F.premium * 0.95;
+      html += "<div class='note' style='margin-top:12px'><b>💡 估計最少首年保費：約 " + usd(est.min) + "</b>（而家 " + usd(F.premium) + "）<br>"
+        + (!res.ok ? "建議返第一步將「首年保費」改做 <b>" + usd(est.suggest) + "</b>（加咗 3% 緩衝），再喺 iPGS 計一次。"
+          : lower ? "想慳啲可以試 <b>" + usd(est.suggest) + "</b>（加咗 3% 緩衝），返第一步改數再喺 iPGS 計一次。"
+          : "而家嘅保費已經接近最少，唔使再減。")
+        + "<br><small>只係用今次 iPGS 數字推算，唔係 AIA 計算" + (est.extrapolated ? "；錢用完之後嘅年份係按之前增長估" : "") + "。一定要喺 iPGS 計過先作準，亦要符合計劃最低保費要求。</small></div>";
+    }
     html += "<div class='table-wrap' style='margin-top:14px'><table><thead><tr><th>歲數</th><th>保單年度</th><th>繳付保費總額</th><th>要提</th><th>iPGS 提取</th><th>提取後退保發還</th></tr></thead><tbody>";
     res.rows.forEach(function (r) {
       var short = r.need && (r.withdrawal + 1 < r.need || r.surrender <= 0);

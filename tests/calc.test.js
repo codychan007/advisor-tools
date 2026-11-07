@@ -49,4 +49,22 @@ ok(Math.abs(rd.rows[0].usd - data.plans.flexi.tables.find(t => t.sex === "M" && 
   const r3 = C2.check(s3, ip3, 25, 15);
   ok(ip3.count === 75 && r3.ok && r3.rows[r3.rows.length - 1].surrender === 523225, "一格一行嘅 iPGS 複製格式都讀到（" + ip3.count + " 年）");
 }
+
+// 估計最少保費
+{
+  const s4 = C.schedule(data, { planKey: "selectwise", age: 25, deductible: 18000, startYear: 15 });
+  const rows = C.check(s4, C.parseIpgs(txt, 25), 25, 15).rows;
+  const e = C.estimateMinPremium(rows, 15, 5000);
+  ok(e && Math.abs(e.min - 3037) < 5 && e.suggest === 3200, "夠錢個案：估計最少約 US$3,037，建議試 US$3,200（" + (e && Math.round(e.min)) + "／" + (e && e.suggest) + "）");
+  // 砌一個唔夠錢嘅個案：保費一半，用同一個增長率跑，錢用完之後 iPGS 停提取、退保 0
+  const g = {}; rows.forEach((r, i) => { if (i) g[r.n] = (r.surrender + r.withdrawal) / rows[i - 1].surrender; });
+  let A = null; const half = rows.map(r => {
+    if (r.n < 15) return { ...r, surrender: r.surrender / 2, paidTotal: r.paidTotal / 2, withdrawal: 0 };
+    if (A === null) A = rows[13].surrender / 2;
+    const B = A * g[r.n], w = Math.min(r.need, B); A = B - w;
+    return { ...r, paidTotal: r.paidTotal / 2, withdrawal: A > 0 ? w : 0, surrender: A > 0 ? A : 0 };
+  });
+  const e2 = C.estimateMinPremium(half, 15, 2500);
+  ok(e2 && e2.extrapolated && Math.abs(e2.min - 3037) / 3037 < 0.05, "唔夠錢個案（US$2,500）：估計最少約 US$" + (e2 && Math.round(e2.min)) + "，同真值 3,037 差 5% 內");
+}
 process.exit(fail ? 1 : 0);
