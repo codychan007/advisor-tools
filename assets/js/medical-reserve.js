@@ -27,9 +27,6 @@
       keys.forEach(function (k) { og.appendChild(new Option(d.plans[k].name, k)); });
       sel.appendChild(og);
     });
-    var no = document.createElement("optgroup"); no.label = "冇公開保費表（做唔到）";
-    d.noPublicTable.forEach(function (p) { var o = new Option(p.name, ""); o.disabled = true; no.appendChild(o); });
-    sel.appendChild(no);
   }).catch(function () { $("dataInfo").textContent = "讀唔到保費資料，請重新載入。"; });
 
   // 7. 供款年期跟儲蓄計劃
