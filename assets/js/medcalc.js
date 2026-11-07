@@ -84,7 +84,7 @@
       if (plan.wards.length > 1 && plan.wards.indexOf(f.ward) < 0) p.push("10. 房型未揀");
       if (plan.deductibles.length && !plan.deductibles.some(function (d) { return d.HKD === f.deductible; })) p.push("11. 自付費未揀");
       if (plan.areas.length && plan.areas.indexOf(f.area) < 0) p.push("12. 地域未揀");
-      if (f.rider && f.planKey === "standard") p.push("13. " + plan.name + " 冇附加契約版本");
+      if (f.rider && (plan.riderAvailable === false || f.planKey === "standard")) p.push("13. " + plan.name + " 冇附加契約版本");
     }
     if (!(f.startYear >= MIN_START_YEAR)) p.push("15. 最早由第 " + MIN_START_YEAR + " 年開始提取");
     else if (f.age + f.startYear > END_AGE) p.push("15. 開始提取歲數超過 " + END_AGE + " 歲");

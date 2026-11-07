@@ -1,8 +1,9 @@
-// node tests/calc.test.js — 用 VIP 試運行個案對數（skill 計嘅 withdrawals.json / ipgs.txt）
+// node tests/calc.test.js — 用 VIP 試運行個案對數（tests/fixtures/vip：skill 計嘅 withdrawals.json、iPGS 嘅 ipgs.txt）
 const fs = require("fs"), path = require("path");
 const C = require("../assets/js/medcalc.js");
-const data = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/aia-medical-premiums.json"), "utf8"));
-const CASE = process.argv[2] || "C:/Users/codyc/Desktop/Normal file/Claude project/medical-saving/2026-11-07-VIP";
+// 用固定樣本（2026-11-07 保費表），AIA 改價都唔會令呢個測試失敗；真資料由 tests/data.test.js 同 scripts/validate_data.py 檢查
+const data = JSON.parse(fs.readFileSync(path.join(__dirname, "fixtures/premiums-2026-11-07.json"), "utf8"));
+const CASE = process.argv[2] || path.join(__dirname, "fixtures/vip");
 let fail = 0; const ok = (c, m) => { console.log((c ? "✅ " : "❌ ") + m); if (!c) fail++; };
 
 const s = C.schedule(data, { planKey: "selectwise", age: 25, deductible: 18000, rider: false, startYear: 15 });

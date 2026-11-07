@@ -1,5 +1,5 @@
 {
- "generatedOn": "2026-11-07",
+ "generatedOn": "2026-11-08",
  "source": "www.aia.com.hk 公開保費表",
  "notes": [
   "年繳保費，未計保費徵費",
@@ -28,6 +28,7 @@
   "standard": {
    "name": "AIA自願醫保標準計劃",
    "riderCode": "AVS",
+   "riderAvailable": false,
    "category": "basic",
    "page": "https://www.aia.com.hk/zh-hk/products/health/vhis-standard",
    "brochure": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/vhis-standard/AIAVoluntaryHealthInsuranceStandardScheme_tc.pdf",
@@ -6667,7 +6668,8 @@
    ],
    "deductibles": [],
    "areas": [],
-   "sexSpecific": true
+   "sexSpecific": true,
+   "riderAvailable": true
   },
   "selectwise": {
    "name": "AIA自願醫保睿選計劃",
@@ -10873,7 +10875,8 @@
     }
    ],
    "areas": [],
-   "sexSpecific": false
+   "sexSpecific": false,
+   "riderAvailable": true
   },
   "privilege_ultra": {
    "name": "AIA自願醫保尊耀計劃",
@@ -17580,7 +17583,8 @@
     "亞洲",
     "全球（美國除外）"
    ],
-   "sexSpecific": false
+   "sexSpecific": false,
+   "riderAvailable": true
   }
  }
 }

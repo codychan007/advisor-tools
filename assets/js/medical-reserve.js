@@ -3,8 +3,9 @@
   "use strict";
   var C = window.MedCalc, $ = function (id) { return document.getElementById(id); };
   var DATA = null, F = null, SCHED = null;
-  var PLAN_ORDER = [["基本計劃", ["standard", "flexi"]], ["高端醫療", ["selectwise", "privilege_ultra"]]];
-  var SHORT = { standard: "標準計劃", flexi: "靈活計劃", selectwise: "睿選計劃", privilege_ultra: "尊耀計劃" };
+  // 醫療計劃清單跟資料檔（每半年雲端任務更新，新產品會自動出現）
+  var CATEGORY = [["basic", "基本計劃"], ["high_end", "高端醫療"]];
+  function noRider(p) { return !p || p.riderAvailable === false; }
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function radio(name) { var x = document.querySelector('input[name="' + name + '"]:checked'); return x ? x.value : null; }
@@ -17,9 +18,13 @@
     var age = Math.round((Date.now() - new Date(d.generatedOn).getTime()) / 864e5 / 30.4);
     $("dataInfo").innerHTML = "醫保保費表：AIA 官網，" + esc(d.generatedOn) + " 更新" + (age >= 6 ? "（<b style='color:var(--danger)'>超過 6 個月，可能已過時</b>）" : "");
     var sel = $("f-plan");
-    PLAN_ORDER.forEach(function (g) {
-      var og = document.createElement("optgroup"); og.label = g[0];
-      g[1].forEach(function (k) { if (d.plans[k]) { var o = new Option(d.plans[k].name, k); og.appendChild(o); } });
+    var cats = CATEGORY.slice();
+    Object.keys(d.plans).forEach(function (k) { var c = d.plans[k].category; if (!cats.some(function (x) { return x[0] === c; })) cats.push([c, "其他醫保"]); });
+    cats.forEach(function (g) {
+      var keys = Object.keys(d.plans).filter(function (k) { return d.plans[k].category === g[0]; });
+      if (!keys.length) return;
+      var og = document.createElement("optgroup"); og.label = g[1];
+      keys.forEach(function (k) { og.appendChild(new Option(d.plans[k].name, k)); });
       sel.appendChild(og);
     });
     var no = document.createElement("optgroup"); no.label = "冇公開保費表（做唔到）";
@@ -47,10 +52,10 @@
     fill("w-ward", "f-ward", p && p.wards.length > 1 ? p.wards.map(function (w) { return [w, w]; }) : null);
     fill("w-ded", "f-ded", p && p.deductibles.length ? p.deductibles.map(function (d) { return [d.HKD, "HK$" + C.fmt(d.HKD) + "（US$" + C.fmt(d.USD) + "）"]; }) : null);
     fill("w-area", "f-area", p && p.areas.length ? p.areas.map(function (a) { return [a, a]; }) : null);
-    var std = this.value === "standard";
+    var std = !!p && noRider(p);
     $("riderYes").disabled = std;
     if (std) document.querySelector('input[name="rider"][value="0"]').checked = true;
-    $("riderHint").textContent = std ? "標準計劃冇附加契約版本" : "加附加契約：醫保保費按基本計劃表 × 90% 計";
+    $("riderHint").textContent = std ? p.name + "冇附加契約版本" : "加附加契約：醫保保費按基本計劃表 × 90% 計";
   });
 
   function startHint() {
@@ -91,10 +96,11 @@
   });
 
   function riderOption() {
-    var d = SCHED.desc;
-    if (d.planKey === "flexi") return "「" + d.ward + "」";
-    var ded = "自付費 US$" + C.fmt(d.deductibleUSD);
-    return d.area ? "「" + d.area + "」＋" + ded : ded;
+    var d = SCHED.desc, parts = [];
+    if (d.ward) parts.push("「" + d.ward + "」");
+    if (d.area) parts.push("「" + d.area + "」");
+    if (d.deductibleHKD !== null) parts.push("自付費 " + (d.deductibleUSD !== null ? "US$" + C.fmt(d.deductibleUSD) : "HK$" + C.fmt(d.deductibleHKD)));
+    return parts.join("＋") || "同基本計劃一樣嘅選項";
   }
 
   function renderS2() {
@@ -115,7 +121,7 @@
       + "<li>首頁撳「新建議書」（彈「編輯建議書」就揀「另建一份新建議書」）。</li>"
       + "<li>受保人：年齡 <b class='v'>" + f.age + "</b>、性別 <b class='v'>" + (f.sex === "M" ? "男" : "女") + "</b>、吸煙 <b class='v'>" + (f.smoker ? "是" : "否") + "</b>、居住地 <b class='v'>" + esc(f.residence) + "</b>；喺「終身壽險 及 儲蓄壽險」揀 <b class='v'>" + esc(sv.ipgsName) + "</b>。</li>"
       + "<li>基本計劃：供款年期 <b class='v'>" + C.termLabel(f.payYears) + "</b>，「預算每年保費」<b class='v'>" + usd(f.premium) + "</b> →「計算」→「下一步」。</li>"
-      + (d.rider ? "<li>附加契約頁：剔 <b class='v'>" + esc(d.riderCode) + "</b>，「計劃」揀 <b class='v'>" + esc(riderOption()) + "</b> →「下一步」。</li>"
+      + (d.rider ? "<li>附加契約頁：剔 <b class='v'>" + esc(d.riderCode || "對應嘅醫保附加契約") + "</b>，「計劃」揀 <b class='v'>" + esc(riderOption()) + "</b> →「下一步」。</li>"
                  : "<li>附加契約頁：唔使剔 →「下一步」。</li>")
       + "<li>概覽 →「保單選項」→「多次提取」→「開始設定」：揀「年齡」，開始 <b class='v'>" + startAge + "</b> 歲，終止 <b class='v'>" + f.endAge + "</b> 歲，提取金額 <b class='v'>" + usd(first.withdrawal) + "</b>，揀「減少基本金額」→ 確認；通脹率打 <b class='v'>0</b>（打完<b>唔好撳 Tab</b>）→「儲存」→「計算」。</li>"
       + "<li>結果頁 →「進階設定」：用下面「📌 填進階設定」書籤一撳填晒（或者照下面個表逐格打，其他年份 0）→ 睇一眼 →「計算及儲存」。見到「金額已自動被調整」即係錢唔夠。</li>"
