@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>醫療儲備計劃 – 顧問工具箱</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="seal">工</span><span>顧問工具箱<small>同事內部使用</small></span></a>
+  <a class="head-link" href="/">← 全部工具</a>
+</div></header>
+
+<main class="wrap">
+  <h1><span class="brush">醫療儲備計劃</span></h1>
+  <p class="muted">用 AIA 美元儲蓄計劃（GF 環宇盈活／GP3 盈御多元貨幣 3）逐年提取，交醫保保費到 90 歲。客人資料只喺你部機計，唔會上傳。</p>
+  <p id="dataInfo" class="muted" style="font-size:14px"></p>
+
+  <!-- 一：資料 -->
+  <section class="card" id="s1">
+    <div class="step-head"><span class="step-no">一</span><h2>客人資料</h2></div>
+    <form class="form" id="caseForm" novalidate>
+      <div class="field"><label for="f-name"><span class="no">1.</span>客人名稱</label>
+        <input id="f-name" type="text" autocomplete="off" placeholder="例：陳大文">
+        <div class="hint">只用喺 Excel 同檔案名，唔使輸入 iPGS</div></div>
+      <div class="field"><label for="f-age"><span class="no">2.</span>年齡（上次生日）</label>
+        <input id="f-age" type="number" inputmode="numeric" min="0" max="80"></div>
+      <div class="field"><label><span class="no">3.</span>性別</label>
+        <div class="seg" data-name="sex"><label><input type="radio" name="sex" value="M"><span>男</span></label><label><input type="radio" name="sex" value="F"><span>女</span></label></div></div>
+      <div class="field"><label><span class="no">4.</span>吸煙</label>
+        <div class="seg"><label><input type="radio" name="smoker" value="0" checked><span>否</span></label><label><input type="radio" name="smoker" value="1"><span>是</span></label></div></div>
+      <div class="field"><label for="f-res"><span class="no">5.</span>慣用居住地</label>
+        <input id="f-res" type="text" value="香港"></div>
+      <div class="field"><label><span class="no">6.</span>儲蓄計劃</label>
+        <div class="seg"><label><input type="radio" name="savings" value="GF"><span>GF 環宇盈活</span></label><label><input type="radio" name="savings" value="GP3"><span>GP3 盈御多元貨幣 3</span></label></div></div>
+      <div class="field"><label><span class="no">7.</span>供款年期</label>
+        <div class="seg" id="payYears"><small>先揀儲蓄計劃</small></div></div>
+      <div class="field"><label for="f-prem"><span class="no">8.</span>首年保費（美元）</label>
+        <input id="f-prem" type="number" inputmode="decimal" min="0" placeholder="例：5000"></div>
+      <div class="field"><label for="f-plan"><span class="no">9.</span>醫療計劃</label>
+        <select id="f-plan"><option value="">請揀</option></select></div>
+      <div class="field hidden" id="w-ward"><label for="f-ward"><span class="no">10.</span>房型</label><select id="f-ward"></select></div>
+      <div class="field hidden" id="w-ded"><label for="f-ded"><span class="no">11.</span>自付費</label><select id="f-ded"></select></div>
+      <div class="field hidden" id="w-area"><label for="f-area"><span class="no">12.</span>地域</label><select id="f-area"></select></div>
+      <div class="field"><label><span class="no">13.</span>附加契約</label>
+        <div class="seg"><label><input type="radio" name="rider" value="0" checked><span>唔加</span></label><label><input type="radio" name="rider" value="1" id="riderYes"><span>加</span></label></div>
+        <div class="hint" id="riderHint">加附加契約：醫保保費按基本計劃表 × 90% 計</div></div>
+      <div class="field"><label for="f-surname"><span class="no">14.</span>受保人姓氏（建議書用）</label>
+        <input id="f-surname" type="text" value="VIP"></div>
+      <div class="field"><label for="f-start"><span class="no">15.</span>由保單第幾年開始提取</label>
+        <input id="f-start" type="number" inputmode="numeric" min="3" placeholder="最早第 3 年">
+        <div class="hint" id="startHint"></div></div>
+      <div class="field"><label><span class="no">16.</span>提取到幾多歲</label>
+        <input type="text" value="90" disabled></div>
+      <div class="full">
+        <div class="note bad hidden" id="formErr"></div>
+        <div class="actions"><button class="btn" type="submit">計醫保保費 →</button></div>
+      </div>
+    </form>
+  </section>
+
+  <!-- 二：醫保保費 + iPGS 填法 -->
+  <section class="card locked" id="s2">
+    <div class="step-head"><span class="step-no">二</span><h2>醫保保費同 iPGS 填法</h2></div>
+    <div id="s2body"><p class="muted">填好第一步就會出。</p></div>
+  </section>
+
+  <!-- 三：貼 iPGS 數字 -->
+  <section class="card locked" id="s3">
+    <div class="step-head"><span class="step-no">三</span><h2>貼返 iPGS 數字</h2></div>
+    <p>喺 iPGS 撳「完成」→ 概覽「保單選項」→「詳細說明」，用滑鼠由表頭拉到最尾一行選晒成個表，<b>Ctrl + C</b>，再喺下面 <b>Ctrl + V</b>。</p>
+    <textarea id="ipgsText" placeholder="保單年度終結&#9;繳付保費總額&#9;現金提取金額 …&#10;1 (26歲)&#9;5,000&#9;-&#9;50,506 …"></textarea>
+    <div class="note hidden" id="parseMsg" style="margin-top:10px"></div>
+    <div class="actions"><button class="btn" id="checkBtn" type="button">檢查夠唔夠錢 →</button></div>
+  </section>
+
+  <!-- 四：結果 + Excel -->
+  <section class="card locked" id="s4">
+    <div class="step-head"><span class="step-no">四</span><h2>結果同 Excel</h2></div>
+    <div id="s4body"><p class="muted">貼好 iPGS 數字就會出。</p></div>
+  </section>
+</main>
+<footer class="site-footer"><div class="wrap">只供同事內部參考，以 AIA 正式建議書為準。醫保保費取自 AIA 官網保費表，未計醫療通脹及保費調整；儲蓄計劃數字為預期情景，非保證。</div></footer>
+
+<script src="/assets/js/medcalc.js"></script>
+<script src="/assets/js/ipgs-fill.js"></script>
+<script src="/assets/vendor/exceljs.min.js" defer></script>
+<script src="/assets/js/medexcel.js" defer></script>
+<script src="/assets/js/medical-reserve.js" defer></script>
+</body>
+</html>

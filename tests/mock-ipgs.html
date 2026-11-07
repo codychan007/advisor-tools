@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><title>mock iPGS 進階設定</title>
+<!-- 測試用：模仿 iPGS「進階設定」對話框（每行 td 標「n (歲數歲)」＋ td input；第 1 年 disabled） -->
+<body><div class="MuiDialog-root" role="dialog"><h2>進階設定</h2><table><tbody id="tb"></tbody></table></div>
+<script>
+const issue=+(new URLSearchParams(location.search).get('age')||25), state={};
+for(let n=1;n<=65;n++){const tr=document.createElement('tr');tr.innerHTML=`<td>${n} (${issue+n}歲)</td><td><input ${n===1?'disabled':''} value="0"></td>`;
+ const i=tr.querySelector('input'); i.addEventListener('input',()=>state[issue+n]=+i.value); document.getElementById('tb').appendChild(tr);}
+window.__state=state;
+</script></body>
