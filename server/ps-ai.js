@@ -1,6 +1,7 @@
 // 保單整理器 – 伺服器（Cloudflare Pages Functions）共用：Claude 請求、每月上限、產品庫。
 // 放喺 functions/ 以外，免得變成網址。冇任何密鑰：API key 喺 Cloudflare secret ANTHROPIC_API_KEY。
-import Anthropic from "@anthropic-ai/sdk";
+// 官方 @anthropic-ai/sdk 1.3.0，預先打包（Cloudflare Pages 冇 build 步驟唔會 npm install）。重新打包：npm run bundle-sdk
+import Anthropic from "./vendor/anthropic-sdk.mjs";
 import core from "../assets/js/ps-core.js";
 
 export const MODEL = "claude-sonnet-5-5"; // Cody 2026-11-08 揀
