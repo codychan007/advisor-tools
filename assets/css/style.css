@@ -150,3 +150,8 @@ label.btn input[type=file] { display: none; }
 .ps-canvas-wrap canvas { touch-action: none; cursor: crosshair; border: 1px solid var(--line); max-width: 100%; }
 .ps-paste { border-top: 1px dashed var(--line); margin-top: 10px; }
 .ps-reply { font-family: Consolas, monospace; font-size: 13px; }
+.ps-step { border: 2px solid var(--shu); border-radius: 8px; padding: 12px 14px; background: var(--shu-50); }
+.ps-step2 { margin-top: 4px; }
+.ps-step2-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-bottom: 10px; }
+.ps-step2-hint { font-size: 14px; flex: 1 1 220px; }
+.ps-fieldswrap.hidden { display: none; }

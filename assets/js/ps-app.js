@@ -78,12 +78,16 @@
     el.innerHTML = '<div class="ps-head"><b class="ps-title"></b><span class="ps-badge"></span>'
       + '<button class="btn ghost small" data-a="toggle" type="button"></button><button class="btn ghost small" data-a="del" type="button">刪除</button></div>'
       + '<div class="ps-body">'
-      + '<div class="ps-ai"><div class="actions" style="margin-top:0">'
-      + '<label class="btn small" data-upload>📄 上載保單文件（PDF／相）<input type="file" multiple accept="application/pdf,image/*" hidden data-kind="policy"></label>'
-      + '<label class="btn small ghost" data-upload>📘 上載產品小冊子（補保障描述）<input type="file" multiple accept="application/pdf,image/*" hidden data-kind="brochure"></label></div>'
+      + '<div class="ps-ai"><div class="ps-step"><b>第 1 步：上載客人份保單，等 AI 幫你填（建議，唔使逐格打）</b>'
+      + '<p class="muted" style="margin:4px 0 0;font-size:14px">揀咗檔案之後，下面會出「📋 複製去我嘅 AI（免費）」' + (AI.ready ? "同「🤖 送去網站 AI」" : "") + '。保單合約、保單附表、週年報表都得，可以一次揀幾個檔。</p>'
+      + '<div class="actions"><label class="btn" data-upload>📄 上載保單文件（PDF／相）<input type="file" multiple accept="application/pdf,image/*" hidden data-kind="policy"></label></div></div>'
       + '<div class="ps-pages"></div><div class="ps-msg"></div></div>'
-      + '<div class="form ps-fields">' + f + "</div>"
-      + '<div class="actions"><button class="btn ghost small hidden" data-a="saveLib" type="button">將保障描述存入產品庫（全組共用）</button></div>'
+      + '<div class="ps-step2"><div class="ps-step2-head"><b>第 2 步：核對同補資料</b>'
+      + '<span class="muted ps-step2-hint">AI 填完會自動喺度展開；冇文件就撳右邊自己填。</span>'
+      + '<button class="btn ghost small" data-a="manual" type="button">✍️ 自己逐格填</button></div>'
+      + '<div class="ps-fieldswrap"><div class="form ps-fields">' + f + "</div>"
+      + '<div class="actions"><label class="btn small ghost" data-upload>📘 上載產品小冊子（補保障描述）<input type="file" multiple accept="application/pdf,image/*" hidden data-kind="brochure"></label>'
+      + '<button class="btn ghost small hidden" data-a="saveLib" type="button">將保障描述存入產品庫（全組共用）</button></div></div></div>'
       + "</div>";
     el.querySelector(".ps-title").textContent = "保單 " + idx;
     wire(p, el); refreshCard(p); showAI();
@@ -97,6 +101,10 @@
     b.textContent = miss.length ? "欠 " + miss.length + " 項" : "✅ 齊";
     b.className = "ps-badge " + (miss.length ? "bad" : "good");
     el.classList.toggle("closed", !p.open);
+    if (p.showFields === undefined) p.showFields = C.FIELDS.some(function (f) { return f.scope !== "manual" && !C.blank(p.values[f.key]); });
+    el.querySelector(".ps-fieldswrap").classList.toggle("hidden", !p.showFields);
+    el.querySelector('[data-a="manual"]').classList.toggle("hidden", !!p.showFields);
+    el.querySelector(".ps-step2-hint").textContent = p.showFields ? "逐格睇一次；紅色係未填，冇呢項保障撳「N」。" : "AI 填完會自動喺度展開；冇文件就撳右邊自己填。";
     el.querySelector('[data-a="toggle"]').textContent = p.open ? "收起" : "展開";
     C.FIELDS.forEach(function (fd) {
       var box = el.querySelector('[data-k="' + fd.key + '"]');
@@ -115,6 +123,7 @@
       var n = box.querySelector(".ps-n");
       if (n) n.addEventListener("click", function () { inp.value = "N"; inp.dispatchEvent(new Event("input")); });
     });
+    el.querySelector('[data-a="manual"]').addEventListener("click", function () { p.showFields = true; save(); refreshCard(p); });
     el.querySelector('[data-a="toggle"]').addEventListener("click", function () { p.open = !p.open; save(); refreshCard(p); });
     el.querySelector('[data-a="del"]').addEventListener("click", function () {
       if (!confirm("刪除保單「" + (p.values.plan || "未填") + "」？")) return;
@@ -268,6 +277,7 @@
 
   function applyAI(p, fields, from) {
     var n = 0;
+    p.showFields = true;
     Object.keys(fields).forEach(function (k) {
       var v = String(fields[k] || "").trim();
       if (!v || p.from[k] === "manual" && !C.blank(p.values[k])) return;
