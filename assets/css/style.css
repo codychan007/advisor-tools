@@ -106,3 +106,5 @@ ol.guide b.v { background: var(--ochre-50); padding: 0 5px; border-radius: 3px; 
 
 .site-footer { border-top: 1.5px solid var(--line); padding: 18px 0 32px; font-size: 13px; color: var(--ink-3); }
 @media print { .site-header, .actions, .no-print { display: none !important; } body { background: #fff; } .card { box-shadow: none; } }
+.intro-list { margin: 0 0 18px; padding-left: 1.4em; font-size: 1.05rem; }
+.intro-list li + li { margin-top: 2px; }
