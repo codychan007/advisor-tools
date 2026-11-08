@@ -155,3 +155,4 @@ label.btn input[type=file] { display: none; }
 .ps-step2-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-bottom: 10px; }
 .ps-step2-hint { font-size: 14px; flex: 1 1 220px; }
 .ps-fieldswrap.hidden { display: none; }
+.tool-list > .card + .card { margin-top: 0; }
