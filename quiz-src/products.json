@@ -1,0 +1,17 @@
+{
+ "products": [
+  {
+   "id": "avsw",
+   "short": "睿選",
+   "name": "AIA自願醫保睿選計劃 /「睿選明珠」醫療計劃",
+   "series": "醫療",
+   "source": "內部培訓簡報（2025年10月27日版）",
+   "updated": "2026-11-08"
+  }
+ ],
+ "otherProducts": {
+  "avpu": "AIA自願醫保尊耀計劃",
+  "avf": "AIA自願醫保靈活計劃"
+ },
+ "series": ["醫療"]
+}

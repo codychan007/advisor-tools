@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>產品溫習 – TC Team專屬AI工具箱</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css?v=4">
+</head>
+<body>
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="seal">工</span><span>TC Team專屬AI工具箱<small>同事內部使用</small></span></a>
+  <a class="head-link" href="/">← 全部工具</a>
+</div></header>
+
+<main class="wrap">
+  <h1><span class="brush">產品溫習</span></h1>
+  <div class="note bad qz-secret">⚠️ 內部培訓用途，不得外傳。題目根據 AIA 內部培訓資料整理，只供溫習，以 AIA 正式文件為準。</div>
+
+  <!-- 揀考試 -->
+  <section id="home">
+    <section class="card" style="margin-top:18px">
+      <div class="step-head"><span class="step-no">一</span><h2>考咩</h2></div>
+      <div class="seg" id="stageSeg">
+        <label><input type="radio" name="stage" value="product" checked><span>單一產品</span></label>
+        <label><input type="radio" name="stage" value="series"><span>系列</span></label>
+        <label><input type="radio" name="stage" value="all"><span>綜合</span></label>
+      </div>
+      <div id="pickList" class="qz-picks" style="margin-top:12px"></div>
+    </section>
+    <section class="card">
+      <div class="step-head"><span class="step-no">二</span><h2>難度</h2></div>
+      <div class="seg" id="levelSeg">
+        <label><input type="radio" name="level" value="basic" checked><span>基本</span></label>
+        <label><input type="radio" name="level" value="advanced"><span>進階</span></label>
+        <label><input type="radio" name="level" value="mixed"><span>混合</span></label>
+      </div>
+      <p class="muted" style="font-size:14px;margin:10px 0 0">基本：記數字同規則。進階：客人情境，賠唔賠、賠幾多。每次 15 題，答啱 70% 合格，唔限時。</p>
+      <div class="actions">
+        <button class="btn" id="startBtn" type="button">開始考試</button>
+        <button class="btn ghost" id="reviewBtn" type="button">錯題重溫</button>
+      </div>
+      <p class="muted" id="poolMsg" style="font-size:13px;margin:8px 0 0"></p>
+    </section>
+    <section class="card" id="myRecord">
+      <div class="step-head"><span class="step-no">三</span><h2>我嘅紀錄</h2></div>
+      <div id="recordBody"></div>
+      <p class="muted" style="font-size:12px;margin:10px 0 0">紀錄只儲喺你呢部機（瀏覽器），唔會上傳。<button class="linkbtn" id="clearRec" type="button">清除紀錄</button></p>
+    </section>
+  </section>
+
+  <!-- 考試 -->
+  <section id="examView" class="hidden">
+    <div class="qz-top">
+      <span id="examTitle" class="muted"></span>
+      <span id="examProg" class="qz-prog"></span>
+    </div>
+    <div class="qz-bar"><i id="examBar"></i></div>
+    <section class="card" id="qCard"></section>
+    <div class="actions qz-nav">
+      <button class="btn ghost" id="prevBtn" type="button">← 上一題</button>
+      <button class="btn" id="nextBtn" type="button">下一題 →</button>
+    </div>
+    <div class="qz-dots" id="dots"></div>
+    <div class="actions"><button class="btn ghost small" id="quitBtn" type="button">放棄，返回</button></div>
+  </section>
+
+  <!-- 成績 -->
+  <section id="resultView" class="hidden">
+    <section class="card" id="resultHead"></section>
+    <section class="card">
+      <h2>逐題對答案</h2>
+      <div id="resultList"></div>
+    </section>
+    <div class="actions">
+      <button class="btn" id="againBtn" type="button">再考一次</button>
+      <button class="btn ghost" id="wrongBtn" type="button">錯題重溫</button>
+      <button class="btn ghost" id="homeBtn" type="button">返回</button>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><div class="wrap">內部培訓用途，不得外傳。只供同事溫習，以 AIA 產品小冊子、保單契約及正式通告為準。</div></footer>
+
+<script src="/assets/js/quiz-core.js?v=1"></script>
+<script src="/assets/js/quiz-app.js?v=1" defer></script>
+</body>
+</html>

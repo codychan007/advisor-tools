@@ -156,3 +156,54 @@ label.btn input[type=file] { display: none; }
 .ps-step2-hint { font-size: 14px; flex: 1 1 220px; }
 .ps-fieldswrap.hidden { display: none; }
 .tool-list > .card + .card { margin-top: 0; }
+
+/* ---------- 產品溫習 ---------- */
+.qz-secret { margin-top: 4px; font-weight: 700; }
+.qz-picks { display: grid; gap: 8px; }
+.qz-pick { display: block; cursor: pointer; }
+.qz-pick input { position: absolute; opacity: 0; pointer-events: none; }
+.qz-pick span { display: block; border: 1.5px solid var(--line); border-radius: 6px; padding: 10px 12px; background: #fff; }
+.qz-pick b { font-family: var(--serif); display: block; }
+.qz-pick small { display: block; font-size: 13px; }
+.qz-pick input:checked + span { border-color: var(--ink); box-shadow: 0 0 0 2px var(--shu-50); background: var(--shu-50); }
+.qz-pick input:focus-visible + span { outline: 2px solid var(--shu); outline-offset: 2px; }
+.linkbtn { background: none; border: 0; padding: 0 0 0 6px; font: inherit; color: var(--shu-dark); text-decoration: underline; cursor: pointer; }
+.qz-top { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; margin-top: 12px; }
+.qz-prog { font-weight: 700; font-variant-numeric: tabular-nums; }
+.qz-bar { height: 6px; background: var(--paper-2); border-radius: 3px; margin: 6px 0 14px; overflow: hidden; }
+.qz-bar i { display: block; height: 100%; background: var(--shu); transition: width .2s; }
+.qz-meta { margin-bottom: 8px; }
+.qz-q { font-size: 1.08rem; font-weight: 700; line-height: 1.6; }
+.qz-opts { display: grid; gap: 8px; }
+.qz-opt { display: flex; gap: 10px; align-items: flex-start; text-align: left; width: 100%; min-height: var(--tap); padding: 10px 12px; font: inherit; color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 6px; cursor: pointer; line-height: 1.5; }
+.qz-opt:hover { border-color: var(--ink-3); }
+.qz-opt.on { border-color: var(--shu); background: var(--shu-50); font-weight: 700; }
+.qz-mark { flex: none; width: 1.2em; color: var(--shu-dark); }
+.qz-num { display: flex; gap: 8px; align-items: center; max-width: 320px; }
+.qz-num input { flex: 1; min-width: 0; } .qz-num span { white-space: nowrap; font-weight: 700; }
+.qz-num input { font-size: 1.1rem; }
+.qz-match { display: grid; gap: 8px; }
+.qz-mrow { display: grid; gap: 4px; padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 6px; background: #fff; }
+@media (min-width: 640px) { .qz-mrow { grid-template-columns: 1fr 180px; align-items: center; } }
+.qz-order { padding-left: 1.6em; margin: 0; display: grid; gap: 6px; }
+.qz-order li { padding: 6px 8px; border: 1.5px solid var(--line); border-radius: 6px; background: #fff; }
+.qz-order li { display: list-item; }
+.qz-order li > span:first-child { display: block; }
+.qz-ob { display: flex; gap: 6px; margin-top: 4px; }
+.qz-nav { justify-content: space-between; }
+.qz-dots { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.qz-dot { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--line); background: #fff; font: inherit; font-size: 13px; cursor: pointer; color: var(--ink-2); }
+.qz-dot.done { background: var(--ink); color: var(--card); border-color: var(--ink); }
+.qz-dot.cur { box-shadow: 0 0 0 3px var(--ochre); }
+.qz-score { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; }
+.qz-score b { font-family: var(--serif); font-size: 2.2rem; }
+.qz-score.good b { color: var(--matcha); } .qz-score.bad b { color: var(--danger); }
+.qz-topics { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 4px; }
+.tag.bad { background: var(--danger-50); color: var(--danger); }
+.qz-res { border-left: 4px solid var(--matcha); padding: 8px 12px; margin-bottom: 10px; background: #fff; border-radius: 0 6px 6px 0; }
+.qz-res.bad { border-color: var(--danger); }
+.qz-res-q { margin-bottom: 4px; }
+.qz-res-a { font-size: 14px; }
+.qz-res-x { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+.qz-src { display: block; font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+button:disabled { opacity: .45; cursor: not-allowed; }
