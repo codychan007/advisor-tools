@@ -36,7 +36,16 @@ const basic = Q.pool(bank, { stage: "product", product: "avsw", level: "basic" }
 const adv = Q.pool(bank, { stage: "product", product: "avsw", level: "advanced" });
 ok(basic.length === 150 && adv.length === 150, `睿選基本 ${basic.length}、進階 ${adv.length}（應該各 150）`);
 ok(Q.pool(bank, { stage: "all", level: "mixed" }).length === all.length, "綜合混合 = 全部題目");
-ok(Q.pool(bank, { stage: "series", series: "醫療", level: "mixed" }).length === all.length, "醫療系列包晒睿選同比較題");
+for (const p of idx.products) {
+  const own = bank.byProduct[p.id], cmp = bank.compare.filter(q => (q.products || []).includes(p.id));
+  ["basic", "advanced"].forEach(lv => {
+    const n = Q.pool(bank, { stage: "product", product: p.id, level: lv }).length;
+    ok(n === 150, `${p.short} ${lv} ${n} 題（應該 150）`);
+  });
+  const ser = Q.pool(bank, { stage: "series", series: p.series, level: "mixed" });
+  ok(own.concat(cmp).every(q => ser.some(x => x.id === q.id)), `${p.series}系列包晒${p.short}同相關比較題`);
+}
+ok(Q.pool(bank, { stage: "series", series: "危疾", level: "mixed" }).every(q => !q.id.startsWith("avsw")), "危疾系列冇醫保題");
 for (let s = 1; s <= 50; s++) {
   const ex = Q.exam(bank, { stage: "product", product: "avsw", level: "advanced" }, s);
   ok(ex.length === 15 && new Set(ex.map(x => x.id)).size === 15, "每份卷 15 條唔重複");

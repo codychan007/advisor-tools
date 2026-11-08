@@ -182,6 +182,16 @@
     finish();
   }
 
+  // 數字＝內部培訓簡報頁數；字串（例如「小冊子 p.12」）＝公開產品小冊子
+  function srcText(pages) {
+    pages = pages || [];
+    var nums = pages.filter(function (p) { return typeof p === "number"; });
+    var other = pages.filter(function (p) { return typeof p !== "number"; }).map(function (p) { return String(p).replace(/^小冊子\s*/, "產品小冊子 "); });
+    var parts = [];
+    if (nums.length) parts.push("培訓簡報第 " + nums.join("、") + " 頁");
+    return parts.concat(other).join("；") || "—";
+  }
+
   // ---------- 成績 ----------
   function finish() {
     var s = Q.score(cur.items, cur.resps), rec = loadRec();
@@ -209,7 +219,7 @@
       return '<div class="qz-res ' + (ok ? "good" : "bad") + '"><div class="qz-res-q"><b>' + (ok ? "✅" : "❌") + " " + (k + 1) + ".</b> " + esc(it.q) + "</div>" +
         (ok ? "" : '<div class="qz-res-a">你答：' + esc(Q.respText(it, cur.resps[k])) + "</div>") +
         '<div class="qz-res-a"><b>正確答案：</b>' + esc(Q.answerText(it)) + "</div>" +
-        '<div class="qz-res-x">💡 ' + esc(it.explain) + '<span class="qz-src">出處：培訓簡報第 ' + esc((it.page || []).join("、")) + " 頁</span></div></div>";
+        '<div class="qz-res-x">💡 ' + esc(it.explain) + '<span class="qz-src">出處：' + esc(srcText(it.page)) + "</span></div></div>";
     }).join("");
     show("resultView");
     renderRecord();
