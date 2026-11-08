@@ -41,7 +41,7 @@
   /* ---------- 遮個人資料 ---------- */
   function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
   function maskText(text, names) {
-    var t = String(text || ""), n = 0;
+    var t = normText(text), n = 0;                                     // 先還原「蔡 展 朗」咁嘅空格，否則中文名遮唔到
     function rep(re, tag) { t = t.replace(re, function () { n++; return tag; }); }
     (names || []).filter(function (x) { return x && x.trim().length >= 2; }).forEach(function (name) {
       var parts = name.trim().split(/\s+/);
@@ -64,16 +64,39 @@
     /保費|Premium/i, /保障至|保障期|Coverage Term|Benefit Term|期滿/i, /繳費|供款期|Payment Term|Premium Term|Payment Mode|繳付/i,
     /計劃名稱|基本計劃|附加契約|Basic Plan|Supplementary|Rider/i, /保單附表|Policy Schedule|Schedule of Benefits|保障表|保障摘要|Benefit Summary/i,
     /週年|Anniversary|保單價值|Cash Value|退保價值|Account Value|戶口價值/i, /自付費|Deductible|病房|Ward|限額|Limit/i];
+  var GOOD_LABEL = ["保單編號", "生效日期", "保額", "保費", "保障期", "繳費期", "計劃名稱", "保障表", "保單價值", "自付費／病房／限額"];
   var BAD = [/釋義|定義|Definitions|Interpretation/i, /一般條款|General (?:Provisions|Conditions)|不保事項|Exclusions/i, /個人資料|私隱|Privacy|Personal Data/i,
     /投訴|Complaint|冷靜期|Cooling[- ]off/i, /索償程序|Claims? Procedure/i];
-  function scorePage(text) {
-    var t = String(text || ""), s = 0;
-    GOOD.forEach(function (re) { if (re.test(t)) s += 2; });
-    BAD.forEach(function (re) { if (re.test(t)) s -= 2; });
+  var BAD_LABEL = ["定義", "條款／不保事項", "私隱", "投訴／冷靜期", "索償程序"];
+  /* 點解揀呢頁：{score, hits:[有用字眼], misses:[冇用字眼], money:金額數目, empty:冇字} */
+  /* PDF 抽出嚟嘅中文成日「保 單 編 號」咁有空格，或者用咗康熙部首（⽣、⽇），先還原先對字 */
+  function normText(text) {
+    var t = String(text || "");
+    if (t.normalize) t = t.normalize("NFKC");
+    var cjk = "[\\u2e80-\\u9fff\\uf900-\\ufaff\\uff00-\\uffef]";
+    return t.replace(new RegExp("(" + cjk + ")[ \\t\\u3000]+(?=" + cjk + ")", "g"), "$1");
+  }
+  function explainPage(text) {
+    var t = normText(text), s = 0, hits = [], misses = [];
+    GOOD.forEach(function (re, i) { if (re.test(t)) { s += 2; hits.push(GOOD_LABEL[i]); } });
+    BAD.forEach(function (re, i) { if (re.test(t)) { s -= 2; misses.push(BAD_LABEL[i]); } });
     var money = (t.match(/(?:HK\$|US\$|港元|美元|HKD|USD)\s?[\d,]{3,}/g) || []).length;
     s += Math.min(money, 6) * 0.5;
-    if (t.replace(/\s/g, "").length < 40) s -= 5;                       // 冇字（掃描頁）或者空白頁
-    return s;
+    var empty = t.replace(/\s/g, "").length < 40;
+    if (empty) s -= 5;                                                  // 冇字（掃描頁）或者空白頁
+    return { score: s, hits: hits, misses: misses, money: money, empty: empty };
+  }
+  function scorePage(text) { return explainPage(text).score; }
+  /* 揀頁畫面每頁下面嘅一行細字 */
+  function whyText(info, picked) {
+    if (!info) return "圖片頁，要自己判斷";
+    if (info.empty) return "幾乎冇字（可能係掃描頁），" + (picked ? "揀咗" : "冇自動揀");
+    var parts = [];
+    if (info.hits.length) parts.push("有：" + info.hits.join("、") + (info.money ? "（" + info.money + " 個金額）" : ""));
+    else if (info.money) parts.push("有 " + info.money + " 個金額");
+    if (info.misses.length) parts.push((info.hits.length ? "但似" : "") + info.misses.join("／") + "頁");
+    if (!parts.length) parts.push("搵唔到保單資料字眼");
+    return parts.join("；") + (picked ? "" : "，冇自動揀");
   }
   /* pages: [{n, text}] → 揀分數最高嘅幾頁（保持原本次序）；kind = policy／brochure */
   function pickPages(pages, kind) {
@@ -152,7 +175,7 @@
     return { fields: out, warnings: Array.isArray(j.warnings) ? j.warnings.map(String).slice(0, 5) : [] };
   }
 
-  var api = { FIELDS: FIELDS, RULES: RULES, keysFor: keysFor, intro: intro, buildPastePrompt: buildPastePrompt, parseAIReply: parseAIReply, AI_KEYS: AI_KEYS, PRODUCT_KEYS: PRODUCT_KEYS, PRICE: PRICE, maskText: maskText, scorePage: scorePage,
+  var api = { FIELDS: FIELDS, RULES: RULES, keysFor: keysFor, intro: intro, buildPastePrompt: buildPastePrompt, parseAIReply: parseAIReply, AI_KEYS: AI_KEYS, PRODUCT_KEYS: PRODUCT_KEYS, PRICE: PRICE, maskText: maskText, scorePage: scorePage, explainPage: explainPage, whyText: whyText,
     pickPages: pickPages, estimateHKD: estimateHKD, estImageTokens: estImageTokens, merge: merge, missing: missing, blank: blank, productKey: productKey };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.PSCore = api;
 })(this);

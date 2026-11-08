@@ -36,6 +36,22 @@ const pages = [
 const pick = core.pickPages(pages, "policy");
 ok(pick.includes(3) && pick.includes(6) && !pick.includes(2) && !pick.includes(4) && !pick.includes(5), "揀到保單附表同附加契約頁，跳過條款、定義、私隱頁（揀咗 " + pick.join(",") + "）");
 
+// ---------- 點解揀呢頁 ----------
+const e3 = core.explainPage(pages[2].text);
+ok(e3.hits.includes("保單編號") && e3.hits.includes("保費") && e3.hits.includes("保額") && e3.money === 2 && !e3.misses.length, "附表頁列出命中字眼同金額數目（" + e3.hits.join("、") + "）");
+ok(e3.score === core.scorePage(pages[2].text), "explainPage 同 scorePage 分數一樣");
+const e4 = core.explainPage(pages[3].text);
+ok(e4.misses.includes("條款／不保事項") && !e4.hits.length, "條款頁標為冇用");
+ok(core.whyText(e3, true) === "有：保單編號、生效日期、保額、保費、繳費期、保障表（2 個金額）", "揀咗嘅頁寫有咩：" + core.whyText(e3, true));
+ok(core.whyText(e4, false) === "條款／不保事項頁，冇自動揀", "條款頁寫冇自動揀：" + core.whyText(e4, false));
+ok(core.whyText(null, true) === "圖片頁，要自己判斷", "圖片頁");
+ok(core.whyText(core.explainPage("  "), false).startsWith("幾乎冇字"), "冇字頁");
+ok(core.whyText(core.explainPage("保單編號 U1 " + "釋義 Definitions ".repeat(3)), true).includes("但似定義頁"), "有用又似條款嘅頁兩樣都講");
+const mk = core.maskText("受 保 人 蔡 展 朗 先 生 保 單 編 號 U123456789", ["蔡展朗"]);
+ok(!mk.text.includes("蔡") && mk.text.includes("U123456789"), "PDF 有空格嘅中文名都遮到：" + mk.text);
+const spaced = core.explainPage("保 單 編 號 U123456 ⽣ 效 ⽇ 期 2026/9/1 基 本 保 額 HK$500,000 每 年 保 費 HK$10,698");
+ok(["保單編號", "生效日期", "保額", "保費"].every((h) => spaced.hits.includes(h)), "PDF 抽出嚟有空格／康熙部首嘅字都對到（" + spaced.hits.join("、") + "）");
+
 // ---------- 合併 ----------
 const mg = core.merge({ premium: "HK$1" }, { premium: "HK$2", plan: "A" }, { medical: "實報實銷", plan: "B" });
 ok(mg.values.premium === "HK$1" && mg.from.premium === "manual", "同事打嘅優先");

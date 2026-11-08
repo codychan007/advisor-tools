@@ -153,8 +153,10 @@
       var textPages = pages.filter(function (x) { return x.kind === "text"; });
       var pick = C.pickPages(textPages.map(function (x) { return { n: x.id, text: x.text }; }), kind);
       pages.forEach(function (x) {
-        x.score = x.kind === "text" ? C.scorePage(x.text) : null;
+        var info = x.kind === "text" ? C.explainPage(x.text) : null;
+        x.score = info ? info.score : null;
         x.on = x.kind === "text" ? pick.indexOf(x.id) >= 0 : (pages.filter(function (y) { return y.kind === "image"; }).length <= 4);
+        x.why = C.whyText(info, x.on);                                    // 揀頁原因（只按自動揀嘅結果寫）
       });
       DOCS[p.id] = { kind: kind, pages: pages };
       msg(p, "");
@@ -174,6 +176,7 @@
       html += '<label class="ps-page' + (x.on ? " on" : "") + '" data-pid="' + x.id + '"><input type="checkbox"' + (x.on ? " checked" : "") + ">"
         + (x.kind === "image" ? '<img src="' + x.thumb + '" alt="">' : '<span class="ps-pg-text">' + esc(x.text.slice(0, 90)) + "…</span>")
         + "<span>" + esc(x.file) + " p." + x.n + (x.kind === "text" ? (x.score >= 3 ? ' <em class="tag">有用</em>' : "") : (x.rects && x.rects.length ? ' <em class="tag">已遮 ' + x.rects.length + " 格</em>" : ' <em class="tag warn">圖片</em>')) + "</span>"
+        + (x.why ? '<span class="ps-why">' + esc(x.why) + "</span>" : "")
         + (x.kind === "image" ? '<button class="btn ghost small" type="button" data-redact="' + x.id + '">遮資料</button>' : "") + "</label>";
     });
     html += "</div>";

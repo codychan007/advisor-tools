@@ -207,3 +207,4 @@ label.btn input[type=file] { display: none; }
 .qz-res-x { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
 .qz-src { display: block; font-size: 12px; color: var(--ink-3); margin-top: 2px; }
 button:disabled { opacity: .45; cursor: not-allowed; }
+.ps-why { font-size: 11px; line-height: 1.35; color: var(--ink-2); }
