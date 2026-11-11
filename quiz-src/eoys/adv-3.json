@@ -1,0 +1,11 @@
+[
+{"id": "eoys-a125", "type": "numeric", "level": "advanced", "topic": "賠償計算", "explain": "兩次都喺盛年期：(100%+40%) × 2。", "page": [32], "q": "原有保額 US${sa}，48 歲中風，52 歲確診癌症（三大守護）。兩次合共賠幾多美元？", "variants": [{"sa": 100000, "answer": 280000}, {"sa": 60000, "answer": 168000}], "unit": "美元"},
+{"id": "eoys-a126", "type": "numeric", "level": "advanced", "topic": "賠償計算", "explain": "第二次已過 70 歲兼過第 10 年：140%＋100%。", "page": [34], "q": "50 歲投保，原有保額 US$100,000。58 歲癌症，72 歲（第 22 年）心臟病。兩次合共賠幾多美元？", "variants": [{"answer": 240000}], "unit": "美元"},
+{"id": "eoys-a127", "type": "single", "level": "advanced", "topic": "延繳保費惠益", "explain": "遞交時段。", "page": [40], "q": "客人結婚後 2 個月先申請延繳（收到結婚證書即日）。得唔得？", "correct": ["要睇遞交時段：收到文件後 30 日內；逾期唔接受"], "wrong": ["一定得", "一定唔得", "要 1 年內"]},
+{"id": "eoys-a128", "type": "single", "level": "advanced", "topic": "1+1危疾守護", "explain": "第 21 頁。", "page": [21], "q": "第二次中風要提供咩先可以索償？", "correct": ["全新診斷證明，確定符合保單中風定義"], "wrong": ["舊報告就得", "家庭醫生信", "唔使證明"]},
+{"id": "eoys-a129", "type": "single", "level": "advanced", "topic": "產品基本", "explain": "產品詳細特點。", "page": [69], "q": "「簡緻．愛伴航」原狀危疾條款適用於？", "correct": ["只適用於首次危疾索償"], "wrong": ["所有索償", "只限三大守護", "唔適用"]},
+{"id": "eoys-a130", "type": "multi", "level": "advanced", "topic": "賠償計算", "explain": "例子 1、4.2、3 都係 140%。", "page": [31, 32, 33], "q": "原有保額 US$200,000，以下邊啲情況總賠償係 US$280,000（唔計分紅）？", "correct": ["冇索償，85 歲身故", "55 歲癌症（之後冇再索償、身故時亦冇餘額）", "55 歲腦動脈瘤，之後 85 歲身故"], "wrong": ["55 歲癌症、65 歲中風", "75 歲中風、80 歲癌症"], "pickWrong": 2, "pickCorrect": 2},
+{"id": "eoys-a131", "type": "single", "level": "advanced", "topic": "Vitality", "explain": "第 47 頁。", "page": [47], "q": "Vitality 保障增值需要額外核保嗎？", "correct": ["唔使額外體檢同財務核保"], "wrong": ["要體檢", "要財務證明", "要重新簽申請書"]},
+{"id": "eoys-a132", "type": "single", "level": "advanced", "topic": "目標客戶", "explain": "較年長客戶；58 歲可揀 10 或 18 年。", "page": [8, 14], "q": "客人 58 歲，嫌 OYS2 保費貴但想有癌症／心臟病／中風第二次賠償。點建議？", "correct": ["「簡緻．愛伴航」（10 或 18 年繳）"], "wrong": ["唔可以投保", "只買醫保", "25 年繳 EOYS"]},
+{"id": "eoys-a133", "type": "tf", "level": "advanced", "topic": "1+1危疾守護", "explain": "3 年只適用兩次都係癌症。", "page": [17], "versions": [{"s": "中風之後再中風，兩次之間要隔 1 年。", "answer": true}, {"s": "中風之後再中風，要隔 3 年。", "answer": false}]}
+]

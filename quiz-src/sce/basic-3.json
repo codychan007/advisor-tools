@@ -1,0 +1,17 @@
+[
+{"id": "sce-b124", "type": "numeric", "level": "basic", "topic": "身故保障", "explain": "身故賠償＝現時保額（扣除已預支）。", "page": [15], "q": "保額 HK$1,000,000，受保人之前預支咗原位癌 HK${p}，之後身故。身故賠償係幾多港元？", "variants": [{"p": 200000, "answer": 800000}, {"p": 400000, "answer": 600000}], "unit": "港元"},
+{"id": "sce-b125", "type": "single", "level": "basic", "topic": "轉換權益", "explain": "注意：現時保額是指從原有保額中扣除已預支的保額。", "page": [36], "q": "「現時保額」係咩意思？", "correct": ["原有保額扣除因受保疾病已預支嘅保額"], "wrong": ["原有保額加紅利", "已繳保費總和", "最高投保額"]},
+{"id": "sce-b126", "type": "multi", "level": "basic", "topic": "附加安排", "explain": "可附加危疾／壽險系列。", "page": [47], "q": "「簡護危疾保附加契約」可以附加喺以下邊啲基本計劃？", "correct": ["泰然安心保系列（ECP）", "進泰安心保系列（PCP）", "多重安心保系列（MCP）", "多重智倍保系列（SEU）"], "wrong": ["「啟護您」", "自願醫保睿選計劃"], "pickWrong": 2, "pickCorrect": 2},
+{"id": "sce-b127", "type": "numeric", "level": "basic", "topic": "保費", "explain": "270 × 5；每 5 年續保時先遞增。", "page": [7], "q": "30 歲非吸煙男士，US$100,000 保額，年繳 270 美元。首個 5 年續保期（保費不變）合共交幾多美元？", "variants": [{"answer": 1350}], "unit": "美元"},
+{"id": "sce-b128", "type": "single", "level": "basic", "topic": "保費", "explain": "保費比較表。", "page": [30], "q": "40 歲非吸煙女士，保額 US$100,000，基本計劃年繳約幾多？", "correct": ["653 美元"], "wrong": ["569 美元", "309 美元", "1,390 美元"]},
+{"id": "sce-b129", "type": "single", "level": "basic", "topic": "產品定位", "explain": "「簡護危疾保」附加契約使客戶可更有效地管理其保單。", "page": [24], "q": "簡報話用「簡護危疾保」邊個形式可以令客人更有效管理保單？", "correct": ["附加契約"], "wrong": ["基本計劃", "明珠版", "整筆繳付"]},
+{"id": "sce-b130", "type": "single", "level": "basic", "topic": "產品定位", "explain": "顧問分析後建議總保障需要 HK$3,000,000。", "page": [20], "q": "個案中李先生嘅總危疾保障需要係？", "correct": ["HK$3,000,000（約 US$375,000）"], "wrong": ["HK$700,000", "US$100,000", "HK$10,000,000"]},
+{"id": "sce-b131", "type": "single", "level": "basic", "topic": "產品定位", "explain": "30 歲、已婚育有一子、年薪 70 萬。", "page": [20], "q": "個案中李先生年薪係？", "correct": ["HK$700,000"], "wrong": ["HK$300,000", "HK$1,000,000", "HK$3,000,000"]},
+{"id": "sce-b132", "type": "single", "level": "basic", "topic": "危疾保障", "explain": "受保疾病總賠償：原有保額 100%。", "page": [26], "q": "「簡護危疾保」基本計劃確診嚴重疾病，賠原有保額幾多？", "correct": ["100%"], "wrong": ["80%", "50%", "120%"]},
+{"id": "sce-b133", "type": "single", "level": "basic", "topic": "早期危疾", "explain": "HK$400,000／US$50,000。", "page": [13], "q": "港元保單，原位癌每項個人最高賠償係？", "correct": ["HK$400,000"], "wrong": ["HK$240,000", "HK$100,000", "HK$1,000,000"]},
+{"id": "sce-b134", "type": "tf", "level": "basic", "topic": "早期危疾", "explain": "骨質疏鬆症連骨折至 70 歲。", "page": [13], "versions": [{"s": "72 歲確診骨質疏鬆症連骨折，「簡護危疾保」唔賠。", "answer": true}, {"s": "骨質疏鬆症連骨折保障到 80 歲。", "answer": false}]},
+{"id": "sce-b135", "type": "tf", "level": "basic", "topic": "嚴重兒童疾病", "explain": "18 歲以下。", "page": [14], "versions": [{"s": "17 歲確診嚴重型血友病，屬嚴重兒童疾病保障。", "answer": true}, {"s": "嚴重兒童疾病只保 12 歲以下。", "answer": false}]},
+{"id": "sce-b136", "type": "tf", "level": "basic", "topic": "危疾保障", "explain": "保障至 80 歲。", "page": [12], "versions": [{"s": "81 歲先確診中風，「簡護危疾保」已經唔保。", "answer": true}, {"s": "「簡護危疾保」中風保障終身。", "answer": false}]},
+{"id": "sce-b137", "type": "single", "level": "basic", "topic": "危疾保障", "explain": "不能獨立生活至 65 歲。", "page": [12], "q": "66 歲確診「不能獨立生活」，「簡護危疾保」賠唔賠？", "correct": ["唔賠，不能獨立生活只保至 65 歲"], "wrong": ["賠 100%", "賠 50%", "賠 20%"]},
+{"id": "sce-b138", "type": "single", "level": "basic", "topic": "身故保障", "explain": "人壽保障至 80 歲。", "page": [15, 36], "q": "冇索償過嘅受保人 79 歲身故，賠幾多？", "correct": ["現時保額（即原有保額）"], "wrong": ["已付保費", "50% 保額", "0"]}
+]
