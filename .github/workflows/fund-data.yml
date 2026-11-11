@@ -1,0 +1,67 @@
+# 基金分析：每日由 AIA 官網更新基金價格同派息紀錄（data/funds/），核對過先 commit 去 main，Cloudflare Pages 會自動部署。
+# 唔使 AI、唔使錢（GitHub Actions 私人 repo 每月有免費分鐘數，每次大約 3 分鐘）。
+# 有基金核對唔過：嗰隻基金保留上次嘅數據照樣更新其他基金，但呢個 workflow 會標示失敗，GitHub 會 email 通知。
+# 手動試：GitHub → Actions → 基金數據每日更新 → Run workflow。
+name: 基金數據每日更新
+
+on:
+  schedule:
+    - cron: "0 13 * * 1-6"     # 星期一至六 香港時間 21:00（AIA 當日已出前一個工作天嘅價格）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fund-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 安裝 pypdf
+        run: pip install pypdf==6.21.1
+
+      - name: 由 AIA 官網拎數據、讀派息紀錄、核對
+        id: build
+        run: |
+          set +e
+          python scripts/build_funds.py
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" = "1" ]; then echo "::error::AIA 數據唔齊，今日唔更新"; exit 1; fi
+          exit 0
+
+      - name: 測試
+        run: node tests/fund.test.js
+
+      - name: Commit 同 push
+        run: |
+          git config user.name "fund-data-bot"
+          git config user.email "fund-data-bot@users.noreply.github.com"
+          git add data/funds
+          if git diff --cached --quiet; then echo "冇新數據"; exit 0; fi
+          git commit -m "基金數據每日更新 $(TZ=Asia/Hong_Kong date +%F)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 10
+          done
+          exit 1
+
+      - name: 有基金核對唔過（已保留上次數據）
+        if: steps.build.outputs.code == '2'
+        run: |
+          python -c "import json; print('核對唔過：', ', '.join(json.load(open('data/funds/index.json', encoding='utf-8'))['problems']))"
+          exit 1

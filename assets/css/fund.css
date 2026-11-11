@@ -1,0 +1,89 @@
+/* 基金分析（/fund-analysis/）— 用 style.css 嘅顏色同字體，呢度只加呢頁專用嘅樣式 */
+.fa-main { max-width: 1120px; }
+.fa-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0 14px; }
+.fa-tabs button { font: inherit; font-weight: 700; min-height: 40px; padding: 0 16px; border: 1.5px solid var(--ink); border-radius: 999px; background: #fff; color: var(--ink); cursor: pointer; }
+.fa-tabs button[aria-selected="true"] { background: var(--ink); color: var(--card); }
+.fa-badge { display: inline-grid; place-items: center; min-width: 20px; height: 20px; margin-left: 6px; padding: 0 5px; border-radius: 999px; background: var(--ochre); color: #fff; font-size: 12px; }
+.fa-pane + .fa-pane { margin-top: 18px; }
+
+.fa-kind { margin-bottom: 8px; }
+.fa-kind span { font-weight: 700; }
+.fa-kind small { color: inherit; opacity: .7; font-weight: 400; margin-left: 2px; }
+.fa-asset { margin-bottom: 10px; }
+.fa-asset span { min-height: 34px; font-size: 14px; }
+.fa-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px 12px; }
+.fa-filters label { font-size: 13px; font-weight: 700; display: flex; flex-direction: column; gap: 3px; }
+.fa-hint { font-size: 13px; color: var(--ink-3); margin: 10px 0 6px; }
+.fa-table-wrap { max-height: 72vh; }
+.fa-table td, .fa-res td { vertical-align: top; }
+.fa-name { white-space: normal !important; min-width: 230px; max-width: 360px; text-align: left !important; }
+.fa-name .linkbtn { padding: 0; text-align: left; font-weight: 700; line-height: 1.4; }
+.fa-name small { display: block; font-size: 12px; line-height: 1.4; margin-top: 2px; }
+td small { display: block; font-size: 11px; color: var(--ink-3); }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:hover, th.sortable.on { color: var(--shu-dark); }
+td.pos, b.pos { color: var(--matcha); } td.neg, b.neg, span.neg { color: var(--danger); }
+.fa-warn { color: #8A5F14; font-weight: 700; }
+.fa-adj { color: var(--shu); }
+.fa-kindtag { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 4px; font-weight: 700; }
+.fa-kindtag.d { background: var(--ochre-50); color: #8A5F14; } .fa-kindtag.a { background: var(--shu-50); color: var(--shu-dark); }
+.fa-pill { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; white-space: nowrap; font-weight: 700; }
+.fa-pill.good { background: var(--matcha-50); color: var(--matcha); }
+.fa-pill.warn { background: var(--ochre-50); color: #8A5F14; }
+.fa-pill.bad { background: var(--danger-50); color: var(--danger); }
+.fa-pill.na { background: transparent; color: var(--ink-3); font-weight: 400; }
+.fa-ops { white-space: nowrap; }
+.fa-ops .btn + .btn { margin-left: 4px; }
+.btn.small.on { background: var(--shu-50); border-color: var(--shu); color: var(--shu-dark); }
+details.note summary { cursor: pointer; }
+details.note ul { margin-top: 8px; }
+
+.fa-rows { display: grid; gap: 8px; margin-top: 12px; }
+.fa-row { display: grid; grid-template-columns: 1fr 110px 40px; gap: 6px; align-items: center; }
+.fa-row.fa-cmprow { grid-template-columns: 14px 1fr 40px; }
+.fa-row select { min-width: 0; }
+.fa-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: middle; }
+.fa-w { display: flex; align-items: center; gap: 4px; }
+.fa-w input { min-width: 0; text-align: right; }
+.fa-rowbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.fa-sum { font-weight: 700; margin-left: auto; font-variant-numeric: tabular-nums; }
+.fa-sum.good { color: var(--matcha); } .fa-sum.bad { color: var(--danger); }
+.fa-amt { display: flex; align-items: center; gap: 6px; } .fa-amt span { font-weight: 700; white-space: nowrap; }
+.fa-start { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.fa-start input { width: auto; min-width: 160px; flex: 1 1 160px; max-width: 220px; }
+.fa-lbl { font-weight: 700; font-size: 14px; margin-right: 4px; }
+input[type=date] { min-height: var(--tap); font: inherit; color: var(--ink); background: #fff; border: 1.5px solid var(--line); border-radius: 6px; padding: 6px 10px; }
+@media (max-width: 520px) { .fa-row { grid-template-columns: 1fr 92px 36px; } .fa-row.fa-cmprow { grid-template-columns: 12px 1fr 36px; } }
+
+.kpi small { display: block; font-size: 12px; color: var(--ink-3); }
+.fa-res .fa-total td { font-weight: 700; background: var(--paper-2); }
+.fa-chart { width: 100%; height: auto; display: block; border: 1.5px solid var(--line); border-radius: 6px; margin: 6px 0; }
+.fa-legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--ink-2); }
+.fa-legend i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+#pfResult h3, #fdBody h3 { margin-top: 18px; }
+#pdfMsg { align-self: center; }
+
+/* 客人報告：喺畫面外面用 A4 闊度畫好，html2canvas 影低再變 PDF */
+.fa-report-host { position: fixed; left: -12000px; top: 0; width: 794px; pointer-events: none; }
+.fa-report { width: 794px; padding: 40px 44px 36px; background: #fff; color: #1a1a1a; font-size: 12px; line-height: 1.5; }
+.fa-report h1 { font-size: 22px; margin: 0; }
+.fa-report h3 { font-size: 13px; margin: 0 0 4px; }
+.fa-rep-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 10px; }
+.fa-rep-head p { margin: 2px 0 0; color: var(--ink-2); }
+.fa-rep-date { text-align: right; font-size: 11px; color: var(--ink-2); }
+.fa-rep-sum { margin: 6px 0; }
+.fa-report .kpis { grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
+.fa-report .kpi { padding: 8px 10px; }
+.fa-report .kpi b { font-size: 17px; }
+.fa-report .table-wrap { max-height: none; overflow: visible; border-width: 1px; }
+.fa-report table { font-size: 10.5px; }
+.fa-report th, .fa-report td { padding: 4px 6px; }
+.fa-report th { position: static; }
+.fa-report .fa-name { min-width: 0; max-width: 230px; }
+.fa-rep-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.fa-rep-charts .fa-chartbox:only-child { grid-column: 1 / -1; }
+.fa-rep-charts .fa-legend { font-size: 10px; }
+.fa-rep-charts .fa-chart { border-width: 1px; }
+.fa-rep-notes, .fa-rep-disc { font-size: 10px; color: var(--ink-2); margin-top: 10px; }
+.fa-rep-notes ul, .fa-rep-disc ul { margin: 2px 0; padding-left: 16px; }
+.fa-rep-disc p { margin: 2px 0 0; }

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>基金分析 – TC Team專屬AI工具箱</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css?v=3">
+<link rel="stylesheet" href="/assets/css/fund.css?v=2">
+</head>
+<body>
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="seal">工</span><span>TC Team專屬AI工具箱<small>同事內部使用</small></span></a>
+  <a class="head-link" href="/">← 全部工具</a>
+</div></header>
+
+<main class="wrap fa-main">
+  <h1><span class="brush">基金分析</span></h1>
+  <p class="muted">「卓達智悅 2」全部基金（派息同累積）：比較回報同風險、砌組合計返過去表現、出 PDF 報告俾客人。數據每日由 AIA 官網更新，全部喺你部機計，唔使錢。</p>
+  <p id="dataInfo" class="muted" style="font-size:14px">載入緊數據…</p>
+
+  <div class="fa-tabs" role="tablist">
+    <button type="button" role="tab" data-tab="list" aria-selected="true">基金一覽</button>
+    <button type="button" role="tab" data-tab="cmp" aria-selected="false">比較<span id="cmpCount" class="fa-badge hidden"></span></button>
+    <button type="button" role="tab" data-tab="port" aria-selected="false">組合回測</button>
+    <button type="button" role="tab" data-tab="fund" aria-selected="false">單隻基金</button>
+  </div>
+
+  <!-- 一覽 -->
+  <section class="card fa-pane" id="tab-list">
+    <div class="seg fa-kind" id="flKind">
+      <label><input type="radio" name="flkind" value="dist" checked><span>派息基金 <small id="nDist"></small></span></label>
+      <label><input type="radio" name="flkind" value="acc"><span>累積基金 <small id="nAcc"></small></span></label>
+      <label><input type="radio" name="flkind" value=""><span>全部 <small id="nAll"></small></span></label>
+    </div>
+    <div class="seg fa-asset" id="flAsset">
+      <label><input type="radio" name="flasset" value="" checked><span>全部類別</span></label>
+      <label><input type="radio" name="flasset" value="股票"><span>股票</span></label>
+      <label><input type="radio" name="flasset" value="固定收入"><span>債券</span></label>
+      <label><input type="radio" name="flasset" value="多元資產"><span>多元資產</span></label>
+      <label><input type="radio" name="flasset" value="流動 / 貨幣市場"><span>貨幣市場</span></label>
+    </div>
+    <div class="fa-filters">
+      <label>地區<select id="flRegion"><option value="">全部</option></select></label>
+      <label>風險級別<select id="flRisk"><option value="">全部</option><option value="低">低</option><option value="中">中</option><option value="高">高</option></select></label>
+      <label>貨幣<select id="flCur"><option value="">全部</option></select></label>
+      <label>基金公司<select id="flHouse"><option value="">全部</option></select></label>
+    </div>
+    <p class="hint fa-hint" id="listHint"></p>
+    <div class="table-wrap fa-table-wrap"><table class="fa-table" id="listTable"></table></div>
+    <details class="note" style="margin-top:12px">
+      <summary><b>欄目點解讀</b></summary>
+      <ul>
+        <li><b>總回報</b>：價格升跌加埋派息（派息當再投資計）。「3 年（每年）」= 近 3 年平均每年回報。</li>
+        <li><b>波幅</b>：近 3 年價格上落有幾大（每年計）。數字越大，上落越劇烈：大約 5% 以下算穩定，15% 以上算大上大落。</li>
+        <li><b>最大跌幅</b>：近 3 年由高位跌落低位最多跌咗幾多，即係最差嘅時候帳面蝕幾多。</li>
+        <li><b>同類排名</b>：同一類別、同一貨幣嘅基金，按近 3 年總回報排名。</li>
+        <li><b>年化派息率</b>：最近一次派息 ÷ 當日價格 × 每年派息次數。<b>派息來自本金</b>：最近 12 個月基金公司公佈由資本支付嘅平均比例；空白即 PDF 冇提供。</li>
+        <li><b>派息 vs 回報</b>：<span class="fa-pill good">價格冇跌，派息係真賺</span> <span class="fa-pill warn">價格跌咗，靠派息補返</span> <span class="fa-pill bad">連派息計都蝕</span>（按近 1 年計）。</li>
+        <li><b>已按 AIA 調整</b>：部分唔派現金嘅基金會喺基金內部派息，再由 AIA 自動再投資，價格走勢反映唔到。呢類基金嘅回報已經按 AIA 公佈嘅每年回報補返。</li>
+        <li>未夠年期嘅數字顯示「—」。</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- 比較 -->
+  <section class="card fa-pane hidden" id="tab-cmp">
+    <p class="muted" style="margin-top:0">揀最多 4 隻基金，由同一日開始計（= 100），派息當再投資，睇邊隻跑贏。可以喺「基金一覽」撳「比較」加入。</p>
+    <div id="cmpRows" class="fa-rows"></div>
+    <div class="fa-start" style="margin-top:12px">
+      <span class="fa-lbl">期間</span>
+      <button type="button" class="btn ghost small" data-cmp="1">1 年</button>
+      <button type="button" class="btn ghost small" data-cmp="3">3 年</button>
+      <button type="button" class="btn ghost small" data-cmp="5">5 年</button>
+      <button type="button" class="btn ghost small" data-cmp="0">最長</button>
+    </div>
+    <div id="cmpResult" style="margin-top:12px"></div>
+  </section>
+
+  <!-- 組合回測 -->
+  <section class="card fa-pane hidden" id="tab-port">
+    <div class="step-head"><span class="step-no">一</span><h2>砌組合</h2></div>
+    <div class="field"><label>貨幣</label>
+      <div class="seg" id="pfCur"></div>
+      <div class="hint">一個組合只可以揀同一種貨幣嘅基金；派息基金同累積基金可以一齊揀。</div></div>
+    <div id="pfRows" class="fa-rows"></div>
+    <div class="fa-rowbar">
+      <button type="button" class="btn ghost small" id="pfAdd">＋ 加基金</button>
+      <button type="button" class="btn ghost small" id="pfEven">平均分配 %</button>
+      <span id="pfSum" class="fa-sum"></span>
+    </div>
+
+    <div class="form" style="margin-top:16px">
+      <div class="field"><label for="pfAmt">投資金額</label>
+        <div class="fa-amt"><span id="pfCurLabel">US$</span><input id="pfAmt" type="number" inputmode="decimal" min="0" value="100000"></div></div>
+      <div class="field"><label>派息點處理</label>
+        <div class="seg"><label><input type="radio" name="pfmode" value="cash" checked><span>收現金（每月攞息）</span></label><label><input type="radio" name="pfmode" value="reinvest"><span>自動再投資</span></label></div>
+        <div class="hint">只影響派息基金；累積基金本身唔派現金。</div></div>
+      <div class="field full"><label for="pfStart">開始日子</label>
+        <div class="fa-start">
+          <button type="button" class="btn ghost small" data-back="1">1 年前</button>
+          <button type="button" class="btn ghost small" data-back="2">2 年前</button>
+          <button type="button" class="btn ghost small" data-back="3">3 年前</button>
+          <button type="button" class="btn ghost small" data-back="0">最早</button>
+          <input id="pfStart" type="date">
+        </div>
+        <div class="hint" id="pfStartHint"></div></div>
+    </div>
+    <div class="note bad hidden" id="pfErr" style="margin-top:12px"></div>
+    <div class="actions"><button class="btn" type="button" id="pfRun">計算 →</button></div>
+  </section>
+
+  <section class="card fa-pane hidden" id="tab-port-res">
+    <div class="step-head"><span class="step-no">二</span><h2>結果</h2></div>
+    <div id="pfResult"><p class="muted">揀好基金按「計算」就會出。</p></div>
+  </section>
+
+  <!-- 單隻基金 -->
+  <section class="card fa-pane hidden" id="tab-fund">
+    <div class="field"><label for="fdSel">揀基金</label><select id="fdSel"></select></div>
+    <div id="fdBody"></div>
+  </section>
+</main>
+<!-- 俾客人嘅報告：喺畫面外面畫好，再變做 PDF -->
+<div id="reportHost" class="fa-report-host" aria-hidden="true"></div>
+<footer class="site-footer"><div class="wrap">只供同事內部參考。數據來自 AIA 香港官網（投資選擇價格及派息紀錄），以基金價格計算，未扣除保單收費。過往表現並不代表將來表現。</div></footer>
+
+<script src="/assets/js/fundcalc.js?v=2"></script>
+<script src="/assets/js/fund-pdf.js?v=1"></script>
+<script src="/assets/js/fund-analysis.js?v=2" defer></script>
+</body>
+</html>
