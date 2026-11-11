@@ -51,6 +51,10 @@ for (let s = 1; s <= 50; s++) {
   ok(ex.length === 15 && new Set(ex.map(x => x.id)).size === 15, "每份卷 15 條唔重複");
   ok(ex.every(x => x.level === "advanced"), "進階卷只有進階題");
 }
+for (const [o, n] of [[{ stage: "series", series: "危疾", level: "mixed" }, 30], [{ stage: "series", series: "醫療", level: "basic" }, 30], [{ stage: "all", level: "mixed" }, 50], [{ stage: "all", level: "advanced" }, 50]]) {
+  const ex = Q.exam(bank, o, 7);
+  ok(ex.length === n && new Set(ex.map(x => x.id)).size === n, `${o.stage === "all" ? "綜合" : o.series + "系列"}每份卷 ${n} 條唔重複（${ex.length}）`);
+}
 const e1 = Q.exam(bank, { stage: "product", product: "avsw", level: "basic" }, 1).map(x => x.id).join();
 const e2 = Q.exam(bank, { stage: "product", product: "avsw", level: "basic" }, 2).map(x => x.id).join();
 ok(e1 !== e2, "唔同次考試抽到唔同題目");

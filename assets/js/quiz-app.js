@@ -67,7 +67,7 @@
   }
   function updatePool() {
     var o = opt(), n = Q.pool(bank, o).length;
-    $("poolMsg").textContent = "題庫：" + n + " 題（每次抽 15 題，選項同數字每次都唔同）";
+    $("poolMsg").textContent = "題庫：" + n + " 題（每次抽 " + Math.min(Q.examSize(o.stage), n) + " 題，選項同數字每次都唔同）";
     $("startBtn").disabled = n === 0;
     var w = Object.keys(loadRec().wrong).filter(function (id) { return bank.byId[id]; }).length;
     $("reviewBtn").textContent = "錯題重溫（" + w + " 題）";

@@ -5,6 +5,8 @@
   "use strict";
 
   var EXAM_SIZE = 15, PASS_RATIO = 0.7;
+  var SIZES = { product: 15, series: 30, all: 50 };   // 單一產品 15、系列 30、綜合 50
+  function examSize(stage) { return SIZES[stage] || EXAM_SIZE; }
 
   function rng(seed) {                      // 測試可以傳 seed；網站用 Math.random
     if (seed == null) return Math.random;
@@ -73,7 +75,7 @@
   function exam(bank, opt, seed) {
     var rand = rng(seed);
     var list = opt.questions || pool(bank, opt);
-    var n = Math.min(opt.size || EXAM_SIZE, list.length);
+    var n = Math.min(opt.size || (opt.questions ? EXAM_SIZE : examSize(opt.stage)), list.length);
     return sample(list, n, rand).map(function (q) { return make(q, rand); });
   }
 
@@ -119,7 +121,7 @@
       passed: total > 0 && right / total >= PASS_RATIO - 1e-9, results: results, topics: topics };
   }
 
-  var api = { EXAM_SIZE: EXAM_SIZE, PASS_RATIO: PASS_RATIO, pool: pool, make: make, exam: exam,
+  var api = { EXAM_SIZE: EXAM_SIZE, SIZES: SIZES, examSize: examSize, PASS_RATIO: PASS_RATIO, pool: pool, make: make, exam: exam,
     grade: grade, score: score, answerText: answerText, respText: respText, shuffle: shuffle, rng: rng, fill: fill };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.QuizCore = api;
 })(this);
