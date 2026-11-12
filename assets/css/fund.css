@@ -27,6 +27,7 @@ th.sortable:hover, th.sortable.on { color: var(--shu-dark); }
 td.pos, b.pos { color: var(--matcha); } td.neg, b.neg, span.neg { color: var(--danger); }
 .fa-warn { color: #8A5F14; font-weight: 700; }
 .fa-adj { color: var(--shu); }
+.fa-since { color: #8A5F14; }
 .fa-kindtag { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 4px; font-weight: 700; }
 .fa-kindtag.d { background: var(--ochre-50); color: #8A5F14; } .fa-kindtag.a { background: var(--shu-50); color: var(--shu-dark); }
 .fa-pill { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; white-space: nowrap; font-weight: 700; }

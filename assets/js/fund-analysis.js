@@ -50,8 +50,14 @@
     return "「" + shortName(m) + "」" + (s.prices ? m.aiaFrom + " 上架 AIA 之前嘅" : "") + s.text + "，已同 AIA 公佈嘅每年回報核對。";
   }
 
-  function badges(m, withKind) {
+  /* 未夠 5 年數據：完整數據（價格 + 派息）由邊日開始 */
+  function sinceDate(m) {
+    if (!m.dataFrom || !INDEX || !INDEX.latest) return null;
+    return m.dataFrom > F.addDays(INDEX.latest, -365 * 5) ? m.dataFrom : null;
+  }
+  function badges(m, withKind, noSince) {
     var b = [];
+    if (sinceDate(m) && !noSince) b.push('<span class="fa-since" title="基金公司搵唔到更早嘅紀錄，或者呢個類別成立未夠 5 年">數據只追溯到 ' + sinceDate(m) + "</span>");
     if (withKind) b.push('<span class="fa-kindtag ' + (m.dist ? "d" : "a") + '">' + (m.dist ? "派息" : "累積") + "</span>");
     if (m.currency !== "USD") b.push(CUR_NAME[m.currency] || m.currency);
     if (!m.checkOk) b.push('<span class="fa-warn" title="太新或者暫停交易，AIA 未有全年回報可以核對">⚠ 未能核對</span>');
@@ -466,8 +472,9 @@
       var d = CACHE[code], cur = m.currency;
       var h = '<h2 style="margin-top:14px">' + esc(shortName(m)) + "</h2>" +
         '<p class="muted">' + m.code + " · " + (m.dist ? "派息基金" : "累積基金") + " · " + esc(m.house) + " · " + esc(typeName(m)) + " · " + m.risk + "風險 · " + (CUR_NAME[cur] || cur) +
-        " · ISIN " + esc(m.isin) + " · AIA 上架 " + (m.aiaFrom || m.launch) + (badges(m) ? " · " + badges(m) : "") +
+        " · ISIN " + esc(m.isin) + " · AIA 上架 " + (m.aiaFrom || m.launch) + (badges(m, false, true) ? " · " + badges(m, false, true) : "") +
         (preSource(m) ? "<br>" + esc(preSource(m).prices ? "上架 AIA 之前：" + preSource(m).text : preSource(m).text) + "（已同 AIA 公佈每年回報核對）" : "") +
+        (sinceDate(m) ? '<br><span class="fa-since">完整數據（價格同派息）只追溯到 ' + sinceDate(m) + "，之前嘅紀錄基金公司冇提供，或者呢個類別成立未夠 5 年。</span>" : "") +
         '<br><a href="' + esc(m.detailUrl) + '" target="_blank" rel="noopener">AIA 官網基金頁</a>' + (m.pdfUrl ? ' · <a href="' + esc(m.pdfUrl) + '" target="_blank" rel="noopener">派息紀錄 PDF</a>' : "") + "</p>" +
         (m.remarks && m.remarks.length ? '<p class="note">' + m.remarks.map(esc).join("<br>") + "</p>" : "");
       h += '<div class="kpis">' +
