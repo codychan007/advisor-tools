@@ -17,4 +17,5 @@ TC Team專屬AI工具箱（同事內部用，有共用密碼）。上線同設�
   - 派息紀錄會儲落 `data/funds/<code>.json`，越儲越長（PDF 好多只顯示最近 12 個月）。
   - 部分累積基金有基金內部派息（AIA 自動再投資，價格反映唔到）：按 AIA 每年回報逐月補返，存喺 `reinvest`，頁面標「已按 AIA 調整」。
   - 太新嘅派息基金冇全年回報可以對：用 PDF 自己嘅派息率對數；連派息率都冇就標「⚠ 未能核對」。
+- **上架 AIA 之前嘅歷史（2026-11-13）**：`data/backfill/<code>.json`（一次過，由 `scripts/backfill_funds.py` 或人手由基金公司網頁抄錄；每個檔案寫明來源）。`build_funds.py` 自動判斷 AIA 日子同基金公司 NAV 日子係咪差一日、檢查重疊期價格一致，再同 AIA 公佈嘅每年回報核對；唔夾就唔用（`backfillRejected`）。來源：貝萊德／安聯官網 API、富蘭克林（派息）、惠理（每月單張）、滙豐（基金中心）、其餘價格用 FT。
 - 本機 Python 連 ECB 可能有 SSL 證書問題：用 `curl -o data/pdf_cache/funds/ecb-fx.zip https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip` 再加 `--offline`。

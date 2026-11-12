@@ -28,6 +28,28 @@
     return fetch("/data/funds/" + code + ".json").then(function (r) { if (!r.ok) throw new Error(code); return r.json(); })
       .then(function (d) { CACHE[code] = d; return d; });
   }
+  /* AIA 上架之前嘅數據來源（data/backfill，經 build_funds.py 同 AIA 每年回報核對過） */
+  function preSource(m) {
+    var b = m.backfill;
+    if (!b || m.backfillRejected) return null;
+    var name = function (s) {
+      if (!s) return "";
+      if (/^blackrock/.test(s)) return "貝萊德官網";
+      if (/^allianz/.test(s)) return "安聯官網";
+      if (/^ft/.test(s)) return "金融時報（FT）";
+      return s.replace(/（.*$/, "").replace(/\s*\(.*$/, "");
+    };
+    var p = name(b.priceSource || b.source), d = name(b.source);
+    var hasPrices = b.lag !== null && b.lag !== undefined;
+    if (!hasPrices) return { text: "派息紀錄來自" + d, prices: false };
+    return { text: p === d || !m.dist ? "價格" + (m.dist ? "同派息" : "") + "來自" + p : "價格來自" + p + "、派息來自" + d, prices: true };
+  }
+  function preNote(m) {
+    var s = preSource(m);
+    if (!s) return "";
+    return "「" + shortName(m) + "」" + (s.prices ? m.aiaFrom + " 上架 AIA 之前嘅" : "") + s.text + "，已同 AIA 公佈嘅每年回報核對。";
+  }
+
   function badges(m, withKind) {
     var b = [];
     if (withKind) b.push('<span class="fa-kindtag ' + (m.dist ? "d" : "a") + '">' + (m.dist ? "派息" : "累積") + "</span>");
@@ -75,6 +97,11 @@
       g.push(text(L - 6, y(v) + fs / 3, shortNum(v), "end", fs));
     });
     if (opt.baseline != null) g.push('<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(opt.baseline) + '" y2="' + y(opt.baseline) + '" stroke="' + INK.base + '" stroke-width="1" stroke-dasharray="4 4"/>');
+    if (opt.marker && Date.parse(opt.marker.date) > t0 && Date.parse(opt.marker.date) < t1) {
+      var mx = x(opt.marker.date);
+      g.push('<line x1="' + mx + '" x2="' + mx + '" y1="' + T + '" y2="' + (H - B) + '" stroke="#A3301C" stroke-width="1.2" stroke-dasharray="3 3"/>');
+      g.push(text(mx + 4, T + fs, esc(opt.marker.label), "start", fs));
+    }
     var spanDays = (t1 - t0) / 864e5, months = spanDays > 1500 ? null : spanDays > 900 ? [1] : spanDays > 300 ? [1, 4, 7, 10] : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     var d = new Date(t0); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() + 1);
     while (d.getTime() <= t1) {
@@ -250,6 +277,8 @@
       var curs = CMP.map(function (c) { return META[c].currency; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
       var h = '<p class="muted">' + start + " 至 " + latest + "（" + F.fmt(F.days(start, latest) / 365, 1) + " 年）· 起點 = 100 · 基金價值 + 已收現金息" + (curs.length > 1 ? " · 各基金以自己貨幣計" : "") + "</p>" +
         (note ? '<p class="note">' + esc(note) + "</p>" : "") + lineChart(series, { baseline: 100, label: "基金比較", legend: 1, height: 300 });
+      var srcs = CMP.filter(function (c) { return preSource(META[c]) && (META[c].aiaFrom > start); }).map(function (c) { return preNote(META[c]); });
+      if (srcs.length) h += '<p class="hint">' + srcs.map(esc).join("<br>") + "</p>";
       h += '<div class="table-wrap"><table class="fa-res"><thead><tr><th>基金</th><th>總回報</th><th>每年平均</th><th>波幅</th><th>最大跌幅</th><th>風險</th></tr></thead><tbody>' +
         series.map(function (s, i) {
           var st = seriesStats(s.points), m = META[CMP[i]];
@@ -367,6 +396,7 @@
       if (f.pendingDividends > 0) out.push("「" + shortName(m) + "」派息紀錄只更新到 " + f.lastDividendDate + "（基金公司 PDF 未出最新月份），之後大約 " + f.pendingDividends + " 次派息未計入，回報可能略為低估。");
       if (!m.checkOk) out.push("「" + shortName(m) + "」係新基金，數據未能同 AIA 公佈嘅回報核對，請以 AIA 官網為準。");
       if (m.checkLevel === "adjusted") out.push("「" + shortName(m) + "」有基金內部派息（AIA 自動再投資），回報已按 AIA 公佈嘅每年回報調整。");
+      if (preSource(m) && (preSource(m).prices ? f.buyDate < m.aiaFrom : true)) out.push(preNote(m));
     });
     return out;
   }
@@ -436,7 +466,8 @@
       var d = CACHE[code], cur = m.currency;
       var h = '<h2 style="margin-top:14px">' + esc(shortName(m)) + "</h2>" +
         '<p class="muted">' + m.code + " · " + (m.dist ? "派息基金" : "累積基金") + " · " + esc(m.house) + " · " + esc(typeName(m)) + " · " + m.risk + "風險 · " + (CUR_NAME[cur] || cur) +
-        " · ISIN " + esc(m.isin) + " · AIA 上架 " + m.launch + (badges(m) ? " · " + badges(m) : "") +
+        " · ISIN " + esc(m.isin) + " · AIA 上架 " + (m.aiaFrom || m.launch) + (badges(m) ? " · " + badges(m) : "") +
+        (preSource(m) ? "<br>" + esc(preSource(m).prices ? "上架 AIA 之前：" + preSource(m).text : preSource(m).text) + "（已同 AIA 公佈每年回報核對）" : "") +
         '<br><a href="' + esc(m.detailUrl) + '" target="_blank" rel="noopener">AIA 官網基金頁</a>' + (m.pdfUrl ? ' · <a href="' + esc(m.pdfUrl) + '" target="_blank" rel="noopener">派息紀錄 PDF</a>' : "") + "</p>" +
         (m.remarks && m.remarks.length ? '<p class="note">' + m.remarks.map(esc).join("<br>") + "</p>" : "");
       h += '<div class="kpis">' +
@@ -452,7 +483,9 @@
       var priceLine = d.prices.filter(function (p) { return p[0] >= p0[0]; }), step = Math.max(1, Math.floor(priceLine.length / 400));
       var lines = [{ name: m.dist ? "總回報（基金價值 + 已收派息，起點 = 100）" : "總回報（起點 = 100）", points: tr }];
       if (m.dist || m.checkLevel === "adjusted") lines.push({ name: "只計價格", points: priceLine.filter(function (_, i) { return i % step === 0 || i === priceLine.length - 1; }).map(function (p) { return [p[0], p[1] / p0[1] * 100]; }) });
-      h += "<h3>表現走勢（" + from + " 至今）</h3>" + lineChart(lines, { baseline: 100, label: "表現走勢", legend: 1 }) +
+      var mk = preSource(m) && preSource(m).prices ? { date: m.aiaFrom, label: "AIA 上架" } : null;
+      h += "<h3>表現走勢（" + from + " 至今）</h3>" + lineChart(lines, { baseline: 100, label: "表現走勢", legend: 1, marker: mk }) +
+        (mk ? '<p class="hint">紅色虛線 = AIA 上架日；之前嘅數據來自基金公司／FT。</p>' : "") +
         (m.dist ? '<p class="hint">派息以現金派發：派息之後價格會跌返派出嘅金額，所以要將已收嘅現金息加返先知真實表現。</p>' : "");
       // 同一隻基金嘅其他版本
       if (m.siblings && m.siblings.length) {

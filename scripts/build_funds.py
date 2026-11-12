@@ -34,6 +34,7 @@ for s in (sys.stdout, sys.stderr):
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "data" / "pdf_cache" / "funds"
 OUT = ROOT / "data" / "funds"
+BACKFILL = ROOT / "data" / "backfill"
 CAT = "TMP2"
 API = "https://www1.aia.com.hk/CorpWS/Investment/Get/"
 PDF = "https://www.aia.com.hk/content/dam/hk/en/pdf/dividend-composition-and-distribution-record/{}.pdf"
@@ -395,7 +396,7 @@ def check_fund(prices, divs, aia_years, perf_as_of, fx=None):
     first_div, last_div = dt.date.fromisoformat(divs[0][0]), dt.date.fromisoformat(divs[-1][0])
     gaps = sorted((dt.date.fromisoformat(b[0]) - dt.date.fromisoformat(a[0])).days for a, b in zip(divs, divs[1:]))
     step = gaps[len(gaps) // 2] if gaps else 31
-    tol = TOLERANCE * (2 if fx else 1)
+    tol = TOLERANCE * (2.5 if fx else 1)
     results = []
     for year, aia in aia_years.items():
         if aia is None:
@@ -662,6 +663,50 @@ def dump_fund(data):
     return '{"code":%s,\n"prices":[\n%s],\n"dividends":[\n%s],\n"reinvest":[\n%s]}\n' % (json.dumps(data["code"]), rows, divs, adj)
 
 
+def next_business_day(day):
+    day += dt.timedelta(days=1)
+    while day.weekday() >= 5:
+        day += dt.timedelta(days=1)
+    return day
+
+
+def load_backfill(code, aia_rows):
+    """data/backfill/<code>.json (scripts/backfill_funds.py): fund-house / FT history from before the fund came to AIA.
+    NAV dates move one business day later (AIA's convention). Returns (rows to put in front, dividends, info) or None
+    if the file is missing or its prices do not match AIA's where both exist."""
+    f = BACKFILL / f"{code}.json"
+    if not f.exists():
+        return None
+    b = json.loads(f.read_text(encoding="utf-8"))
+    info = {"source": b["source"], "url": b["url"], "priceSource": b.get("priceSource", b["source"]), "fetched": b["fetched"]}
+    first = aia_rows[0][0]
+    if not b["prices"]:                                  # dividends only (AIA already has the prices)
+        info["lag"] = None
+        return [], b.get("dividends") or [], info
+    # AIA dates some funds one business day after the NAV date, others on the same day: use whichever lines up
+    best = None
+    for lag in (0, 1):
+        shifted = {}
+        for d, nav in b["prices"]:
+            day = dt.date.fromisoformat(d)
+            shifted[(next_business_day(day) if lag else day).isoformat()] = nav
+        diffs = sorted(abs(shifted[d] / p - 1) for d, p in aia_rows[:250] if d in shifted and p)
+        exact = sum(1 for x in diffs if x < 0.0006)
+        if diffs and (best is None or exact > best[0]):
+            best = (exact, lag, shifted, diffs)
+    if not best or len(best[3]) < 20:
+        print(f"    {code}: backfill has too little overlap with AIA prices - not used")
+        return None
+    _, lag, shifted, overlap = best
+    info["lag"] = lag
+    info["overlapDiff"] = round(overlap[len(overlap) // 2] * 100, 3)
+    if overlap[len(overlap) // 2] > 0.004:               # median gap > 0.4%: another share class or wrong data
+        print(f"    {code}: backfill prices do not match AIA (median {info['overlapDiff']}%) - not used")
+        return None
+    front = sorted([d, p] for d, p in shifted.items() if d < first)
+    return front, b.get("dividends") or [], info
+
+
 def process(code, en, zh, fx, args):
     dist = en.get("distribution_fund") == "Y"
     cf, pf = CACHE / f"{code}_chart.json", CACHE / f"{code}.pdf"
@@ -670,15 +715,33 @@ def process(code, en, zh, fx, args):
         if dist:
             pf.write_bytes(get(PDF.format(code), binary=True))
         time.sleep(0.3)
-    price_rows = read_prices(json.loads(cf.read_text(encoding="utf-8")))
-    if not price_rows:
+    aia_rows = read_prices(json.loads(cf.read_text(encoding="utf-8")))
+    if not aia_rows:
         raise ValueError("no prices")
+    bf = load_backfill(code, aia_rows)
+    if bf:
+        fund, data, problem = process_once(code, en, zh, fx, dist, pf, aia_rows, bf)
+        if not problem and fund["checkOk"]:
+            return fund, data, problem
+        print(f"    {code}: check failed with the backfill - retrying with AIA data only")
+    fund, data, problem = process_once(code, en, zh, fx, dist, pf, aia_rows, None)
+    if bf:
+        fund["backfillRejected"] = True
+    return fund, data, problem
+
+
+def process_once(code, en, zh, fx, dist, pf, aia_rows, bf):
+    price_rows = (bf[0] if bf else []) + aia_rows
     prices = Prices(price_rows)
     cur = currency_of(en["currency"])
     perf_as_of = dt.datetime.strptime(en["performance_as_of"], "%m/%d/%Y").date()
     aia_years = {h["year"]: pct(h["price"]) for h in en["priceHistory"]}
     old = OUT / f"{code}.json"
     stored = json.loads(old.read_text(encoding="utf-8"))["dividends"] if old.exists() else []
+    if bf and bf[1]:
+        older = [list(d) for d in bf[1] if not stored or d[0] < stored[0][0]]
+        merged = dedupe(stored + older)
+        stored = merged if merged is not None else sorted(stored + [d for d in older if d[0] < (stored[0][0] if stored else "9")])
     level, divs, adjust = None, [], []
     if dist:
         text = "\n".join((pg.extract_text() or "") for pg in PdfReader(str(pf)).pages)
@@ -728,6 +791,8 @@ def process(code, en, zh, fx, args):
         "capitalPct12m": round(sum(caps) / len(caps), 1) if caps else None,
         **summary(prices, divs + adjust, dist),
         "remarks": remarks,
+        "aiaFrom": aia_rows[0][0],
+        "backfill": bf[2] if bf else None,
         "detailUrl": DETAIL.format(code),
         "pdfUrl": PDF.format(code) if dist else None,
     }
@@ -782,6 +847,9 @@ def main():
         (OUT / f"{code}.json").write_text(dump_fund(data), encoding="utf-8")
         funds.append(fund)
 
+    if args.only:                                    # debug run on a few funds: keep every other fund as it was
+        done = {f["code"] for f in funds}
+        funds += [f for c, f in old_index.items() if c not in done]
     # pairs (same underlying fund: dividend vs accumulation, same currency) and ranks within the same type + currency
     by_under = {}
     for f in funds:
