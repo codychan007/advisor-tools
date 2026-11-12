@@ -379,6 +379,15 @@ def total_return(prices, divs, start, end, fx=None):
     return (p1 * units / p0 - 1) * 100
 
 
+def cash_return(prices, divs, start, end):
+    """% return when dividends are paid out in cash (not reinvested): (end price + cash received) / start price."""
+    p0, p1 = prices.on_or_before(start), prices.on_or_before(end)
+    if p0 is None or p1 is None:
+        return None
+    cash = sum(d[1] for d in divs if start < dt.date.fromisoformat(d[0]) <= end)
+    return ((p1 + cash) / p0 - 1) * 100
+
+
 def check_fund(prices, divs, aia_years, perf_as_of, fx=None):
     """Compare our calendar-year returns with AIA's. Only years fully covered by price + dividend data count."""
     if not divs:
@@ -488,6 +497,7 @@ def summary(prices, divs, dist):
     if dist:
         if not divs:
             return {**out, "dataFrom": None, "r1y": None, "r2y": None, "r3y": None, "r5y": None, "a3y": None, "a5y": None,
+                    "c1y": None, "c2y": None, "c3y": None, "c5y": None, "ca3y": None, "ca5y": None,
                     "pr1y": None, "vol": None, "mdd": None, "statsYears": None}
         gaps = sorted((dt.date.fromisoformat(b[0]) - dt.date.fromisoformat(a[0])).days for a, b in zip(divs, divs[1:]))
         step = gaps[len(gaps) // 2] if gaps else 30
@@ -502,6 +512,13 @@ def summary(prices, divs, dist):
         start = end - dt.timedelta(days=365 * years)
         out[key] = round(total_return(prices, divs, start, end), 2) if start >= data_from else None
     for key, src, years in (("a3y", "r3y", 3), ("a5y", "r5y", 5)):
+        out[key] = round(((1 + out[src] / 100) ** (1 / years) - 1) * 100, 2) if out[src] is not None else None
+    # 「收現金」計法（客人實際情況）：基金價值 + 已收現金息；累積基金冇現金派息，同上面一樣
+    for key, years in (("c1y", 1), ("c2y", 2), ("c3y", 3), ("c5y", 5)):
+        start = end - dt.timedelta(days=365 * years)
+        r = "r" + key[1:]
+        out[key] = (round(cash_return(prices, divs, start, end), 2) if start >= data_from else None) if dist else out[r]
+    for key, src, years in (("ca3y", "c3y", 3), ("ca5y", "c5y", 5)):
         out[key] = round(((1 + out[src] / 100) ** (1 / years) - 1) * 100, 2) if out[src] is not None else None
     s1 = end - dt.timedelta(days=365)
     out["pr1y"] = round((prices.on_or_before(end) / prices.on_or_before(s1) - 1) * 100, 2) if s1 >= prices.d[0] else None

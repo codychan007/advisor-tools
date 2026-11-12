@@ -49,6 +49,20 @@ for (const m of index.funds) {
   }
 }
 
+// --- 「收現金」計法：網頁 = 數據程式；走勢指數最後一點 = 收現金回報 ---
+for (const m of index.funds) {
+  for (const [key, yrs] of [["c1y", 1], ["c2y", 2], ["c3y", 3], ["c5y", 5]]) {
+    if (m[key] == null) continue;
+    const end = m.priceDate, start = F.addDays(end, -365 * yrs);
+    near(+F.cashReturn(data[m.code], start, end).toFixed(2), m[key], 0.011, `${m.code} ${key}`);
+  }
+  if (!m.dist) ok(m.c1y === m.r1y, `${m.code} 累積基金兩種計法應該一樣`);
+}
+for (const m of index.funds.filter(m => m.dist && m.c1y != null).slice(0, 15)) {
+  const start = F.addDays(m.priceDate, -365), ci = F.cashIndex(data[m.code], start);
+  near(ci[ci.length - 1][1] - 100, F.cashReturn(data[m.code], start, m.priceDate), 0.01, `${m.code} 收現金指數 = 收現金回報`);
+}
+
 // --- 總回報指數（比較圖用）最後一點 = 總回報 ---
 for (const m of index.funds.slice(0, 40)) {
   if (m.r1y == null) continue;

@@ -156,6 +156,8 @@
     mdd: { label: "最大跌幅", pct: 1, d: 1 }, rank3y: { label: "同類排名" }, verdict: { label: "派息 vs 回報" }, ops: { label: "" }
   };
   function fv(name) { var el = $("input[name=" + name + "]:checked"); return el ? el.value : ""; }
+  var CASH_KEY = { r1y: "c1y", r2y: "c2y", r3y: "c3y", r5y: "c5y", a3y: "ca3y", a5y: "ca5y" };
+  function key(c) { return fv("flcalc") === "cash" && CASH_KEY[c] ? CASH_KEY[c] : c; }   // 一覽用邊種計法
   function filtered() {
     var kind = fv("flkind"), asset = fv("flasset"), region = $("#flRegion").value, risk = $("#flRisk").value, cur = $("#flCur").value, house = $("#flHouse").value;
     return INDEX.funds.filter(function (m) {
@@ -171,13 +173,14 @@
   }
   function renderList() {
     var kind = fv("flkind"), cols = COLSETS[kind], rows = filtered();
+    $("#flCalcWrap").classList.toggle("hidden", kind === "acc");
     var val = function (m) {
       if (sortKey === "default") return (m.dist ? 0 : 1e6) + RISK_ORDER[m.risk] * 1000 - (m.dist ? (m.yieldNow || 0) : (m.a3y == null ? -999 : m.a3y));
       if (sortKey === "risk") return RISK_ORDER[m.risk];
       if (sortKey === "name") return m.house + m.name;
       if (sortKey === "verdict") return { good: 0, warn: 1, bad: 2, na: 3 }[F.verdict(m).level];
       if (sortKey === "rank3y") return m.rank3y ? m.rank3y[0] / m.rank3y[1] : null;
-      return m[sortKey];
+      return m[key(sortKey)];
     };
     rows.sort(function (a, b) {
       var x = val(a), y = val(b);
@@ -200,7 +203,7 @@
           var inCmp = CMP.indexOf(m.code) >= 0;
           return '<td class="fa-ops"><button type="button" class="btn ghost small' + (inCmp ? " on" : "") + '" data-cmpadd="' + m.code + '">' + (inCmp ? "✓ 比較" : "比較") + '</button><button type="button" class="btn ghost small" data-add="' + m.code + '" title="加入組合">＋</button></td>';
         }
-        var x = m[c];
+        var x = m[key(c)];
         if (c === "capitalPct12m" && x == null) return "<td></td>";
         return '<td class="' + (d.sign || c === "mdd" ? cls(x) : "") + '">' + F.pct(x, d.d == null ? 2 : d.d, d.sign) + "</td>";
       }).join("") + "</tr>";
@@ -243,9 +246,9 @@
       var earliest = CMP.reduce(function (d, c) { var f = META[c].dataFrom || META[c].launch; return f > d ? f : d; }, "1900-01-01");
       var start = cmpYears ? F.addDays(latest, -365 * cmpYears) : earliest, note = "";
       if (start < earliest) { note = "部分基金數據未夠 " + cmpYears + " 年，由 " + earliest + "（全部基金都有數據嗰日）開始計。"; start = earliest; }
-      var series = CMP.map(function (c, i) { return { name: c + " " + shortName(META[c]), color: COLORS[i], points: F.trIndex(CACHE[c], start, latest) }; });
+      var series = CMP.map(function (c, i) { return { name: c + " " + shortName(META[c]), color: COLORS[i], points: F.cashIndex(CACHE[c], start, latest) }; });
       var curs = CMP.map(function (c) { return META[c].currency; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
-      var h = '<p class="muted">' + start + " 至 " + latest + "（" + F.fmt(F.days(start, latest) / 365, 1) + " 年）· 起點 = 100 · 派息當再投資" + (curs.length > 1 ? " · 各基金以自己貨幣計" : "") + "</p>" +
+      var h = '<p class="muted">' + start + " 至 " + latest + "（" + F.fmt(F.days(start, latest) / 365, 1) + " 年）· 起點 = 100 · 基金價值 + 已收現金息" + (curs.length > 1 ? " · 各基金以自己貨幣計" : "") + "</p>" +
         (note ? '<p class="note">' + esc(note) + "</p>" : "") + lineChart(series, { baseline: 100, label: "基金比較", legend: 1, height: 300 });
       h += '<div class="table-wrap"><table class="fa-res"><thead><tr><th>基金</th><th>總回報</th><th>每年平均</th><th>波幅</th><th>最大跌幅</th><th>風險</th></tr></thead><tbody>' +
         series.map(function (s, i) {
@@ -302,7 +305,7 @@
       s.items.forEach(function (i) { addRow(META[i.code] ? i.code : "", i.weight); });
       if (s.amount) $("#pfAmt").value = s.amount;
       if (s.start) $("#pfStart").value = s.start;
-      var m = $("input[name=pfmode][value=" + (s.mode === "reinvest" ? "reinvest" : "cash") + "]"); if (m) m.checked = true;
+      var m = $("input[name=pfmode][value=" + (s.mode === "reinvest" && !$("#pfReinvestOpt").classList.contains("hidden") ? "reinvest" : "cash") + "]"); if (m) m.checked = true;
     } else { addRow("", 50); addRow("", 50); }
     updateSum();
     if (!$("#pfStart").value) setBack(2);
@@ -439,18 +442,18 @@
       h += '<div class="kpis">' +
         '<div class="kpi"><span>最新價格</span><b>' + F.fmt(m.price, 4) + "</b><small>" + m.priceDate + "</small></div>" +
         (m.dist ? '<div class="kpi"><span>年化派息率</span><b>' + F.pct(m.yieldNow) + "</b><small>" + (m.capitalPct12m != null ? "來自本金 " + F.pct(m.capitalPct12m, 0) : "按最近一次派息") + "</small></div>" : "") +
-        '<div class="kpi"><span>1 年總回報</span><b class="' + cls(m.r1y) + '">' + F.pct(m.r1y, 2, true) + "</b><small>" + (m.rank1y ? "同類第 " + m.rank1y[0] + " / " + m.rank1y[1] : "&nbsp;") + "</small></div>" +
+        '<div class="kpi"><span>1 年總回報</span><b class="' + cls(m.r1y) + '">' + F.pct(m.r1y, 2, true) + "</b><small>" + (m.dist ? "收現金計 " + F.pct(m.c1y, 2, true) : (m.rank1y ? "同類第 " + m.rank1y[0] + " / " + m.rank1y[1] : "&nbsp;")) + "</small></div>" +
         '<div class="kpi"><span>3 年（每年）</span><b class="' + cls(m.a3y) + '">' + F.pct(m.a3y, 2, true) + "</b><small>" + (m.rank3y ? "同類第 " + m.rank3y[0] + " / " + m.rank3y[1] : "總計 " + F.pct(m.r3y, 1, true)) + "</small></div>" +
         '<div class="kpi"><span>5 年（每年）</span><b class="' + cls(m.a5y) + '">' + F.pct(m.a5y, 2, true) + "</b><small>總計 " + F.pct(m.r5y, 1, true) + "</small></div>" +
         '<div class="kpi"><span>波幅 / 最大跌幅</span><b>' + F.pct(m.vol, 1) + ' / <span class="neg">' + F.pct(m.mdd, 1) + "</span></b><small>" + (m.statsYears ? "近 " + m.statsYears + " 年" : "未夠 1 年") + "</small></div>" +
         (m.dist ? '<div class="kpi"><span>派息 vs 回報</span><b style="font-size:1rem"><span class="fa-pill ' + F.verdict(m).level + '">' + F.verdict(m).text + "</span></b></div>" : "") + "</div>";
       var from = m.dataFrom || d.prices[0][0];
-      var tr = F.trIndex(d, from), p0 = F.onOrBefore(d.prices, from);
+      var tr = F.cashIndex(d, from), p0 = F.onOrBefore(d.prices, from);
       var priceLine = d.prices.filter(function (p) { return p[0] >= p0[0]; }), step = Math.max(1, Math.floor(priceLine.length / 400));
-      var lines = [{ name: "總回報（派息再投資，起點 = 100）", points: tr }];
+      var lines = [{ name: m.dist ? "總回報（基金價值 + 已收派息，起點 = 100）" : "總回報（起點 = 100）", points: tr }];
       if (m.dist || m.checkLevel === "adjusted") lines.push({ name: "只計價格", points: priceLine.filter(function (_, i) { return i % step === 0 || i === priceLine.length - 1; }).map(function (p) { return [p[0], p[1] / p0[1] * 100]; }) });
       h += "<h3>表現走勢（" + from + " 至今）</h3>" + lineChart(lines, { baseline: 100, label: "表現走勢", legend: 1 }) +
-        (m.dist ? '<p class="hint">派息基金每次派息之後價格會跌返派出嘅金額，所以要睇「總回報」先知真實表現。</p>' : "");
+        (m.dist ? '<p class="hint">派息以現金派發：派息之後價格會跌返派出嘅金額，所以要將已收嘅現金息加返先知真實表現。</p>' : "");
       // 同一隻基金嘅其他版本
       if (m.siblings && m.siblings.length) {
         var sib = [code].concat(m.siblings).map(function (c) { return META[c]; }).filter(Boolean);
@@ -466,7 +469,7 @@
       var years = Object.keys(m.aiaReturns).filter(function (y) { return m.aiaReturns[y] != null; }).sort(function (a, b) { return a === "YTD" ? 1 : b === "YTD" ? -1 : a - b; });
       if (years.length) {
         var chk = {}; (m.checks || []).forEach(function (c) { if ("aia" in c) chk[c.year] = c; });
-        h += "<h3>每年總回報（派息再投資）</h3><div class=\"table-wrap\"><table><thead><tr><th>年份</th><th>AIA 公佈</th><th>本工具計算</th></tr></thead><tbody>" +
+        h += "<h3>每年總回報（計法同 AIA 官網：派息再投資）</h3><div class=\"table-wrap\"><table><thead><tr><th>年份</th><th>AIA 公佈</th><th>本工具計算</th></tr></thead><tbody>" +
           years.map(function (y) {
             var c = chk[y];
             var ours = c ? (c.adjusted ? '<small>已按 AIA 調整（價格計 ' + F.pct(c.ours, 2, true) + "）</small>" : F.pct(c.ours, 2, true) + (c.ok ? " ✓" : " ⚠")) : "<small>未有完整數據</small>";
@@ -543,6 +546,7 @@
     });
     $$("input[name=flkind], input[name=flasset]").forEach(function (r) { r.addEventListener("change", function () { sortKey = "default"; sortDir = 1; refreshRegions(); renderList(); }); });
     ["#flRegion", "#flRisk", "#flCur", "#flHouse"].forEach(function (s) { $(s).addEventListener("change", renderList); });
+    $$("input[name=flcalc]").forEach(function (r) { r.addEventListener("change", renderList); });
     $("#listTable").addEventListener("click", function (e) {
       var th = e.target.closest("th[data-sort]");
       if (th) { var k = th.dataset.sort; if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = (k === "name" || k === "risk" || k === "verdict" || k === "rank3y" || k === "vol") ? 1 : -1; } renderList(); }

@@ -60,6 +60,41 @@
     return out;
   }
 
+  /* 「收現金」計法（同 build_funds.py cash_return）：(end 價格 + 期間收咗嘅現金息) ÷ start 價格 */
+  function cashReturn(fd, start, end) {
+    var p0 = onOrBefore(fd.prices, start), p1 = onOrBefore(fd.prices, end);
+    if (!p0 || !p1) return null;
+    var units = 1, cash = 0;
+    flows(fd).forEach(function (d) {
+      if (d.date > start && d.date <= end) {
+        if (d.kind === "d") cash += units * d.amt;
+        else { var n = after(fd.prices, d.date); if (n) units *= 1 + d.amt / n[1]; }
+      }
+    });
+    return ((p1[1] * units + cash) / p0[1] - 1) * 100;
+  }
+
+  /* 「基金價值 + 已收現金息」指數，start 嗰日 = 100（走勢圖同比較用）。派息收現金；基金內部派息調整照再投資 */
+  function cashIndex(fd, start, end) {
+    var i = Math.max(0, idx(fd.prices, start, true) - 1), fl = flows(fd), k = 0, units = 1, cash = 0, out = [];
+    var p0 = fd.prices[i];
+    while (k < fl.length && fl[k].date <= p0[0]) k++;
+    var span = days(p0[0], end || fd.prices[fd.prices.length - 1][0]), lastKept = null;
+    for (var j = i; j < fd.prices.length; j++) {
+      var p = fd.prices[j];
+      if (end && p[0] > end) break;
+      while (k < fl.length && fl[k].date < p[0]) {
+        if (fl[k].kind === "d") cash += units * fl[k].amt;
+        else { var n = after(fd.prices, fl[k].date); if (n) units *= 1 + fl[k].amt / n[1]; }
+        k++;
+      }
+      var v = (p[1] * units + cash) / p0[1] * 100;
+      var isLast = j === fd.prices.length - 1 || (end && fd.prices[j + 1][0] > end);
+      if (span <= 400 || !lastKept || days(lastKept, p[0]) >= 7 || isLast) { out.push([p[0], v]); lastKept = p[0]; }
+    }
+    return out;
+  }
+
   function annualise(pct, nDays) {
     if (pct == null || nDays < 30) return null;
     return (Math.pow(1 + pct / 100, 365 / nDays) - 1) * 100;
@@ -226,7 +261,7 @@
   }
 
   var api = { onOrBefore: onOrBefore, onOrAfter: onOrAfter, after: after, addDays: addDays, addYears: addYears, days: days,
-    totalReturn: totalReturn, trIndex: trIndex, flows: flows, annualise: annualise, runFund: runFund, backtest: backtest, check: check,
+    totalReturn: totalReturn, trIndex: trIndex, cashReturn: cashReturn, cashIndex: cashIndex, flows: flows, annualise: annualise, runFund: runFund, backtest: backtest, check: check,
     earliestStart: earliestStart, latestDate: latestDate, verdict: verdict, fmt: fmt, pct: pct };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.FundCalc = api;
 })(this);
