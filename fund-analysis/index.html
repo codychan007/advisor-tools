@@ -43,7 +43,7 @@
     </div>
     <div class="fa-calc" id="flCalcWrap">
       <span class="fa-lbl">回報計法</span>
-      <div class="seg"><label><input type="radio" name="flcalc" value="aia" checked><span>同 AIA 官網（派息再投資）</span></label><label><input type="radio" name="flcalc" value="cash"><span>本金增長 + 收現金</span></label></div>
+      <div class="seg"><label><input type="radio" name="flcalc" value="aia" checked><span>同 AIA 官網（股息再作投資計算）</span></label><label><input type="radio" name="flcalc" value="cash"><span>本金增長 + 收現金</span></label></div>
     </div>
     <div class="fa-filters">
       <label>地區<select id="flRegion"><option value="">全部</option></select></label>
@@ -57,7 +57,7 @@
       <summary><b>欄目點解讀</b></summary>
       <ul>
         <li><b>總回報</b>：價格升跌加埋派息。「3 年（每年）」= 近 3 年平均每年回報。</li>
-        <li><b>回報計法</b>：「同 AIA 官網」假設派出嘅息即刻買返同一隻基金（AIA 公佈基金表現都係咁計，方便對數）；「本金增長 + 收現金」= 基金價值變化加埋已收嘅現金息，最貼近「卓達智悅 2」派息基金實際以現金派發嘅情況。兩者通常相差唔大；累積基金唔派現金，兩種計法一樣。</li>
+        <li><b>回報計法</b>：「同 AIA 官網」= AIA 基金頁註明嘅「股息再作投資計算」，即假設派出嘅息即刻買返同一隻基金（方便同官網對數）；「本金增長 + 收現金」= 基金價值變化加埋已收嘅現金息，最貼近「卓達智悅 2」派息基金實際以現金派發嘅情況。兩者通常相差唔大；累積基金唔派現金，兩種計法一樣。</li>
         <li><b>波幅</b>：近 3 年價格上落有幾大（每年計）。數字越大，上落越劇烈：大約 5% 以下算穩定，15% 以上算大上大落。</li>
         <li><b>最大跌幅</b>：近 3 年由高位跌落低位最多跌咗幾多，即係最差嘅時候帳面蝕幾多。</li>
         <li><b>同類排名</b>：同一類別、同一貨幣嘅基金，按近 3 年總回報排名。</li>
@@ -133,6 +133,6 @@
 
 <script src="/assets/js/fundcalc.js?v=3"></script>
 <script src="/assets/js/fund-pdf.js?v=1"></script>
-<script src="/assets/js/fund-analysis.js?v=3" defer></script>
+<script src="/assets/js/fund-analysis.js?v=4" defer></script>
 </body>
 </html>

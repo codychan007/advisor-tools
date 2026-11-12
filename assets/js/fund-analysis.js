@@ -469,7 +469,7 @@
       var years = Object.keys(m.aiaReturns).filter(function (y) { return m.aiaReturns[y] != null; }).sort(function (a, b) { return a === "YTD" ? 1 : b === "YTD" ? -1 : a - b; });
       if (years.length) {
         var chk = {}; (m.checks || []).forEach(function (c) { if ("aia" in c) chk[c.year] = c; });
-        h += "<h3>每年總回報（計法同 AIA 官網：派息再投資）</h3><div class=\"table-wrap\"><table><thead><tr><th>年份</th><th>AIA 公佈</th><th>本工具計算</th></tr></thead><tbody>" +
+        h += "<h3>每年總回報（同 AIA 官網：股息再作投資計算）</h3><div class=\"table-wrap\"><table><thead><tr><th>年份</th><th>AIA 公佈</th><th>本工具計算</th></tr></thead><tbody>" +
           years.map(function (y) {
             var c = chk[y];
             var ours = c ? (c.adjusted ? '<small>已按 AIA 調整（價格計 ' + F.pct(c.ours, 2, true) + "）</small>" : F.pct(c.ours, 2, true) + (c.ok ? " ✓" : " ⚠")) : "<small>未有完整數據</small>";
