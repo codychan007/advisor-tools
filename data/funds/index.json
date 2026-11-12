@@ -2,7 +2,7 @@
  "plan": "「卓達智悅 2」",
  "planCode": "TMP2",
  "source": "AIA 香港官網（投資選擇價格、派息紀錄）",
- "built": "2026-11-13 01:10",
+ "built": "2026-11-13 01:23",
  "problems": [],
  "funds": [
   {
@@ -2017,15 +2017,34 @@
    "msRating": 1,
    "checks": [
     {
-     "year": "派息率核對",
-     "rows": 12,
+     "year": "2022",
+     "ours": -13.93,
+     "aia": -13.92,
+     "ok": true
+    },
+    {
+     "year": "2023",
+     "ours": -7.21,
+     "aia": -7.21,
+     "ok": true
+    },
+    {
+     "year": "2024",
+     "ours": 5.69,
+     "aia": 5.68,
+     "ok": true
+    },
+    {
+     "year": "2025",
+     "ours": 1.12,
+     "aia": 1.12,
      "ok": true
     }
    ],
    "checkOk": true,
-   "checkLevel": "yield",
-   "divFrom": "2025-09-30",
-   "divCount": 12,
+   "checkLevel": "aia",
+   "divFrom": "2021-10-08",
+   "divCount": 60,
    "latestDividend": [
     "2026-08-28",
     0.0364,
@@ -2033,34 +2052,44 @@
     0.0
    ],
    "capitalPct12m": 4.7,
-   "step": 30,
-   "dataFrom": "2025-09-03",
+   "step": 31,
+   "dataFrom": "2021-09-10",
    "yieldNow": 2.89,
    "r1y": 5.8,
-   "r2y": null,
-   "r3y": null,
-   "r5y": null,
-   "a3y": null,
-   "a5y": null,
+   "r2y": 7.56,
+   "r3y": 15.15,
+   "r5y": -8.48,
+   "a3y": 4.81,
+   "a5y": -1.76,
    "c1y": 5.71,
-   "c2y": null,
-   "c3y": null,
-   "c5y": null,
-   "ca3y": null,
-   "ca5y": null,
+   "c2y": 7.28,
+   "c3y": 14.42,
+   "c5y": -9.29,
+   "ca3y": 4.59,
+   "ca5y": -1.93,
    "pr1y": 3.21,
-   "vol": 3.56,
-   "mdd": -2.81,
-   "statsYears": 1.2,
+   "vol": 3.96,
+   "mdd": -4.42,
+   "statsYears": 3.0,
    "remarks": [],
    "aiaFrom": "2019-06-20",
-   "backfill": null,
+   "backfill": {
+    "source": "Ninety One 晉達（基金頁派息紀錄 CSV）",
+    "url": "https://ninetyone.com/en/hong-kong/funds-literature/funds/all-china-bond-a-inc-3-usd-lu1735825017",
+    "priceSource": null,
+    "fetched": "2026-11-13",
+    "lag": null
+   },
    "detailUrl": "https://www.aia.com.hk/zh-hk/help-and-support/individuals/investment-information/investment-options-prices/details.html?id=Z11&cat=TMP2&lang=zh",
    "pdfUrl": "https://www.aia.com.hk/content/dam/hk/en/pdf/dividend-composition-and-distribution-record/Z11.pdf",
    "siblings": [
     "Y02"
    ],
    "rank1y": [
+    2,
+    2
+   ],
+   "rank3y": [
     2,
     2
    ]
@@ -3097,6 +3126,18 @@
    "msRating": null,
    "checks": [
     {
+     "year": "2022",
+     "ours": -25.47,
+     "aia": -25.6,
+     "ok": true
+    },
+    {
+     "year": "2023",
+     "ours": -2.05,
+     "aia": -1.96,
+     "ok": true
+    },
+    {
      "year": "2024",
      "ours": 5.34,
      "aia": 4.98,
@@ -3111,8 +3152,8 @@
    ],
    "checkOk": true,
    "checkLevel": "aia",
-   "divFrom": "2023-08-31",
-   "divCount": 37,
+   "divFrom": "2021-11-30",
+   "divCount": 58,
    "latestDividend": [
     "2026-08-28",
     0.0236,
@@ -3121,20 +3162,20 @@
    ],
    "capitalPct12m": 100.0,
    "step": 30,
-   "dataFrom": "2023-08-18",
+   "dataFrom": "2021-11-03",
    "yieldNow": 2.65,
    "r1y": 2.42,
    "r2y": 27.69,
    "r3y": 49.29,
-   "r5y": null,
+   "r5y": 14.16,
    "a3y": 14.29,
-   "a5y": null,
+   "a5y": 2.68,
    "c1y": 2.53,
    "c2y": 27.05,
    "c3y": 47.12,
-   "c5y": null,
+   "c5y": 9.59,
    "ca3y": 13.73,
-   "ca5y": null,
+   "ca5y": 1.85,
    "pr1y": 0.1,
    "vol": 14.63,
    "mdd": -16.68,
@@ -3142,11 +3183,12 @@
    "remarks": [],
    "aiaFrom": "2023-08-18",
    "backfill": {
-    "source": "Value Partners 惠理（每月基金單張 vphy_fact_sheet）",
-    "url": "https://www.valuepartners-group.com/ftp/files/reports/vphy/001_fact_sheet/eng/",
-    "priceSource": null,
+    "source": "Value Partners 惠理（官網歷史價格；派息：每月基金單張）",
+    "url": "https://www.valuepartners-group.com/en/investment-solutions/institutional-funds/value-partners-high-dividend-stocks-fund/",
+    "priceSource": "Value Partners 惠理（官網歷史價格；派息：每月基金單張）",
     "fetched": "2026-11-13",
-    "lag": null
+    "lag": 0,
+    "overlapDiff": 0.0
    },
    "detailUrl": "https://www.aia.com.hk/zh-hk/help-and-support/individuals/investment-information/investment-options-prices/details.html?id=Z21&cat=TMP2&lang=zh",
    "pdfUrl": "https://www.aia.com.hk/content/dam/hk/en/pdf/dividend-composition-and-distribution-record/Z21.pdf",
@@ -3188,6 +3230,24 @@
    "msRating": null,
    "checks": [
     {
+     "year": "2021",
+     "ours": 3.75,
+     "aia": 3.45,
+     "ok": true
+    },
+    {
+     "year": "2022",
+     "ours": -22.77,
+     "aia": -23.1,
+     "ok": true
+    },
+    {
+     "year": "2023",
+     "ours": -11.09,
+     "aia": -10.25,
+     "ok": true
+    },
+    {
      "year": "2024",
      "ours": 6.52,
      "aia": 6.34,
@@ -3202,8 +3262,8 @@
    ],
    "checkOk": true,
    "checkLevel": "aia",
-   "divFrom": "2023-08-31",
-   "divCount": 36,
+   "divFrom": "2018-09-28",
+   "divCount": 95,
    "latestDividend": [
     "2026-08-31",
     0.0395,
@@ -3212,27 +3272,34 @@
    ],
    "capitalPct12m": 0.0,
    "step": 31,
-   "dataFrom": "2023-08-18",
+   "dataFrom": "2018-09-03",
    "yieldNow": 5.56,
    "r1y": -13.51,
    "r2y": 1.11,
    "r3y": 14.79,
-   "r5y": null,
+   "r5y": -11.89,
    "a3y": 4.71,
-   "a5y": null,
+   "a5y": -2.5,
    "c1y": -13.13,
    "c2y": 1.56,
    "c3y": 15.15,
-   "c5y": null,
+   "c5y": -11.41,
    "ca3y": 4.81,
-   "ca5y": null,
+   "ca5y": -2.39,
    "pr1y": -17.73,
    "vol": 13.83,
    "mdd": -18.74,
    "statsYears": 3.0,
    "remarks": [],
    "aiaFrom": "2023-08-18",
-   "backfill": null,
+   "backfill": {
+    "source": "jpm",
+    "url": "https://am.jpmorgan.com/hk/en/asset-management/per/products/hk0000302346",
+    "priceSource": "jpm",
+    "fetched": "2026-11-13",
+    "lag": 0,
+    "overlapDiff": 0.0
+   },
    "detailUrl": "https://www.aia.com.hk/zh-hk/help-and-support/individuals/investment-information/investment-options-prices/details.html?id=Z24&cat=TMP2&lang=zh",
    "pdfUrl": "https://www.aia.com.hk/content/dam/hk/en/pdf/dividend-composition-and-distribution-record/Z24.pdf",
    "siblings": [],
@@ -12062,7 +12129,7 @@
    ],
    "rank3y": [
     1,
-    1
+    2
    ]
   },
   {

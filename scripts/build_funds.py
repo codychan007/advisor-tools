@@ -694,7 +694,7 @@ def load_backfill(code, aia_rows):
         exact = sum(1 for x in diffs if x < 0.0006)
         if diffs and (best is None or exact > best[0]):
             best = (exact, lag, shifted, diffs)
-    if not best or len(best[3]) < 20:
+    if not best or len(best[3]) < 8:
         print(f"    {code}: backfill has too little overlap with AIA prices - not used")
         return None
     _, lag, shifted, overlap = best

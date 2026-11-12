@@ -41,6 +41,7 @@ SOURCES = {
     "ZP4": ("ft", "601227992"), "Z23": ("ft", "535661272"), "Z32": ("ft", "572024858"),
     "PC4": ("ft", "58460171"), "M13": ("ft", "6178977"), "W06": ("ft", "540312261"), "W07": ("ft", "538765309"),
     "I17": ("ft", "9254745"), "CG9": ("ft", "535693982"), "D18": ("ft", "535630791"), "M15": ("ft", "6178973"),
+    "Z24": ("jpm", "HK0000302346"),
     "U06": ("ft", "92774525"), "X15": ("ft", "121434802"), "M23": ("ft", "988155295"), "P29": ("ft", "627178786"),
 }
 
@@ -89,6 +90,21 @@ def allianz(seo):
     prices = sorted([dmy(x["date"]), float(x["nav"])] for x in p)
     divs = sorted([dmy(x["ExDividendDate"]), float(x["DistReinvestPerUnit"].split()[-1]), None, None] for x in d)
     return url, prices, divs
+
+
+def jpm(isin):
+    """J.P. Morgan AM Hong Kong: 'Historical price' tab download (Excel), daily NAV."""
+    import io
+    import openpyxl
+    url = f"https://am.jpmorgan.com/hk/en/asset-management/per/products/{isin.lower()}"
+    req = urllib.request.Request(f"https://am.jpmorgan.com/FundsMarketingHandler/excel?type=historicalNav&cusip={isin}&country=hk&role=per&locale=en-HK&fromDate=2016-01-01&toDate={dt.date.today().isoformat()}", headers=UA)
+    with urllib.request.urlopen(req, timeout=120) as r:
+        wb = openpyxl.load_workbook(io.BytesIO(r.read()), read_only=True)
+    prices = []
+    for row in wb.active.iter_rows(values_only=True):
+        if row and isinstance(row[0], str) and re.match(r"\d{2}/\d{2}/\d{4}$", row[0]) and row[1]:
+            prices.append([dt.datetime.strptime(row[0], "%d/%m/%Y").date().isoformat(), float(row[1])])
+    return url, sorted(prices), []
 
 
 def ft(xid, start="2016-01-01"):
@@ -140,7 +156,7 @@ def main():
     index = {f["code"]: f for f in json.loads((ROOT / "data/funds/index.json").read_text(encoding="utf-8"))["funds"]}
     for code in codes:
         src, sid = SOURCES[code]
-        url, prices, divs = {"blackrock": blackrock, "allianz": allianz, "ft": ft}[src](sid)
+        url, prices, divs = {"blackrock": blackrock, "allianz": allianz, "jpm": jpm, "ft": ft}[src](sid)
         data = {"code": code, "isin": index[code]["isin"], "source": src, "url": url, "fetched": dt.date.today().isoformat(),
                 "prices": prices, "dividends": divs}
         (OUT / f"{code}.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
