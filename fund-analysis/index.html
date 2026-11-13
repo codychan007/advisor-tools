@@ -7,7 +7,7 @@
 <title>基金分析 – TC Team專屬AI工具箱</title>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/css/style.css?v=3">
-<link rel="stylesheet" href="/assets/css/fund.css?v=4">
+<link rel="stylesheet" href="/assets/css/fund.css?v=5">
 </head>
 <body>
 <header class="site-header"><div class="wrap bar">
@@ -71,14 +71,11 @@
 
   <!-- 比較 -->
   <section class="card fa-pane hidden" id="tab-cmp">
-    <p class="muted" style="margin-top:0">揀最多 4 隻基金，由同一日開始計（= 100），計「基金價值 + 已收現金息」，睇邊隻跑贏。可以喺「基金一覽」撳「比較」加入。</p>
+    <p class="muted" style="margin-top:0">揀最多 4 隻基金，由同一日開始計（= 100），計「基金價值 + 已收現金息」，睇邊隻跑贏；揀 3／7／14／30 日可以睇吓而家係近期高位定低位。可以喺「基金一覽」撳「比較」加入。</p>
     <div id="cmpRows" class="fa-rows"></div>
     <div class="fa-start" style="margin-top:12px">
       <span class="fa-lbl">期間</span>
-      <button type="button" class="btn ghost small" data-cmp="1">1 年</button>
-      <button type="button" class="btn ghost small" data-cmp="3">3 年</button>
-      <button type="button" class="btn ghost small" data-cmp="5">5 年</button>
-      <button type="button" class="btn ghost small" data-cmp="0">最長</button>
+      <span id="cmpPeriods" class="fa-periods"></span>
     </div>
     <div id="cmpResult" style="margin-top:12px"></div>
   </section>
@@ -133,6 +130,6 @@
 
 <script src="/assets/js/fundcalc.js?v=3"></script>
 <script src="/assets/js/fund-pdf.js?v=1"></script>
-<script src="/assets/js/fund-analysis.js?v=6" defer></script>
+<script src="/assets/js/fund-analysis.js?v=7" defer></script>
 </body>
 </html>

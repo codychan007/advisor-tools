@@ -84,8 +84,11 @@
     return F.fmt(v, a >= 10 ? 1 : 2);
   }
   function text(x, y, s, anchor, size) { return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + anchor + '" font-size="' + size + '" fill="' + INK.text + '" font-family="sans-serif">' + s + "</text>"; }
+  /* 走勢圖：滑鼠／手指移到邊日就顯示嗰日嘅數字（好似 AIA 官網咁） */
+  var CHARTS = {}, chartSeq = 0;
   function lineChart(series, opt) {
     opt = opt || {};
+    var cid = "c" + (++chartSeq);
     var big = opt.big, fs = big ? 16 : 11;
     var W = 640, H = opt.height || 260, L = big ? 64 : 54, R = 12, T = 12, B = big ? 34 : 30;
     var pts = [].concat.apply([], series.map(function (s) { return s.points; }));
@@ -98,6 +101,7 @@
     var y = function (v) { return T + (1 - (v - y0) / (y1 - y0)) * (H - T - B); };
     var g = ['<svg class="fa-chart" viewBox="0 0 ' + W + " " + H + '" width="' + W + '" height="' + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="' + esc(opt.label || "走勢圖") + '">',
       '<rect x="0" y="0" width="' + W + '" height="' + H + '" fill="#ffffff"/>'];
+    var dayTicks = (t1 - t0) / 864e5 <= 45;      // 短時段：x 軸標日子
     ticks.forEach(function (v) {
       g.push('<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="' + INK.grid + '" stroke-width="1"/>');
       g.push(text(L - 6, y(v) + fs / 3, shortNum(v), "end", fs));
@@ -109,8 +113,18 @@
       g.push(text(mx + 4, T + fs, esc(opt.marker.label), "start", fs));
     }
     var spanDays = (t1 - t0) / 864e5, months = spanDays > 1500 ? null : spanDays > 900 ? [1] : spanDays > 300 ? [1, 4, 7, 10] : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    if (dayTicks) {
+      var dates = series[0].points.map(function (p) { return p[0]; });
+      var every = Math.max(1, Math.ceil(dates.length / 7));
+      dates.forEach(function (dd, k) {
+        if (k % every && k !== dates.length - 1) return;
+        var xx = x(dd);
+        g.push('<line x1="' + xx + '" x2="' + xx + '" y1="' + (H - B) + '" y2="' + (H - B + 4) + '" stroke="' + INK.axis + '"/>');
+        g.push(text(xx, H - B + fs + 5, (+dd.slice(5, 7)) + "/" + (+dd.slice(8)), "middle", fs));
+      });
+    }
     var d = new Date(t0); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() + 1);
-    while (d.getTime() <= t1) {
+    while (!dayTicks && d.getTime() <= t1) {
       var m = d.getUTCMonth() + 1, yr = d.getUTCFullYear();
       var show = months ? months.indexOf(m) >= 0 : (m === 1 && (yr % (spanDays > 3000 ? 2 : 1) === 0));
       if (show) {
@@ -124,10 +138,84 @@
     series.forEach(function (s, i) {
       g.push('<path fill="none" stroke="' + (s.color || COLORS[i % 4]) + '" stroke-width="' + (big ? 3 : 2.2) + '" stroke-linejoin="round" d="' +
         s.points.map(function (p, k) { return (k ? "L" : "M") + x(p[0]).toFixed(1) + " " + y(p[1]).toFixed(1); }).join("") + '"/>');
+      if (s.points.length <= 40 && !big) s.points.forEach(function (p) {   // 短時段：每日一點
+        g.push('<circle cx="' + x(p[0]).toFixed(1) + '" cy="' + y(p[1]).toFixed(1) + '" r="2.6" fill="' + (s.color || COLORS[i % 4]) + '"/>');
+      });
     });
+    if (!big) {
+      g.push('<line class="fa-guide" x1="0" x2="0" y1="' + T + '" y2="' + (H - B) + '" stroke="#857B70" stroke-width="1" visibility="hidden"/>');
+      series.forEach(function (s, i) { g.push('<circle class="fa-hdot" r="4.5" fill="#fff" stroke="' + (s.color || COLORS[i % 4]) + '" stroke-width="2.5" visibility="hidden"/>'); });
+    }
     g.push("</svg>");
     var legend = series.length > 1 || opt.legend ? '<div class="fa-legend">' + series.map(function (s, i) { return '<span><i style="background:' + (s.color || COLORS[i % 4]) + '"></i>' + esc(s.name) + "</span>"; }).join("") + "</div>" : "";
-    return legend + g.join("");
+    if (big) return legend + g.join("");
+    CHARTS[cid] = { series: series.map(function (s) { return { name: s.name, color: s.color, tip: s.tip, points: s.points, ms: s.points.map(function (p) { return Date.parse(p[0]); }) }; }),
+      t0: t0, t1: t1, W: W, L: L, R: R, x: x, y: y };
+    return legend + '<div class="fa-chartwrap" data-cid="' + cid + '">' + g.join("") + '<div class="fa-tip" hidden></div></div>';
+  }
+  function nearest(ms, t) {
+    var lo = 0, hi = ms.length - 1;
+    while (lo < hi) { var mid = (lo + hi) >> 1; if (ms[mid] < t) lo = mid + 1; else hi = mid; }
+    return lo > 0 && Math.abs(ms[lo - 1] - t) < Math.abs(ms[lo] - t) ? lo - 1 : lo;
+  }
+  function chartHover(e) {
+    var wrap = e.target.closest && e.target.closest(".fa-chartwrap");
+    if (!wrap) return;
+    var c = CHARTS[wrap.dataset.cid], svg = wrap.querySelector("svg"), tip = wrap.querySelector(".fa-tip");
+    if (!c) return;
+    var r = svg.getBoundingClientRect(), pt = e.touches ? e.touches[0] : e;
+    var sx = (pt.clientX - r.left) * c.W / r.width;
+    if (sx < c.L - 4 || sx > c.W - c.R + 4) { chartLeave(wrap); return; }
+    var t = c.t0 + (Math.min(Math.max(sx, c.L), c.W - c.R) - c.L) / (c.W - c.L - c.R) * (c.t1 - c.t0);
+    var guide = svg.querySelector(".fa-guide"), dots = svg.querySelectorAll(".fa-hdot"), rows = [], gx = null, date = null;
+    c.series.forEach(function (s, i) {
+      if (!s.points.length) return;
+      var k = nearest(s.ms, t), p = s.points[k];
+      if (gx === null) { gx = c.x(p[0]); date = p[0]; }
+      dots[i].setAttribute("cx", c.x(p[0])); dots[i].setAttribute("cy", c.y(p[1])); dots[i].setAttribute("visibility", "visible");
+      rows.push('<div><i style="background:' + (s.color || COLORS[i % 4]) + '"></i>' + (s.tip ? s.tip(p) : esc(s.name) + "：" + F.fmt(p[1], 2)) + "</div>");
+    });
+    guide.setAttribute("x1", gx); guide.setAttribute("x2", gx); guide.setAttribute("visibility", "visible");
+    tip.innerHTML = "<b>" + date + "</b>" + rows.join("");
+    tip.hidden = false;
+    var px = gx / c.W * r.width, wr = wrap.getBoundingClientRect();
+    tip.style.left = (px > wr.width * 0.55 ? Math.max(0, px - tip.offsetWidth - 12) : px + 12) + "px";
+  }
+  function chartLeave(wrap) {
+    if (!wrap) return;
+    var tip = wrap.querySelector(".fa-tip"); if (tip) tip.hidden = true;
+    $$(".fa-guide, .fa-hdot", wrap).forEach(function (el) { el.setAttribute("visibility", "hidden"); });
+  }
+
+  /* 時段：d3/d7/d14/d30 = 最近 N 個交易日；m6 = 6 個月；y1/y3/y5 = N 年；max = 最長 */
+  var PERIODS = [["d3", "3 日"], ["d7", "7 日"], ["d14", "14 日"], ["d30", "30 日"], ["m6", "6 個月"], ["y1", "1 年"], ["y3", "3 年"], ["y5", "5 年"], ["max", "最長"]];
+  function periodStart(key, prices, latest, earliest) {
+    if (key.charAt(0) === "d") {
+      var n = +key.slice(1), i = prices.length - 1;
+      while (i > 0 && prices[i][0] > latest) i--;
+      return prices[Math.max(0, i - n)][0];
+    }
+    if (key === "m6") return F.addDays(latest, -182);
+    if (key.charAt(0) === "y") return F.addDays(latest, -365 * +key.slice(1));
+    return earliest;
+  }
+  function periodName(key) { var p = PERIODS.find(function (x) { return x[0] === key; }); return p ? p[1] : key; }
+  function periodButtons(attr, cur) {
+    return PERIODS.map(function (p) { return '<button type="button" class="btn ghost small' + (p[0] === cur ? " on" : "") + '" ' + attr + '="' + p[0] + '">' + p[1] + "</button>"; }).join("");
+  }
+  /* 而家喺期內最高／最低之間嘅位置：0% = 最低，100% = 最高 */
+  function position(points) {
+    if (!points || points.length < 2) return null;
+    var lo = Infinity, hi = -Infinity, loD = null, hiD = null;
+    points.forEach(function (p) { if (p[1] < lo) { lo = p[1]; loD = p[0]; } if (p[1] > hi) { hi = p[1]; hiD = p[0]; } });
+    var last = points[points.length - 1][1];
+    var pos = hi > lo ? (last - lo) / (hi - lo) * 100 : 50;
+    return { lo: lo, hi: hi, loD: loD, hiD: hiD, last: last, pos: pos, first: points[0][1] };
+  }
+  function posTag(pos) {
+    if (pos == null) return "—";
+    var t = pos <= 25 ? ["low", "近期低位"] : pos >= 75 ? ["high", "近期高位"] : ["mid", "中間位置"];
+    return '<span class="fa-pos ' + t[0] + '"><span class="fa-posbar"><i style="left:' + Math.max(0, Math.min(100, pos)).toFixed(0) + '%"></i></span>' + F.fmt(pos, 0) + "%｜" + t[1] + "</span>";
   }
   function barChart(rows, cur, big) {
     var fs = big ? 16 : 11, W = 640, H = 200, L = big ? 64 : 54, R = 12, T = 12, B = big ? 34 : 30;
@@ -246,7 +334,7 @@
   }
 
   /* ---------------- 比較 ---------------- */
-  var CMP = [], cmpYears = 3;
+  var CMP = [], cmpPeriod = "y3";
   function fundSelect(selected, filterCur, cls) {
     var groups = [];
     var add = function (label, list) { if (list.length) groups.push('<optgroup label="' + label + '">' + list.map(function (m) {
@@ -257,7 +345,7 @@
     Object.keys(ASSET_NAME).forEach(function (a) { add("累積基金 · " + ASSET_NAME[a], pool.filter(function (m) { return !m.dist && m.asset === a; })); });
     return '<select class="' + cls + '" aria-label="基金"><option value="">請揀基金</option>' + groups.join("") + "</select>";
   }
-  function saveCmp() { store(CMP_STORE, { codes: CMP, years: cmpYears }); updateCmpBadge(); }
+  function saveCmp() { store(CMP_STORE, { codes: CMP, period: cmpPeriod }); updateCmpBadge(); }
   function updateCmpBadge() { var b = $("#cmpCount"); b.textContent = CMP.length; b.classList.toggle("hidden", !CMP.length); }
   function toggleCompare(code) {
     var i = CMP.indexOf(code);
@@ -271,18 +359,38 @@
     }).join("");
     if (CMP.length < 4) rows += '<div class="fa-row fa-cmprow"><i class="fa-dot" style="background:#ccc"></i>' + fundSelect("", null, "cmp-code") + "<span></span></div>";
     $("#cmpRows").innerHTML = rows;
-    $$("[data-cmp]").forEach(function (b) { b.classList.toggle("on", +b.dataset.cmp === cmpYears); });
+    $("#cmpPeriods").innerHTML = periodButtons("data-cmp", cmpPeriod);
     if (!CMP.length) { $("#cmpResult").innerHTML = '<p class="muted">未揀基金。</p>'; return; }
     $("#cmpResult").innerHTML = '<p class="muted">計緊…</p>';
     Promise.all(CMP.map(load)).then(function () {
       var latest = CMP.reduce(function (d, c) { var p = META[c].priceDate; return !d || p < d ? p : d; }, null);
       var earliest = CMP.reduce(function (d, c) { var f = META[c].dataFrom || META[c].launch; return f > d ? f : d; }, "1900-01-01");
-      var start = cmpYears ? F.addDays(latest, -365 * cmpYears) : earliest, note = "";
-      if (start < earliest) { note = "部分基金數據未夠 " + cmpYears + " 年，由 " + earliest + "（全部基金都有數據嗰日）開始計。"; start = earliest; }
-      var series = CMP.map(function (c, i) { return { name: c + " " + shortName(META[c]), color: COLORS[i], points: F.cashIndex(CACHE[c], start, latest) }; });
+      var short = cmpPeriod.charAt(0) === "d";
+      var start = periodStart(cmpPeriod, CACHE[CMP[0]].prices, latest, earliest), note = "";
+      if (start < earliest) { note = "部分基金數據未夠" + periodName(cmpPeriod) + "，由 " + earliest + "（全部基金都有數據嗰日）開始計。"; start = earliest; }
+      var series = CMP.map(function (c, i) {
+        var fd = CACHE[c];
+        return { name: c + " " + shortName(META[c]), color: COLORS[i], points: F.cashIndex(fd, start, latest),
+          tip: function (p) { var pr = F.onOrBefore(fd.prices, p[0]); return c + "：價格 " + (pr ? F.fmt(pr[1], 4) : "—") + "（" + F.pct(p[1] - 100, 2, true) + "）"; } };
+      });
       var curs = CMP.map(function (c) { return META[c].currency; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
-      var h = '<p class="muted">' + start + " 至 " + latest + "（" + F.fmt(F.days(start, latest) / 365, 1) + " 年）· 起點 = 100 · 基金價值 + 已收現金息" + (curs.length > 1 ? " · 各基金以自己貨幣計" : "") + "</p>" +
-        (note ? '<p class="note">' + esc(note) + "</p>" : "") + lineChart(series, { baseline: 100, label: "基金比較", legend: 1, height: 300 });
+      var span = short ? "最近 " + cmpPeriod.slice(1) + " 個交易日" : F.fmt(F.days(start, latest) / 365, 1) + " 年";
+      var h = '<p class="muted">' + start + " 至 " + latest + "（" + span + "）· 起點 = 100 · 基金價值 + 已收現金息" + (curs.length > 1 ? " · 各基金以自己貨幣計" : "") + "</p>" +
+        (note ? '<p class="note">' + esc(note) + "</p>" : "") + lineChart(series, { baseline: 100, label: "基金比較", legend: 1, height: 300 }) +
+        '<p class="hint">滑鼠移到圖上（手機用手指撳住拉）會顯示嗰日嘅價格。</p>';
+      // 入市時機參考：而家喺期內／近 1 年最高同最低之間嘅位置
+      h += "<h3>而家係高位定低位？</h3><div class=\"table-wrap\"><table class=\"fa-res\"><thead><tr><th>基金</th><th>最新價格</th><th>期內升跌</th><th>期內最低／最高</th><th>期內位置</th><th>近 1 年位置</th></tr></thead><tbody>" +
+        series.map(function (s, i) {
+          var m = META[CMP[i]], fd = CACHE[CMP[i]], ps = position(s.points);
+          var y1 = position(F.cashIndex(fd, F.addDays(latest, -365), latest)), last = F.onOrBefore(fd.prices, latest);
+          var y1ok = (m.dataFrom || m.launch) <= F.addDays(latest, -365);
+          return '<tr><td class="fa-name"><i class="fa-dot" style="background:' + COLORS[i] + '"></i> ' + esc(shortName(m)) + "<small>" + m.code + "</small></td>" +
+            "<td>" + F.fmt(last[1], 4) + "<small>" + last[0] + "</small></td>" +
+            '<td class="' + cls(ps.last - 100) + '">' + F.pct(ps.last - 100, 2, true) + "</td>" +
+            "<td>" + F.pct(ps.lo - 100, 2, true) + " ／ " + F.pct(ps.hi - 100, 2, true) + "<small>" + ps.loD + " ／ " + ps.hiD + "</small></td>" +
+            "<td>" + posTag(ps.pos) + "</td><td>" + (y1ok && y1 ? posTag(y1.pos) : "<small>未夠 1 年</small>") + "</td></tr>";
+        }).join("") + "</tbody></table></div>" +
+        '<p class="hint">位置 0% = 期內最低、100% = 期內最高（已計派息，除息日價格下跌唔會當成低位）。只係反映過往價格喺區間嘅位置，唔代表之後會升定跌。</p>';
       var srcs = CMP.filter(function (c) { return preSource(META[c]) && (META[c].aiaFrom > start); }).map(function (c) { return preNote(META[c]); });
       if (srcs.length) h += '<p class="hint">' + srcs.map(esc).join("<br>") + "</p>";
       h += '<div class="table-wrap"><table class="fa-res"><thead><tr><th>基金</th><th>總回報</th><th>每年平均</th><th>波幅</th><th>最大跌幅</th><th>風險</th></tr></thead><tbody>' +
@@ -485,15 +593,7 @@
         '<div class="kpi"><span>5 年（每年）</span><b class="' + cls(m.a5y) + '">' + F.pct(m.a5y, 2, true) + "</b><small>總計 " + F.pct(m.r5y, 1, true) + "</small></div>" +
         '<div class="kpi"><span>波幅 / 最大跌幅</span><b>' + F.pct(m.vol, 1) + ' / <span class="neg">' + F.pct(m.mdd, 1) + "</span></b><small>" + (m.statsYears ? "近 " + m.statsYears + " 年" : "未夠 1 年") + "</small></div>" +
         (m.dist ? '<div class="kpi"><span>派息 vs 回報</span><b style="font-size:1rem"><span class="fa-pill ' + F.verdict(m).level + '">' + F.verdict(m).text + "</span></b></div>" : "") + "</div>";
-      var from = m.dataFrom || d.prices[0][0];
-      var tr = F.cashIndex(d, from), p0 = F.onOrBefore(d.prices, from);
-      var priceLine = d.prices.filter(function (p) { return p[0] >= p0[0]; }), step = Math.max(1, Math.floor(priceLine.length / 400));
-      var lines = [{ name: m.dist ? "總回報（基金價值 + 已收派息，起點 = 100）" : "總回報（起點 = 100）", points: tr }];
-      if (m.dist || m.checkLevel === "adjusted") lines.push({ name: "只計價格", points: priceLine.filter(function (_, i) { return i % step === 0 || i === priceLine.length - 1; }).map(function (p) { return [p[0], p[1] / p0[1] * 100]; }) });
-      var mk = preSource(m) && preSource(m).prices ? { date: m.aiaFrom, label: "AIA 上架" } : null;
-      h += "<h3>表現走勢（" + from + " 至今）</h3>" + lineChart(lines, { baseline: 100, label: "表現走勢", legend: 1, marker: mk }) +
-        (mk ? '<p class="hint">紅色虛線 = AIA 上架日；之前嘅數據來自基金公司／FT。</p>' : "") +
-        (m.dist ? '<p class="hint">派息以現金派發：派息之後價格會跌返派出嘅金額，所以要將已收嘅現金息加返先知真實表現。</p>' : "");
+      h += '<h3>價格同表現走勢</h3><div class="fa-start fa-periods" id="fdPeriods">' + periodButtons("data-fdp", fdPeriod) + '</div><div id="fdChart"></div>';
       // 同一隻基金嘅其他版本
       if (m.siblings && m.siblings.length) {
         var sib = [code].concat(m.siblings).map(function (c) { return META[c]; }).filter(Boolean);
@@ -532,7 +632,48 @@
       }
       h += '<div class="actions"><button type="button" class="btn ghost" data-cmpadd="' + m.code + '">' + (CMP.indexOf(m.code) >= 0 ? "✓ 已加入比較" : "加入比較") + '</button><button type="button" class="btn ghost" data-add="' + m.code + '">＋ 加入組合</button></div>';
       $("#fdBody").innerHTML = h;
+      renderFundChart(m, d);
     }).catch(function () { $("#fdBody").innerHTML = '<p class="note bad">載入失敗，請重新整理頁面。</p>'; });
+  }
+
+  var fdPeriod = "max";
+  function renderFundChart(m, d) {
+    var latest = d.prices[d.prices.length - 1][0], earliest = m.dataFrom || d.prices[0][0];
+    var start = periodStart(fdPeriod, d.prices, latest, earliest), note = "";
+    if (start < (d.prices[0][0])) start = d.prices[0][0];
+    if (fdPeriod !== "max" && start < earliest && fdPeriod.charAt(0) !== "d") { note = "數據只由 " + earliest + " 開始。"; start = earliest; }
+    var short = fdPeriod.charAt(0) === "d" || fdPeriod === "m6";
+    var priceTip = function (p) { return "價格 " + F.fmt(p[1], 4); };
+    var h = "";
+    if (short) {
+      // 好似 AIA 官網：直接睇價格（買入價 = 賣出價）
+      var pts = d.prices.filter(function (p) { return p[0] >= start && p[0] <= latest; }).map(function (p) { return [p[0], p[1]]; });
+      var ps = position(pts);
+      var exd = d.dividends.filter(function (x) { return x[0] >= start && x[0] <= latest; });
+      h += lineChart([{ name: "價格（" + (CUR_NAME[m.currency] || m.currency) + "）", points: pts, tip: priceTip }], { label: "價格走勢", height: 240 }) +
+        '<div class="kpis">' +
+        '<div class="kpi"><span>最新價格</span><b>' + F.fmt(ps.last, 4) + "</b><small>" + latest + "</small></div>" +
+        '<div class="kpi"><span>期內升跌</span><b class="' + cls(ps.last - ps.first) + '">' + F.pct((ps.last / ps.first - 1) * 100, 2, true) + "</b><small>" + start + " 起</small></div>" +
+        '<div class="kpi"><span>期內最低</span><b>' + F.fmt(ps.lo, 4) + "</b><small>" + ps.loD + "</small></div>" +
+        '<div class="kpi"><span>期內最高</span><b>' + F.fmt(ps.hi, 4) + "</b><small>" + ps.hiD + "</small></div>" +
+        '<div class="kpi"><span>而家位置</span><b style="font-size:1rem">' + posTag(ps.pos) + "</b></div></div>" +
+        (exd.length ? '<p class="note">期內有除息：' + exd.map(function (x) { return x[0] + " 派 " + F.fmt(x[1], 4); }).join("、") + "。除息之後價格會跌返派出嘅金額，呢個跌幅唔係基金真係蝕。</p>" : "");
+    } else {
+      var tr = F.cashIndex(d, start, latest), p0 = F.onOrBefore(d.prices, start);
+      var priceLine = d.prices.filter(function (p) { return p[0] >= p0[0]; }), step = Math.max(1, Math.floor(priceLine.length / 400));
+      var idxTip = function (p) { var pr = F.onOrBefore(d.prices, p[0]); return "總回報 " + F.pct(p[1] - 100, 2, true) + "（價格 " + (pr ? F.fmt(pr[1], 4) : "—") + "）"; };
+      var lines = [{ name: m.dist ? "總回報（基金價值 + 已收派息，起點 = 100）" : "總回報（起點 = 100）", points: tr, tip: idxTip }];
+      if (m.dist || m.checkLevel === "adjusted") lines.push({ name: "只計價格", tip: function (p) { var pr = F.onOrBefore(d.prices, p[0]); return "價格 " + (pr ? F.fmt(pr[1], 4) : "—"); },
+        points: priceLine.filter(function (_, i) { return i % step === 0 || i === priceLine.length - 1; }).map(function (p) { return [p[0], p[1] / p0[1] * 100]; }) });
+      var mk = preSource(m) && preSource(m).prices ? { date: m.aiaFrom, label: "AIA 上架" } : null;
+      h += '<p class="muted">' + start + " 至 " + latest + "</p>" + (note ? '<p class="note">' + esc(note) + "</p>" : "") +
+        lineChart(lines, { baseline: 100, label: "表現走勢", legend: 1, marker: mk }) +
+        (mk ? '<p class="hint">紅色虛線 = AIA 上架日；之前嘅數據來自基金公司／FT。</p>' : "") +
+        (m.dist ? '<p class="hint">派息以現金派發：派息之後價格會跌返派出嘅金額，所以要將已收嘅現金息加返先知真實表現。</p>' : "");
+    }
+    h += '<p class="hint">滑鼠移到圖上（手機用手指撳住拉）會顯示嗰日嘅價格。短時段 = 最近 N 個交易日（AIA 每個工作天更新價格）。</p>';
+    $("#fdChart").innerHTML = h;
+    $$("#fdPeriods [data-fdp]").forEach(function (b) { b.classList.toggle("on", b.dataset.fdp === fdPeriod); });
   }
 
   function addToPortfolio(code) {
@@ -569,7 +710,7 @@
         return '<label><input type="radio" name="pfcur" value="' + c + '"' + (i === 0 ? " checked" : "") + "><span>" + CUR_NAME[c] + "</span></label>";
       }).join("");
       $$("input[name=pfcur]").forEach(function (r) { r.addEventListener("change", function () { onCurChange(false); }); });
-      var c = recall(CMP_STORE); if (c && c.codes) { CMP = c.codes.filter(function (x) { return META[x]; }).slice(0, 4); cmpYears = c.years == null ? 3 : c.years; }
+      var c = recall(CMP_STORE); if (c && c.codes) { CMP = c.codes.filter(function (x) { return META[x]; }).slice(0, 4); cmpPeriod = c.period || (c.years === 0 ? "max" : c.years ? "y" + c.years : "y3"); }
       updateCmpBadge();
       refreshRegions(); renderList();
       renderFundSelect(idx.funds[0].code);
@@ -595,7 +736,9 @@
       var o = e.target.closest("[data-open]"); if (o) { openFund(o.dataset.open); return; }
       var a = e.target.closest("[data-add]"); if (a) { addToPortfolio(a.dataset.add); return; }
       var c = e.target.closest("[data-cmpadd]"); if (c) { toggleCompare(c.dataset.cmpadd); if ($("#fdBody").contains(c)) openFund(c.dataset.cmpadd); return; }
-      var p = e.target.closest("[data-pair]"); if (p) { CMP = p.dataset.pair.split(","); cmpYears = 0; saveCmp(); renderList(); showTab("cmp"); return; }
+      var p = e.target.closest("[data-pair]"); if (p) { CMP = p.dataset.pair.split(","); cmpPeriod = "max"; saveCmp(); renderList(); showTab("cmp"); return; }
+      var cp = e.target.closest("[data-cmp]"); if (cp) { cmpPeriod = cp.dataset.cmp; saveCmp(); renderCompare(); return; }
+      var fp = e.target.closest("[data-fdp]"); if (fp) { fdPeriod = fp.dataset.fdp; var code = $("#fdSel").value; if (CACHE[code]) renderFundChart(META[code], CACHE[code]); return; }
       if (e.target.id === "pfPdf") downloadPdf();
     });
     $("#fdSel").addEventListener("change", function () { openFund(this.value); });
@@ -609,7 +752,8 @@
       var v = $(".cmp-code", e.target.closest(".fa-row")).value;
       CMP = CMP.filter(function (x) { return x !== v; }); saveCmp(); renderList(); renderCompare();
     });
-    $$("[data-cmp]").forEach(function (b) { b.addEventListener("click", function () { cmpYears = +b.dataset.cmp; saveCmp(); renderCompare(); }); });
+    ["mousemove", "touchstart", "touchmove"].forEach(function (ev) { document.addEventListener(ev, chartHover, { passive: true }); });
+    document.addEventListener("mouseout", function (e) { var w = e.target.closest && e.target.closest(".fa-chartwrap"); if (w && !w.contains(e.relatedTarget)) chartLeave(w); });
     $("#pfAdd").addEventListener("click", function () { addRow("", ""); });
     $("#pfEven").addEventListener("click", function () {
       var rows = $$("#pfRows .fa-row"), n = rows.length; if (!n) return;
