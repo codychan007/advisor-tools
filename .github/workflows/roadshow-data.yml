@@ -1,0 +1,64 @@
+# Road Show 熱點地圖：每星期一由香港會展、亞博、旅發局、康文署官方網站拎未來 8 星期活動，計分後 commit 去 main，Cloudflare Pages 自動部署。
+# 唔使 AI、唔使錢（每次大約 1 分鐘）。
+# 有來源拎唔到：嗰個來源用返上次資料，其他照更新，但 workflow 會標示失敗，GitHub 會 email 通知。
+# 手動試：GitHub → Actions → Road Show 每週更新 → Run workflow。
+name: Road Show 每週更新
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"     # 星期一 香港時間 08:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: roadshow-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 拎活動、合併、計分
+        id: build
+        run: |
+          set +e
+          python scripts/build_roadshow.py
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" = "1" ]; then echo "::error::全部來源都拎唔到，今次唔更新"; exit 1; fi
+          exit 0
+
+      - name: 測試
+        run: node tests/roadshow.test.js
+
+      - name: Commit 同 push
+        run: |
+          git config user.name "roadshow-data-bot"
+          git config user.email "roadshow-data-bot@users.noreply.github.com"
+          git add data/roadshow
+          if git diff --cached --quiet; then echo "冇新數據"; exit 0; fi
+          git commit -m "Road Show 每週更新 $(TZ=Asia/Hong_Kong date +%F)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 10
+          done
+          exit 1
+
+      - name: 有來源拎唔到（已用上次資料）
+        if: steps.build.outputs.code == '2'
+        run: |
+          python -c "import json; print('\n'.join(json.load(open('data/roadshow/events.json', encoding='utf-8'))['problems']))"
+          exit 1

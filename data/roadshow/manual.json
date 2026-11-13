@@ -1,0 +1,408 @@
+{
+ "note": "人手資料：場館（座標、地理分、擺位提示）、活動改動、商場等人手活動。只放活動同場地資料，永遠唔放客人資料。改完跑 python scripts/build_roadshow.py --offline。",
+ "venues": [
+  {
+   "id": "hkcec",
+   "name": "灣仔會展",
+   "lat": 22.283,
+   "lng": 114.1739,
+   "geo": 4.5,
+   "match": "hkcec|convention and exhibition centre|會議展覽中心|會展",
+   "stations": [
+    "會展",
+    "灣仔"
+   ],
+   "tips": "人流主要由會展站（東鐵綫）同灣仔站經天橋去會展。會展範圍、天橋同商場屬機構管理，冇批准唔好入；可以揀港鐵出口外面嘅政府行人路（灣仔站 A1／A4／C、會展站出口外面行人路），或者灣仔北海濱公眾位置。週末下晝人最多。"
+  },
+  {
+   "id": "awe",
+   "name": "亞洲國際博覽館",
+   "lat": 22.3218,
+   "lng": 113.9433,
+   "geo": 1,
+   "match": "asiaworld|亞博|亞洲國際博覽館|awe",
+   "stations": [
+    "東涌"
+   ],
+   "tips": "太遠、場外公眾位置少（港鐵博覽館站直入場館），團隊一般唔去；除非租到室內 booth（例如升學／移民展）。有室內 booth 就喺 manual.json 個活動加 \"indoorBooth\": true。",
+   "maxTier": 2
+  },
+  {
+   "id": "ktsp",
+   "name": "啟德體育園",
+   "lat": 22.3236,
+   "lng": 114.199,
+   "geo": 3.5,
+   "match": "kai tak sports park|啟德體育園|啟德主場館|kai tak stadium|kai tak arena|啟德",
+   "stations": [
+    "啟德",
+    "宋皇臺"
+   ],
+   "tips": "體育園範圍屬機構管理；可以揀啟德站／宋皇臺站出口外面行人路。演唱會、球賽唔計。"
+  },
+  {
+   "id": "vicpark",
+   "name": "維多利亞公園",
+   "lat": 22.282,
+   "lng": 114.188,
+   "geo": 4,
+   "match": "victoria park|維多利亞公園|維園",
+   "stations": [
+    "天后",
+    "銅鑼灣"
+   ],
+   "tips": "公園屬康文署管理，入面要批准；銅鑼灣站 E 出口（維園）同天后站出口外面行人路人流多。年宵、工展會等大型活動最旺。"
+  },
+  {
+   "id": "wkcd",
+   "name": "西九文化區",
+   "lat": 22.3015,
+   "lng": 114.16,
+   "geo": 3,
+   "match": "west kowloon|西九|art park|藝術公園|m\\+|故宮|palace museum|xiqu|戲曲中心|freespace",
+   "stations": [
+    "柯士甸",
+    "九龍"
+   ],
+   "tips": "文化區範圍屬西九管理局；可以揀柯士甸站出口外面行人路。週末一家大細多。"
+  },
+  {
+   "id": "harbourfront",
+   "name": "中環海濱",
+   "lat": 22.284,
+   "lng": 114.1615,
+   "geo": 3,
+   "match": "central harbourfront|中環海濱|中環海濱活動空間|harbourfront event space",
+   "stations": [
+    "香港",
+    "中環"
+   ],
+   "tips": "海濱活動空間由主辦租用；附近公眾海濱長廊同中環站／香港站出口外面行人路。"
+  },
+  {
+   "id": "tsthc",
+   "name": "尖沙咀文化中心一帶",
+   "lat": 22.2935,
+   "lng": 114.17,
+   "geo": 3.5,
+   "match": "cultural centre|文化中心|tsim sha tsui|尖沙咀|avenue of stars|星光大道|space museum|太空館|香港藝術館|museum of art",
+   "stations": [
+    "尖沙咀",
+    "尖東"
+   ],
+   "tips": "文化中心範圍屬康文署；尖沙咀站／尖東站出口外面行人路同海濱人流多，遊客比例高。"
+  },
+  {
+   "id": "coliseum",
+   "name": "紅磡體育館",
+   "lat": 22.3015,
+   "lng": 114.182,
+   "geo": 2,
+   "match": "coliseum|紅磡體育館|紅館",
+   "stations": [
+    "紅磡"
+   ],
+   "tips": "主要係演唱會（唔計）。"
+  },
+  {
+   "id": "stth",
+   "name": "沙田大會堂",
+   "lat": 22.382,
+   "lng": 114.189,
+   "geo": 3,
+   "match": "sha tin town hall|沙田大會堂",
+   "stations": [
+    "沙田"
+   ],
+   "tips": "大會堂屬康文署；沙田站出口外面行人路人流多，但新城市廣場範圍屬私人。"
+  },
+  {
+   "id": "twth",
+   "name": "荃灣大會堂",
+   "lat": 22.372,
+   "lng": 114.115,
+   "geo": 2.5,
+   "match": "tsuen wan town hall|荃灣大會堂",
+   "stations": [
+    "荃灣"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "tmth",
+   "name": "屯門大會堂",
+   "lat": 22.391,
+   "lng": 113.977,
+   "geo": 2.5,
+   "match": "tuen mun town hall|屯門大會堂",
+   "stations": [
+    "屯門"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "ylt",
+   "name": "元朗劇院",
+   "lat": 22.444,
+   "lng": 114.029,
+   "geo": 2.5,
+   "match": "yuen long theatre|元朗劇院",
+   "stations": [
+    "元朗"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "ktt",
+   "name": "葵青劇院",
+   "lat": 22.357,
+   "lng": 114.129,
+   "geo": 2,
+   "match": "kwai tsing theatre|葵青劇院",
+   "stations": [
+    "葵芳"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "kst",
+   "name": "高山劇場",
+   "lat": 22.313,
+   "lng": 114.187,
+   "geo": 2,
+   "match": "ko shan theatre|高山劇場",
+   "stations": [
+    "何文田"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "cityhall",
+   "name": "香港大會堂",
+   "lat": 22.282,
+   "lng": 114.161,
+   "geo": 2.5,
+   "match": "city hall|香港大會堂|大會堂",
+   "stations": [
+    "中環"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "swcc",
+   "name": "上環文娛中心",
+   "lat": 22.2865,
+   "lng": 114.15,
+   "geo": 2,
+   "match": "sheung wan civic centre|上環文娛中心",
+   "stations": [
+    "上環"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "swhcc",
+   "name": "西灣河文娛中心",
+   "lat": 22.282,
+   "lng": 114.222,
+   "geo": 2,
+   "match": "sai wan ho civic centre|西灣河文娛中心",
+   "stations": [
+    "西灣河"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "library",
+   "name": "香港中央圖書館",
+   "lat": 22.28,
+   "lng": 114.189,
+   "geo": 2.5,
+   "match": "central library|中央圖書館",
+   "stations": [
+    "天后",
+    "銅鑼灣"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "heritage",
+   "name": "香港文化博物館",
+   "lat": 22.377,
+   "lng": 114.185,
+   "geo": 2,
+   "match": "heritage museum|文化博物館",
+   "stations": [
+    "車公廟",
+    "沙田"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "tstmuseum",
+   "name": "香港科學館／歷史博物館",
+   "lat": 22.301,
+   "lng": 114.177,
+   "geo": 2.5,
+   "match": "science museum|history museum|科學館|歷史博物館",
+   "stations": [
+    "尖東"
+   ],
+   "tips": ""
+  },
+  {
+   "id": "oceanpark",
+   "name": "海洋公園",
+   "lat": 22.2467,
+   "lng": 114.1758,
+   "geo": 1.5,
+   "match": "ocean park|海洋公園",
+   "stations": [],
+   "tips": "樂園範圍屬私人，冇批准唔可以擺。",
+   "maxTier": 2
+  },
+  {
+   "id": "disney",
+   "name": "迪士尼樂園",
+   "lat": 22.313,
+   "lng": 114.0413,
+   "geo": 1,
+   "match": "disneyland|迪士尼",
+   "stations": [],
+   "tips": "樂園範圍屬私人，冇批准唔可以擺。",
+   "maxTier": 2
+  },
+  {
+   "id": "harbourcity",
+   "name": "海港城",
+   "lat": 22.296,
+   "lng": 114.1685,
+   "geo": 3,
+   "match": "harbour city|海港城",
+   "stations": [
+    "尖沙咀"
+   ],
+   "tips": "商場範圍要同商場租位；冇批准只可以喺廣東道等外面行人路。"
+  },
+  {
+   "id": "timessq",
+   "name": "時代廣場",
+   "lat": 22.2783,
+   "lng": 114.1822,
+   "geo": 3,
+   "match": "times square|時代廣場",
+   "stations": [
+    "銅鑼灣"
+   ],
+   "tips": "廣場前空地屬私人；冇批准只可以喺外面政府行人路。"
+  },
+  {
+   "id": "k11",
+   "name": "K11 MUSEA",
+   "lat": 22.2945,
+   "lng": 114.1745,
+   "geo": 3,
+   "match": "k11|musea",
+   "stations": [
+    "尖東"
+   ],
+   "tips": "商場範圍要同商場租位。"
+  },
+  {
+   "id": "nctp",
+   "name": "新城市廣場",
+   "lat": 22.382,
+   "lng": 114.188,
+   "geo": 3,
+   "match": "new town plaza|新城市廣場",
+   "stations": [
+    "沙田"
+   ],
+   "tips": "商場範圍要同商場租位。"
+  },
+  {
+   "id": "apm",
+   "name": "APM",
+   "lat": 22.3122,
+   "lng": 114.2253,
+   "geo": 3,
+   "match": "\\bapm\\b",
+   "stations": [
+    "觀塘"
+   ],
+   "tips": "商場範圍要同商場租位。"
+  }
+ ],
+ "districts": {
+  "note": "場館對唔到就用地址入面嘅地區搵最近港鐵站（位置大約）",
+  "wan chai|灣仔": "灣仔",
+  "causeway bay|銅鑼灣": "銅鑼灣",
+  "central|中環": "中環",
+  "admiralty|金鐘": "金鐘",
+  "north point|北角": "北角",
+  "quarry bay|鰂魚涌": "鰂魚涌",
+  "tai koo|太古": "太古",
+  "chai wan|柴灣": "柴灣",
+  "sheung wan|上環": "上環",
+  "sai ying pun|西營盤": "西營盤",
+  "kennedy town|堅尼地城": "香港大學",
+  "tsim sha tsui|尖沙咀": "尖沙咀",
+  "jordan|佐敦": "佐敦",
+  "yau ma tei|油麻地": "油麻地",
+  "mong kok|旺角": "旺角",
+  "prince edward|太子": "太子",
+  "sham shui po|深水埗": "深水埗",
+  "cheung sha wan|長沙灣": "長沙灣",
+  "kowloon tong|九龍塘": "九龍塘",
+  "wong tai sin|黃大仙": "黃大仙",
+  "diamond hill|鑽石山": "鑽石山",
+  "kowloon bay|九龍灣": "九龍灣",
+  "kwun tong|觀塘": "觀塘",
+  "hung hom|紅磡": "紅磡",
+  "to kwa wan|土瓜灣": "土瓜灣",
+  "kai tak|啟德": "啟德",
+  "tseung kwan o|將軍澳": "將軍澳",
+  "sha tin|沙田": "沙田",
+  "tai wai|大圍": "大圍",
+  "ma on shan|馬鞍山": "馬鞍山",
+  "tai po|大埔": "大埔墟",
+  "fanling|粉嶺": "粉嶺",
+  "sheung shui|上水": "上水",
+  "tsuen wan|荃灣": "荃灣",
+  "kwai chung|葵涌|kwai fong|葵芳": "葵芳",
+  "tsing yi|青衣": "青衣",
+  "tung chung|東涌|lantau|大嶼山": "東涌",
+  "tuen mun|屯門": "屯門",
+  "yuen long|元朗": "元朗",
+  "tin shui wai|天水圍": "天水圍",
+  "九龍城|kowloon city": "宋皇臺",
+  "何文田|ho man tin": "何文田",
+  "西灣河|sai wan ho": "西灣河",
+  "馬鞍山|mostown|新港城": "馬鞍山",
+  "黃金海岸|gold coast": "屯門"
+ },
+ "overrides": [
+  {
+   "match": "wedding fair|結婚節",
+   "hall": "見主辦網站（資料有衝突，出發前再確認）"
+  },
+  {
+   "match": "chopchop",
+   "hall": "Hall 3B（參考圖，出發前再確認）"
+  },
+  {
+   "match": "gerontech|樂齡科技",
+   "hall": "展覽廳 1A–C（參考圖，出發前再確認）"
+  },
+  {
+   "match": "mainland higher education|內地高等教育",
+   "hall": "展覽廳 3FG（參考圖，出發前再確認）",
+   "fee": "免費"
+  },
+  {
+   "match": "traditional chinese medicine|中醫藥",
+   "hall": "主辦方列 3E（參考圖，出發前再確認）"
+  }
+ ],
+ "extraEvents": []
+}

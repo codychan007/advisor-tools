@@ -1,0 +1,162 @@
+{
+  "note": "Road Show 熱點地圖嘅評分規則（Cody 2026-11-13）：年輕人／潮流排最後，其他客群唔分優次。改完跑 python scripts/build_roadshow.py --offline 重新計分。 第一梯隊要人流分 ≥ 3.5、第二梯隊 ≥ 2.5（人流太細唔值得出隊）。場館 maxTier：亞博等太遠嘅場館最多第二梯隊，除非活動標 indoorBooth。",
+  "weights": {
+    "people": 0.5,
+    "crowd": 0.3,
+    "geo": 0.2
+  },
+  "tiers": {
+    "1": {
+      "name": "第一梯隊",
+      "sub": "直接需求",
+      "minTotal": 3.8,
+      "minPeople": 4,
+      "minCrowd": 3.5
+    },
+    "2": {
+      "name": "第二梯隊",
+      "sub": "可測試",
+      "minTotal": 3.0,
+      "minPeople": 3,
+      "minCrowd": 2.5
+    },
+    "3": {
+      "name": "不建議主攻",
+      "sub": ""
+    }
+  },
+  "defaultPeople": 2.5,
+  "tags": [
+    {
+      "id": "wedding",
+      "label": "新婚",
+      "score": 4.5,
+      "match": "結婚|婚紗|婚禮|新人|wedding|bridal",
+      "profile": "25–35 歲準新人，多數雙職、準備結婚或者置業，開始諗兩個人嘅家庭保障同儲蓄。",
+      "hooks": [
+        "結婚預算有冇計埋兩個人嘅保障？",
+        "婚後買樓，按揭有冇保障配套？",
+        "做個 2 分鐘問卷：婚後理財最擔心乜嘢？"
+      ]
+    },
+    {
+      "id": "baby",
+      "label": "準父母",
+      "score": 4.5,
+      "match": "嬰|baby|孕|媽咪|親子|兒童|kids|parent|育兒",
+      "profile": "準父母同 0–6 歲小朋友家長，對健康、醫療同教育開支最敏感，通常一家人一齊行。",
+      "hooks": [
+        "BB 出世前，醫療保障要準備咩？",
+        "小朋友教育基金幾時開始儲最好？",
+        "問卷：育兒開支邊樣最擔心？"
+      ]
+    },
+    {
+      "id": "education",
+      "label": "學童家長",
+      "score": 4.5,
+      "match": "升學|教育|學校|學院|大學|education|school|careers|study|留學|dse",
+      "profile": "中小學生家長同學生，關注升學開支、海外讀書、教育基金。",
+      "hooks": [
+        "海外升學大概要預幾多錢？",
+        "教育基金同儲蓄計劃點揀？",
+        "問卷：子女升學最大嘅財務壓力係咩？"
+      ]
+    },
+    {
+      "id": "senior",
+      "label": "退休／照顧者",
+      "score": 4.5,
+      "match": "樂齡|長者|退休|銀髮|gerontech|elderly|senior|中醫|醫藥|健康|health|medical|medicine|照顧",
+      "profile": "50 歲以上準退休人士同照顧父母嘅子女，關注醫療開支、長期護理、退休收入。",
+      "hooks": [
+        "退休後醫療開支有冇預算？",
+        "照顧屋企長者，危疾同住院保障夠唔夠？",
+        "問卷：退休生活最擔心乜嘢？"
+      ]
+    },
+    {
+      "id": "entrepreneur",
+      "label": "創業者",
+      "score": 4.5,
+      "match": "創業|初創|中小企|加盟|entrepreneur|startup|sme|franchise|business",
+      "profile": "創業者、自僱人士、中小企老闆，收入唔穩定、多數冇公司福利。",
+      "hooks": [
+        "自僱冇公司醫保，有冇自己買？",
+        "老闆嘅收入保障同員工福利點安排？",
+        "問卷：做生意最怕邊樣風險？"
+      ]
+    },
+    {
+      "id": "home",
+      "label": "置業",
+      "score": 4.5,
+      "match": "家居|置業|樓|地產|裝修|homex|home|property|furniture|interior",
+      "profile": "準備買樓或者剛買樓、裝修緊嘅家庭，有按揭壓力，關注家庭收入保障。",
+      "hooks": [
+        "按揭供緊，萬一冇收入點算？",
+        "買樓之後保障同儲蓄點平衡？",
+        "問卷：供樓壓力大唔大？"
+      ]
+    },
+    {
+      "id": "family",
+      "label": "一般家庭",
+      "score": 4.5,
+      "match": "購物|美食|食品|food|showcase|嘉年華|carnival|family|家庭|親子|工展會|年宵",
+      "profile": "一家大細出嚟行街消費，年齡層闊，適合用輕鬆問卷或者小禮物吸引停低。",
+      "hooks": [
+        "做個 1 分鐘問卷，送小禮物",
+        "屋企每月開支，保障佔幾多先合理？",
+        "問卷：一家人最想為將來準備咩？"
+      ]
+    },
+    {
+      "id": "youth",
+      "label": "年輕人／潮流",
+      "score": 2,
+      "match": "玩具|toy|動漫|anime|comic|卡牌|card game|trading card|電競|esport|gaming|cosplay|潮玩|creators|市集",
+      "profile": "年輕人同潮流收藏愛好者，消費力參差，對保險興趣一般；適合做品牌曝光多過即場約見。",
+      "hooks": [
+        "第一份工，醫保同儲蓄點開始？",
+        "問卷：你最想幾多歲財務自由？"
+      ]
+    },
+    {
+      "id": "trade",
+      "label": "業界",
+      "score": 1.5,
+      "match": "",
+      "profile": "業界展只限業內人士或者要登記，街外人流少；企喺場外可能接觸到參展商同買家。",
+      "hooks": [
+        "參展商老闆：公司團體保障有冇檢討？"
+      ]
+    }
+  ],
+  "excludeKinds": "concert|sports|sport|演唱會|音樂會|球賽|運動|馬拉松|marathon|examination|exam|考試|private",
+  "crowdHints": [
+    {
+      "match": "美食|food festival|書展|book fair|購物節|mega showcase|結婚|wedding|chopchop|嬰幼|baby products|winterfest|冬日巡禮|工展會|年宵|嘉年華|carnival",
+      "add": 1,
+      "why": "大型消費展／節慶，往年人流多"
+    }
+  ],
+  "staff": [
+    {
+      "size": "3–5 人",
+      "when": "人流分 < 2.5、第二梯隊或者唔建議主攻",
+      "roles": "1–2 人做問卷、1 人派單張迎賓、1 人即場約見／記錄"
+    },
+    {
+      "size": "5–10 人",
+      "when": "人流分 2.5–4",
+      "roles": "分 2 個企位：每個位 2 人問卷＋1 人迎賓；另 1 人統籌同記錄"
+    },
+    {
+      "size": "10–25 人（每個時段）",
+      "when": "第一梯隊而且人流分 ≥ 4",
+      "roles": "分 3–4 個企位；多過 25 人就分早午班交替，每班 10–25 人"
+    }
+  ],
+  "excludeNames": "演唱會|音樂會|concert|fan ?meeting|見面會|球賽|馬拉松|marathon"
+}

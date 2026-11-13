@@ -7,7 +7,7 @@
   },
   "scripts": {
     "bundle-sdk": "esbuild server/vendor-entry.js --bundle --format=esm --platform=browser --conditions=workerd,worker --target=es2022 --minify --legal-comments=eof --outfile=server/vendor/anthropic-sdk.mjs",
-    "test": "node tests/calc.test.js && node tests/data.test.js && node tests/auth.test.mjs && node tests/ps.test.mjs && node tests/quiz.test.js && node tests/fund.test.js"
+    "test": "node tests/calc.test.js && node tests/data.test.js && node tests/auth.test.mjs && node tests/ps.test.mjs && node tests/quiz.test.js && node tests/fund.test.js && node tests/roadshow.test.js"
   },
   "devDependencies": {
     "esbuild": "0.28.1"

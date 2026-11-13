@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Road Show 熱點地圖 – TC Team專屬AI工具箱</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css?v=3">
+<link rel="stylesheet" href="/assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/assets/css/roadshow.css?v=3">
+</head>
+<body>
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="seal">工</span><span>TC Team專屬AI工具箱<small>同事內部使用</small></span></a>
+  <a class="head-link" href="/">← 全部工具</a>
+</div></header>
+
+<main class="wrap rs-main">
+  <h1><span class="brush">Road Show 熱點地圖</span></h1>
+  <p class="muted">每星期一自動更新未來 8 星期全港公眾展覽、節慶同人流熱點，按客群、人流同擺位條件分梯隊，建議派幾多人、企邊度、講咩話題。</p>
+  <p id="dataInfo" class="muted rs-info">載入緊數據…</p>
+  <div id="problems" class="note bad hidden"></div>
+
+  <div class="rs-tabs" role="tablist">
+    <button type="button" role="tab" data-tab="plan" aria-selected="true">熱點地圖</button>
+    <button type="button" role="tab" data-tab="idea" aria-selected="false">自發企街</button>
+    <button type="button" role="tab" data-tab="log" aria-selected="false">記錄成效</button>
+    <button type="button" role="tab" data-tab="suggest" aria-selected="false">建議場合／擺位</button>
+  </div>
+
+  <!-- 熱點地圖 + 清單 -->
+  <section id="tab-plan" class="rs-pane">
+    <div class="card rs-controls">
+      <div class="seg" id="weekSeg"></div>
+      <div class="rs-filter-row">
+        <div class="seg" id="tierSeg">
+          <label><input type="checkbox" value="1" checked><span class="t1">第一梯隊</span></label>
+          <label><input type="checkbox" value="2" checked><span class="t2">第二梯隊</span></label>
+          <label><input type="checkbox" value="3"><span class="t3">不建議主攻</span></label>
+        </div>
+      </div>
+      <div class="rs-filter-row">
+        <label>客群<select id="fTag"><option value="">全部</option></select></label>
+        <label>來源<select id="fSrc"><option value="">全部</option></select></label>
+        <label class="rs-check"><input type="checkbox" id="fWeekend"> 只睇有星期六日</label>
+        <label class="rs-search">搜尋<input type="search" id="fText" placeholder="活動名／地點"></label>
+      </div>
+    </div>
+
+    <div class="rs-view-toggle seg" id="viewSeg">
+      <label><input type="radio" name="rsview" value="map" checked><span>地圖</span></label>
+      <label><input type="radio" name="rsview" value="list"><span>清單</span></label>
+    </div>
+
+    <div class="rs-layout">
+      <div class="rs-map-wrap" id="mapWrap">
+        <div id="map" class="rs-map" aria-label="活動地圖"></div>
+        <label class="rs-check rs-allspots"><input type="checkbox" id="showAllSpots"> 顯示全部候選擺位（港鐵出口）</label>
+        <div class="rs-legend">
+          <span><i class="dot t1"></i>第一梯隊</span><span><i class="dot t2"></i>第二梯隊</span><span><i class="dot t3"></i>不建議</span>
+          <span><i class="sq street"></i>街道出口</span><span><i class="sq building"></i>通商場／機構</span><span><i class="sq unknown"></i>出口名未知</span><span><i class="sq ok"></i>同事確認可行</span>
+        </div>
+      </div>
+      <div class="rs-list-wrap" id="listWrap">
+        <div class="rs-priority card" id="priority"></div>
+        <div class="rs-list-head">
+          <b id="listCount"></b>
+          <button type="button" class="btn small" id="posterBtn">📥 下載本週海報</button>
+        </div>
+        <div id="list" class="rs-list"></div>
+      </div>
+    </div>
+
+    <details class="note rs-howto">
+      <summary><b>評分點計？</b></summary>
+      <ul>
+        <li><b>總分（滿分 5）</b>＝人群潛力 × 50% ＋ 人流 × 30% ＋ 地理優勢 × 20%。</li>
+        <li><b>人群潛力</b>：按活動名同類別貼客群標籤。新婚、準父母、學童家長、退休／照顧者、創業者、置業、一般家庭都當「高」（4.5 分，多過一類 +0.5）；年輕人／潮流 2 分；業界／登記／邀請 1.5 分；冇標籤 2.5 分。</li>
+        <li><b>人流</b>：會展公眾展 2.5 起；亞博按用幾多個館；每多一日 +0.25（最多 +1）、有星期六日 +1；大型消費展／節慶 +1；長期活動（超過 14 日）人流分散唔加分；康文署節目最多 2.5。</li>
+        <li><b>地理優勢</b>：場館評分（例如會展 4.5、維園 4、亞博 1）；其他地方按附近有幾多個街道港鐵出口。</li>
+        <li><b>第一梯隊</b>：總分 ≥ 3.8、人群「高」、人流 ≥ 3.5。<b>第二梯隊</b>：總分 ≥ 3.0、人群 ≥ 3、人流 ≥ 2.5。亞博、迪士尼、海洋公園太遠，冇室內 booth 最多第二梯隊。</li>
+        <li><b>建議人數</b>：3–5 人／5–10 人／10–25 人（每個時段；多過 25 人分早午班交替）。</li>
+        <li>演唱會、球賽唔顯示。業界展照顯示，標「業界」。</li>
+        <li><b>擺位</b>：冇機構批准只可以喺公眾地方（政府行人路等）；港鐵站大堂、商場、私人天橋、屋苑範圍唔得。地圖上嘅港鐵出口全部係<b>候選</b>，要同事實地確認。</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- 自發企街：唔跟活動，自己揀主題、站同時段 -->
+  <section id="tab-idea" class="rs-pane hidden">
+    <div class="card">
+      <h2>自發企街點子</h2>
+      <p class="muted">唔一定要跟活動：揀一個主題，喺適合嘅港鐵站附近公眾地方擺迷你 booth（易拉架＋舉牌）。下面按月份排好當造主題，撳主題睇建議地區、時段、道具同開場白。</p>
+      <div class="seg rs-months" id="monthSeg"></div>
+      <details class="note rs-strategy" open>
+        <summary><b>基本策略</b></summary>
+        <ul id="strategy"></ul>
+      </details>
+    </div>
+    <div class="rs-idea-layout">
+      <div>
+        <div id="themeList" class="rs-themes"></div>
+        <div id="themeDetail" class="card rs-theme-detail hidden"></div>
+      </div>
+      <div class="rs-map-wrap rs-idea-mapwrap">
+        <div class="rs-filter-row">
+          <label>睇某個站嘅擺位<select id="stationSel"><option value="">— 揀站 —</option></select></label>
+        </div>
+        <div id="ideaMap" class="rs-map rs-idea-map" aria-label="自發企街地圖"></div>
+        <div class="rs-legend">
+          <span><i class="rs-stpin-dot"></i>建議站（撳入去睇出口）</span>
+          <span><i class="sq street"></i>街道出口</span><span><i class="sq building"></i>通商場／機構</span><span><i class="sq unknown"></i>出口名未知</span><span><i class="sq ok"></i>同事確認可行</span>
+        </div>
+        <p class="hint">港鐵出口全部係候選：出口外面係唔係公眾行人路、夠唔夠闊，要同事實地確認。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 記錄成效 -->
+  <section id="tab-log" class="rs-pane hidden">
+    <div class="card">
+      <h2>記錄今次 Road Show</h2>
+      <p class="note">只記數字，<b>唔好寫任何客人資料</b>（姓名、電話、身份證等）。紀錄保留 1 年後自動刪除。</p>
+      <form id="logForm" class="rs-form" autocomplete="off">
+        <label class="field">活動<select id="logEvent" required></select></label>
+        <label class="field">其他活動／地點（上面冇就填）<input id="logOther" maxlength="80"></label>
+        <div class="rs-grid">
+          <label class="field">日期<input type="date" id="logDate" required></label>
+          <label class="field">企位（例如 灣仔站 A1）<input id="logSpot" maxlength="60"></label>
+          <label class="field">出咗幾多人<input type="number" id="logPeople" min="1" max="200" required></label>
+          <label class="field">做咗幾多個鐘<input type="number" id="logHours" min="0.5" max="24" step="0.5" required></label>
+          <label class="field">問卷數<input type="number" id="logSurveys" min="0" max="9999" value="0"></label>
+          <label class="field">Leads 數<input type="number" id="logLeads" min="0" max="9999" value="0"></label>
+          <label class="field">約到見面<input type="number" id="logMeets" min="0" max="9999" value="0"></label>
+          <label class="field">成交<input type="number" id="logDeals" min="0" max="9999" value="0"></label>
+        </div>
+        <label class="field">備註（人流、天氣、擺位好唔好；唔好寫客人資料）<textarea id="logNote" maxlength="300" rows="2"></textarea></label>
+        <label class="field">你個名（同事名，方便 Cody 跟進，可以留空）<input id="logBy" maxlength="30"></label>
+        <button class="btn" type="submit">儲存紀錄</button>
+        <p id="logMsg" class="hint"></p>
+      </form>
+    </div>
+    <div class="card">
+      <h2>過去成效（最近 1 年）</h2>
+      <div id="logStats" class="muted">載入緊…</div>
+    </div>
+  </section>
+
+  <!-- 建議 -->
+  <section id="tab-suggest" class="rs-pane hidden">
+    <div class="card">
+      <h2>建議新場合或者擺位</h2>
+      <p class="muted">網上搵唔到嘅好場合（例如商場活動、社區嘉年華）或者你試過好用嘅企位，喺度留言；Cody 會整理後加入地圖。</p>
+      <form id="sugForm" class="rs-form" autocomplete="off">
+        <div class="seg" id="sugType">
+          <label><input type="radio" name="sugtype" value="event" checked><span>新場合／活動</span></label>
+          <label><input type="radio" name="sugtype" value="spot"><span>擺位</span></label>
+          <label><input type="radio" name="sugtype" value="feedback"><span>評級意見</span></label>
+        </div>
+        <label class="field">名稱（活動名／地點）<input id="sugName" maxlength="80" required></label>
+        <div class="rs-grid">
+          <label class="field">地點／地址<input id="sugPlace" maxlength="120"></label>
+          <label class="field">日期（如有）<input id="sugDate" maxlength="40" placeholder="例如 12/20–12/22"></label>
+        </div>
+        <label class="field">詳情（點解好、人流、要唔要批准、適合幾多人）<textarea id="sugNote" maxlength="500" rows="3"></textarea></label>
+        <label class="field">你個名（可以留空）<input id="sugBy" maxlength="30"></label>
+        <button class="btn" type="submit">送出建議</button>
+        <p id="sugMsg" class="hint"></p>
+      </form>
+    </div>
+    <div class="card">
+      <h2>最近嘅建議</h2>
+      <div id="sugList" class="muted">載入緊…</div>
+    </div>
+  </section>
+</main>
+
+<!-- 活動詳情 -->
+<dialog id="detail" class="rs-detail">
+  <div class="rs-detail-inner">
+    <button type="button" class="rs-close" aria-label="關閉" data-close>×</button>
+    <div id="detailBody"></div>
+  </div>
+</dialog>
+
+<!-- 海報（影相用，平時收埋） -->
+<div id="posterHost" class="rs-poster-host" aria-hidden="true"></div>
+
+<footer class="site-footer"><div class="wrap">地圖 © 地政總署；港鐵出口位置 © OpenStreetMap contributors。活動資料來自香港會展、亞博、旅發局、康文署官方網站，出發前請再撳來源連結確認。</div></footer>
+<script src="/assets/vendor/leaflet/leaflet.js"></script>
+<script src="/assets/vendor/html2canvas.min.js" defer></script>
+<script src="/assets/js/roadshow.js?v=3"></script>
+</body>
+</html>
