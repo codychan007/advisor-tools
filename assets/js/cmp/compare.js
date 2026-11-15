@@ -1,5 +1,6 @@
 // ============================================================
 // 工具一：醫療及危疾產品比較、保費查詢（保險公司目錄）
+// 2026-11-15 拎走「醫療＋危疾每年加埋」（Cody：危疾多數要報價，加埋冇意義）
 // 2026-11-15 由保障資訊通搬嚟 TC Team專屬AI工具箱（Cody：公司比較只俾顧問睇，唔公開俾客人）
 // 介面：保險公司列表（公司名＋計劃數目＋病房標籤，唔顯示價錢）→ 撳開同頁展開該公司計劃，
 //       按「標準（普通房）／半私家／私家」分組；每個計劃一張卡，卡入面揀自付費／保障地區。
@@ -10,10 +11,10 @@
 //   /data/ci/plans.compiled.json           危疾計劃
 // 合規：只陳列客觀資料；公司按英文名排序；目錄格唔顯示價錢；唔會出現「最好／最抵／推介」。
 // ============================================================
-import { mountLayout, money, pct, readNum, moneyInput, loadJSON, isOutdated, esc } from './layout.js';
+import { mountLayout, money, loadJSON, isOutdated, esc } from './layout.js';
 import { t, EN } from './i18n.js';
 import { lineChart, COLORS } from './chart.js';
-import { stdSchedule, stdPremium, variantPremium, pickVariant, cumulative, ciRenewablePremium, shareOfSalary } from './premium.js';
+import { stdSchedule, stdPremium, variantPremium, pickVariant, cumulative, ciRenewablePremium } from './premium.js';
 
 mountLayout();
 const $ = id => document.getElementById(id);
@@ -352,7 +353,6 @@ function render() {
 
   LAST = { med, ci };
   renderCompare();
-  renderCombo();
 }
 
 function selectedItems() {
@@ -414,33 +414,6 @@ function renderTrend(items) {
     t(`累計 ${S.age}–${end} 歲（共 ${end - S.age + 1} 年）`, `Total, ages ${S.age}–${end} (${end - S.age + 1} yrs)`)}</th></tr>${rows}</table>`;
 }
 
-function renderCombo() {
-  const sel = selectedItems();
-  const meds = sel.filter(i => i.kind === 'med'), cis = sel.filter(i => i.kind === 'ci');
-  const opt = (list, cur) => `<option value="">${t('（未揀）', '(none)')}</option>` +
-    list.map(i => `<option value="${esc(i.id)}" ${i.id === cur ? 'selected' : ''}>${esc(i.name)}</option>`).join('');
-  const curM = $('combo-med').value || meds[0]?.id || '', curC = $('combo-ci').value || cis[0]?.id || '';
-  $('combo-med').innerHTML = opt(meds, curM);
-  $('combo-ci').innerHTML = opt(cis, curC);
-  const m = meds.find(i => i.id === $('combo-med').value), c = cis.find(i => i.id === $('combo-ci').value);
-  if (!meds.length && !cis.length) {
-    $('combo-result').innerHTML = `<p class="muted mt0">${t('喺兩個分頁各自「加入比較」，呢度就會幫你加埋。', 'Add plans to compare on each tab and they will be added up here.')}</p>`;
-    return;
-  }
-  if (c && c.annual == null) {
-    $('combo-result').innerHTML = `<p class="mt0">${t('所揀危疾計劃需要報價，暫時計唔到合計。', 'The critical illness plan needs a quote, so a total cannot be shown yet.')}</p>`;
-    return;
-  }
-  const total = (m ? m.premium(S.age) : 0) + (c ? c.annual : 0);
-  const share = shareOfSalary(total, readNum($('salary')));
-  $('combo-result').innerHTML = `<div class="stat-row">
-      <div class="stat"><span>${t('每年總保費', 'Total a year')}</span><b class="num">${money(total)}</b></div>
-      <div class="stat"><span>${t('平均每月', 'Per month')}</span><b class="num">${money(total / 12)}</b></div>
-    </div>
-    <p style="margin-top:12px">${share == null ? t('填埋月薪，就計到佔你收入幾多。', 'Add your monthly salary to see the share of income.') :
-      t(`大約係你年薪嘅 <span class="hl">${pct(share, 1)}</span>。`, `That's about <span class="hl">${pct(share, 1)}</span> of your yearly salary.`)}</p>`;
-}
-
 // ------------------------------------------------------------
 // 互動
 // ------------------------------------------------------------
@@ -475,12 +448,8 @@ function bind() {
   chips('ded', 'ded', Number, () => { S.variant = {}; });   // 改上限就重新揀預設選項
   chips('ci-type', 'ciType');
   chips('trend-end', 'trendEnd', Number);
-  moneyInput($('salary'));
-  $('salary').addEventListener('input', render);
   $('med-sort').addEventListener('change', e => { S.medSort = e.target.value; render(); });
   $('ci-sort').addEventListener('change', e => { S.ciSort = e.target.value; render(); });
-  $('combo-med').addEventListener('change', render);
-  $('combo-ci').addEventListener('change', render);
   $('tab-med').addEventListener('click', () => { setTab('med'); render(); });
   $('tab-ci').addEventListener('click', () => { setTab('ci'); render(); });
   document.addEventListener('change', e => {
