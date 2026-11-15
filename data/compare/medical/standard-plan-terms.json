@@ -1,0 +1,27 @@
+{
+ "_說明": "自願醫保「標準計劃」嘅統一保障（所有公司標準計劃條款相同，只有極少數經政府批准嘅差異）。數字全部出自醫務衞生局標準計劃條款範本。政府修訂範本後要更新。",
+ "annualLimit": 420000,
+ "lifetimeLimit": null,
+ "roomPerDay": 750,
+ "wardRestriction": false,
+ "renewTo": 100,
+ "features": {
+  "zh": [
+   "每年保障限額 $420,000，不設終身限額",
+   "不限病房級別，但病房及膳食每日上限 $750（每年最多 180 日）",
+   "保證續保至 100 歲，不論健康狀況改變",
+   "投保時未知嘅已有病症：第 2 年賠 25%、第 3 年 50%、第 4 年起 100%",
+   "訂明非手術癌症治療每年 $80,000；外科醫生費按手術分類最高 $50,000"
+  ],
+  "en": [
+   "Annual benefit limit $420,000, no lifetime limit",
+   "No restriction on ward class, but room and board up to $750 a day (max 180 days a year)",
+   "Guaranteed renewal to age 100, whatever your health",
+   "Pre-existing conditions unknown at application: 25% in year 2, 50% in year 3, 100% from year 4",
+   "Prescribed non-surgical cancer treatment $80,000 a year; surgeon's fees up to $50,000 by surgery category"
+  ]
+ },
+ "source": {"zh": "醫務衞生局：自願醫保標準計劃條款及保障範本", "en": "Health Bureau: VHIS Standard Plan terms and benefits template"},
+ "sourceUrl": {"zh": "https://www.vhis.gov.hk/doc/tc/information_centre/c_standard_plan_template.pdf", "en": "https://www.vhis.gov.hk/doc/en/information_centre/e_standard_plan_template.pdf"},
+ "verifiedOn": "2026-11-05"
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>醫療及危疾比較 – TC Team專屬AI工具箱</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/compare.css?v=1">
+</head>
+<body>
+<header class="site-header"><div class="wrap wide bar">
+  <a class="brand" href="/"><span class="seal sm" aria-hidden="true">工</span><span>TC Team專屬AI工具箱<small>同事內部使用</small></span></a>
+  <a class="head-link" href="/">← 全部工具</a>
+</div></header>
+<main>
+  <div class="wrap wide stack">
+    <section class="hero">
+      <div class="kicker"><span class="seal sm" aria-hidden="true">比</span>醫療及危疾比較・保費查詢</div>
+      <h1>同一個年紀，唔同計劃每年要俾幾多？</h1>
+      <p><b>醫療保險</b>「實報實銷」住院同手術費；<b>危疾保險</b>「確診即一筆過賠」，補返收入損失同醫療以外嘅開支。兩樣保障唔同，唔係二揀一。</p>
+    </section>
+    <p class="callout warn internal-note"><b>同事內部參考</b>：公司之間嘅比較只供顧問自己睇，請勿截圖、轉發或者展示俾客人；同客人傾，請用各保險公司官方資料。</p>
+
+    <section class="card" id="who" aria-label="你嘅資料">
+      <h2 style="font-size:1.1rem">先講你自己（兩個分頁共用）</h2>
+      <div class="who-grid">
+        <div class="field"><span>年齡</span>
+          <div class="stepper"><button type="button" class="btn secondary" data-age="-1" aria-label="減一歲">−</button>
+            <input type="number" id="age" min="0" max="80" value="30" inputmode="numeric" aria-label="年齡">
+            <button type="button" class="btn secondary" data-age="1" aria-label="加一歲">+</button></div></div>
+        <div class="field"><span>性別</span><div class="seg" id="sex"><button type="button" data-v="M" aria-selected="true">男</button><button type="button" data-v="F" aria-selected="false">女</button></div></div>
+        <div class="field"><span>有冇吸煙？</span><div class="seg" id="smoker"><button type="button" data-v="0" aria-selected="true">冇</button><button type="button" data-v="1" aria-selected="false">有</button></div></div>
+      </div>
+      <p class="muted mt0" style="font-size:13px">資料只喺你部機計算，唔會儲存或上傳。</p>
+    </section>
+
+    <div class="seg tabs" role="tablist" aria-label="保險種類">
+      <button type="button" role="tab" id="tab-med" aria-controls="panel-med" aria-selected="true">醫療保險</button>
+      <button type="button" role="tab" id="tab-ci" aria-controls="panel-ci" aria-selected="false">危疾保險</button>
+    </div>
+
+    <!-- 分頁 A：醫療 -->
+    <section id="panel-med" role="tabpanel" aria-labelledby="tab-med" class="stack">
+      <div class="card">
+        <div class="field"><span>想要嘅病房級別</span>
+          <div class="chips" id="ward"><button type="button" class="chip" data-v="all" aria-pressed="true">全部</button><button type="button" class="chip" data-v="standard" aria-pressed="false">標準（普通房）</button><button type="button" class="chip" data-v="semi-private" aria-pressed="false">半私家</button><button type="button" class="chip" data-v="private" aria-pressed="false">私家</button><button type="button" class="chip" data-v="any" aria-pressed="false">冇指定病房</button></div></div>
+        <div class="field"><span>自付費（墊底費）最多可以接受幾多？</span>
+          <div class="chips" id="ded"><button type="button" class="chip" data-v="0" aria-pressed="true">$0</button><button type="button" class="chip" data-v="20000" aria-pressed="false">最多 $2 萬</button><button type="button" class="chip" data-v="50000" aria-pressed="false">最多 $5 萬</button><button type="button" class="chip" data-v="100000" aria-pressed="false">最多 $10 萬</button></div>
+          <small class="muted">每個計劃會預設揀唔超過呢個數嘅自付費，卡片入面可以再改。自付費越高，保費一般越低；入院時要自己先俾呢個數。</small></div>
+              </div>
+      <div id="med-intro"></div>
+      <div class="list-head"><b id="med-count"></b>
+        <label class="sort">公司入面排序 <select id="med-sort"><option value="name">計劃名稱</option><option value="premium">年保費（低至高）</option><option value="premium-desc">年保費（高至低）</option><option value="limit">每年保障限額（高至低）</option></select></label></div>
+      <div id="med-list" class="dir"></div>
+    </section>
+
+    <!-- 分頁 B：危疾 -->
+    <section id="panel-ci" role="tabpanel" aria-labelledby="tab-ci" class="stack" hidden>
+      <div class="callout warn"><b>受保疾病數目多唔等於保障好</b>，各公司對同一疾病的定義及賠償條件可能不同，請以保單條款為準。</div>
+      <div class="card">
+        <div class="field"><span>危疾類型</span>
+          <div class="chips" id="ci-type"><button type="button" class="chip" data-v="all" aria-pressed="true">全部</button><button type="button" class="chip" data-v="renewable" aria-pressed="false">續保型定期</button><button type="button" class="chip" data-v="level" aria-pressed="false">平準保費定期</button><button type="button" class="chip" data-v="savings" aria-pressed="false">儲蓄型</button></div>
+          <small class="muted">續保型：每年或每幾年續保，保費隨年齡增加；平準保費：供款期內保費不變；儲蓄型：終身保障連現金價值。每張卡顯示保費表列明嘅保額。</small></div>
+      </div>
+      <div id="ci-intro"></div>
+      <div class="list-head"><b id="ci-count"></b>
+        <label class="sort">公司入面排序 <select id="ci-sort"><option value="name">計劃名稱</option><option value="premium">年保費（低至高）</option><option value="cap">總賠償上限（高至低）</option></select></label></div>
+      <div id="ci-list" class="dir"></div>
+    </section>
+
+    <!-- 並排比較 -->
+    <section class="card" id="compare-box" aria-live="polite">
+      <h2>並排比較</h2>
+      <p class="muted mt0" id="compare-hint">喺上面每個計劃撳「加入比較」，最多揀 3 個。</p>
+      <div id="compare-table" class="table-scroll"></div>
+      <div id="trend" class="hidden">
+        <h3 style="margin-top:18px">保費隨年齡變化</h3>
+        <div class="chips" id="trend-end" style="margin-bottom:8px"><button type="button" class="chip" data-v="65" aria-pressed="true">睇到 65 歲</button><button type="button" class="chip" data-v="85" aria-pressed="false">睇到 85 歲</button></div>
+        <div id="trend-chart" class="chart"></div>
+        <div id="trend-table" class="table-scroll"></div>
+        <p class="muted" style="font-size:13px">按保險公司現行保費表計算，未計將來加價；醫療保費一般按年齡調整，續保時可能改變。</p>
+      </div>
+    </section>
+
+    <!-- 醫療 + 危疾合併 -->
+    <section class="card" id="combo">
+      <h2>醫療＋危疾：每年加埋要俾幾多？</h2>
+      <div class="grid cols-2">
+        <label class="field"><span>醫療計劃</span><select id="combo-med"></select></label>
+        <label class="field"><span>危疾計劃</span><select id="combo-ci"></select></label>
+      </div>
+      <label class="field"><span>月薪（可以唔填）</span><div class="input-money"><input type="text" id="salary" placeholder="例如 25,000" aria-label="月薪"></div></label>
+      <div id="combo-result"></div>
+    </section>
+
+    <div class="disclaimer"><strong>重要提示：</strong>結果僅供參考，不構成保險、投資或稅務建議；保費以保險公司最新公布為準。產品比較只作客觀資料陳列，排序只按你揀嘅數值，並不代表任何產品較好或較適合你。標示「示例」嘅並非真實產品。保障範圍、不保事項及賠償條件以保單條款為準。</div>
+    <div class="disclaimer">
+  <strong>重要提示：</strong>本工具結果僅供參考，不構成保險、投資或稅務建議。回報率為假設，並非保證；保費以保險公司最新公布為準。
+  輸入嘅資料只會喺你部手機／電腦內計算，<strong>唔會儲存或上傳</strong>。</div>
+  </div>
+</main>
+<script type="module" src="/assets/js/cmp/compare.js"></script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+{
+ "_說明": "危疾產品清單（工作用，唔會喺網站顯示）。status：todo＝未讀；done＝已加入 plans.json；rider＝附加保障（唔可以單獨買，之後再處理）；skip＝唔適用（例如團體保險、已停售）。brochure 係官方小冊子連結。2026-11-05 整理。",
+ "insurers": [
+  {
+   "insurer": "AIA International Limited",
+   "products": [
+    {
+     "name": "Simple Care Essence 簡護危疾保",
+     "status": "done"
+    },
+    {
+     "name": "AIA Assemble Critical Illness Insurance Plan",
+     "status": "done",
+     "brochure": "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/en/aia-assemble/AIAAssemble_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Cancer Care Essence",
+     "status": "done",
+     "note": "yearly renewable; brochure may contain premium rates",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/cancer-care-essence/CancerCareEssence_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "EasyGuard Care Essence",
+     "status": "done",
+     "note": "yearly renewable to 85; premium rates per $1,000 in brochure",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/easyguard-care-essence/EasyguardCareEssence_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Executive Care Pro Critical Illness Insurance Plan 2",
+     "status": "done",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/executive-care-pro-2/ExecutiveCarePro2_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Lady Care Pro",
+     "status": "todo",
+     "note": "fixed Plan 1/2/3 premium table by age band; needs plan-option model",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/lady-care-pro/LadyCarePro_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Level-Up Protect Cancer Insurance Plan",
+     "status": "done",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/level-up/Level-Up_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Level-Up Protect Pearl Cancer Insurance Plan",
+     "status": "todo",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/level-up-pearl/Level-Up_Pearl_en.pdf.coredownload.inline.pdf",
+     "note": "Pearl (US$?) variant of Level-Up Protect"
+    },
+    {
+     "name": "Multiple Care Pro Critical Illness Insurance Plan 2",
+     "status": "done",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/multiple-care-pro-2/MultipleCarePro2_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Prime Care Pro Critical Illness Insurance Plan 2",
+     "status": "done",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/prime-care-pro-2/PrimeCarePro2_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Simple Care Essence Pearl",
+     "status": "done",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/simple-care-essence-pearl/SimpleCareEssencePearl_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Smart Elite Ultra Critical Illness Insurance Plan",
+     "status": "done",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/smart-elite-ultra/SmartEliteUltra_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Super HealthGuard Pro",
+     "status": "done",
+     "note": "premium rates in brochure",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/super-healthguard-pro/SuperHealthGuardPro_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "On Your Side Insurance Plan 2 / First Gift",
+     "status": "done",
+     "brochure": "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/en/on-your-side-plan-2/OnYourSideInsurancePlan2_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Essence – On Your Side Insurance Plan",
+     "status": "done",
+     "brochure": "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/en/essence-on-your-side/EssenceOnYourSideInsurancePlan_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Cheerful Term / Cheerful Prime Care Pro",
+     "status": "rider",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/cheerful-rider/CheerfulRider_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Enhanced Critical Illness Rider Pro / Critical Illness Rider Pro",
+     "status": "rider",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/critical-illness-riders/CriticalIllnessRiders_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Pretty Choice Rider Pro",
+     "status": "rider",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/pretty-choice-rider-pro/PrettyChoiceRiderPro_en.pdf.coredownload.inline.pdf"
+    },
+    {
+     "name": "Prime Care Rider",
+     "status": "rider",
+     "brochure": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/prime-care-rider/PrimeCareRider_en.pdf.coredownload.inline.pdf"
+    }
+   ]
+  },
+  {
+   "insurer": "Bowtie Life Insurance Company Limited",
+   "products": [
+    {
+     "name": "保泰危疾保／多重危疾保／早期及多重危疾保",
+     "status": "done"
+    },
+    {
+     "name": "Children Growth Critical Illness Insurance",
+     "status": "todo",
+     "note": "premium schedule published",
+     "brochure": "https://www.bowtie.com.hk/assets/product/bb-ci/Premium-Schedule-Children-Growth-Critical-Illness-Insurance-%24500%2C000-01.pdf"
+    }
+   ]
+  },
+  {
+   "insurer": "Prudential Hong Kong Limited",
+   "products": [
+    {
+     "name": "PRUHealth Critical Illness Extended Care III",
+     "status": "done",
+     "page": "https://www.prudential.com.hk/en/products/health/critical-illness/pruhealth-critical-illness-extended-care-iii/"
+    },
+    {
+     "name": "PRUHealth Critical Illness Term II",
+     "status": "done",
+     "brochure": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-term-ii-product-brochure.pdf"
+    },
+    {
+     "name": "PRUHealth Critical Illness First Protect II",
+     "status": "done",
+     "brochure": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-first-protect-ii-product-brochure.pdf"
+    },
+    {
+     "name": "PRUHealth Guardian Critical Illness Plan series",
+     "status": "done",
+     "brochure": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-guardian-critical-illness-plan-series-product-brochure.pdf"
+    },
+    {
+     "name": "PRUhealth essential critical care",
+     "status": "done",
+     "brochure": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-essential-critical-care-product-brochure.pdf"
+    },
+    {
+     "name": "PRUhealth critical illness multi-care prestige",
+     "status": "done",
+     "note": "may be old",
+     "brochure": "https://www.prudential.com.hk/export/sites/prudential-hk/en/.galleries/pdf/brochure/pruhealth-critical-illness-multi-care-prestige-product-brochure.pdf"
+    },
+    {
+     "name": "EasyWell CI MultiCare (rider)",
+     "status": "done"
+    }
+   ]
+  },
+  {
+   "insurer": "Manulife (International) Limited",
+   "products": [
+    {
+     "name": "IncomeGuard / IncomeShield / Bright Care PRO / ManuPrimo Care / ManuBright Care 2 (+Plus) / ManuVital Care",
+     "status": "done",
+     "note": "from product web pages only; robots.txt disallows *.pdf so leaflets not read"
+    },
+    {
+     "name": "ManuLove Care 心愛一家保",
+     "status": "todo",
+     "note": "web page lacks illness counts; leaflet PDF disallowed for automated fetch — need Cody to download manually or skip"
+    },
+    {
+     "name": "Cash Assistance Benefit / Child Care Benefit / Early Stage CI Benefit / CareGuard",
+     "status": "rider",
+     "note": "PDF disallowed; page-only"
+    }
+   ]
+  },
+  {
+   "insurer": "AXA China Region Insurance Company (Bermuda/HK)",
+   "products": [
+    {
+     "name": "CritiPartner Critical Illness Plan",
+     "status": "done",
+     "page": "https://www.axa.com.hk/en/critipartner-critical-illness-insurance"
+    },
+    {
+     "name": "TotalAssure / TotalAssure Plus (Basic / BabyPro)",
+     "status": "done",
+     "page": "https://www.axa.com.hk/en/total-assure-critical-illness"
+    },
+    {
+     "name": "CareForAll Critical Illness Plan",
+     "status": "done",
+     "page": "https://www.axa.com.hk/en/care-for-all-critical-illness-plan"
+    },
+    {
+     "name": "LoveAssure / LoveAssure Plus",
+     "status": "done",
+     "page": "https://www.axa.com.hk/en/loveassure-plus-critical-illness-insurance"
+    },
+    {
+     "name": "HealthSelect II / HealthVital II Major Illness Plan",
+     "status": "done",
+     "page": "https://www.axa.com.hk/en/healthvital-major-illness-insurance"
+    },
+    {
+     "name": "MultiPro / MultiPro Plus",
+     "status": "done",
+     "page": "https://www.axa.com.hk/en/multipro-series"
+    },
+    {
+     "name": "Downloads hub",
+     "status": "skip",
+     "page": "https://www.axa.com.hk/en/downloads/critical-illness"
+    },
+    {
+     "name": "LoveAssure / LoveAssure Plus / CritiPartner",
+     "status": "skip",
+     "note": "not in AXA current downloads list (likely discontinued)"
+    }
+   ]
+  },
+  {
+   "insurer": "FWD Life Insurance Company (Bermuda) Limited",
+   "products": [
+    {
+     "name": "MyCover Critical Illness Plan",
+     "status": "done",
+     "id": "fwd-mycover",
+     "note": "online plan; no public premium table (calculator only)",
+     "brochure": "https://www.fwd.com.hk/images/v3/assets/blt563fac53dd3a847c/blt1b86b167c28b2e1f/64d5d3ccfe2ccc83e0a2e631/MyCover_policy_brochure_EN_202308.pdf"
+    },
+    {
+     "name": "EasyCover Critical Illness Plan",
+     "status": "done",
+     "id": "fwd-easycover",
+     "brochure": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt59b1df57a3e570fa/6361c3ec57082b10e8176283/fwd-easycover-en.pdf"
+    },
+    {
+     "name": "Crisis AllSupporter Insurance Plan Series",
+     "status": "done",
+     "id": "fwd-crisis-allsupporter",
+     "brochure": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt3c7e1bd8c607761a/6ac89b7acd0bd94ddfd50a5c/FWD_Crisis_AllSupporter_EN.pdf"
+    },
+    {
+     "name": "Crisis USupporter / Pro Series (incl. Kid Starter)",
+     "status": "done",
+     "id": "fwd-crisis-usupporter",
+     "brochure": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blted83ca419e962f7f/64957d9224cb333e977f29a2/fwd-crisis-usupporter-en.pdf"
+    },
+    {
+     "name": "Crisis OneMaster / OneMaster Pro",
+     "status": "done",
+     "id": "fwd-crisis-onemaster",
+     "brochure": "https://www.fwd.com.hk/-/media/Files/FWDHK/pdf/protect/health-accident/critical-illness/crisis-onemaster-en.pdf"
+    },
+    {
+     "name": "Crisis OneCover Prime",
+     "status": "done",
+     "id": "fwd-crisis-onecover-prime",
+     "note": "brochure link on site returns 'asset not found'; card uses product page only (type/ages unknown)",
+     "page": "https://www.fwd.com.hk/en/critical-illness/crisis-onecover-prime/"
+    },
+    {
+     "name": "Crisis EasyGo – UPrimeCover",
+     "status": "done",
+     "id": "fwd-crisis-easygo-uprimecover",
+     "brochure": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/bltf34d6a5ac4c375aa/crisis-easygo-uprimecover-en.pdf"
+    },
+    {
+     "name": "Crisis EasyGo – UCanCover",
+     "status": "done",
+     "id": "fwd-crisis-easygo-ucancover",
+     "brochure": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blte96c943cd69aa3ef/crisis-easygo-ucancover-ustillcover-en.pdf"
+    },
+    {
+     "name": "Crisis EasyGo – UStillCover",
+     "status": "done",
+     "id": "fwd-crisis-easygo-ustillcover",
+     "brochure": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blte96c943cd69aa3ef/crisis-easygo-ucancover-ustillcover-en.pdf"
+    },
+    {
+     "name": "CANcover / CANcover Pro Cancer Protection Plan",
+     "status": "done",
+     "id": "fwd-cancover",
+     "brochure": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt0fcf073b67b6cc57/635f4e319549fb1076784e49/fwd_cancover_brochure_en.pdf"
+    },
+    {
+     "name": "Mind+ Critical Illness Protection Plan",
+     "status": "done",
+     "id": "fwd-mindplus",
+     "brochure": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/bltb571b34fd2302f47/6360c981aa5f5f55fdf2980a/mpcipp-en.pdf"
+    },
+    {
+     "name": "CANsurance Cancer Protection Plan (incl. Econ)",
+     "status": "skip",
+     "note": "cancer MEDICAL reimbursement plan (ward level, lifetime cancer limit), not lump-sum CI; has public premium tables if a cancer-medical section is ever added",
+     "brochure": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blt976281b2b861ba4f/cansurance-en-all-prem.pdf"
+    },
+    {
+     "name": "Crisis XDefender Signature / Signature Plus",
+     "status": "skip",
+     "note": "no product page on fwd.com.hk any more (only press release + fulfilment ratio) → treated as no longer sold"
+    },
+    {
+     "name": "Guardian Plus Refundable Critical Illness Plan",
+     "status": "skip",
+     "note": "not in fwd.com.hk sitemap / CI product list → treated as no longer sold"
+    }
+   ]
+  },
+  {
+   "insurer": "Sun Life Hong Kong Limited",
+   "products": [
+    {
+     "name": "SunWell Advanced Care / Supreme Care",
+     "status": "done",
+     "id": "sunlife-sunwell-advanced-supreme",
+     "brochure": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunWell_ACSC_F_EN.pdf"
+    },
+    {
+     "name": "SunWell Essential Care",
+     "status": "done",
+     "id": "sunlife-sunwell-essentialcare",
+     "brochure": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunWell_EC_EN.pdf"
+    },
+    {
+     "name": "SunHealth LovePromise",
+     "status": "done",
+     "id": "sunlife-lovepromise",
+     "brochure": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunHealth-LovePromise_PB_EN.pdf"
+    },
+    {
+     "name": "SunHealth Cancer Shield",
+     "status": "done",
+     "id": "sunlife-cancer-shield",
+     "brochure": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SH_CancerShield_PB_EN.pdf"
+    },
+    {
+     "name": "Critical Medical Care Insurance Plan II",
+     "status": "done",
+     "id": "sunlife-cmc-ii",
+     "brochure": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/CMC_E.pdf"
+    },
+    {
+     "name": "Living Master Benefit / Extra Benefit",
+     "status": "done",
+     "id": "sunlife-living-master",
+     "note": "rider, listed with rider:true",
+     "brochure": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/Living_Master_EN.pdf"
+    },
+    {
+     "name": "SunHealth OmniCare",
+     "status": "skip",
+     "note": "not on Sun Life's CI product list page (only an old video page remains) → treated as no longer sold",
+     "brochure": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunHealth-OmniCare_PB_EN.pdf"
+    }
+   ]
+  },
+  {
+   "insurer": "YF Life Insurance International Limited",
+   "products": [
+    {
+     "name": "YF PrimeHealth Pro (Essential)",
+     "status": "done",
+     "id": "yf-primehealth-pro-essential",
+     "brochure": "https://www.yflife.com/sites/default/files/brochure/PHP-TC.pdf"
+    },
+    {
+     "name": "YF PrimeHealth Pro (Signature) / Jr. Care",
+     "status": "done",
+     "id": "yf-primehealth-pro-signature",
+     "brochure": "https://www.yflife.com/sites/default/files/brochure/PHPS-TC.pdf"
+    },
+    {
+     "name": "YF PrimeHealth Pro (Ease)",
+     "status": "done",
+     "id": "yf-primehealth-pro-ease",
+     "note": "page not in sitemap but live with brochure",
+     "brochure": "https://www.yflife.com/sites/default/files/brochure/PHPE-TC.pdf"
+    },
+    {
+     "name": "CritiCare Continuation Cancer",
+     "status": "done",
+     "id": "yf-criticare-cancer",
+     "brochure": "https://www.yflife.com/sites/default/files/brochure/CCC-TC.pdf"
+    },
+    {
+     "name": "CritiCare Continuation Cardio",
+     "status": "done",
+     "id": "yf-criticare-cardio",
+     "brochure": "https://www.yflife.com/sites/default/files/brochure/CCA-TC.pdf"
+    },
+    {
+     "name": "CritiCare Continuation Diabetes",
+     "status": "done",
+     "id": "yf-criticare-diabetes",
+     "brochure": "https://www.yflife.com/sites/default/files/brochure/CCD-TC.pdf"
+    },
+    {
+     "name": "Lady Health Benefit",
+     "status": "done",
+     "id": "yf-lady-health",
+     "note": "standalone or rider",
+     "brochure": "https://www.yflife.com/sites/default/files/brochure/QI_LADY_E.pdf"
+    },
+    {
+     "name": "Update Jr. Health Benefit",
+     "status": "done",
+     "id": "yf-update-jr-health",
+     "note": "rider",
+     "brochure": "https://www.yflife.com/sites/default/files/brochure/QI_UPJR_E_2.pdf"
+    },
+    {
+     "name": "Extra Cancer Care",
+     "status": "skip",
+     "note": "cancer hospital-cash + monthly living benefit plan (yearly renewable), not lump-sum CI",
+     "brochure": "https://www.yflife.com/sites/default/files/brochure/QI_ECC_E.pdf"
+    }
+   ]
+  },
+  {
+   "insurer": "HSBC Life (International) Limited",
+   "products": [
+    {
+     "name": "Swift Guard Critical Illness Plan 滙達保",
+     "status": "todo",
+     "page": "https://www.hsbc.com.hk/zh-hk/insurance/products/medical-and-critical-illness/swift-guard/"
+    },
+    {
+     "name": "Health Goal Insurance Plan",
+     "status": "todo",
+     "page": "https://www.hsbc.com.hk/insurance/products/savings-and-retirement/health-goal/"
+    },
+    {
+     "name": "Family Protector (CI option)",
+     "status": "todo",
+     "page": "https://www.hsbc.com.hk/insurance/products/life/family-protector/"
+    }
+   ]
+  },
+  {
+   "insurer": "BOC Group Life Assurance Company Limited",
+   "products": [
+    {
+     "name": "Critical Illness 188 Whole Life Insurance Plan",
+     "status": "todo",
+     "page": "https://www.boclife.com.hk/en/product/critical-illness-188-whole-life-insurance-plan.html"
+    },
+    {
+     "name": "BestCare-Pro Critical Illness Plan",
+     "status": "todo",
+     "page": "https://www.boclife.com.hk/en/product/bestcare-pro-critical-illness-plan.html"
+    },
+    {
+     "name": "iProtect 10 Years Insurance Plan",
+     "status": "todo",
+     "brochure": "https://www.boclife.com.hk/en/iproduct/assets/pdf/iProtect-10-Years-Insurance-Plan-EN230608.pdf"
+    },
+    {
+     "name": "AlongPro / SmartGuard Critical Illness Plan",
+     "status": "todo",
+     "page": "https://www.boclife.com.hk/en/category/health-protection.html"
+    }
+   ]
+  },
+  {
+   "insurer": "Chow Tai Fook Life Insurance Co Ltd",
+   "products": [
+    {
+     "name": "FamCare 198 Critical Illness Insurance Plan",
+     "status": "done",
+     "id": "ctf-famcare-198",
+     "brochure": "https://www.ctflife.com.hk/pdf/en/famcare-198-critical-illness-protector-brochure.pdf"
+    },
+    {
+     "name": "HealthCare 168 Plus",
+     "status": "done",
+     "id": "ctf-healthcare-168-plus",
+     "brochure": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/healthcare-168-plus-brochure.pdf"
+    },
+    {
+     "name": "Protect Starter Critical Illness Insurance Plan",
+     "status": "done",
+     "id": "ctf-protect-starter",
+     "brochure": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/protect-starter-product-brochure.pdf"
+    },
+    {
+     "name": "HealthCare Choice Critical Illness Protector",
+     "status": "done",
+     "id": "ctf-healthcare-choice",
+     "brochure": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/healthcare-choice-critical-illness-protector.pdf"
+    },
+    {
+     "name": "TargetCare Cancer Plan",
+     "status": "skip",
+     "note": "cancer MEDICAL reimbursement plan (lifetime cancer limit); has public annual premium table if a cancer-medical section is added later",
+     "brochure": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/targetcare-cancer-plan-brochure.pdf"
+    },
+    {
+     "name": "TargetCare Cancer Rider",
+     "status": "skip",
+     "note": "rider version of the reimbursement plan; brochure link returns an HTML page"
+    }
+   ]
+  },
+  {
+   "insurer": "Chubb Life Insurance Hong Kong Limited",
+   "products": [
+    {
+     "name": "Serene Care Critical Illness Protector",
+     "status": "todo",
+     "brochure": "https://www.chubb.com/content/dam/chubb-sites/chubb/hk-en/pdf/cie_pb_en.pdf"
+    },
+    {
+     "name": "Cardio Care Critical Illness Insurance Plan",
+     "status": "todo",
+     "brochure": "https://www.chubb.com/content/dam/chubb-sites/chubb/hk-en/pdf/cih_pb_agy_bkg_en_10jul26.pdf"
+    },
+    {
+     "name": "Cancer Care Critical Illness Insurance Plan",
+     "status": "todo",
+     "brochure": "https://www.chubb.com/content/dam/chubb-sites/chubb/hk-en/pdf/cig_pb_agy_bkg_en_10jul26.pdf"
+    },
+    {
+     "name": "Every Care / Embrace Care / Diabetes Care",
+     "status": "todo",
+     "page": "https://www.chubb.com/hk-en/personal/chubb-every-care-critical-illness-insurance-plan.html"
+    },
+    {
+     "name": "安心守護危疾保障計劃",
+     "status": "todo",
+     "brochure": "https://www.chubb.com/content/dam/chubb-sites/chubb/hk-en/pdf/cid_pb_tc.pdf"
+    },
+    {
+     "name": "Living Well riders",
+     "status": "rider"
+    }
+   ]
+  },
+  {
+   "insurer": "Zurich (life)",
+   "products": [
+    {
+     "name": "Zurich Care Critical Illness Insurance Plan",
+     "status": "todo",
+     "page": "https://www.zurich.com.hk/en/products/accident-and-health/critical-illness/zurich-care-critical-illness-insurance-plan"
+    },
+    {
+     "name": "Swiss Care Critical Illness Insurance Plan",
+     "status": "todo",
+     "page": "https://life.zurich.com.hk/en/products/swiss-care-critical-illness-insurance-plan"
+    }
+   ]
+  },
+  {
+   "insurer": "Well Link Life Insurance Company Limited",
+   "products": [
+    {
+     "name": "Well Protect Critical Illness SimPro",
+     "status": "todo",
+     "page": "https://www.wli.com.hk/en/productWellProtectCriticalISP.jhtml"
+    }
+   ]
+  },
+  {
+   "insurer": "Hong Kong Life Insurance Limited",
+   "products": [
+    {
+     "name": "危疾百歲保 終身保障計劃",
+     "status": "todo",
+     "brochure": "https://www.chbank.com/data/media/document/20190525-160059054.pdf",
+     "note": "bank-distributed copy; find insurer's own page"
+    }
+   ]
+  },
+  {
+   "insurer": "MSIG Insurance (Hong Kong) Limited",
+   "products": [
+    {
+     "name": "CriticalCare",
+     "status": "todo",
+     "note": "rate table reportedly published"
+    }
+   ]
+  },
+  {
+   "insurer": "Cigna",
+   "products": [
+    {
+     "name": "VitalGuard Critical Illness Plan",
+     "status": "todo",
+     "brochure": "https://www.cigna.com.hk/iwov-resources/docs/CI/Cigna-VitalGuard-Critical-Illness-Brochure-EN.pdf"
+    }
+   ]
+  },
+  {
+   "insurer": "China Life (Overseas) / China Taiping Life",
+   "products": [
+    {
+     "name": "（未搵到，要再搜尋）",
+     "status": "todo"
+    }
+   ]
+  }
+ ]
+}

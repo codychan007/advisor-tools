@@ -1,0 +1,5079 @@
+{
+ "_說明": "危疾計劃（只放保險公司公開保費表或條款核實過嘅真數據）。type：renewable＝續保型定期（保費隨年齡加）、level＝平準保費定期、savings＝儲蓄型。pricing：table＝有公開保費表（premiums/*.csv：age,male_ns,male_s,female_ns,female_s,renewalOnly＝該保額嘅年保費）；quote＝需報價。renewal.every＝每幾年續保一次（保費喺每段期內不變），renewal.to＝最高續保年齡。",
+ "plans": [
+  {
+   "id": "aia-simple-care-essence",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "簡護危疾保",
+    "en": "Simple Care Essence"
+   },
+   "type": "renewable",
+   "renewal": {
+    "every": 5,
+    "to": 80
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "sumAssured": 1000000,
+   "pricing": "table",
+   "premiumFile": "premiums/aia-simple-care-essence.csv",
+   "monthlyOnly": false,
+   "diseases": {
+    "severe": 57,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 1 種輕微疾病、13 種嚴重兒童疾病",
+    "en": "Also 1 minor illness and 13 severe child diseases"
+   },
+   "earlyText": {
+    "zh": "早期危疾：每種預支保額 20%（每種上限 $400,000）；輕微疾病預支 10%（上限 $400,000）；預支額會喺其後嚴重疾病賠償扣除",
+    "en": "Early stage: 20% advance per illness (max $400,000 each); minor illness 10% advance (max $400,000); advances are deducted from later major illness claims"
+   },
+   "multiClaim": null,
+   "multiText": {
+    "zh": "冇多次賠償（嚴重疾病賠償一次）",
+    "en": "No multiple claims (one major illness payout)"
+   },
+   "totalCapPct": 100,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "每 5 年一個保障期，期內保費不變；續保時按當時年齡同保費率調整，非保證",
+    "en": "Premium fixed within each 5-year term; reset at renewal by age and the rate then, not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "身故賠償：當時保額（已扣除預支賠償）",
+     "續保唔使再提供健康資料",
+     "保額達 $1,875,000 或以上永久 8 折（標準保費）"
+    ],
+    "en": [
+     "Death benefit: current sum assured (after advances)",
+     "Renewal needs no further health information",
+     "Permanent 20% discount on standard premium for sum assured of $1,875,000 or above"
+    ]
+   },
+   "premiumSourceUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/simple-care-essence/SimpleCareEssence_tc_table.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/simple-care-essence/SimpleCareEssence_en_table.pdf"
+   },
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/simple-care-essence/SimpleCareEssence_tc.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/simple-care-essence/SimpleCareEssence_en.pdf"
+   },
+   "effectiveDate": "2020-07-17",
+   "source": {
+    "zh": "友邦官網：年繳保費表及產品小冊子",
+    "en": "AIA website: annual premium table and brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/simple-care-essence/SimpleCareEssence_en_table.pdf",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Cody 2026-11-05：核實清單 12 項（4 個計劃 × 30／45／60 歲）全部對官方保費表正確"
+  },
+  {
+   "id": "bowtie-term-ci",
+   "insurer": {
+    "zh": "保泰人壽保險有限公司",
+    "en": "Bowtie Life Insurance Company Limited"
+   },
+   "plan": {
+    "zh": "保泰危疾保",
+    "en": "Bowtie Term Critical Illness"
+   },
+   "type": "renewable",
+   "renewal": {
+    "every": 1,
+    "to": 100
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "sumAssured": 500000,
+   "pricing": "table",
+   "premiumFile": "premiums/bowtie-term-ci.csv",
+   "monthlyOnly": true,
+   "diseases": {
+    "severe": 42,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 4 項附加保障（例如末期疾病、永久完全殘障）",
+    "en": "Plus 4 additional conditions (e.g. terminal illness, total and permanent disability)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "冇多次賠償（嚴重危疾賠償一次）",
+    "en": "No multiple claims (one major illness payout)"
+   },
+   "totalCapPct": 100,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "每年續保，保費按年齡調整，非保證",
+    "en": "Renewed yearly; premium changes with age, not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "恩恤身故保障：保額 5%",
+     "保證每年續保至 100 歲，續保唔使再核保"
+    ],
+    "en": [
+     "Compassionate death benefit: 5% of sum insured",
+     "Guaranteed yearly renewal to 100 without re-underwriting"
+    ]
+   },
+   "premiumSourceUrl": {
+    "zh": "https://www.bowtie.com.hk/assets/product/term-ci/Premium-Schedule-Term-Critical-Illness-500,000-02.pdf",
+    "en": "https://www.bowtie.com.hk/assets/product/term-ci/Premium-Schedule-Term-Critical-Illness-500,000-02.pdf"
+   },
+   "termsUrl": {
+    "zh": "https://www.bowtie.com.hk/assets/product/term-ci/Terms-and-Conditions_Term-CI-04-ZH.pdf",
+    "en": "https://www.bowtie.com.hk/en/insurance/critical-illness"
+   },
+   "effectiveDate": null,
+   "source": {
+    "zh": "保泰官網：標準月供保費表及保單條款",
+    "en": "Bowtie website: standard monthly premium schedule and policy terms"
+   },
+   "sourceUrl": "https://www.bowtie.com.hk/zh/insurance/critical-illness",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Cody 2026-11-05：核實清單 12 項（4 個計劃 × 30／45／60 歲）全部對官方保費表正確"
+  },
+  {
+   "id": "bowtie-term-ci-multiple",
+   "insurer": {
+    "zh": "保泰人壽保險有限公司",
+    "en": "Bowtie Life Insurance Company Limited"
+   },
+   "plan": {
+    "zh": "保泰多重危疾保",
+    "en": "Bowtie Term Critical Illness – Multiple Cover"
+   },
+   "type": "renewable",
+   "renewal": {
+    "every": 1,
+    "to": 100
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "sumAssured": 500000,
+   "pricing": "table",
+   "premiumFile": "premiums/bowtie-term-ci-multiple.csv",
+   "monthlyOnly": true,
+   "diseases": {
+    "severe": 42,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 4 項附加保障",
+    "en": "Plus 4 additional conditions"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "times": 5,
+     "gapYears": 2,
+     "capPct": 500
+    },
+    "heart": {
+     "times": 5,
+     "gapYears": 2,
+     "capPct": 500
+    },
+    "stroke": {
+     "times": 5,
+     "gapYears": 2,
+     "capPct": 500
+    }
+   },
+   "multiText": {
+    "zh": "首次嚴重危疾賠 100% 後，多重危疾保障再賠最多 4 次（每次 100%，相隔 2 年）；癌症、心臟病、中風可重複索償，其他嚴重危疾每種一次；多重保障 85 歲後結束",
+    "en": "After the first major claim (100%), up to 4 more claims of 100% each, 2 years apart; cancer, heart attack and stroke can recur, other illnesses once each; multiple cover ends after age 85"
+   },
+   "totalCapPct": 500,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "每年續保，保費按年齡調整，非保證",
+    "en": "Renewed yearly; premium changes with age, not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "恩恤身故保障：保額 5%",
+     "保證每年續保至 100 歲；86 歲起轉為「保泰危疾保」"
+    ],
+    "en": [
+     "Compassionate death benefit: 5% of sum insured",
+     "Guaranteed yearly renewal to 100; becomes Bowtie Term Critical Illness from age 86"
+    ]
+   },
+   "premiumSourceUrl": {
+    "zh": "https://www.bowtie.com.hk/assets/product/term-ci-plus/Premium-Schedule-Term-CI-Multiple-Cover-500,000-02.pdf",
+    "en": "https://www.bowtie.com.hk/assets/product/term-ci-plus/Premium-Schedule-Term-CI-Multiple-Cover-500,000-02.pdf"
+   },
+   "termsUrl": {
+    "zh": "https://www.bowtie.com.hk/assets/product/term-ci-plus/Terms-and-Conditions-Term-CI-Multiple-Cover-04-ZH.pdf",
+    "en": "https://www.bowtie.com.hk/en/insurance/critical-illness"
+   },
+   "effectiveDate": null,
+   "source": {
+    "zh": "保泰官網：標準月供保費表及保單條款",
+    "en": "Bowtie website: standard monthly premium schedule and policy terms"
+   },
+   "sourceUrl": "https://www.bowtie.com.hk/zh/insurance/critical-illness",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Cody 2026-11-05：核實清單 12 項（4 個計劃 × 30／45／60 歲）全部對官方保費表正確"
+  },
+  {
+   "id": "bowtie-term-ci-early-multiple",
+   "insurer": {
+    "zh": "保泰人壽保險有限公司",
+    "en": "Bowtie Life Insurance Company Limited"
+   },
+   "plan": {
+    "zh": "保泰早期及多重危疾保",
+    "en": "Bowtie Term Critical Illness – Early Stage and Multiple Cover"
+   },
+   "type": "renewable",
+   "renewal": {
+    "every": 1,
+    "to": 100
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "sumAssured": 500000,
+   "pricing": "table",
+   "premiumFile": "premiums/bowtie-term-ci-early-multiple.csv",
+   "monthlyOnly": true,
+   "diseases": {
+    "severe": 42,
+    "early": 4,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 4 項附加保障",
+    "en": "Plus 4 additional conditions"
+   },
+   "earlyText": {
+    "zh": "早期危疾：每次保額 20%（每次上限 $300,000），最多 5 次，累計上限保額 100%，相隔 2 年",
+    "en": "Early stage: 20% of sum insured per claim (max $300,000 each), up to 5 claims, 100% in total, 2 years apart"
+   },
+   "multiClaim": {
+    "cancer": {
+     "times": 5,
+     "gapYears": 2,
+     "capPct": 500
+    },
+    "heart": {
+     "times": 5,
+     "gapYears": 2,
+     "capPct": 500
+    },
+    "stroke": {
+     "times": 5,
+     "gapYears": 2,
+     "capPct": 500
+    }
+   },
+   "multiText": {
+    "zh": "首次嚴重危疾賠 100% 後，多重危疾保障再賠最多 4 次（每次 100%，相隔 2 年）；癌症、心臟病、中風可重複索償；多重及早期保障 85 歲後結束",
+    "en": "After the first major claim (100%), up to 4 more claims of 100% each, 2 years apart; cancer, heart attack and stroke can recur; multiple and early cover end after age 85"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "嚴重危疾合共最多 500%＋早期危疾最多 100%（見條款）",
+    "en": "Up to 500% for major illnesses plus up to 100% for early stage (see terms)"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "每年續保，保費按年齡調整，非保證",
+    "en": "Renewed yearly; premium changes with age, not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "恩恤身故保障：保額 5%",
+     "保證每年續保至 100 歲；86 歲起轉為「保泰危疾保」"
+    ],
+    "en": [
+     "Compassionate death benefit: 5% of sum insured",
+     "Guaranteed yearly renewal to 100; becomes Bowtie Term Critical Illness from age 86"
+    ]
+   },
+   "premiumSourceUrl": {
+    "zh": "https://www.bowtie.com.hk/assets/product/term-ci-max/Premium-Schedule-Term-CI-Early-Stage-Multiple-Cover-500,000-02.pdf",
+    "en": "https://www.bowtie.com.hk/assets/product/term-ci-max/Premium-Schedule-Term-CI-Early-Stage-Multiple-Cover-500,000-02.pdf"
+   },
+   "termsUrl": {
+    "zh": "https://www.bowtie.com.hk/assets/product/term-ci-max/Terms-and-Conditions-Term-CI-Early-Stage-Multiple-Cover-02-ZH.pdf",
+    "en": "https://www.bowtie.com.hk/en/insurance/critical-illness"
+   },
+   "effectiveDate": null,
+   "source": {
+    "zh": "保泰官網：標準月供保費表及保單條款",
+    "en": "Bowtie website: standard monthly premium schedule and policy terms"
+   },
+   "sourceUrl": "https://www.bowtie.com.hk/zh/insurance/critical-illness",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Cody 2026-11-05：核實清單 12 項（4 個計劃 × 30／45／60 歲）全部對官方保費表正確"
+  },
+  {
+   "id": "aia-easyguard-care-essence",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "守康易危疾保",
+    "en": "EasyGuard Care Essence"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": {
+    "every": 1,
+    "to": 85
+   },
+   "issueAges": [
+    18,
+    65
+   ],
+   "rateBasis": "per1000",
+   "sumAssuredOptions": [
+    500000,
+    1000000
+   ],
+   "sumAssured": null,
+   "pricing": "table",
+   "premiumFile": "premiums/aia-easyguard-care-essence-per1000.csv",
+   "monthlyOnly": false,
+   "diseases": {
+    "severe": 3,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "只保癌症、心臟病、中風（「主要都市危疾保障」）",
+    "en": "Covers cancer, heart attack and stroke only (Major Urban Critical Illness Benefit)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "確診其中一種賠保額 100%，冇多次賠償",
+    "en": "Pays 100% of sum assured once on diagnosis of any of the three; no multiple claims"
+   },
+   "totalCapPct": 100,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "每年續保，按續保時年齡同當時費率計，非保證",
+    "en": "Renewed yearly at the rate for your age then; not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "恩恤身故保障：港幣 $5,000",
+     "保證續保至 85 歲，唔會因健康狀況改變而加保費"
+    ],
+    "en": [
+     "Compassionate death benefit: HK$5,000",
+     "Guaranteed renewal to 85; premium not raised for health changes"
+    ]
+   },
+   "premiumSourceUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/easyguard-care-essence/EasyguardCareEssence_en.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/easyguard-care-essence/EasyguardCareEssence_en.pdf"
+   },
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/easyguard-care-essence/EasyguardCareEssence_tc.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/easyguard-care-essence/EasyguardCareEssence_en.pdf"
+   },
+   "effectiveDate": null,
+   "source": {
+    "zh": "友邦官網：產品小冊子（內附年繳保費率表）",
+    "en": "AIA website: brochure with annual premium rate table"
+   },
+   "sourceUrl": "https://www.aia.com.hk/en/products/health/easyguard-care-essence",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-cancer-care-essence",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "智護癌症保",
+    "en": "Cancer Care Essence"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": {
+    "every": 1,
+    "to": 80
+   },
+   "issueAges": [
+    18,
+    60
+   ],
+   "rateBasis": "per1000",
+   "sumAssuredOptions": [
+    500000,
+    1000000
+   ],
+   "sumAssured": null,
+   "pricing": "table",
+   "premiumFile": "premiums/aia-cancer-care-essence-per1000.csv",
+   "monthlyOnly": false,
+   "diseases": {
+    "severe": 4,
+    "early": 4,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "只保 4 種癌症（肺、大腸及直腸、乳房（女）、前列腺（男））同指定原位癌／早期惡性腫瘤",
+    "en": "Covers 4 cancers only (lung, colorectal, breast (female), prostate (male)) plus specified carcinoma-in-situ / early stage malignancy"
+   },
+   "earlyText": {
+    "zh": "指定原位癌／早期惡性腫瘤：預支保額 20%（上限 $400,000），之後癌症或身故賠償減至 80%",
+    "en": "Specified carcinoma-in-situ / early stage malignancy: 20% advance (max $400,000); later cancer or death benefit reduced to 80%"
+   },
+   "multiClaim": null,
+   "multiText": {
+    "zh": "冇多次賠償，合共最多保額 100%",
+    "en": "No multiple claims; 100% of sum assured in total"
+   },
+   "totalCapPct": 100,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "每年續保，按續保時年齡同當時費率計，非保證",
+    "en": "Renewed yearly at the rate for your age then; not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "身故賠償：當時保額（已扣除預支）",
+     "保證續保至 80 歲"
+    ],
+    "en": [
+     "Death benefit: current sum assured (after advances)",
+     "Guaranteed renewal to 80"
+    ]
+   },
+   "premiumSourceUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/cancer-care-essence/CancerCareEssence_en.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/cancer-care-essence/CancerCareEssence_en.pdf.coredownload.inline.pdf"
+   },
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/cancer-care-essence/CancerCareEssence_tc.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/cancer-care-essence/CancerCareEssence_en.pdf.coredownload.inline.pdf"
+   },
+   "effectiveDate": null,
+   "source": {
+    "zh": "友邦官網：產品小冊子（內附年繳保費率表）",
+    "en": "AIA website: brochure with annual premium rate table"
+   },
+   "sourceUrl": "https://www.aia.com.hk/en/products/health/cancer-care-essence",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-super-healthguard-pro",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "「進升危疾保障計劃」",
+    "en": "Super HealthGuard Pro"
+   },
+   "type": "level",
+   "rider": false,
+   "renewal": null,
+   "coverTo": 70,
+   "payTo": 70,
+   "issueAges": [
+    0,
+    60
+   ],
+   "rateBasis": "per1000",
+   "sumAssuredOptions": [
+    500000,
+    1000000
+   ],
+   "sumAssured": null,
+   "pricing": "table",
+   "premiumFile": "premiums/aia-super-healthguard-pro-per1000.csv",
+   "monthlyOnly": false,
+   "diseases": {
+    "severe": 53,
+    "early": 3,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "3 種輕微疾病（例如通波仔手術、早期甲狀腺癌）計入「早期」",
+    "en": "3 minor illnesses (e.g. angioplasty, early thyroid cancer) counted under early stage"
+   },
+   "earlyText": {
+    "zh": "輕微疾病預支保額 10%–50%（例如通波仔手術預支 10%、上限 $240,000）；預支額喺其後嚴重疾病賠償扣除",
+    "en": "Minor illnesses: 10%–50% advance (e.g. angioplasty 10%, max $240,000); deducted from later major illness claims"
+   },
+   "multiClaim": null,
+   "multiText": {
+    "zh": "每種疾病賠一次；心臟相關疾病同中風額外多賠保額 50%",
+    "en": "Each illness paid once; heart-related illnesses and stroke pay an extra 50% of sum assured"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "保額（另加續保紅利）100%；心臟相關疾病／中風另加 50%",
+    "en": "100% of sum assured plus renewal bonus; extra 50% for heart-related illnesses / stroke"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "按投保年齡定保費（每 5 歲一組，只分男女，唔分吸煙），供款至 70 歲；保費非保證，公司可以調整",
+    "en": "Premium set by issue age (5-year bands, by sex only, not smoking status), payable to 70; not guaranteed and may be revised"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "續保紅利：首 5 個保單年度每年保額增加 5%（毋須加保費）",
+     "恩恤身故賠償：保額 1%（上限 $10,000）",
+     "保額 $100,000 至 $7,500,000"
+    ],
+    "en": [
+     "Renewal bonus: sum assured +5% a year for the first 5 policy years at no extra premium",
+     "Compassionate death benefit: 1% of sum assured (max $10,000)",
+     "Sum assured $100,000 to $7,500,000"
+    ]
+   },
+   "premiumSourceUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/super-healthguard-pro/SuperHealthGuardPro_en.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/super-healthguard-pro/SuperHealthGuardPro_en.pdf.coredownload.inline.pdf"
+   },
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/super-healthguard-pro/SuperHealthGuardPro_en.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/super-healthguard-pro/SuperHealthGuardPro_en.pdf.coredownload.inline.pdf"
+   },
+   "effectiveDate": null,
+   "source": {
+    "zh": "友邦官網：產品小冊子（內附年繳保費率表）",
+    "en": "AIA website: brochure with annual premium rate table"
+   },
+   "sourceUrl": "https://www.aia.com.hk/en/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-executive-care-pro-2",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "「泰然安心」危疾保險計劃2",
+    "en": "Executive Care Pro Critical Illness Insurance Plan 2"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "危疾保障至 100 歲；供款 5／10／15／18／25 年",
+    "en": "CI cover to 100; premium terms 5/10/15/18/25 years"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 53,
+    "early": 1,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 2 種輕微疾病、4 種嚴重兒童疾病、女性原位癌",
+    "en": "Plus 2 minor illnesses, 4 severe child diseases, female carcinoma-in-situ"
+   },
+   "earlyText": {
+    "zh": "早期／輕微疾病預支部分保額（見小冊子賠償表），預支額喺其後賠償扣除",
+    "en": "Early stage / minor illnesses pay an advance (see benefit schedule), deducted later"
+   },
+   "multiClaim": null,
+   "multiText": {
+    "zh": "冇多次賠償，合共保額 100%",
+    "en": "No multiple claims; 100% of sum assured in total"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "分紅：保證現金價值、週年紅利、終期紅利（非保證）",
+     "嚴重疾病賠償後豁免其後保費"
+    ],
+    "en": [
+     "Participating: guaranteed cash value, annual and terminal dividends (non-guaranteed)",
+     "Premiums waived after a major illness claim"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/executive-care-pro-2/ExecutiveCarePro2_tc.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/executive-care-pro-2/ExecutiveCarePro2_en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "友邦官網：產品小冊子",
+    "en": "AIA website: product brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/zh-hk/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-multiple-care-pro-2",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "「多重安心」危疾保險計劃2",
+    "en": "Multiple Care Pro Critical Illness Insurance Plan 2"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "Plan 80／Plan 100 兩個選擇；供款 5／10／15／18／25 年",
+    "en": "Plan 80 or Plan 100; premium terms 5/10/15/18/25 years"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 53,
+    "early": 1,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 2 種輕微疾病、4 種嚴重兒童疾病",
+    "en": "Plus 2 minor illnesses and 4 severe child diseases"
+   },
+   "earlyText": {
+    "zh": "早期／輕微疾病預支部分保額（見小冊子賠償表）",
+    "en": "Early stage / minor illnesses pay an advance (see benefit schedule)"
+   },
+   "multiClaim": {
+    "cancer": {
+     "zh": "可多次（合共最多 5 倍）",
+     "en": "Multiple claims (up to 5x in total)"
+    },
+    "heart": {
+     "zh": "可多次（合共最多 5 倍）",
+     "en": "Multiple claims (up to 5x in total)"
+    },
+    "stroke": {
+     "zh": "可多次（合共最多 5 倍）",
+     "en": "Multiple claims (up to 5x in total)"
+    }
+   },
+   "multiText": {
+    "zh": "嚴重疾病可多次賠償，合共最多保額 500%；兩次嚴重疾病之間有等候期，癌症相關情況可長達 5 年（見小冊子）",
+    "en": "Multiple major illness claims up to 500% in total; waiting periods between claims, up to 5 years in cancer-related cases (see brochure)"
+   },
+   "totalCapPct": 500,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "分紅：保證現金價值、週年紅利、終期紅利（非保證）"
+    ],
+    "en": [
+     "Participating: guaranteed cash value, annual and terminal dividends (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/multiple-care-pro-2/MultipleCarePro2_tc.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/multiple-care-pro-2/MultipleCarePro2_en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "友邦官網：產品小冊子",
+    "en": "AIA website: product brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/zh-hk/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-prime-care-pro-2",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "「進泰安心」危疾保險計劃2",
+    "en": "Prime Care Pro Critical Illness Insurance Plan 2"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "危疾保障至 100 歲；供款 10／18／25 年",
+    "en": "CI cover to 100; premium terms 10/18/25 years"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 54,
+    "early": 39,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 7 種嚴重兒童疾病",
+    "en": "Plus 7 severe child diseases"
+   },
+   "earlyText": {
+    "zh": "早期危疾預支部分保額，不同器官組別最多 2 次（見小冊子賠償表）",
+    "en": "Early stage illnesses pay an advance, up to 2 times for different organ groups (see benefit schedule)"
+   },
+   "multiClaim": null,
+   "multiText": {
+    "zh": "冇嚴重疾病多次賠償，合共保額 100%",
+    "en": "No multiple major claims; 100% of sum assured in total"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "分紅：保證現金價值、週年紅利、終期紅利（非保證）",
+     "嚴重疾病賠償後豁免其後保費"
+    ],
+    "en": [
+     "Participating: guaranteed cash value, annual and terminal dividends (non-guaranteed)",
+     "Premiums waived after a major illness claim"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/prime-care-pro-2/PrimeCarePro2_tc.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/prime-care-pro-2/PrimeCarePro2_en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "友邦官網：產品小冊子",
+    "en": "AIA website: product brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/zh-hk/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-smart-elite-ultra",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "「多重智倍」危疾保險計劃",
+    "en": "Smart Elite Ultra Critical Illness Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身危疾保障；供款 10／18／25 年",
+    "en": "Lifetime CI cover; premium terms 10/18/25 years"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 57,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 1 種輕微疾病、13 種嚴重兒童疾病（合共 115 種）",
+    "en": "Plus 1 minor illness and 13 severe child diseases (115 in total)"
+   },
+   "earlyText": {
+    "zh": "早期危疾預支部分保額（見小冊子賠償表）",
+    "en": "Early stage illnesses pay an advance (see benefit schedule)"
+   },
+   "multiClaim": {
+    "cancer": {
+     "times": 3,
+     "gapYears": 3,
+     "capPct": 300
+    },
+    "heart": {
+     "times": 2,
+     "gapYears": 1,
+     "capPct": 200
+    },
+    "stroke": null
+   },
+   "multiText": {
+    "zh": "癌症最多 3 次（相隔 3 年）、心臟病最多 2 次；其他嚴重疾病之間相隔 1 年；另有「保障提升」額外 50%",
+    "en": "Cancer up to 3 claims (3 years apart), heart attack up to 2; other major claims 1 year apart; Coverage Booster adds 50%"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多保額 900%，另加保障提升 50%",
+    "en": "Up to 900% in total, plus 50% Coverage Booster"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "分紅：保證現金價值、週年紅利、終期紅利（非保證）"
+    ],
+    "en": [
+     "Participating: guaranteed cash value, annual dividends and terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/smart-elite-ultra/SmartEliteUltra_tc.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/smart-elite-ultra/SmartEliteUltra_en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "友邦官網：產品小冊子",
+    "en": "AIA website: product brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/zh-hk/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-on-your-side-2",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "「愛伴航」保險計劃2",
+    "en": "On Your Side Insurance Plan 2"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身（個別保障年期見小冊子）；供款 10／18／25 年；美元保單",
+    "en": "Whole life (see brochure for individual benefits); premium terms 10/18/25 years; US$ policy"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 57,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 1 種輕微疾病、13 種嚴重兒童疾病（合共 115 種）",
+    "en": "Plus 1 minor illness and 13 severe child diseases (115 in total)"
+   },
+   "earlyText": {
+    "zh": "早期危疾賠償：當時保額 20%（見小冊子限制）",
+    "en": "Early stage: 20% of current sum assured (see brochure for limits)"
+   },
+   "multiClaim": {
+    "cancer": {
+     "zh": "可多次（見說明）",
+     "en": "Multiple claims (see details)"
+    },
+    "heart": {
+     "zh": "可多次（見說明）",
+     "en": "Multiple claims (see details)"
+    },
+    "stroke": {
+     "zh": "可多次（見說明）",
+     "en": "Multiple claims (see details)"
+    }
+   },
+   "multiText": {
+    "zh": "多重危疾保障，合共最多保額 600%（視乎所揀保障，基本最多 300%）；可選持續癌症入息（每月保額 5%）",
+    "en": "Multiple critical illness benefit up to 600% in total (300% without options); optional continuous cancer income (5% a month)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多保額 600%（基本 300%）",
+    "en": "Up to 600% in total (300% basic)"
+   },
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值、終期紅利（非保證）",
+     "「首護摯寶」版本可由懷孕期投保"
+    ],
+    "en": [
+     "Guaranteed cash value and terminal bonus (non-guaranteed)",
+     "First Gift version can be applied for during pregnancy"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/zh-hk/on-your-side-plan-2/OnYourSideInsurancePlan2_tc.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/en/on-your-side-plan-2/OnYourSideInsurancePlan2_en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "友邦官網：產品小冊子",
+    "en": "AIA website: product brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/zh-hk/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-essence-on-your-side",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "「簡緻•愛伴航」保險計劃",
+    "en": "Essence – On Your Side Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身（三大危疾額外保障至 85 歲）；供款 10／18／25 年",
+    "en": "Whole life (Big 3 extra cover to 85); premium terms 10/18/25 years"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 57,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 1 種輕微疾病；三大危疾（癌症、心臟病、中風）額外保障",
+    "en": "Plus 1 minor illness; extra Big 3 (cancer, heart attack, stroke) shield"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "危疾賠償後，三大危疾可額外再賠（見小冊子）",
+    "en": "After a critical illness claim, extra payments for the Big 3 are possible (see brochure)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多保額 280%",
+    "en": "Up to 280% in total"
+   },
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值、終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value and terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/zh-hk/essence-on-your-side/EssenceOnYourSideInsurancePlan_tc.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/en/essence-on-your-side/EssenceOnYourSideInsurancePlan_en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "友邦官網：產品小冊子",
+    "en": "AIA website: product brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/zh-hk/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-assemble",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "「自在自選」危疾保險計劃",
+    "en": "AIA Assemble Critical Illness Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "危疾保障至 100 歲；自選保障組合",
+    "en": "CI cover to 100; build your own cover combination"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 57,
+    "early": 22,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 1 種輕微疾病、6 種嚴重兒童疾病",
+    "en": "Plus 1 minor illness and 6 severe child diseases"
+   },
+   "earlyText": {
+    "zh": "早期危疾預支部分保額（見小冊子賠償表）",
+    "en": "Early stage illnesses pay an advance (see benefit schedule)"
+   },
+   "multiClaim": {
+    "cancer": {
+     "zh": "可選「多次癌症保障」，額外最多 5 次",
+     "en": "Optional multiple cancer cover: up to 5 extra claims"
+    },
+    "heart": null,
+    "stroke": null
+   },
+   "multiText": {
+    "zh": "可自選組合；「多次癌症保障」額外最多 5 次癌症賠償；每次危疾賠償之間相隔 1 年",
+    "en": "Mix and match covers; optional Multiple Cancer Cover adds up to 5 cancer claims; 1 year between critical illness claims"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "人壽保障額最多 300%（視乎所揀保障）",
+    "en": "Up to 300% of Life Cover sum assured (depends on covers chosen)"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值、終期紅利（非保證）",
+     "保障期滿有期滿利益"
+    ],
+    "en": [
+     "Guaranteed cash value and terminal bonus (non-guaranteed)",
+     "Maturity benefit at end of benefit term"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/zh-hk/aia-assemble/AIAAssemble_tc.pdf.coredownload.inline.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/en/aia-assemble/AIAAssemble_en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "友邦官網：產品小冊子",
+    "en": "AIA website: product brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/zh-hk/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-level-up-protect",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "「進添」保險計劃 - 癌症保障",
+    "en": "Level-Up Protect Cancer Insurance Plan"
+   },
+   "type": "level",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 85 歲；供款 18 年（或供至 65 歲）；美元保單",
+    "en": "Cover to 85; premium term 18 years (or to 65); US$ policy"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 57,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "為已有危疾保障人士補充癌症多次保障",
+    "en": "Tops up cancer cover for people who already have CI protection"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "times": 3,
+     "gapYears": 3,
+     "capPct": 200
+    },
+    "heart": null,
+    "stroke": null
+   },
+   "multiText": {
+    "zh": "首次賠償可以係 57 種危疾之一，之後第二、第三次賠償只限癌症（相隔 3 年）",
+    "en": "First claim can be any of 57 critical illnesses; second and third claims are for cancer only (3 years apart)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "保額 200%，另加退還已繳保費 100%",
+    "en": "200% of sum assured plus refund of 100% of premiums paid"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "供款期內保費水平（以小冊子為準）",
+    "en": "Level premium during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "賠償時退還已繳保費（見小冊子條件）"
+    ],
+    "en": [
+     "Refund of premiums paid on claim (see brochure for conditions)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/level-up/Level-Up_tc.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/level-up/Level-Up_en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "友邦官網：產品小冊子",
+    "en": "AIA website: product brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/zh-hk/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "aia-simple-care-essence-pearl",
+   "insurer": {
+    "zh": "友邦保險（國際）有限公司",
+    "en": "AIA International Limited"
+   },
+   "plan": {
+    "zh": "簡護危疾明珠保",
+    "en": "Simple Care Essence Pearl"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "續保至 80 歲；可作基本計劃或附加計劃",
+    "en": "Renewable to 80; basic plan or add-on"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 57,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 1 種輕微疾病、13 種嚴重兒童疾病",
+    "en": "Plus 1 minor illness and 13 severe child diseases"
+   },
+   "earlyText": {
+    "zh": "早期危疾：每種預支保額 20%（上限見小冊子）",
+    "en": "Early stage: 20% advance per illness (see brochure for caps)"
+   },
+   "multiClaim": null,
+   "multiText": {
+    "zh": "冇多次賠償",
+    "en": "No multiple claims"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "續保時按當時年齡同費率調整，非保證；保費表冇公開",
+    "en": "Renewal premium by age and rate then, not guaranteed; no public premium table"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "70 歲或之前可免核保轉換做終身計劃（須加保費）"
+    ],
+    "en": [
+     "Can convert to a whole-life plan on or before age 70 without health questions (extra premium)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/simple-care-essence-pearl/SimpleCareEssencePearl_tc.pdf",
+    "en": "https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/simple-care-essence-pearl/SimpleCareEssencePearl_en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "友邦官網：產品小冊子",
+    "en": "AIA website: product brochure"
+   },
+   "sourceUrl": "https://www.aia.com.hk/zh-hk/help-and-support/product-brochures-individuals",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "pru-easywell-protector",
+   "insurer": {
+    "zh": "保誠保險有限公司",
+    "en": "Prudential Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "「自主健康」危疾保險計劃",
+    "en": "EasyWell Critical Illness Protector Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身；供款至 66 歲（1–55 歲投保）或至 86 歲（1–65 歲）；美元保單",
+    "en": "Whole life; pay to 66 (issue 1–55) or to 86 (issue 1–65); USD"
+   },
+   "issueAges": [
+    1,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 56,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": null,
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "冇多次賠償（主要疾病賠償一次）",
+    "en": "No multiple claims (one major disease payout)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "最多初始保額 200%（見小冊子條件）",
+    "en": "Up to 200% of initial sum assured (see brochure conditions)"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單週年日起有保證現金價值，第 5 年起可有一次性終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value from 3rd anniversary; one-off terminal bonus from 5th (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/tc/brochure/product-eci-product-brochure-tc.pdf",
+    "en": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/product-eci-product-brochure-en.pdf"
+   },
+   "source": {
+    "zh": "保誠官網：產品小冊子",
+    "en": "Prudential website: product brochure"
+   },
+   "sourceUrl": "https://www.prudential.com.hk/tc/products/health/critical-illness/easywell-critical-illness-protector/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "pru-easywell-multicare",
+   "insurer": {
+    "zh": "保誠保險有限公司",
+    "en": "Prudential Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "「自主健康」危疾多重保障（附加保障）",
+    "en": "EasyWell Critical Illness MultiCare (supplementary)"
+   },
+   "type": "renewable",
+   "rider": true,
+   "renewal": null,
+   "coverText": {
+    "zh": "每年續保；附加喺「自主健康」危疾保險計劃",
+    "en": "Yearly renewable; attaches to EasyWell CI Protector"
+   },
+   "issueAges": [
+    1,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 3,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "只保癌症、心臟病、中風嘅多次賠償",
+    "en": "Multiple claims for cancer, heart attack and stroke only"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "times": 2,
+     "gapYears": 1,
+     "capPct": 200
+    },
+    "heart": {
+     "zh": "心臟病／中風合共最多 2 次",
+     "en": "Heart attack / stroke up to 2 claims combined"
+    },
+    "stroke": {
+     "zh": "心臟病／中風合共最多 2 次",
+     "en": "Heart attack / stroke up to 2 claims combined"
+    }
+   },
+   "multiText": {
+    "zh": "基本計劃賠咗主要疾病之後，癌症再賠最多 2 次、心臟病或中風合共最多 2 次，每次保額 100%，相隔最少 1 年",
+    "en": "After the basic plan's major disease payout: up to 2 more cancer claims and 2 heart attack/stroke claims, 100% each, at least 1 year apart"
+   },
+   "totalCapPct": 400,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "每年續保，保費非保證",
+    "en": "Yearly renewable; premium not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/product-ecs-ecm-product-brochure-en.pdf.coredownload.inline.pdf",
+    "en": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/product-ecs-ecm-product-brochure-en.pdf.coredownload.inline.pdf"
+   },
+   "source": {
+    "zh": "保誠官網：產品小冊子",
+    "en": "Prudential website: product brochure"
+   },
+   "sourceUrl": "https://www.prudential.com.hk/tc/products/health/critical-illness/easywell-critical-illness-protector/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "pru-prucancer-360",
+   "insurer": {
+    "zh": "保誠保險有限公司",
+    "en": "Prudential Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "癌症保障360",
+    "en": "PRUCancer 360"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "每年續保至 81 歲（下次生日年齡）；港元／美元",
+    "en": "Yearly renewable to age 81 (ANB); HKD/USD"
+   },
+   "issueAges": [
+    1,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 1,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "專保癌症（另有早期癌症保障，見小冊子）",
+    "en": "Cancer only (early stage cancer cover too, see brochure)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "主要癌症賠保額 100%（確診後須存活 14 日）",
+    "en": "Major cancer pays 100% of sum assured (14-day survival)"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "每年續保，保費非保證；保險公司冇公開保費表",
+    "en": "Yearly renewable, not guaranteed; no public premium table"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/prucancer-360-product-brochure.pdf",
+    "en": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/prucancer-360-product-brochure.pdf"
+   },
+   "source": {
+    "zh": "保誠官網：產品小冊子",
+    "en": "Prudential website: product brochure"
+   },
+   "sourceUrl": "https://www.prudential.com.hk/tc/products/health/critical-illness/prucancer-360/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "pru-extended-care-iii",
+   "insurer": {
+    "zh": "保誠保險有限公司",
+    "en": "Prudential Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "危疾加護保險計劃 III",
+    "en": "PRUHealth Critical Illness Extended Care Insurance Plan III"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身；供款 10／15／20／25 年；港元／美元",
+    "en": "Whole life; premium terms 10/15/20/25 years; HKD/USD"
+   },
+   "issueAges": [
+    1,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 56,
+    "early": 61,
+    "mid": 0
+   },
+   "otherCover": null,
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "主要疾病賠償後，額外最多 2 次（兩次都係癌症要相隔 3 年）",
+     "en": "Up to 2 extra claims after the major disease payout (3 years apart if both are cancer)"
+    },
+    "heart": {
+     "zh": "心臟病／中風合共額外最多 2 次",
+     "en": "Heart attack / stroke up to 2 extra claims combined"
+    },
+    "stroke": {
+     "zh": "心臟病／中風合共額外最多 2 次",
+     "en": "Heart attack / stroke up to 2 extra claims combined"
+    }
+   },
+   "multiText": {
+    "zh": "主要疾病賠 100% 後：癌症額外最多 2 次、心臟病或中風合共額外最多 2 次（每次 100%，86 歲前）；另有癌症治療額外保障 2 × 60%、深切治療 20%；兩次相隔最少 1 年（兩次都係癌症要 3 年）",
+    "en": "After the 100% major payout: up to 2 more cancer claims and 2 heart attack/stroke claims (100% each, before 86); plus cancer treatment extra 2 × 60% and ICU 20%; at least 1 year apart (3 years if both cancer)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多保額 860%",
+    "en": "Up to 860% in total"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有非保證特別紅利"
+    ],
+    "en": [
+     "Guaranteed cash value plus non-guaranteed special bonus"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-extended-care-iii-product-brochure.pdf",
+    "en": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-extended-care-iii-product-brochure.pdf"
+   },
+   "source": {
+    "zh": "保誠官網：產品小冊子",
+    "en": "Prudential website: product brochure"
+   },
+   "sourceUrl": "https://www.prudential.com.hk/tc/products/health/critical-illness/pruhealth-critical-illness-extended-care-iii/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "pru-first-protect-ii",
+   "insurer": {
+    "zh": "保誠保險有限公司",
+    "en": "Prudential Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "危疾首護保險計劃 II",
+    "en": "PRUHealth Critical Illness First Protect Insurance Plan II"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身；供款 10／15／20／25／30 年；港元／美元",
+    "en": "Whole life; premium terms 10/15/20/25/30 years; HKD/USD"
+   },
+   "issueAges": [
+    1,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 56,
+    "early": 18,
+    "mid": 0
+   },
+   "otherCover": null,
+   "earlyText": {
+    "zh": "早期主要疾病：每次 20%–25% 當時保額（部分可賠 2 次）",
+    "en": "Early stage: 20%–25% of current sum assured per claim (some twice)"
+   },
+   "multiClaim": null,
+   "multiText": {
+    "zh": "主要疾病賠一次；首 10 年額外 50% 保障；深切治療最多 20%",
+    "en": "One major disease payout; 50% extra protection for first 10 years; ICU up to 20%"
+   },
+   "totalCapPct": 100,
+   "capText": {
+    "zh": "主要疾病 100%（選「保障加倍」可達初始保額 200%）",
+    "en": "100% for major disease (up to 200% with Benefit Protector Option)"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單週年日起有保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value from 3rd anniversary plus terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-first-protect-ii-product-brochure.pdf",
+    "en": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-first-protect-ii-product-brochure.pdf"
+   },
+   "source": {
+    "zh": "保誠官網：產品小冊子",
+    "en": "Prudential website: product brochure"
+   },
+   "sourceUrl": "https://www.prudential.com.hk/tc/products/health/critical-illness/pruhealth-critical-illness-first-protect-ii/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "pru-term-ii",
+   "insurer": {
+    "zh": "保誠保險有限公司",
+    "en": "Prudential Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "守護健康危疾定期保II",
+    "en": "PRUHealth Critical Illness Term II"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "每 5 年續保，5 年內保費不變；港元／美元",
+    "en": "Renewed every 5 years at a fixed rate for each 5-year period; HKD/USD"
+   },
+   "issueAges": [
+    19,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 56,
+    "early": 3,
+    "mid": 0
+   },
+   "otherCover": null,
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "主要疾病賠一次，保額 100%；未賠過就有身故賠償",
+    "en": "One major disease payout of 100%; death benefit if not claimed"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "每 5 年續保一次，期內保費固定；保險公司冇公開保費表",
+    "en": "Fixed for each 5-year renewal; no public premium table"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "可免健康資料轉換做有現金價值嘅終身計劃"
+    ],
+    "en": [
+     "Can convert to a whole-life plan with cash value without health information"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-term-ii-product-brochure.pdf",
+    "en": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-term-ii-product-brochure.pdf"
+   },
+   "source": {
+    "zh": "保誠官網：產品小冊子",
+    "en": "Prudential website: product brochure"
+   },
+   "sourceUrl": "https://www.prudential.com.hk/tc/products/health/critical-illness/pruhealth-critical-illness-term-ii/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "pru-guardian",
+   "insurer": {
+    "zh": "保誠保險有限公司",
+    "en": "Prudential Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "「誠保一生」危疾保險計劃",
+    "en": "PRUHealth Guardian Critical Illness Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身；有「摯愛寶」版本可由懷孕期投保",
+    "en": "Whole life; Baby Guardian version can start during pregnancy"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 56,
+    "early": 49,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 22 種兒童疾病（保障至 18 歲）",
+    "en": "Plus 22 juvenile diseases (cover to 18)"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "可多次（見說明）",
+     "en": "Multiple claims (see details)"
+    },
+    "heart": {
+     "zh": "可多次（見說明）",
+     "en": "Multiple claims (see details)"
+    },
+    "stroke": {
+     "zh": "可多次（見說明）",
+     "en": "Multiple claims (see details)"
+    }
+   },
+   "multiText": {
+    "zh": "延續主要疾病保障每次 100%；兩次相隔最少 1 年（兩次都係癌症要 3 年）",
+    "en": "Extended major disease benefit 100% each time; at least 1 year apart (3 years if both cancer)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多 1100%（包括人壽保障）",
+    "en": "Up to 1100% in total (including life cover)"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有非保證特別紅利"
+    ],
+    "en": [
+     "Guaranteed cash value plus non-guaranteed special bonus"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-guardian-critical-illness-plan-series-product-brochure.pdf",
+    "en": "https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-guardian-critical-illness-plan-series-product-brochure.pdf"
+   },
+   "source": {
+    "zh": "保誠官網：產品小冊子",
+    "en": "Prudential website: product brochure"
+   },
+   "sourceUrl": "https://www.prudential.com.hk/tc/products/health/critical-illness/pruhealth-guardian-critical-illness-plan-series/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "axa-careforall",
+   "insurer": {
+    "zh": "安盛金融保險（香港）有限公司",
+    "en": "AXA China Region Insurance Company (Hong Kong) Limited"
+   },
+   "plan": {
+    "zh": "「盛滿愛危疾保障」",
+    "en": "CareForAll Critical Illness Plan"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "每年或每 10 年續保至 100 歲；簡易核保（唔使驗身）",
+    "en": "Yearly or 10-year renewable to 100; simplified underwriting (no medical exam)"
+   },
+   "issueAges": [
+    18,
+    80
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 4,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "針對有健康風險人士；按計劃版本保癌症、心臟病、中風、嚴重認知障礙症",
+    "en": "For people with health risks; covers cancer, heart attack, stroke, severe dementia by plan version"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "賠保額 100% 一次",
+    "en": "Pays 100% once"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "續保保費非保證；保險公司冇公開保費表",
+    "en": "Renewal premium not guaranteed; no public premium table"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "恩恤身故賠償 HK$10,000"
+    ],
+    "en": [
+     "Compassionate death benefit HK$10,000"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/DH-RT5epLVHZn1l0_LPPM889-2608ECareForAllCriticalIllnessPlanProductbrochure_HK%26MA-Eng-.pdf",
+    "en": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/DH-RT5epLVHZn1l0_LPPM889-2608ECareForAllCriticalIllnessPlanProductbrochure_HK%26MA-Eng-.pdf"
+   },
+   "source": {
+    "zh": "安盛官網：產品小冊子",
+    "en": "AXA website: product brochure"
+   },
+   "sourceUrl": "https://www.axa.com.hk/zh/care-for-all-critical-illness-plan",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "axa-totalassure",
+   "insurer": {
+    "zh": "安盛金融保險（香港）有限公司",
+    "en": "AXA China Region Insurance Company (Hong Kong) Limited"
+   },
+   "plan": {
+    "zh": "「愛唯守危疾保障」",
+    "en": "TotalAssure Critical Illness Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身；供款 10／15／20／25 年；有「愛寶保」版本（懷孕期投保）",
+    "en": "Whole life; premium terms 10/15/20/25 years; BabyPro version from pregnancy"
+   },
+   "issueAges": [
+    0,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 63,
+    "early": 72,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "72 種輕微疾病計入早期；另有 15 種兒童輕微疾病",
+    "en": "72 minor illnesses counted as early; plus 15 juvenile minor illnesses"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "最多 5 次",
+     "en": "Up to 5 claims"
+    },
+    "heart": {
+     "zh": "心臟病／中風合共最多 2 次",
+     "en": "Heart attack / stroke up to 2 claims combined"
+    },
+    "stroke": {
+     "zh": "心臟病／中風合共最多 2 次",
+     "en": "Heart attack / stroke up to 2 claims combined"
+    }
+   },
+   "multiText": {
+    "zh": "癌症最多 5 次、心臟病同中風合共 2 次、嚴重認知障礙症 1 次、其他嚴重疾病 1 次；兩次相隔最少 1 年；另有持續癌症保障每月 5% 保額，最長 100 個月",
+    "en": "Cancer up to 5, heart attack and stroke 2 combined, severe dementia 1, other major illnesses 1; at least 1 year apart; continuous cancer payout 5% a month up to 100 months"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多保額 1000%",
+    "en": "Up to 1000% in total"
+   },
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value plus terminal dividend (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEqXNYClf9nijJ_LPPM908-RDETotalAssureTotalAssureBabyProProductBrochure_HK%26MA-Eng-.pdf",
+    "en": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEqXNYClf9nijJ_LPPM908-RDETotalAssureTotalAssureBabyProProductBrochure_HK%26MA-Eng-.pdf"
+   },
+   "source": {
+    "zh": "安盛官網：產品小冊子",
+    "en": "AXA website: product brochure"
+   },
+   "sourceUrl": "https://www.axa.com.hk/zh/total-assure-critical-illness",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "axa-totalassure-plus",
+   "insurer": {
+    "zh": "安盛金融保險（香港）有限公司",
+    "en": "AXA China Region Insurance Company (Hong Kong) Limited"
+   },
+   "plan": {
+    "zh": "「愛唯守危疾保障（升級版）」",
+    "en": "TotalAssure Plus Critical Illness Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身；供款 10／15／20／25 年；有「愛寶保」版本（懷孕期投保）",
+    "en": "Whole life; premium terms 10/15/20/25 years; BabyPro version from pregnancy"
+   },
+   "issueAges": [
+    0,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 63,
+    "early": 72,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "72 種輕微疾病計入早期；另有 15 種兒童輕微疾病",
+    "en": "72 minor illnesses counted as early; plus 15 juvenile minor illnesses"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "最多 5 次",
+     "en": "Up to 5 claims"
+    },
+    "heart": {
+     "zh": "最多 2 次",
+     "en": "Up to 2 claims"
+    },
+    "stroke": {
+     "zh": "最多 2 次",
+     "en": "Up to 2 claims"
+    }
+   },
+   "multiText": {
+    "zh": "癌症最多 5 次、心臟病 2 次、中風 2 次、嚴重認知障礙症 1 次、其他嚴重疾病 2 次；兩次相隔最少 1 年；持續癌症保障每月 5% 保額，最長 100 個月",
+    "en": "Cancer up to 5, heart attack 2, stroke 2, severe dementia 1, other major illnesses 2; at least 1 year apart; continuous cancer payout 5% a month up to 100 months"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多保額 1300%",
+    "en": "Up to 1300% in total"
+   },
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "分紅保單，供款期內保費不隨年齡增加（以小冊子為準）",
+    "en": "Participating plan; premium does not rise with age during the payment term (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value plus terminal dividend (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShErnNYClf9nijL_LPPM907-RDETotalAssurePlusTotalAssurePlusBabyProProductBrochure_HK%26MA-Eng-.pdf",
+    "en": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShErnNYClf9nijL_LPPM907-RDETotalAssurePlusTotalAssurePlusBabyProProductBrochure_HK%26MA-Eng-.pdf"
+   },
+   "source": {
+    "zh": "安盛官網：產品小冊子",
+    "en": "AXA website: product brochure"
+   },
+   "sourceUrl": "https://www.axa.com.hk/zh/total-assure-plus-critical-illness",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "axa-multipro",
+   "insurer": {
+    "zh": "安盛金融保險（香港）有限公司",
+    "en": "AXA China Region Insurance Company (Hong Kong) Limited"
+   },
+   "plan": {
+    "zh": "「愛護有加危疾保障」",
+    "en": "MultiPro Critical Illness Plan"
+   },
+   "type": "level",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "為已有危疾保障人士補充多次賠償；供款 10／15／20／25 年；保單期滿冇索償退還已繳保費",
+    "en": "Tops up existing CI cover with multiple claims; premium terms 10/15/20/25 years; refund of premiums at maturity if no claim"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 62,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": null,
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "額外最多 2 次，或持續癌症保障最長 4 年",
+     "en": "Up to 2 extra claims, or continuous cancer payout for up to 4 years"
+    },
+    "heart": null,
+    "stroke": null
+   },
+   "multiText": {
+    "zh": "癌症額外最多 2 次賠償（或選持續癌症保障最長 4 年）；癌症之間相隔最少 1 年",
+    "en": "Up to 2 extra cancer claims (or continuous cancer payout up to 4 years); at least 1 year between cancers"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "見小冊子（期滿冇索償退還 100% 已繳保費）",
+    "en": "See brochure (100% premium refund at maturity if no claim)"
+   },
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "保費按投保年齡定，供款期內唔會因年齡增加",
+    "en": "Premium set at issue, does not increase with age during the payment term"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "賠償後豁免其後保費"
+    ],
+    "en": [
+     "Future premiums waived after a claim"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEpnNYClf9nijI_LPPM790-RDEMultiProCriticalIllnessPlanMultiProPlusCriticalIllnessPlanProductbrochure_HK%26MA-Eng-.pdf",
+    "en": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEpnNYClf9nijI_LPPM790-RDEMultiProCriticalIllnessPlanMultiProPlusCriticalIllnessPlanProductbrochure_HK%26MA-Eng-.pdf"
+   },
+   "source": {
+    "zh": "安盛官網：產品小冊子",
+    "en": "AXA website: product brochure"
+   },
+   "sourceUrl": "https://www.axa.com.hk/zh/multipro-series",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "axa-multipro-plus",
+   "insurer": {
+    "zh": "安盛金融保險（香港）有限公司",
+    "en": "AXA China Region Insurance Company (Hong Kong) Limited"
+   },
+   "plan": {
+    "zh": "「愛護有加危疾保障（升級版）」",
+    "en": "MultiPro Plus Critical Illness Plan"
+   },
+   "type": "level",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "為已有危疾保障人士補充多次賠償；供款 10／15／20／25 年；保單期滿冇索償退還已繳保費",
+    "en": "Tops up existing CI cover with multiple claims; premium terms 10/15/20/25 years; refund of premiums at maturity if no claim"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 62,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": null,
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "額外最多 2 次，或持續癌症保障最長 4 年",
+     "en": "Up to 2 extra claims, or continuous cancer payout for up to 4 years"
+    },
+    "heart": {
+     "zh": "額外 1 次",
+     "en": "1 extra claim"
+    },
+    "stroke": {
+     "zh": "額外 1 次",
+     "en": "1 extra claim"
+    }
+   },
+   "multiText": {
+    "zh": "癌症額外最多 2 次（或持續癌症保障最長 4 年）；心臟病、中風各額外 1 次",
+    "en": "Up to 2 extra cancer claims (or continuous payout up to 4 years); 1 extra claim each for heart attack and stroke"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "見小冊子（期滿冇索償退還 100% 已繳保費）",
+    "en": "See brochure (100% premium refund at maturity if no claim)"
+   },
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "保費按投保年齡定，供款期內唔會因年齡增加",
+    "en": "Premium set at issue, does not increase with age during the payment term"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "賠償後豁免其後保費"
+    ],
+    "en": [
+     "Future premiums waived after a claim"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEpnNYClf9nijI_LPPM790-RDEMultiProCriticalIllnessPlanMultiProPlusCriticalIllnessPlanProductbrochure_HK%26MA-Eng-.pdf",
+    "en": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEpnNYClf9nijI_LPPM790-RDEMultiProCriticalIllnessPlanMultiProPlusCriticalIllnessPlanProductbrochure_HK%26MA-Eng-.pdf"
+   },
+   "source": {
+    "zh": "安盛官網：產品小冊子",
+    "en": "AXA website: product brochure"
+   },
+   "sourceUrl": "https://www.axa.com.hk/zh/multipro-series",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "axa-healthselect-ii",
+   "insurer": {
+    "zh": "安盛金融保險（香港）有限公司",
+    "en": "AXA China Region Insurance Company (Hong Kong) Limited"
+   },
+   "plan": {
+    "zh": "「康諾 II 嚴重疾病保障」",
+    "en": "HealthSelect II Major Illness Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 20／25 年",
+    "en": "Cover to 100; premium terms 20/25 years"
+   },
+   "issueAges": [
+    0,
+    55
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 59,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "59 種嚴重疾病分 10 組；另有輕微疾病保障（見小冊子）",
+    "en": "59 major illnesses in 10 groups; minor illness cover too (see brochure)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "基本計劃賠一次；可加「多次賠償附加保障」",
+    "en": "Basic plan pays once; optional multiple-claims supplements"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "保費唔會按年齡調整（以小冊子為準）",
+    "en": "Premium not adjusted by age (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有非保證紅利"
+    ],
+    "en": [
+     "Guaranteed cash value plus non-guaranteed bonus"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEiHNYClf9niiz_LPPM671-RDEHealthSelectIIMajorIllnessPlanProductbrochure_HK%26MA-Eng-.pdf",
+    "en": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEiHNYClf9niiz_LPPM671-RDEHealthSelectIIMajorIllnessPlanProductbrochure_HK%26MA-Eng-.pdf"
+   },
+   "source": {
+    "zh": "安盛官網：產品小冊子",
+    "en": "AXA website: product brochure"
+   },
+   "sourceUrl": "https://www.axa.com.hk/zh/healthselect-major-illness-insurance",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "axa-healthvital-ii",
+   "insurer": {
+    "zh": "安盛金融保險（香港）有限公司",
+    "en": "AXA China Region Insurance Company (Hong Kong) Limited"
+   },
+   "plan": {
+    "zh": "「康采 II 嚴重疾病保障」",
+    "en": "HealthVital II Major Illness Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20／25 年",
+    "en": "Cover to 100; premium terms 10/15/20/25 years"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 59,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "59 種嚴重疾病分 10 組；另有輕微疾病保障（見小冊子）",
+    "en": "59 major illnesses in 10 groups; minor illness cover too (see brochure)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "基本計劃賠一次；可加「多次賠償附加保障」",
+    "en": "Basic plan pays once; optional multiple-claims supplements"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "保費唔會按年齡調整（以小冊子為準）",
+    "en": "Premium not adjusted by age (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有非保證紅利"
+    ],
+    "en": [
+     "Guaranteed cash value plus non-guaranteed bonus"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShFHnNYClf9nij__LPPM667-RDEHealthVitalIIMajorIllnessPlanProductbrochure_HK%26MA-Eng-.pdf",
+    "en": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShFHnNYClf9nij__LPPM667-RDEHealthVitalIIMajorIllnessPlanProductbrochure_HK%26MA-Eng-.pdf"
+   },
+   "source": {
+    "zh": "安盛官網：產品小冊子",
+    "en": "AXA website: product brochure"
+   },
+   "sourceUrl": "https://www.axa.com.hk/zh/healthvital-major-illness-insurance",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "axa-early-stage-mi-iii",
+   "insurer": {
+    "zh": "安盛金融保險（香港）有限公司",
+    "en": "AXA China Region Insurance Company (Hong Kong) Limited"
+   },
+   "plan": {
+    "zh": "「早期嚴重疾病保障 III 附加契約」",
+    "en": "Early Stage Major Illness III Supplement"
+   },
+   "type": "level",
+   "rider": true,
+   "renewal": null,
+   "coverText": {
+    "zh": "附加保障；保障至 85 歲；供款 10／15／20／25 年",
+    "en": "Rider; cover to 85; premium terms 10/15/20/25 years"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 0,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "早期嚴重疾病保障（數目見小冊子）",
+    "en": "Early stage major illness cover (count per brochure)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "見小冊子",
+    "en": "See brochure"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": null,
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShFFnNYClf9nij7_LPPM673-RDEEarlyStageMajorIllnessIIISupplementProductbrochure_HK%26MA-Eng-.pdf",
+    "en": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShFFnNYClf9nij7_LPPM673-RDEEarlyStageMajorIllnessIIISupplementProductbrochure_HK%26MA-Eng-.pdf"
+   },
+   "source": {
+    "zh": "安盛官網：產品小冊子",
+    "en": "AXA website: product brochure"
+   },
+   "sourceUrl": "https://www.axa.com.hk/zh/downloads/critical-illness",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "axa-living-ii-supplements",
+   "insurer": {
+    "zh": "安盛金融保險（香港）有限公司",
+    "en": "AXA China Region Insurance Company (Hong Kong) Limited"
+   },
+   "plan": {
+    "zh": "「真智康寧保險 II」／「金裝康寧保險 II」／「金裝康愉保險 II」附加契約",
+    "en": "Smart Living II / Living Insurance Plus II / Extra Living Insurance II Supplement"
+   },
+   "type": "level",
+   "rider": true,
+   "renewal": null,
+   "coverText": {
+    "zh": "附加保障；終身或至 85 歲（按版本）",
+    "en": "Rider; whole life or to 85 (by version)"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 62,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有輕微疾病保障",
+    "en": "Minor illness cover too"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "見小冊子",
+    "en": "See brochure"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "保費唔會按年齡調整（以小冊子為準）",
+    "en": "Premium not adjusted by age (per brochure)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShGZ3NYClf9nimB_LPPM774-RDE_SmartLiving_Living_ExtraLivingCIPB_HK%26MA-Eng-.pdf",
+    "en": "https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShGZ3NYClf9nimB_LPPM774-RDE_SmartLiving_Living_ExtraLivingCIPB_HK%26MA-Eng-.pdf"
+   },
+   "source": {
+    "zh": "安盛官網：產品小冊子",
+    "en": "AXA website: product brochure"
+   },
+   "sourceUrl": "https://www.axa.com.hk/zh/downloads/critical-illness",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "manu-incomeguard",
+   "insurer": {
+    "zh": "宏利人壽保險（國際）有限公司",
+    "en": "Manulife (International) Limited"
+   },
+   "plan": {
+    "zh": "宏健守護危疾入息保障",
+    "en": "IncomeGuard Critical Illness Protector"
+   },
+   "type": null,
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "見產品單張",
+    "en": "See product leaflet"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 60,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 17 種兒童疾病",
+    "en": "Plus 17 juvenile diseases"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "heart": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "stroke": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    }
+   },
+   "multiText": {
+    "zh": "確診及持續治療期間可每年再賠最多保額 100%（入息形式）",
+    "en": "After diagnosis, payouts of up to 100% a year during continuous treatment (income style)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多 1,000%",
+    "en": "Up to 1,000% in total"
+   },
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "見產品單張；保險公司冇公開保費表",
+    "en": "See leaflet; no public premium table"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/incomeguard-critical-illness-protector.html",
+    "en": "https://www.manulife.com.hk/en/individual/products/health/critical-illness-protection/incomeguard-critical-illness-protector.html"
+   },
+   "source": {
+    "zh": "宏利官網：產品網頁（小冊子禁止自動下載，未讀）",
+    "en": "Manulife website: product page (brochure PDFs disallow automated download, not read)"
+   },
+   "sourceUrl": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/incomeguard-critical-illness-protector.html",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "manu-incomeshield",
+   "insurer": {
+    "zh": "宏利人壽保險（國際）有限公司",
+    "en": "Manulife (International) Limited"
+   },
+   "plan": {
+    "zh": "宏伴護航危疾入息保障",
+    "en": "IncomeShield Critical Illness Protector"
+   },
+   "type": null,
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "見產品單張",
+    "en": "See product leaflet"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 10,
+    "early": 3,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "簡易核保；集中癌症、心臟病、中風",
+    "en": "Simplified underwriting; focused on cancer, heart attack and stroke"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "heart": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "stroke": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    }
+   },
+   "multiText": {
+    "zh": "癌症、心臟病、中風確診同治療可多次賠償，每次最多保額 100%",
+    "en": "Multiple claims for diagnosis and treatment of cancer, heart attack and stroke, up to 100% each"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多 500%",
+    "en": "Up to 500% in total"
+   },
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "見產品單張；保險公司冇公開保費表",
+    "en": "See leaflet; no public premium table"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/incomeshield-critical-illness-protector.html",
+    "en": "https://www.manulife.com.hk/en/individual/products/health/critical-illness-protection/incomeshield-critical-illness-protector.html"
+   },
+   "source": {
+    "zh": "宏利官網：產品網頁（小冊子禁止自動下載，未讀）",
+    "en": "Manulife website: product page (brochure PDFs disallow automated download, not read)"
+   },
+   "sourceUrl": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/incomeshield-critical-illness-protector.html",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "manu-bright-care-pro",
+   "insurer": {
+    "zh": "宏利人壽保險（國際）有限公司",
+    "en": "Manulife (International) Limited"
+   },
+   "plan": {
+    "zh": "宏利活耀人生危疾保 PRO",
+    "en": "Manulife Bright Care PRO"
+   },
+   "type": null,
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "見產品單張",
+    "en": "See product leaflet"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 60,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 19 種兒童疾病；癌症、心臟病、中風額外保障",
+    "en": "Plus 19 juvenile diseases; extra cover for cancer, heart attack, stroke"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "heart": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "stroke": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    }
+   },
+   "multiText": {
+    "zh": "癌症、心臟病、中風有額外保障（見產品單張）",
+    "en": "Extra cover for cancer, heart attack and stroke (see leaflet)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "見產品單張；保險公司冇公開保費表",
+    "en": "See leaflet; no public premium table"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manulife-bright-care-pro.html",
+    "en": "https://www.manulife.com.hk/en/individual/products/health/critical-illness-protection/manulife-bright-care-pro.html"
+   },
+   "source": {
+    "zh": "宏利官網：產品網頁（小冊子禁止自動下載，未讀）",
+    "en": "Manulife website: product page (brochure PDFs disallow automated download, not read)"
+   },
+   "sourceUrl": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manulife-bright-care-pro.html",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "manu-manuprimo-care",
+   "insurer": {
+    "zh": "宏利人壽保險（國際）有限公司",
+    "en": "Manulife (International) Limited"
+   },
+   "plan": {
+    "zh": "守護無間危疾保",
+    "en": "ManuPrimo Care / ManuPrimo Care BestStart"
+   },
+   "type": null,
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "見產品單張",
+    "en": "See product leaflet"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 60,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 17 種兒童疾病；3 種癌症賠償方式",
+    "en": "Plus 17 juvenile diseases; 3 cancer payout options"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "heart": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "stroke": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    }
+   },
+   "multiText": {
+    "zh": "嚴重危疾賠償後，持續治療、復發或新確診指定危疾可再賠",
+    "en": "After a major claim, continued treatment, relapse or new diagnosis of designated illnesses can be claimed again"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多 1,000%",
+    "en": "Up to 1,000% in total"
+   },
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "見產品單張；保險公司冇公開保費表",
+    "en": "See leaflet; no public premium table"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manuprimo-care-manuprimo-care-beststart.html",
+    "en": "https://www.manulife.com.hk/en/individual/products/health/critical-illness-protection/manuprimo-care-manuprimo-care-beststart.html"
+   },
+   "source": {
+    "zh": "宏利官網：產品網頁（小冊子禁止自動下載，未讀）",
+    "en": "Manulife website: product page (brochure PDFs disallow automated download, not read)"
+   },
+   "sourceUrl": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manuprimo-care-manuprimo-care-beststart.html",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "manu-manubright-care-2-plus",
+   "insurer": {
+    "zh": "宏利人壽保險（國際）有限公司",
+    "en": "Manulife (International) Limited"
+   },
+   "plan": {
+    "zh": "活耀人生危疾保2（加強版）",
+    "en": "ManuBright Care 2 Plus"
+   },
+   "type": null,
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "見產品單張",
+    "en": "See product leaflet"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 60,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 8 種兒童疾病",
+    "en": "Plus 8 juvenile diseases"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "heart": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    },
+    "stroke": {
+     "zh": "見產品單張",
+     "en": "See product leaflet"
+    }
+   },
+   "multiText": {
+    "zh": "癌症治療額外支援，可每年再賠（見產品單張）",
+    "en": "Extra yearly support for cancer treatment (see leaflet)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多 480%",
+    "en": "Up to 480% in total"
+   },
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "見產品單張；保險公司冇公開保費表",
+    "en": "See leaflet; no public premium table"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manubright-care-2-plus.html",
+    "en": "https://www.manulife.com.hk/en/individual/products/health/critical-illness-protection/manubright-care-2-plus.html"
+   },
+   "source": {
+    "zh": "宏利官網：產品網頁（小冊子禁止自動下載，未讀）",
+    "en": "Manulife website: product page (brochure PDFs disallow automated download, not read)"
+   },
+   "sourceUrl": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manubright-care-2-plus.html",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "manu-manubright-care-2",
+   "insurer": {
+    "zh": "宏利人壽保險（國際）有限公司",
+    "en": "Manulife (International) Limited"
+   },
+   "plan": {
+    "zh": "活耀人生危疾保2",
+    "en": "ManuBright Care 2"
+   },
+   "type": null,
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "見產品單張",
+    "en": "See product leaflet"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 60,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 8 種兒童疾病",
+    "en": "Plus 8 juvenile diseases"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "見產品單張",
+    "en": "See leaflet"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "見產品單張；保險公司冇公開保費表",
+    "en": "See leaflet; no public premium table"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manubright-care-2.html",
+    "en": "https://www.manulife.com.hk/en/individual/products/health/critical-illness-protection/manubright-care-2.html"
+   },
+   "source": {
+    "zh": "宏利官網：產品網頁（小冊子禁止自動下載，未讀）",
+    "en": "Manulife website: product page (brochure PDFs disallow automated download, not read)"
+   },
+   "sourceUrl": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manubright-care-2.html",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "manu-manuvital-care",
+   "insurer": {
+    "zh": "宏利人壽保險（國際）有限公司",
+    "en": "Manulife (International) Limited"
+   },
+   "plan": {
+    "zh": "悠然危疾保",
+    "en": "ManuVital Care"
+   },
+   "type": null,
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "見產品單張",
+    "en": "See product leaflet"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 60,
+    "early": 44,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 8 種兒童疾病",
+    "en": "Plus 8 juvenile diseases"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "見產品單張",
+    "en": "See leaflet"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "見產品單張；保險公司冇公開保費表",
+    "en": "See leaflet; no public premium table"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manuvital-care.html",
+    "en": "https://www.manulife.com.hk/en/individual/products/health/critical-illness-protection/manuvital-care.html"
+   },
+   "source": {
+    "zh": "宏利官網：產品網頁（小冊子禁止自動下載，未讀）",
+    "en": "Manulife website: product page (brochure PDFs disallow automated download, not read)"
+   },
+   "sourceUrl": "https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manuvital-care.html",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-mycover",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "MyCover自主揀危疾保障計劃",
+    "en": "MyCover Critical Illness Plan"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "每年或每 10 年續保至 85 歲；網上投保；投保年齡（下次生日）1 歲（出生 15 日）至 70 歲",
+    "en": "Yearly or 10-year renewable to 85; buy online"
+   },
+   "issueAges": [
+    1,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 3,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "基本保障：癌症、心臟病、中風（三大疾病），連原位癌／早期癌症；可另加 59 種危疾（選擇性保障）",
+    "en": "Base: cancer, heart attack, stroke (Big 3) incl. carcinoma-in-situ / early-stage cancer; optional cover for 59 other crises"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "三大疾病賠保額 100% 一次；原位癌／早期癌症可多次預支，合共最多保額 100%",
+    "en": "Big 3 pays 100% once; carcinoma-in-situ / early cancer advance payments up to 100% in total"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "續保期內保費非保證，但唔會單單因年齡增加；續保時按年齡重新釐定",
+    "en": "Premium not guaranteed; not raised by age within a renewal period, re-set at renewal"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "選擇性「三大疾病額外醫療保障」：賠咗之後可報銷同一病嘅醫療費"
+    ],
+    "en": [
+     "Optional Additional Medical Coverage for Big 3 Diseases (reimburses later medical costs)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.fwd.com.hk/images/v3/assets/blt563fac53dd3a847c/blt1b86b167c28b2e1f/64d5d3ccfe2ccc83e0a2e631/MyCover_policy_brochure_EN_202308.pdf",
+    "en": "https://www.fwd.com.hk/images/v3/assets/blt563fac53dd3a847c/blt1b86b167c28b2e1f/64d5d3ccfe2ccc83e0a2e631/MyCover_policy_brochure_EN_202308.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/online-insurance/term-critical-illness/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-easycover",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "好易揀危疾保障計劃",
+    "en": "EasyCover Critical Illness Plan"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "每年／5 年／10 年／20 年續保至 100 歲，或選繳費至 100 歲",
+    "en": "Yearly / 5 / 10 / 20-year renewable to 100, or pay to 100"
+   },
+   "issueAges": [
+    1,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 62,
+    "early": 65,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "65 種特別疾病（包括 12 種兒童疾病、原位癌、通波仔）；深切治療保障（未知疾病）；可轉為終身危疾計劃免驗身",
+    "en": "65 special diseases (incl. 12 juvenile, carcinoma-in-situ, angioplasty); ICU cover for unknown illnesses; convertible to whole-life CI without health evidence"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "危疾賠保額 100% 一次；可另加三大疾病額外 50% 保障（選擇性）",
+    "en": "Crisis pays 100% once; optional extra 50% for Big 3"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "續保期內保費非保證，但唔會單單因年齡增加",
+    "en": "Premium not guaranteed; not raised by age within a renewal period"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt59b1df57a3e570fa/6361c3ec57082b10e8176283/fwd-easycover-en.pdf",
+    "en": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt59b1df57a3e570fa/6361c3ec57082b10e8176283/fwd-easycover-en.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/easycover-critical-illness-plan/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-crisis-allsupporter",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "危疾全應援保險計劃系列",
+    "en": "Crisis AllSupporter Insurance Plan Series"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 5／10／15／20／25／30 年；分 All Good／All Better／All Great 三級；只限美元",
+    "en": "Cover to 100; premium terms 5/10/15/20/25/30 years; levels All Good / All Better / All Great; USD only"
+   },
+   "issueAges": [
+    1,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 62,
+    "early": 86,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "All Better／All Great 保 86 種特別疾病（包括 28 種兒童疾病）；All Good 保原位癌、早期癌症、通波仔",
+    "en": "All Better / All Great cover 86 special diseases (incl. 28 juvenile); All Good covers carcinoma-in-situ, early cancer, angioplasty"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "指定危疾合共最多 9 次",
+     "en": "Designated crises up to 9 claims combined"
+    },
+    "heart": {
+     "zh": "指定危疾合共最多 9 次",
+     "en": "Designated crises up to 9 claims combined"
+    },
+    "stroke": {
+     "zh": "指定危疾合共最多 9 次",
+     "en": "Designated crises up to 9 claims combined"
+    }
+   },
+   "multiText": {
+    "zh": "指定危疾（癌症、心臟病、中風、認知障礙症、腎衰竭、柏金遜症）最多賠 9 次：第 1、2 次各 120%、第 3 至 9 次各 150%，相隔最少 1 年（按計劃級別）",
+    "en": "Designated crises (cancer, heart attack, stroke, dementia, kidney failure, Parkinson's) up to 9 claims: 120% for 1st-2nd, 150% for 3rd-9th, at least 1 year apart (by level)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多保額 1290%（按計劃級別）",
+    "en": "Up to 1290% in total (by level)"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有現金價值，另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Cash value from 3rd anniversary plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt3c7e1bd8c607761a/6ac89b7acd0bd94ddfd50a5c/FWD_Crisis_AllSupporter_EN.pdf",
+    "en": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt3c7e1bd8c607761a/6ac89b7acd0bd94ddfd50a5c/FWD_Crisis_AllSupporter_EN.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/crisis-allsupporter-insurance-plan-series/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-crisis-usupporter",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "危疾應援保／危疾應援保（升級版）系列",
+    "en": "Crisis USupporter / Crisis USupporter Pro Series"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20／25／30 年；有「BB 版」（懷孕 22 週起投保）",
+    "en": "Cover to 100; premium terms 10/15/20/25/30 years; Kid Starter version from 22nd week of pregnancy"
+   },
+   "issueAges": [
+    1,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 62,
+    "early": 65,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "65 種特別疾病（包括原位癌、早期癌症、通波仔、兒童疾病）；深切治療保障",
+    "en": "65 special diseases (incl. carcinoma-in-situ, early cancer, angioplasty, juvenile); ICU cover"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "指定危疾合共最多 7 次",
+     "en": "Designated crises up to 7 claims combined"
+    },
+    "heart": {
+     "zh": "指定危疾合共最多 7 次",
+     "en": "Designated crises up to 7 claims combined"
+    },
+    "stroke": {
+     "zh": "指定危疾合共最多 7 次",
+     "en": "Designated crises up to 7 claims combined"
+    }
+   },
+   "multiText": {
+    "zh": "指定危疾（癌症、心臟病、中風、認知障礙症、腎衰竭、柏金遜症）額外最多賠 7 次：第 1、2 次各 120%、第 3 至 7 次各 150%，相隔最少 1 年；另有癌症每年入息 5%（升級版 10%）最多 5 年",
+    "en": "Designated crises up to 7 extra claims: 120% for 1st-2nd, 150% for 3rd-7th, at least 1 year apart; cancer income 5% a year (Pro 10%) up to 5 years"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "多次賠償額外最多保額 990%",
+    "en": "Multiple benefit up to additional 990%"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有現金價值，另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Cash value from 3rd anniversary plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blted83ca419e962f7f/64957d9224cb333e977f29a2/fwd-crisis-usupporter-en.pdf",
+    "en": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blted83ca419e962f7f/64957d9224cb333e977f29a2/fwd-crisis-usupporter-en.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/crisis-usupporter-series/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-crisis-onemaster",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "危疾緻尚保／危疾緻尚保（升級版）",
+    "en": "Crisis OneMaster / Crisis OneMaster Pro"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20／25／30 年",
+    "en": "Cover to 100; premium terms 10/15/20/25/30 years"
+   },
+   "issueAges": [
+    1,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 68,
+    "early": 80,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "68 種主要危疾、80 種嚴重疾病（計入早期）、22 種兒童疾病；分「癌症組」同「非癌症組」兩組",
+    "en": "68 major crises, 80 serious diseases (counted as early), 22 juvenile diseases; two groups: cancer and non-cancer"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "癌症組最多 650%",
+     "en": "Cancer group up to 650%"
+    },
+    "heart": {
+     "zh": "非癌症組最多 650%",
+     "en": "Non-cancer group up to 650%"
+    },
+    "stroke": {
+     "zh": "非癌症組最多 650%",
+     "en": "Non-cancer group up to 650%"
+    }
+   },
+   "multiText": {
+    "zh": "癌症組同非癌症組各最多賠保額 650%，合共 1300%；主要危疾之間相隔最少 1 年（細節見小冊子）",
+    "en": "Up to 650% each for cancer and non-cancer groups, 1300% in total; at least 1 year between major crises (see brochure)"
+   },
+   "totalCapPct": 1300,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有現金價值，另有每年紅利及特別紅利（非保證）",
+     "升級版：認知障礙症／柏金遜症終身年金"
+    ],
+    "en": [
+     "Cash value from 3rd anniversary plus annual dividend and special bonus (non-guaranteed)",
+     "Pro: lifelong annuity for Alzheimer's / Parkinson's"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.fwd.com.hk/-/media/Files/FWDHK/pdf/protect/health-accident/critical-illness/crisis-onemaster-en.pdf",
+    "en": "https://www.fwd.com.hk/-/media/Files/FWDHK/pdf/protect/health-accident/critical-illness/crisis-onemaster-en.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/crisis-onemaster-series/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-crisis-onecover-prime",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "危疾晉御保 (尊尚版)",
+    "en": "Crisis OneCover Prime"
+   },
+   "type": null,
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障期及供款期見產品資料（官網暫時冇小冊子下載）",
+    "en": "Cover and payment terms per product documents (no brochure download on site)"
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 0,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "主要疾病只分兩組；保已知及未知疾病（見產品頁）",
+    "en": "Major diseases in only two groups; covers defined and undefined diseases (per product page)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "產品頁寫可索償超過保額 1000%；細節見條款",
+    "en": "Product page: claims over 1000% of sum insured; details per policy terms"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": null,
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.fwd.com.hk/zh/critical-illness/crisis-onecover-prime/",
+    "en": "https://www.fwd.com.hk/en/critical-illness/crisis-onecover-prime/"
+   },
+   "source": {
+    "zh": "富衛官網：產品網頁",
+    "en": "FWD website: product page"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/crisis-onecover-prime/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-crisis-easygo-uprimecover",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "危疾優易保 — 摯護您",
+    "en": "Crisis EasyGo – UPrimeCover"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20／25 年；簡易核保（有危疾病史都可以申請）",
+    "en": "Cover to 100; premium terms 10/15/20/25 years; simplified underwriting (for people with CI history)"
+   },
+   "issueAges": [
+    1,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 62,
+    "early": 65,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "65 種特別疾病（包括原位癌、早期癌症、通波仔、兒童疾病）；深切治療保障",
+    "en": "65 special diseases (incl. carcinoma-in-situ, early cancer, angioplasty, juvenile); ICU cover"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "選擇性：指定危疾額外最多 2 次",
+     "en": "Optional: designated crises up to 2 extra claims"
+    },
+    "heart": {
+     "zh": "選擇性：指定危疾額外最多 2 次",
+     "en": "Optional: designated crises up to 2 extra claims"
+    },
+    "stroke": {
+     "zh": "選擇性：指定危疾額外最多 2 次",
+     "en": "Optional: designated crises up to 2 extra claims"
+    }
+   },
+   "multiText": {
+    "zh": "選擇性多次賠償：指定危疾額外最多 2 次，每次 120%（合共額外 240%），相隔最少 1 年",
+    "en": "Optional multiple benefit: up to 2 extra claims for designated crises at 120% each (240% extra), at least 1 year apart"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有現金價值，另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Cash value from 3rd anniversary plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/bltf34d6a5ac4c375aa/crisis-easygo-uprimecover-en.pdf",
+    "en": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/bltf34d6a5ac4c375aa/crisis-easygo-uprimecover-en.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/crisis-easygo-series/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-crisis-easygo-ucancover",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "危疾優易保 — 癌護您",
+    "en": "Crisis EasyGo – UCanCover"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20／25 年；為曾患癌症人士設計，簡易核保；保額上限 HK$500,000",
+    "en": "Cover to 100; premium terms 10/15/20/25 years; for cancer survivors, simplified underwriting; max HK$500,000"
+   },
+   "issueAges": [
+    18,
+    60
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 62,
+    "early": 53,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "53 種特別疾病（包括原位癌、早期癌症）；首 3 個保單年度癌症賠償較低（見小冊子）",
+    "en": "53 special diseases (incl. carcinoma-in-situ, early cancer); reduced cancer payout in first 3 policy years (see brochure)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "危疾賠保額 100% 一次",
+    "en": "Crisis pays 100% once"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有現金價值，另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Cash value from 3rd anniversary plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blte96c943cd69aa3ef/crisis-easygo-ucancover-ustillcover-en.pdf",
+    "en": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blte96c943cd69aa3ef/crisis-easygo-ucancover-ustillcover-en.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/crisis-easygo-series/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-crisis-easygo-ustillcover",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "危疾優易保 — 心護您",
+    "en": "Crisis EasyGo – UStillCover"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20／25 年；為曾患心血管病人士設計，簡易核保；保額上限 HK$500,000",
+    "en": "Cover to 100; premium terms 10/15/20/25 years; for people with cardiovascular history, simplified underwriting; max HK$500,000"
+   },
+   "issueAges": [
+    18,
+    60
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 26,
+    "early": 23,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "26 種危疾（包括癌症）、23 種特別疾病（包括原位癌）",
+    "en": "26 crises (incl. cancer), 23 special diseases (incl. carcinoma-in-situ)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "危疾賠保額 100% 一次",
+    "en": "Crisis pays 100% once"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有現金價值，另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Cash value from 3rd anniversary plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blte96c943cd69aa3ef/crisis-easygo-ucancover-ustillcover-en.pdf",
+    "en": "https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blte96c943cd69aa3ef/crisis-easygo-ucancover-ustillcover-en.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/crisis-easygo-series/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-cancover",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "攻守易／攻守易（升級版）癌症保障計劃",
+    "en": "CANcover / CANcover Pro Cancer Protection Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "只保癌症；保障至 100 歲；供款 10／15／20／25 年；期滿退還已繳保費",
+    "en": "Cancer only; cover to 100; premium terms 10/15/20/25 years; premiums refunded at maturity"
+   },
+   "issueAges": [
+    1,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 1,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "癌症；原位癌／早期癌症（最多 2 次）",
+    "en": "Cancer; carcinoma-in-situ / early cancer (up to 2 claims)"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "升級版：最多 4 次",
+     "en": "Pro version: up to 4 claims"
+    },
+    "heart": null,
+    "stroke": null
+   },
+   "multiText": {
+    "zh": "升級版有癌症多次賠償最多 4 次，相隔最少 1 年；兩款合共最多保額 515%（按小冊子例子）",
+    "en": "Pro: cancer up to 4 claims, at least 1 year apart; up to 515% in total (per brochure illustration)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "最多保額 515%（升級版）",
+    "en": "Up to 515% (Pro)"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "退保／期滿按表退還已繳保費（期滿 100%），另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Refund of premiums per table on surrender/maturity (100% at maturity) plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt0fcf073b67b6cc57/635f4e319549fb1076784e49/fwd_cancover_brochure_en.pdf",
+    "en": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt0fcf073b67b6cc57/635f4e319549fb1076784e49/fwd_cancover_brochure_en.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/cancover-pro-cancer-protection-plan/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "fwd-mindplus",
+   "insurer": {
+    "zh": "富衛人壽保險（百慕達）有限公司",
+    "en": "FWD Life Insurance Company (Bermuda) Limited"
+   },
+   "plan": {
+    "zh": "身心衛危疾保障計劃",
+    "en": "Mind+ Critical Illness Protection Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 25 年或至 65 歲",
+    "en": "Cover to 100; pay 25 years or to age 65"
+   },
+   "issueAges": [
+    1,
+    55
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 58,
+    "early": 57,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另保 10 種精神病（3 種兒童）：精神科門診報銷、重性精神病賠 10%–30% 保額",
+    "en": "Plus 10 mental illnesses (3 juvenile): psychiatrist visits reimbursed, major mental illness pays 10-30%"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "危疾賠保額 100%；精神病保障可賠多次（見小冊子）",
+    "en": "Crisis pays 100%; mental illness benefits claimable more than once (see brochure)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加；精神病保障等候期 1 年",
+    "en": "Participating; premium not guaranteed but not raised by age; 1-year waiting period for mental illness"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有現金價值，另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Cash value from 3rd anniversary plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/bltb571b34fd2302f47/6360c981aa5f5f55fdf2980a/mpcipp-en.pdf",
+    "en": "https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/bltb571b34fd2302f47/6360c981aa5f5f55fdf2980a/mpcipp-en.pdf"
+   },
+   "source": {
+    "zh": "富衛官網：產品小冊子",
+    "en": "FWD website: product brochure"
+   },
+   "sourceUrl": "https://www.fwd.com.hk/zh/critical-illness/mindplus/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "sunlife-sunwell-advanced-supreme",
+   "insurer": {
+    "zh": "香港永明金融有限公司",
+    "en": "Sun Life Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "萬家康卓越保險計劃／萬家康尊尚保險計劃",
+    "en": "SunWell Advanced Care / SunWell Supreme Care Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身（其後索償保障至 85 歲）；供款 10／15／20／25 年；只限美元；有 BB 版（懷孕 22 週起）",
+    "en": "Whole life (subsequent claims to 85); premium terms 10/15/20/25 years; USD only; Baby Care version from 22nd week of pregnancy"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 71,
+    "early": 90,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "合共 188 種疾病：71 種嚴重、90 種早期、27 種兒童疾病，另加 38 種指定複雜手術；尊尚保另有女性疾病額外保障",
+    "en": "188 illnesses: 71 major, 90 early stage, 27 juvenile, plus 38 complex surgeries; Supreme Care adds female-specific cover"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "三大疾病合共：卓越保最多 3 次、尊尚保最多 5 次",
+     "en": "Big 3 combined: up to 3 claims (Advanced Care), 5 (Supreme Care)"
+    },
+    "heart": {
+     "zh": "三大疾病合共：卓越保最多 3 次、尊尚保最多 5 次",
+     "en": "Big 3 combined: up to 3 claims (Advanced Care), 5 (Supreme Care)"
+    },
+    "stroke": {
+     "zh": "三大疾病合共：卓越保最多 3 次、尊尚保最多 5 次",
+     "en": "Big 3 combined: up to 3 claims (Advanced Care), 5 (Supreme Care)"
+    }
+   },
+   "multiText": {
+    "zh": "癌症、中風、心臟病之間冇等候期；同一種中風／心臟病相隔 1 年；新癌症相隔 1 年（持續癌症條件見小冊子）",
+    "en": "No waiting period between cancer, stroke and heart attack; same stroke/heart attack 1 year apart; new cancer 1 year apart (persistent cancer per brochure)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，按投保時條件釐定（有限期供款）",
+    "en": "Participating; premium not guaranteed, set at issue (limited pay)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunWell_ACSC_F_EN.pdf",
+    "en": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunWell_ACSC_F_EN.pdf"
+   },
+   "source": {
+    "zh": "永明官網：產品小冊子",
+    "en": "Sun Life website: product brochure"
+   },
+   "sourceUrl": "https://www.sunlife.com.hk/zh-hant/insurance/health/critical-illness/sunwell-advancedcare-supremecare/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "sunlife-sunwell-essentialcare",
+   "insurer": {
+    "zh": "香港永明金融有限公司",
+    "en": "Sun Life Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "萬家康安心保險計劃",
+    "en": "SunWell Essential Care Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "主要保癌症；終身（其後癌症索償至 85 歲）；供款 10／15／20／25 年；只限美元；簡化核保問題",
+    "en": "Cancer-focused; whole life (subsequent cancer claims to 85); premium terms 10/15/20/25 years; USD only; simplified underwriting questions"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 1,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "癌症；早期癌症最多 2 次（數目見小冊子）",
+    "en": "Cancer; early stage cancer up to 2 claims (count per brochure)"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "最多 3 次",
+     "en": "Up to 3 claims"
+    },
+    "heart": null,
+    "stroke": null
+   },
+   "multiText": {
+    "zh": "癌症最多賠 3 次：不同癌症相隔 1 年、持續／復發／轉移癌症相隔 3 年；早期癌症最多 2 次",
+    "en": "Cancer up to 3 claims: different cancer 1 year apart, persistent/recurrent/metastatic 3 years; early cancer up to 2 claims"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，按投保時條件釐定（有限期供款）",
+    "en": "Participating; premium not guaranteed, set at issue (limited pay)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunWell_EC_EN.pdf",
+    "en": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunWell_EC_EN.pdf"
+   },
+   "source": {
+    "zh": "永明官網：產品小冊子",
+    "en": "Sun Life website: product brochure"
+   },
+   "sourceUrl": "https://www.sunlife.com.hk/zh-hant/insurance/health/critical-illness/sunwell-essentialcare/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "sunlife-lovepromise",
+   "insurer": {
+    "zh": "香港永明金融有限公司",
+    "en": "Sun Life Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "永明危疾家康保險計劃",
+    "en": "SunHealth LovePromise Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "終身；供款 10／15／20／25 年；兒童同家庭危疾保障",
+    "en": "Whole life; premium terms 10/15/20/25 years; juvenile and family CI cover"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 64,
+    "early": 62,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "合共 158 種：64 種嚴重、62 種早期、32 種兒童疾病；家族癌症病史保障",
+    "en": "158 conditions: 64 major, 62 early, 32 juvenile; family cancer-history benefit"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "三大疾病額外最多 700%",
+     "en": "Big 3 up to an extra 700%"
+    },
+    "heart": {
+     "zh": "三大疾病額外最多 700%",
+     "en": "Big 3 up to an extra 700%"
+    },
+    "stroke": {
+     "zh": "三大疾病額外最多 700%",
+     "en": "Big 3 up to an extra 700%"
+    }
+   },
+   "multiText": {
+    "zh": "嚴重疾病賠 100% 後，癌症／心臟病／中風可再賠，額外最多保額 700%（有等候期，見小冊子）",
+    "en": "After the 100% major claim, cancer/heart attack/stroke claims up to an extra 700% (waiting periods per brochure)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "合共最多保額約 1070%（見小冊子）",
+    "en": "Up to about 1070% in total (see brochure)"
+   },
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，按投保時條件釐定（有限期供款）",
+    "en": "Participating; premium not guaranteed, set at issue (limited pay)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有特別紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value plus special bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunHealth-LovePromise_PB_EN.pdf",
+    "en": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunHealth-LovePromise_PB_EN.pdf"
+   },
+   "source": {
+    "zh": "永明官網：產品小冊子",
+    "en": "Sun Life website: product brochure"
+   },
+   "sourceUrl": "https://www.sunlife.com.hk/zh-hant/insurance/health/critical-illness/sunhealth-lovepromise/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "sunlife-cancer-shield",
+   "insurer": {
+    "zh": "香港永明金融有限公司",
+    "en": "Sun Life Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "永明癌症護您保",
+    "en": "SunHealth Cancer Shield"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "只保癌症；保障同供款至 100 歲；保費按當時年齡計",
+    "en": "Cancer only; cover and premiums to 100; premium by attained age"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 1,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "癌症一筆過 100% 保額，另有每月生活津貼 24 個月、基因檢測保障",
+    "en": "Cancer lump sum 100%, plus monthly living benefit for 24 months and genetic profiling test benefit"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "嚴重癌症賠 100% 一次，之後豁免保費",
+    "en": "Major cancer pays 100% once, then premiums waived"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "保費按年齡增加，非保證",
+    "en": "Premium rises with age; not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SH_CancerShield_PB_EN.pdf",
+    "en": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SH_CancerShield_PB_EN.pdf"
+   },
+   "source": {
+    "zh": "永明官網：產品小冊子",
+    "en": "Sun Life website: product brochure"
+   },
+   "sourceUrl": "https://www.sunlife.com.hk/zh-hant/insurance/health/critical-illness/sunhealth-cancer-shield/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "sunlife-cmc-ii",
+   "insurer": {
+    "zh": "香港永明金融有限公司",
+    "en": "Sun Life Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "危疾護您保障計劃II",
+    "en": "Critical Medical Care Insurance Plan II"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保證續保至 100 歲；供款至 100 或 80 歲；只限港元",
+    "en": "Guaranteed renewable to 100; pay to 100 or 80; HKD only"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 51,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "人生階段保障（例如通波仔、癌前病變）賠 20% 保額；另有嚴重疾病醫療費報銷",
+    "en": "Life Stage Benefit (e.g. angioplasty, pre-cancerous changes) pays 20%; Major Medical Care Benefit reimburses treatment"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "危疾賠 100% 一次，之後豁免保費；加多重保障附加契約可多次賠償（見小冊子）",
+    "en": "Critical illness pays 100% once, then premiums waived; Multiple Protection Benefit rider adds repeat claims (see brochure)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "保費按年齡增加，非保證",
+    "en": "Premium rises with age; not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/CMC_E.pdf",
+    "en": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/CMC_E.pdf"
+   },
+   "source": {
+    "zh": "永明官網：產品小冊子",
+    "en": "Sun Life website: product brochure"
+   },
+   "sourceUrl": "https://www.sunlife.com.hk/zh-hant/insurance/health/critical-illness/critical-medical-care-insurance-plan-ii/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "sunlife-living-master",
+   "insurer": {
+    "zh": "香港永明金融有限公司",
+    "en": "Sun Life Hong Kong Limited"
+   },
+   "plan": {
+    "zh": "危疾萬全保／危疾額外萬全保（附加保障）",
+    "en": "Living Master Benefit / Living Master Extra Benefit (supplementary)"
+   },
+   "type": "renewable",
+   "rider": true,
+   "renewal": null,
+   "coverText": {
+    "zh": "附加保障；保證續保至 100 歲或 80 歲（按版本）",
+    "en": "Rider; guaranteed renewable to 100 or 80 (by version)"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 48,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": null,
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "危疾賠 100%；癌症／心臟病／中風復發可再賠 20%（有 3 年存活期）",
+    "en": "Critical illness pays 100%; recurring cancer/heart attack/stroke pays extra 20% (3-year survival period)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": null,
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/Living_Master_TC.pdf",
+    "en": "https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/Living_Master_EN.pdf"
+   },
+   "source": {
+    "zh": "永明官網：產品小冊子",
+    "en": "Sun Life website: product brochure"
+   },
+   "sourceUrl": "https://www.sunlife.com.hk/zh-hant/insurance/health/critical-illness/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "yf-primehealth-pro-essential",
+   "insurer": {
+    "zh": "萬通保險國際有限公司",
+    "en": "YF Life Insurance International Limited"
+   },
+   "plan": {
+    "zh": "萬通危疾加護保 (標準版)",
+    "en": "YF PrimeHealth Pro (Essential)"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20／25 年；美元或港元",
+    "en": "Cover to 100; premium terms 10/15/20/25 years; USD or HKD"
+   },
+   "issueAges": [
+    0,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 58,
+    "early": 42,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "合共 148 種：58 種主要嚴重疾病、42 種早期疾病、30 種原位癌／初期癌症、18 種兒童嚴重疾病",
+    "en": "148 conditions: 58 major, 42 early, 30 carcinoma-in-situ / early cancer, 18 severe child diseases"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "主要嚴重疾病賠 100% 一次（見小冊子）",
+    "en": "Major critical illness pays 100% once (see brochure)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value from 3rd anniversary plus terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.yflife.com/sites/default/files/brochure/PHP-TC.pdf",
+    "en": "https://www.yflife.com/sites/default/files/brochure/PHP-TC.pdf"
+   },
+   "source": {
+    "zh": "萬通官網：產品小冊子",
+    "en": "YF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.yflife.com/tc/product/health/critical-illness/yf-primehealth-pro-essential/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "yf-primehealth-pro-signature",
+   "insurer": {
+    "zh": "萬通保險國際有限公司",
+    "en": "YF Life Insurance International Limited"
+   },
+   "plan": {
+    "zh": "萬通危疾加護保(優越版)／萬通危疾愛護保",
+    "en": "YF PrimeHealth Pro (Signature) / YF PrimeHealth Pro Jr. Care"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲（部分保障至 85／75 歲）；供款 10／15／20／25 年；愛護保懷孕期都可投保",
+    "en": "Cover to 100 (some benefits to 85/75); premium terms 10/15/20/25 years; Jr. Care can be bought during pregnancy"
+   },
+   "issueAges": [
+    0,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 68,
+    "early": 50,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "合共 149 種：68 種主要嚴重疾病、50 種早期疾病、31 種原位癌／初期癌症；另有 33 種兒童嚴重疾病",
+    "en": "149 conditions: 68 major, 50 early, 31 carcinoma-in-situ / early cancer; plus 33 severe child diseases"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "多次危疾保障合共最多 400%",
+     "en": "Multiple critical illness benefit up to 400% in total"
+    },
+    "heart": {
+     "zh": "多次危疾保障合共最多 400%",
+     "en": "Multiple critical illness benefit up to 400% in total"
+    },
+    "stroke": {
+     "zh": "多次危疾保障合共最多 400%",
+     "en": "Multiple critical illness benefit up to 400% in total"
+    }
+   },
+   "multiText": {
+    "zh": "癌症、心臟病、中風、腦退化疾病、柏金遜病多次危疾保障最多保額 400%；另有持續癌症現金津貼最多 180%、心臟病及中風現金津貼最多 60%（細節見小冊子）",
+    "en": "Multiple CI benefit for cancer, heart attack, stroke, degenerative brain disorders, Parkinson's up to 400%; continuous cancer cash up to 180%, heart attack/stroke cash up to 60% (see brochure)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value from 3rd anniversary plus terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.yflife.com/sites/default/files/brochure/PHPS-TC.pdf",
+    "en": "https://www.yflife.com/sites/default/files/brochure/PHPS-TC.pdf"
+   },
+   "source": {
+    "zh": "萬通官網：產品小冊子",
+    "en": "YF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.yflife.com/tc/product/health/critical-illness/yf-primehealth-pro-signature-jr-care/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "yf-primehealth-pro-ease",
+   "insurer": {
+    "zh": "萬通保險國際有限公司",
+    "en": "YF Life Insurance International Limited"
+   },
+   "plan": {
+    "zh": "萬通危疾加護保險計劃（輕悅版）",
+    "en": "YF PrimeHealth Pro Insurance Plan (Ease)"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20 年；美元或港元",
+    "en": "Cover to 100; premium terms 10/15/20 years; USD or HKD"
+   },
+   "issueAges": [
+    18,
+    70
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 68,
+    "early": 33,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "合共 101 種：68 種主要嚴重疾病、33 種非主要嚴重疾病（計入早期）；另保 31 種原位癌／初期癌症（賠 25%，最多 2 次）",
+    "en": "101 conditions: 68 major, 33 non-major (counted as early); plus 31 carcinoma-in-situ / early cancers (25%, up to 2 claims)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "主要嚴重疾病賠 100% 一次；原位癌／初期癌症最多 2 次（要係 2 種唔同癌症）",
+    "en": "Major critical illness pays 100% once; carcinoma-in-situ / early cancer up to 2 claims (two different cancers)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value from 3rd anniversary plus terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.yflife.com/sites/default/files/brochure/PHPE-TC.pdf",
+    "en": "https://www.yflife.com/sites/default/files/brochure/PHPE-TC.pdf"
+   },
+   "source": {
+    "zh": "萬通官網：產品小冊子",
+    "en": "YF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.yflife.com/tc/product/health/critical-illness/yf-primehealth-pro-insurance-plan-ease/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "yf-criticare-cancer",
+   "insurer": {
+    "zh": "萬通保險國際有限公司",
+    "en": "YF Life Insurance International Limited"
+   },
+   "plan": {
+    "zh": "加護續航癌症保險計劃",
+    "en": "CritiCare Continuation Cancer Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "為曾患癌症人士設計，簡易核保；保障至 100 歲；供款 10／15／20／25 年；只限美元",
+    "en": "For cancer survivors, simplified underwriting; cover to 100; premium terms 10/15/20/25 years; USD only"
+   },
+   "issueAges": [
+    18,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 68,
+    "early": 50,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "合共 149 種：68 種主要嚴重疾病、50 種早期疾病、31 種原位癌／初期癌症",
+    "en": "149 conditions: 68 major, 50 early, 31 carcinoma-in-situ / early cancer"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "主要嚴重疾病賠 100%；確診癌症後每年可領最多 5% 保額癌症現金，最長 10 年（細節見小冊子）",
+    "en": "Major CI pays 100%; after cancer, cash up to 5% a year for up to 10 years (see brochure)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value from 3rd anniversary plus terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.yflife.com/sites/default/files/brochure/CCC-TC.pdf",
+    "en": "https://www.yflife.com/sites/default/files/brochure/CCC-TC.pdf"
+   },
+   "source": {
+    "zh": "萬通官網：產品小冊子",
+    "en": "YF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.yflife.com/tc/product/health/critical-illness/criticare-continuation-cancer-insurance-plan/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "yf-criticare-cardio",
+   "insurer": {
+    "zh": "萬通保險國際有限公司",
+    "en": "YF Life Insurance International Limited"
+   },
+   "plan": {
+    "zh": "加護續航心血管保險計劃",
+    "en": "CritiCare Continuation Cardio Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "為有心血管病史人士設計，簡易核保；保障至 100 歲；供款 10／15／20／25 年；只限美元",
+    "en": "For people with cardiovascular history, simplified underwriting; cover to 100; premium terms 10/15/20/25 years; USD only"
+   },
+   "issueAges": [
+    18,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 31,
+    "early": 16,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "合共 78 種：31 種主要嚴重疾病、16 種早期疾病、31 種原位癌／初期癌症",
+    "en": "78 conditions: 31 major, 16 early, 31 carcinoma-in-situ / early cancer"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "主要嚴重疾病賠 100% 一次（見小冊子）",
+    "en": "Major CI pays 100% once (see brochure)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value from 3rd anniversary plus terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.yflife.com/sites/default/files/brochure/CCA-TC.pdf",
+    "en": "https://www.yflife.com/sites/default/files/brochure/CCA-TC.pdf"
+   },
+   "source": {
+    "zh": "萬通官網：產品小冊子",
+    "en": "YF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.yflife.com/tc/product/health/critical-illness/criticare-continuation-cardio-insurance-plan/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "yf-criticare-diabetes",
+   "insurer": {
+    "zh": "萬通保險國際有限公司",
+    "en": "YF Life Insurance International Limited"
+   },
+   "plan": {
+    "zh": "加護續航糖尿保險計劃",
+    "en": "CritiCare Continuation Diabetes Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "為糖尿病人士設計，簡易核保；保障至 100 歲；供款 10／15／20／25 年；只限美元",
+    "en": "For people with diabetes, simplified underwriting; cover to 100; premium terms 10/15/20/25 years; USD only"
+   },
+   "issueAges": [
+    40,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 68,
+    "early": 50,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "合共 149 種：68 種主要嚴重疾病、50 種早期疾病、31 種原位癌／初期癌症",
+    "en": "149 conditions: 68 major, 50 early, 31 carcinoma-in-situ / early cancer"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "主要嚴重疾病賠 100% 一次（見小冊子）",
+    "en": "Major CI pays 100% once (see brochure)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "分紅保單；保費非保證，但唔會因年齡增加",
+    "en": "Participating; premium not guaranteed but not raised by age"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "第 3 個保單周年起有保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value from 3rd anniversary plus terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.yflife.com/sites/default/files/brochure/CCD-TC.pdf",
+    "en": "https://www.yflife.com/sites/default/files/brochure/CCD-TC.pdf"
+   },
+   "source": {
+    "zh": "萬通官網：產品小冊子",
+    "en": "YF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.yflife.com/tc/product/health/critical-illness/criticare-continuation-diabetes-insurance-plan/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "yf-lady-health",
+   "insurer": {
+    "zh": "萬通保險國際有限公司",
+    "en": "YF Life Insurance International Limited"
+   },
+   "plan": {
+    "zh": "「妳的健康」保障計劃",
+    "en": "Lady Health Benefit"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "女性疾病保障；每 5 年續保至 100 歲；可單獨投保或做附加保障",
+    "en": "Female illness cover; 5-yearly renewable to 100; standalone or as a rider"
+   },
+   "issueAges": [
+    18,
+    60
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 4,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "4 種女性嚴重疾病、8 種常見女性疾病、妊娠併發症、先天性缺陷、意外整容手術",
+    "en": "4 female critical illnesses, 8 common female illnesses, pregnancy complications, congenital anomalies, accidental reconstructive surgery"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "每 5 年續保，按當時年齡調整，非保證",
+    "en": "Renewed every 5 years at attained age; not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.yflife.com/sites/default/files/brochure/QI_LADY_E.pdf",
+    "en": "https://www.yflife.com/sites/default/files/brochure/QI_LADY_E.pdf"
+   },
+   "source": {
+    "zh": "萬通官網：產品小冊子",
+    "en": "YF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.yflife.com/tc/product/health/critical-illness/lady-health-benefit/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "yf-update-jr-health",
+   "insurer": {
+    "zh": "萬通保險國際有限公司",
+    "en": "YF Life Insurance International Limited"
+   },
+   "plan": {
+    "zh": "Update 兒童健康保障",
+    "en": "Update Jr. Health Benefit"
+   },
+   "type": "renewable",
+   "rider": true,
+   "renewal": null,
+   "coverText": {
+    "zh": "附加保障；兒童疾病；每年續保至 25 歲",
+    "en": "Rider; childhood illnesses; yearly renewable to 25"
+   },
+   "issueAges": [
+    0,
+    17
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 0,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "兒童疾病賠 100% 保額（部分 20%）；意外骨折 10%（數目見小冊子）",
+    "en": "Childhood illnesses pay 100% (some 20%); accidental fractures 10% (count per brochure)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": null,
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.yflife.com/sites/default/files/brochure/QI_UPJR_E_2.pdf",
+    "en": "https://www.yflife.com/sites/default/files/brochure/QI_UPJR_E_2.pdf"
+   },
+   "source": {
+    "zh": "萬通官網：產品小冊子",
+    "en": "YF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.yflife.com/tc/product/health/critical-illness/update-jr-health-benefit/",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "ctf-famcare-198",
+   "insurer": {
+    "zh": "周大福人壽保險有限公司",
+    "en": "Chow Tai Fook Life Insurance Co Ltd"
+   },
+   "plan": {
+    "zh": "「守護家倍198」危疾保險計劃",
+    "en": "“FamCare 198” Critical Illness Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20／25 年；只限美元；有懷孕 18 週起投保嘅 BB 版",
+    "en": "Cover to 100; premium terms 10/15/20/25 years; USD only; Pregnancy Baby version from 18 weeks of gestation"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 71,
+    "early": 87,
+    "mid": 15
+   },
+   "otherCover": {
+    "zh": "合共 198 種：71 種第 3 級（100%）、15 種第 2 級（50%）、87 種第 1 級（20%）、25 種兒童疾病；深切治療保障；家人延伸保障免核保",
+    "en": "198 conditions: 71 level-3 (100%), 15 level-2 (50%), 87 level-1 (20%), 25 juvenile; ICU cover; extended protection for family without underwriting"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "賠償後保障可重設返 100%；癌症、中風、嚴重心臟病有額外多次保障（小冊子寫「無上限」，條件見小冊子）；原位癌不同器官最多 2 次",
+    "en": "Cover resets to 100% after claims; extra repeat cover for cancer, stroke, severe heart attack (brochure says 'unlimited', conditions apply); carcinoma-in-situ up to 2 claims in different organs"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "分紅保單；保費率非保證",
+    "en": "Participating; premium rates not guaranteed"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有鎖定紅利及終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value plus locked-in and terminal dividends (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.ctflife.com.hk/pdf/en/famcare-198-critical-illness-protector-brochure.pdf",
+    "en": "https://www.ctflife.com.hk/pdf/en/famcare-198-critical-illness-protector-brochure.pdf"
+   },
+   "source": {
+    "zh": "周大福人壽官網：產品小冊子",
+    "en": "CTF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.ctflife.com.hk/tc/product/health/famcare-198-critical-illness-protector",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "ctf-healthcare-168-plus",
+   "insurer": {
+    "zh": "周大福人壽保險有限公司",
+    "en": "Chow Tai Fook Life Insurance Co Ltd"
+   },
+   "plan": {
+    "zh": "「守護168」危疾保險計劃 (加強版)",
+    "en": "“HealthCare 168 Plus” Critical Illness Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20／25 年；只限美元",
+    "en": "Cover to 100; premium terms 10/15/20/25 years; USD only"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 69,
+    "early": 68,
+    "mid": 15
+   },
+   "otherCover": {
+    "zh": "69 種第 3 級（100%）、15 種第 2 級（50%）、68 種第 1 級（20%）、17 種兒童疾病；呼吸系統疾病額外保障",
+    "en": "69 level-3 (100%), 15 level-2 (50%), 68 level-1 (20%), 17 juvenile; extra cover for respiratory diseases"
+   },
+   "earlyText": null,
+   "multiClaim": {
+    "cancer": {
+     "zh": "三大疾病合共最多 500%",
+     "en": "Big 3 up to 500% in total"
+    },
+    "heart": {
+     "zh": "三大疾病合共最多 500%",
+     "en": "Big 3 up to 500% in total"
+    },
+    "stroke": {
+     "zh": "三大疾病合共最多 500%",
+     "en": "Big 3 up to 500% in total"
+    }
+   },
+   "multiText": {
+    "zh": "癌症、中風、嚴重心臟病連第一次賠償合共最多保額 500%（多次保障最多 400%，相隔期最短 1 年）",
+    "en": "Cancer, stroke, severe heart attack up to 500% in total incl. first claim (multiple protection up to 400%, gap as short as 1 year)"
+   },
+   "totalCapPct": null,
+   "capText": {
+    "zh": "三大疾病合共最多 500%",
+    "en": "Up to 500% for the Big 3"
+   },
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "分紅保單；保費率非保證",
+    "en": "Participating; premium rates not guaranteed"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value plus terminal dividend (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/healthcare-168-plus-brochure.pdf",
+    "en": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/healthcare-168-plus-brochure.pdf"
+   },
+   "source": {
+    "zh": "周大福人壽官網：產品小冊子",
+    "en": "CTF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.ctflife.com.hk/tc/product/health/healthcare-168-plus-critical-illness-protector",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "ctf-protect-starter",
+   "insurer": {
+    "zh": "周大福人壽保險有限公司",
+    "en": "Chow Tai Fook Life Insurance Co Ltd"
+   },
+   "plan": {
+    "zh": "「首護易」危疾保險計劃",
+    "en": "“Protect Starter” Critical Illness Insurance Plan"
+   },
+   "type": "savings",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "保障至 100 歲；供款 15／20／25／30 年；只限美元",
+    "en": "Cover to 100; premium terms 15/20/25/30 years; USD only"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 69,
+    "early": 4,
+    "mid": 3
+   },
+   "otherCover": {
+    "zh": "69 種第 3 級（100%）、3 種第 2 級（50%）、4 種第 1 級（20%，包括原位癌、通波仔）",
+    "en": "69 level-3 (100%), 3 level-2 (50%), 4 level-1 (20%, incl. carcinoma-in-situ, angioplasty)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "第 3 級危疾賠 100% 一次（扣除之前已賠）；原位癌不同器官最多 2 次",
+    "en": "Level-3 pays 100% once (less earlier payouts); carcinoma-in-situ up to 2 claims in different organs"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "分紅保單；保費率非保證",
+    "en": "Participating; premium rates not guaranteed"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "供款期完結前保證現金價值為 0；之後有保證現金價值，另有終期紅利（非保證）"
+    ],
+    "en": [
+     "Guaranteed cash value is 0 until the end of the premium term; terminal dividend non-guaranteed"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/protect-starter-product-brochure.pdf",
+    "en": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/protect-starter-product-brochure.pdf"
+   },
+   "source": {
+    "zh": "周大福人壽官網：產品小冊子",
+    "en": "CTF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.ctflife.com.hk/tc/product/health/protect-starter-critical-illness-protector",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "id": "ctf-healthcare-choice",
+   "insurer": {
+    "zh": "周大福人壽保險有限公司",
+    "en": "Chow Tai Fook Life Insurance Co Ltd"
+   },
+   "plan": {
+    "zh": "「守護安心保」危疾保障計劃",
+    "en": "“HealthCare Choice” Critical Illness Protector"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "coverText": {
+    "zh": "每 3 年保證續保至 100 歲；港元或美元",
+    "en": "Guaranteed renewable every 3 years to 100; HKD or USD"
+   },
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 69,
+    "early": 4,
+    "mid": 3
+   },
+   "otherCover": {
+    "zh": "69 種第 3 級（100%）、3 種第 2 級（50%）、4 種第 1 級（20%）；指定器官良性腫瘤額外賠償（最多 2 次）",
+    "en": "69 level-3 (100%), 3 level-2 (50%), 4 level-1 (20%); extra benefit for benign tumours in specified organs (up to 2 claims)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "第 3 級危疾賠 100% 一次（扣除之前已賠）；原位癌不同器官最多 2 次",
+    "en": "Level-3 pays 100% once (less earlier payouts); carcinoma-in-situ up to 2 claims in different organs"
+   },
+   "totalCapPct": 100,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": {
+    "zh": "每 3 年續保，保費率非保證",
+    "en": "Renewed every 3 years; premium rates not guaranteed"
+   },
+   "premiumGuaranteed": false,
+   "cashValue": false,
+   "extras": {
+    "zh": [],
+    "en": []
+   },
+   "premiumSourceUrl": null,
+   "termsUrl": {
+    "zh": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/healthcare-choice-critical-illness-protector.pdf",
+    "en": "https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/healthcare-choice-critical-illness-protector.pdf"
+   },
+   "source": {
+    "zh": "周大福人壽官網：產品小冊子",
+    "en": "CTF Life website: product brochure"
+   },
+   "sourceUrl": "https://www.ctflife.com.hk/tc/product/health/healthcare-choice-critical-illness-protector",
+   "updatedOn": "2026-11-05",
+   "verified": true,
+   "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  }
+ ]
+}

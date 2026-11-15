@@ -1,0 +1,65 @@
+# 醫療及危疾比較（/compare/）：
+#   1. 每次改比較數據／程式：檢查數據、compiled 檔係咪最新、保費公式驗算；有錯 = 紅色 + email
+#   2. 每星期二：由保障資訊通抄最新「自願醫保標準計劃」官方保費（嗰邊每月 1 號由醫務衞生局 Excel 更新，Cody 喺 life-tools 撳 Merge 先上網）
+#      有改動先 commit 去 main，Cloudflare 自動部署。唔使 AI、唔使錢。
+# 手動試：GitHub → Actions → 醫療及危疾比較數據 → Run workflow。
+name: 醫療及危疾比較數據
+
+on:
+  push:
+    branches: [main]
+    paths: ["data/compare/**", "scripts/compare/**", "assets/js/cmp/**", "tests/compare.test.mjs"]
+  pull_request:
+    paths: ["data/compare/**", "scripts/compare/**", "assets/js/cmp/**", "tests/compare.test.mjs"]
+  schedule:
+    - cron: "0 2 * * 2"     # 星期二 香港時間 10:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: compare-data
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 抄最新標準計劃官方保費（只限定時／手動）
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          curl -fsSL --retry 3 https://codychan-life.pages.dev/data/medical/vhis-standard.json -o /tmp/std.json
+          python -c "import json; d=json.load(open('/tmp/std.json', encoding='utf-8')); assert len(d['plans']) >= 20, 'too few plans'; print('asOf', d['asOf'])"
+          cp /tmp/std.json data/compare/medical/vhis-standard.json
+
+      - name: 檢查數據
+        run: |
+          python scripts/compare/validate_compare.py
+          python scripts/compare/build_compare.py --check
+          node tests/compare.test.mjs
+
+      - name: Commit 同 push（只限定時／手動，有改動先做）
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "compare-data-bot"
+          git config user.email "compare-data-bot@users.noreply.github.com"
+          git add data/compare/medical/vhis-standard.json
+          if git diff --cached --quiet; then echo "標準計劃保費冇變"; exit 0; fi
+          git commit -m "醫療比較：標準計劃官方保費更新 $(TZ=Asia/Hong_Kong date +%F)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 10
+          done
+          exit 1
