@@ -4,42 +4,10 @@
 "hkcec": {
 "status": {
 "ok": true,
-"count": 24,
-"fetched": "2026-11-13"
+"count": 25,
+"fetched": "2026-11-16"
 },
 "events": [
-{
-"src": "hkcec",
-"srcId": "2026-11-11-cosmoprofasia-hk@informa.com-2026 亞太區美容展 - 香水、化妝品",
-"name": "2026 亞太區美容展 - 香水、化妝品及美甲",
-"nameEn": "",
-"start": "2026-11-11",
-"end": "2026-11-13",
-"venueText": "香港會議展覽中心（灣仔）",
-"venueHint": "hkcec",
-"hall": "",
-"access": "業界",
-"organiser": "",
-"kinds": [],
-"url": "http://www.cosmoprof-asia.com/",
-"srcUrl": "https://www.hkcec.com/zh/%E6%9C%80%E6%96%B0%E6%B4%BB%E5%8B%95"
-},
-{
-"src": "hkcec",
-"srcId": "2026-11-11-cosmoprofasia-hk@informa.com-Cosmoprof Asia 2026 ",
-"name": "Cosmoprof Asia 2026 - Hair & Beauty Salon (2026 亞太區美容展 - 專業美容及美髮)",
-"nameEn": "",
-"start": "2026-11-11",
-"end": "2026-11-13",
-"venueText": "香港會議展覽中心（灣仔）",
-"venueHint": "hkcec",
-"hall": "",
-"access": "業界",
-"organiser": "",
-"kinds": [],
-"url": "http://www.cosmoprof-asia.com/",
-"srcUrl": "https://www.hkcec.com/zh/%E6%9C%80%E6%96%B0%E6%B4%BB%E5%8B%95"
-},
 {
 "src": "hkcec",
 "srcId": "2026-11-16-inf@wmmhk.com-2026 世界航商大會",
@@ -391,55 +359,64 @@
 "kinds": [],
 "url": "http://www.food-expo.com.hk",
 "srcUrl": "https://www.hkcec.com/zh/%E6%9C%80%E6%96%B0%E6%B4%BB%E5%8B%95"
+},
+{
+"src": "hkcec",
+"srcId": "2027-01-11-exhibitions@hktdc.org-HKTDC Hong Kong Baby",
+"name": "HKTDC Hong Kong Baby Products Fair",
+"nameEn": "",
+"start": "2027-01-11",
+"end": "2027-01-14",
+"venueText": "香港會議展覽中心（灣仔）",
+"venueHint": "hkcec",
+"hall": "",
+"access": "業界",
+"organiser": "",
+"kinds": [],
+"url": "https://www.hktdc.com/event/hkbabyfair/en",
+"srcUrl": "https://www.hkcec.com/zh/%E6%9C%80%E6%96%B0%E6%B4%BB%E5%8B%95"
+},
+{
+"src": "hkcec",
+"srcId": "2027-01-11-exhibitions@hktdc.org-香港國際文具及學習用品展",
+"name": "香港國際文具及學習用品展",
+"nameEn": "",
+"start": "2027-01-11",
+"end": "2027-01-14",
+"venueText": "香港會議展覽中心（灣仔）",
+"venueHint": "hkcec",
+"hall": "",
+"access": "業界",
+"organiser": "",
+"kinds": [],
+"url": "https://www.hktdc.com/event/hkstationeryfair/en",
+"srcUrl": "https://www.hkcec.com/zh/%E6%9C%80%E6%96%B0%E6%B4%BB%E5%8B%95"
+},
+{
+"src": "hkcec",
+"srcId": "2027-01-11-exhibitions@hktdc.org-香港貿發局香港玩具展",
+"name": "香港貿發局香港玩具展",
+"nameEn": "",
+"start": "2027-01-11",
+"end": "2027-01-14",
+"venueText": "香港會議展覽中心（灣仔）",
+"venueHint": "hkcec",
+"hall": "",
+"access": "業界",
+"organiser": "",
+"kinds": [],
+"url": "https://www.hktdc.com/event/hktoyfair/en",
+"srcUrl": "https://www.hkcec.com/zh/%E6%9C%80%E6%96%B0%E6%B4%BB%E5%8B%95"
 }
 ]
 },
 "awe": {
 "status": {
 "ok": true,
-"count": 25,
-"fetched": "2026-11-13"
+"count": 23,
+"fetched": "2026-11-16"
 },
 "events": [
-{
-"src": "awe",
-"srcId": "24877",
-"name": "BLAST Premier Rivals: Hong Kong",
-"nameEn": "BLAST Premier Rivals: Hong Kong",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"venueText": "亞洲國際博覽館",
-"venueHint": "awe",
-"hall": "AsiaWorld-Arena (Hall 1)",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"special event"
-],
-"url": "https://www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/blast-premier-hong-kong-rivals-2026?event_type=Special Event&ebmsid=24877",
-"srcUrl": "https://www.asiaworld-expo.com/en-us/whats-on/upcoming-events/",
-"image": "https://www.asiaworld-expo.com/AsiaWorldExpoLocal/media/AWE/AWE-1100-x-704px.png?ext=.png"
-},
-{
-"src": "awe",
-"srcId": "24692",
-"name": "中國銀行(香港)港珠澳大橋(香港段)半馬拉松2026",
-"nameEn": "Bank of China (Hong Kong) Hong Kong-Zhuhai-Macao Bridge (HK Section) Half Marathon 2026",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"venueText": "亞洲國際博覽館",
-"venueHint": "awe",
-"hall": "Hall 3, 5, 6 & 7",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"special event",
-"sports"
-],
-"url": "https://www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/boc-half-marathon-2026?event_type=Sports&ebmsid=24692",
-"srcUrl": "https://www.asiaworld-expo.com/en-us/whats-on/upcoming-events/",
-"image": "https://www.asiaworld-expo.com/getattachment/whats-on/upcoming-events/events/港珠澳大橋(香港段)半馬拉松26-27/AWE-Event-Website_1100x740px.jpg.aspx?lang=en-us&width=1100&height=704&ext=.jpg"
-},
 {
 "src": "awe",
 "srcId": "25164",
@@ -731,7 +708,7 @@
 "src": "awe",
 "srcId": "24010",
 "name": "第四屆（大灣區）香港學校教育展",
-"nameEn": "Forth (GBA) Hong Kong Schools Expo",
+"nameEn": "Fourth (GBA) Hong Kong Schools Expo",
 "start": "2026-12-11",
 "end": "2026-12-12",
 "venueText": "亞洲國際博覽館",
@@ -886,85 +863,39 @@
 "dhk": {
 "status": {
 "ok": true,
-"count": 87,
-"fetched": "2026-11-13"
+"count": 83,
+"fetched": "2026-11-16"
 },
 "events": [
 {
 "src": "dhk",
-"srcId": "90102",
-"name": "BLAST Premier Rivals Hong Kong 2026",
-"nameEn": "BLAST Premier Rivals Hong Kong 2026",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"venueText": "離島赤鱲角航展道1號亞洲國際博覽館AsiaWorld-Arena",
-"venueTextEn": "AsiaWorld-Arena, AsiaWorld-Expo, 1 Airport Expo Boulevard, Lantau Island, Outlying Islands",
+"srcId": "88502",
+"name": "設計營商周",
+"nameEn": "Business of Design Week 2026",
+"start": "2026-11-16",
+"end": "2026-11-21",
+"venueText": "香港島灣仔博覽道1號香港會議展覽中心及其他多個地點（有待公布，詳情請瀏覽活動網站）",
+"venueTextEn": "Hong Kong Convention and Exhibition Centre, 1 Expo Drive, Wan Chai, Hong Kong Island (Other venues to be announced; please refer to the event website for details.)",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
 "organiser": "",
 "kinds": [
-"sports",
-"asiaworld-expo"
+"hong kong convention and exhibition centre"
 ],
-"url": "https://blast.tv/cs",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id90102.blast-premier-rivals-hong-kong-2026.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/901/90102/blast-premier-rivals-hk-2026_1024x768-0924154855.jpg"
+"url": "www.bodw.com/en/",
+"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id88502.business-of-design-week-2026.html",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/885/88502/bodw-1-0729170048.jpg"
 },
 {
 "src": "dhk",
-"srcId": "87182",
-"name": "BIGBANG - World Tour XX : COSMOS in Hong Kong 2026-2027",
-"nameEn": "BIGBANG - World Tour XX : COSMOS in Hong Kong 2026-2027",
-"start": "2026-11-13",
-"end": "2026-11-17",
-"venueText": "啟德主場館",
-"venueTextEn": "Kai Tak Stadium",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"entertainment",
-"concerts",
-"kai tak sports park"
-],
-"url": "www.kaitaksportspark.com.hk/events-tickets/bigbang-2026-2027-world-tour-xx-cosmos-in-hong-kong",
-"srcUrl": "https://www.kaitaksportspark.com.hk/events-tickets/bigbang-2026-2027-world-tour-xx-cosmos-in-hong-kong",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/871/87182/dhk-concerts-p1_1024x768-0612093834.jpg"
-},
-{
-"src": "dhk",
-"srcId": "89762",
-"name": "「港樂・星夜・交響曲」",
-"nameEn": "Symphony Under The Stars",
-"start": "2026-11-13",
-"end": "2026-11-13",
-"venueText": "香港島中環龍和道9號中環海濱活動空間",
-"venueTextEn": "Central Harbourfront Event Space, 9 Lung Wo Road, Central, Hong Kong Island\r\n\r\n",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"entertainment",
-"music performances",
-"central harbourfront event space",
-"arts"
-],
-"url": "www.hkphil.org/concert/swire-symphony-under-the-stars-2026",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id89762.symphony-under-the-stars.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/897/89762/hktb-suts-1024-x-768-0922100903.jpg"
-},
-{
-"src": "dhk",
-"srcId": "90462",
-"name": "飛越大嶼 by UTMB",
-"nameEn": "TransLantau by UTMB",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"venueText": "離島大嶼山梅窩",
-"venueTextEn": "Mui Wo, Lantau Island, Outlying Islands",
+"srcId": "91342",
+"name": "FIP 板網球銀級賽 GO PARK - 香港站",
+"nameEn": "FIP Silver GO PARK Hong Kong",
+"start": "2026-11-16",
+"end": "2026-11-22",
+"venueText": "西沙GO PARK",
+"venueTextEn": "GO PARK Sai Sha",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
@@ -972,9 +903,135 @@
 "kinds": [
 "sports"
 ],
-"url": "https://translantau.utmb.world/",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id90462.translantau-by-utmb.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/904/90462/day-1-s-12-of-29-1028150534.jpg"
+"url": "www.padelfip.com/events/fip-silver-hong-kong-2026",
+"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id91342.fip-silver-go-park-hong-kong.html",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/913/91342/whatsapp-image-2026-03-22-at-10.55.39-pm-1-1104105429.jpeg"
+},
+{
+"src": "dhk",
+"srcId": "89682",
+"name": "亞裔藝采+ 2026",
+"nameEn": "Asian Ethnic Cultural Performances+ 2026",
+"start": "2026-11-22",
+"end": "2026-11-29",
+"venueText": "九龍尖沙咀梳士巴利道10號香港文化中心大堂及露天廣場",
+"venueTextEn": "Foyer and Piazza, Hong Kong Cultural Centre, 10 Salisbury Road, Tsim Sha Tsui, Kowloon",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "",
+"kinds": [
+"museums / galleries / public spaces",
+"festivals",
+"arts"
+],
+"url": "www.asiaplus.gov.hk/2026/en",
+"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id89682.asian-ethnic-cultural-performances-2026.html",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/896/89682/1024x768px_aecp-_new-0904155601.jpg"
+},
+{
+"src": "dhk",
+"srcId": "91242",
+"name": "黃星 - 香港生日演唱會&middot;我的MINE 2026",
+"nameEn": "Eliot Huang - Hong Kong Birthday Concert &middot; MINE 2026",
+"start": "2026-11-22",
+"end": "2026-11-22",
+"venueText": "亞洲國際博覽館 Arena",
+"venueTextEn": "AsiaWorld-Expo Arena\r\n",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "",
+"kinds": [
+"entertainment",
+"concerts",
+"asiaworld-expo"
+],
+"url": "www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/2026-eliot-huang-hong-kong-birthday-concert/?event_type=Special+Event&ebmsid=28287",
+"srcUrl": "https://www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/2026-eliot-huang-hong-kong-birthday-concert/?event_type=Special+Event&ebmsid=28287",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/912/91242/dhk-concerts-p6_1024x768-1029094414.jpg"
+},
+{
+"src": "dhk",
+"srcId": "91783",
+"name": "2026中國網球巡迴賽香港公開賽",
+"nameEn": "CTA1000 Hong Kong Open 2026",
+"start": "2026-11-22",
+"end": "2026-11-29",
+"venueText": "香港島銅鑼灣維多利亞公園網球場",
+"venueTextEn": "Victoria Park Tennis Court",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "",
+"kinds": [
+"sports"
+],
+"url": "www.ctahko.com",
+"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id91783.cta1000-hong-kong-open-2026.html",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/917/91783/event-photo-1024x768-_resized-1112173102.jpg"
+},
+{
+"src": "dhk",
+"srcId": "85003",
+"name": "2027香港Dragon級別帆船世界錦標賽",
+"nameEn": "2027 Hong Kong Dragon World Championship ",
+"start": "2026-11-21",
+"end": "2026-11-29",
+"venueText": "主辦單位位於香港島銅鑼灣的香港遊艇會，比賽將於新界清水灣高爾夫鄉村俱樂部出發，在清水灣水域進行。",
+"venueTextEn": "Royal Hong Kong Yacht Club, Causeway Bay, with racing taking place at Clear Water Bay from the Clear Water Bay Golf and Country Club, Hong Kong",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "",
+"kinds": [
+"sports"
+],
+"url": "www.dragonworld2027.com",
+"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id85003.2027-hong-kong-dragon-world-championship-.html",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/850/85003/-t-cover_hongkongdragonassociation_-billcox-2-1209102006.jpg"
+},
+{
+"src": "dhk",
+"srcId": "88603",
+"name": "Desire 4 - 永恆開端演唱會香港站Ultimate Encore 2026",
+"nameEn": "Desire 4 -  The Eternal Beginning Concert in Hong Kong Ultimate Encore 2026",
+"start": "2026-11-21",
+"end": "2026-11-21",
+"venueText": "亞洲國際博覽館 Arena",
+"venueTextEn": "AsiaWorld-Expo Arena",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "",
+"kinds": [
+"entertainment",
+"concerts",
+"asiaworld-expo"
+],
+"url": "www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/desire-4-ultimate-encore-concert-in-hong-kong-2026/?event_type=Concert&ebmsid=28245",
+"srcUrl": "https://www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/desire-4-ultimate-encore-concert-in-hong-kong-2026/?event_type=Concert&ebmsid=28245",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/886/88603/dhk-concerts-p3_1024x768-1028162747.jpg"
+},
+{
+"src": "dhk",
+"srcId": "89482",
+"name": "樂施毅行者2026",
+"nameEn": "Oxfam Trailwalker 2026",
+"start": "2026-11-20",
+"end": "2026-11-22",
+"venueText": "西貢北潭涌至終點屯門哈羅香港國際學校",
+"venueTextEn": "From Pak Tam Chung, Sai Kung to Harrow International School Hong Kong, Tuen Mun\r\n\r\n",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "",
+"kinds": [
+"sports"
+],
+"url": "https://www.oxfamtrailwalker.org.hk/en",
+"srcUrl": "https://www.oxfamtrailwalker.org.hk/en",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/894/89482/otw2026_aug-kv-banner_1024-x-768_layouts1-0827193815.jpg"
 },
 {
 "src": "dhk",
@@ -1066,66 +1123,6 @@
 },
 {
 "src": "dhk",
-"srcId": "88502",
-"name": "設計營商周",
-"nameEn": "Business of Design Week 2026",
-"start": "2026-11-16",
-"end": "2026-11-21",
-"venueText": "香港島灣仔博覽道1號香港會議展覽中心及其他多個地點（有待公布，詳情請瀏覽活動網站）",
-"venueTextEn": "Hong Kong Convention and Exhibition Centre, 1 Expo Drive, Wan Chai, Hong Kong Island (Other venues to be announced; please refer to the event website for details.)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"hong kong convention and exhibition centre"
-],
-"url": "www.bodw.com/en/",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id88502.business-of-design-week-2026.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/885/88502/bodw-1-0729170048.jpg"
-},
-{
-"src": "dhk",
-"srcId": "91342",
-"name": "FIP 板網球銀級賽 GO PARK - 香港站",
-"nameEn": "FIP Silver GO PARK Hong Kong",
-"start": "2026-11-16",
-"end": "2026-11-22",
-"venueText": "西沙GO PARK",
-"venueTextEn": "GO PARK Sai Sha",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"sports"
-],
-"url": "www.padelfip.com/events/fip-silver-hong-kong-2026",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id91342.fip-silver-go-park-hong-kong.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/913/91342/whatsapp-image-2026-03-22-at-10.55.39-pm-1-1104105429.jpeg"
-},
-{
-"src": "dhk",
-"srcId": "88402",
-"name": "港珠澳大橋（香港段）半馬拉松 2026 ",
-"nameEn": "Hong Kong-Zhuhai-Macau Bridge (HK Section) Half Marathon 2026 ",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"venueText": "港珠澳大橋香港連接路",
-"venueTextEn": "Hong Kong-Zhuhai-Macao Bridge Hong Kong Link Road",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"sports"
-],
-"url": "https://hzmb-halfmarathon.com/en/",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id88402.hong-kong-zhuhai-macau-bridge-hk-section-half-marathon-2026-.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/884/88402/i2-0709150636.jpg"
-},
-{
-"src": "dhk",
 "srcId": "89542",
 "name": "衛蘭 - OUT OF FRAME世界巡迴演唱會2026\r\n ",
 "nameEn": "Janice Vidal - OUT OF FRAME World Tour In Hong Kong 2026",
@@ -1148,24 +1145,25 @@
 },
 {
 "src": "dhk",
-"srcId": "90722",
-"name": "藝趣嘉年華 2026",
-"nameEn": "Arts in the Park 2026",
-"start": "2026-11-14",
-"end": "2026-11-15",
-"venueText": "活動日：香港島銅鑼灣維多利亞公園<br>\r\n夜光巡遊：香港島銅鑼灣利園一期正門至啟超道<br>\r\n壓軸巡遊：香港島銅鑼灣維多利亞公園至東角道\r\n",
-"venueTextEn": "Main Venue: Victoria Park, Causeway Bay, Hong Kong Island<br>\r\nNight Parade: Main entrance of Lee Garden One to Kai Chiu Road, Causeway Bay, Hong Kong Island<br>\r\nFinale Parade: Victoria Park to East Point Road, Causeway Bay, Hong Kong Island \r\n",
+"srcId": "87182",
+"name": "BIGBANG - World Tour XX : COSMOS in Hong Kong 2026-2027",
+"nameEn": "BIGBANG - World Tour XX : COSMOS in Hong Kong 2026-2027",
+"start": "2026-11-13",
+"end": "2026-11-17",
+"venueText": "啟德主場館",
+"venueTextEn": "Kai Tak Stadium",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
 "organiser": "",
 "kinds": [
-"art fairs / bazaars",
-"festivals"
+"entertainment",
+"concerts",
+"kai tak sports park"
 ],
-"url": "www.scartsinthepark.com/en",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id90722.arts-in-the-park-2026.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/907/90722/2_1024-1015113030.jpg"
+"url": "www.kaitaksportspark.com.hk/events-tickets/bigbang-2026-2027-world-tour-xx-cosmos-in-hong-kong",
+"srcUrl": "https://www.kaitaksportspark.com.hk/events-tickets/bigbang-2026-2027-world-tour-xx-cosmos-in-hong-kong",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/871/87182/dhk-concerts-p1_1024x768-0612093834.jpg"
 },
 {
 "src": "dhk",
@@ -1186,48 +1184,6 @@
 "url": "https://designathkg.com/",
 "srcUrl": "https://www.discoverhongkong.com/eng/events/event.id90002.design-hkg.html",
 "image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/900/90002/4-2-0928120610.jpg"
-},
-{
-"src": "dhk",
-"srcId": "91622",
-"name": "MCP x wiggle wiggle Magic Academy",
-"nameEn": "MCP x wiggle wiggle Magic Academy",
-"start": "2026-11-07",
-"end": "2027-01-03",
-"venueText": "新都城中心 2 期",
-"venueTextEn": "MCP CENTRAL",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"mall activities",
-"christmas"
-],
-"url": "https://www.metrocityplaza.com/en/central/events-promotions/promotions/2540",
-"srcUrl": "https://www.metrocityplaza.com/en/central/events-promotions/promotions/2540",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/916/91622/mcp_xmas2026_1024x768-1110173302.png"
-},
-{
-"src": "dhk",
-"srcId": "91682",
-"name": "聖誕『喵』想成真",
-"nameEn": "MOST Wishes Christmas",
-"start": "2026-11-07",
-"end": "2027-01-03",
-"venueText": "MOSTown新港城中心",
-"venueTextEn": "MOSTown",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"mall activities",
-"christmas"
-],
-"url": "https://www.mostown.com.hk/en/happenings/promotions/2538",
-"srcUrl": "https://www.mostown.com.hk/en/happenings/promotions/2538",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/916/91682/mostown_1024-1110174107.png"
 },
 {
 "src": "dhk",
@@ -1621,8 +1577,8 @@
 {
 "src": "dhk",
 "srcId": "85824",
-"name": "雲光萬里──絲綢之路的文化交流與佛教藝術（暫名） ",
-"nameEn": "Cultural Exchange and Buddhist Art along the Silk Roads (working title) ",
+"name": "雲光萬里──絲綢之路的文化交流與佛教藝術\r\n ",
+"nameEn": "Cultural Exchange and Buddhist Art along the Silk Roads",
 "start": "2026-12-11",
 "end": "2027-05-05",
 "venueText": "香港故宮文化博物館展廳8",
@@ -1637,7 +1593,7 @@
 "west kowloon cultural district"
 ],
 "url": "www.hkpm.org.hk/en/home",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id85824.cultural-exchange-and-buddhist-art-along-the-silk-roads-working-title-.html",
+"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id85824.cultural-exchange-and-buddhist-art-along-the-silk-roads.html",
 "image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/858/85824/hkpm_worldwide_3_buddhist-art_2_1024-0213112047.jpg"
 },
 {
@@ -1937,6 +1893,29 @@
 },
 {
 "src": "dhk",
+"srcId": "91562",
+"name": "Merry Balloon Hong Kong 2026",
+"nameEn": "Merry Balloon Hong Kong 2026",
+"start": "2026-11-27",
+"end": "2026-12-27",
+"venueText": "Merry Balloon 大型IP氣球預熱活動：<br>\r\n香港島銅鑼灣白沙道<br><br>\r\nMerry Balloon Park 大型IP氣球市集：<br>\r\n九龍啟德承啟道38號啟德體育園東營<br><br>\r\nMerry Balloon Parade 大型IP氣球巡遊：<br>\r\n九龍啟德承啟道38號啟德體育園美食海灣\r\n",
+"venueTextEn": "Merry Balloon IP Balloon Preview Event:<br>\r\nPak Sha Road, Causeway Bay, Hong Kong Island\r\n<br><br>\r\nMerry Balloon Park:<br>\r\nEast Village, Kai Tak Sports Park, 38 Shing Kai Road, Kai Tak, Kowloon\r\n<br><br>\r\nMerry Balloon Parade: <br>\r\nDining Cove, Kai Tak Sports Park, 38 Shing Kai Road, Kai Tak, Kowloon\r\n",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "",
+"kinds": [
+"entertainment",
+"family friendly",
+"kai tak sports park",
+"christmas"
+],
+"url": "https://www.merryballoonhk.com/ ",
+"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id91562.merry-balloon-hong-kong-2026.html",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/915/91562/1024w-x-768px_-1-1113171927.jpg"
+},
+{
+"src": "dhk",
 "srcId": "91424",
 "name": "記憶工坊",
 "nameEn": "The Memory Atelier",
@@ -1958,129 +1937,45 @@
 },
 {
 "src": "dhk",
-"srcId": "89682",
-"name": "亞裔藝采+ 2026",
-"nameEn": "Asian Ethnic Cultural Performances+ 2026",
-"start": "2026-11-22",
-"end": "2026-11-29",
-"venueText": "九龍尖沙咀梳士巴利道10號香港文化中心大堂及露天廣場",
-"venueTextEn": "Foyer and Piazza, Hong Kong Cultural Centre, 10 Salisbury Road, Tsim Sha Tsui, Kowloon",
+"srcId": "91622",
+"name": "MCP x wiggle wiggle Magic Academy",
+"nameEn": "MCP x wiggle wiggle Magic Academy",
+"start": "2026-11-07",
+"end": "2027-01-03",
+"venueText": "新都城中心 2 期",
+"venueTextEn": "MCP CENTRAL",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
 "organiser": "",
 "kinds": [
-"museums / galleries / public spaces",
-"festivals",
-"arts"
+"mall activities",
+"christmas"
 ],
-"url": "www.asiaplus.gov.hk/2026/en",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id89682.asian-ethnic-cultural-performances-2026.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/896/89682/1024x768px_aecp-_new-0904155601.jpg"
+"url": "https://www.metrocityplaza.com/en/central/events-promotions/promotions/2540",
+"srcUrl": "https://www.metrocityplaza.com/en/central/events-promotions/promotions/2540",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/916/91622/mcp_xmas2026_1024x768-1110173302.png"
 },
 {
 "src": "dhk",
-"srcId": "91242",
-"name": "黃星 - 香港生日演唱會&middot;我的MINE 2026",
-"nameEn": "Eliot Huang - Hong Kong Birthday Concert &middot; MINE 2026",
-"start": "2026-11-22",
-"end": "2026-11-22",
-"venueText": "亞洲國際博覽館 Arena",
-"venueTextEn": "AsiaWorld-Expo Arena\r\n",
+"srcId": "91682",
+"name": "聖誕『喵』想成真",
+"nameEn": "MOST Wishes Christmas",
+"start": "2026-11-07",
+"end": "2027-01-03",
+"venueText": "MOSTown新港城中心",
+"venueTextEn": "MOSTown",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
 "organiser": "",
 "kinds": [
-"entertainment",
-"concerts",
-"asiaworld-expo"
+"mall activities",
+"christmas"
 ],
-"url": "www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/2026-eliot-huang-hong-kong-birthday-concert/?event_type=Special+Event&ebmsid=28287",
-"srcUrl": "https://www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/2026-eliot-huang-hong-kong-birthday-concert/?event_type=Special+Event&ebmsid=28287",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/912/91242/dhk-concerts-p6_1024x768-1029094414.jpg"
-},
-{
-"src": "dhk",
-"srcId": "91783",
-"name": "2026中國網球巡迴賽香港公開賽",
-"nameEn": "CTA1000 Hong Kong Open 2026",
-"start": "2026-11-22",
-"end": "2026-11-29",
-"venueText": "香港島銅鑼灣維多利亞公園網球場",
-"venueTextEn": "Victoria Park Tennis Court",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"sports"
-],
-"url": "www.ctahko.com",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id91783.cta1000-hong-kong-open-2026.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/917/91783/event-photo-1024x768-_resized-1112173102.jpg"
-},
-{
-"src": "dhk",
-"srcId": "85003",
-"name": "2027香港Dragon級別帆船世界錦標賽",
-"nameEn": "2027 Hong Kong Dragon World Championship ",
-"start": "2026-11-21",
-"end": "2026-11-29",
-"venueText": "主辦單位位於香港島銅鑼灣的香港遊艇會，比賽將於新界清水灣高爾夫鄉村俱樂部出發，在清水灣水域進行。",
-"venueTextEn": "Royal Hong Kong Yacht Club, Causeway Bay, with racing taking place at Clear Water Bay from the Clear Water Bay Golf and Country Club, Hong Kong",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"sports"
-],
-"url": "www.dragonworld2027.com",
-"srcUrl": "https://www.discoverhongkong.com/eng/events/event.id85003.2027-hong-kong-dragon-world-championship-.html",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/850/85003/-t-cover_hongkongdragonassociation_-billcox-2-1209102006.jpg"
-},
-{
-"src": "dhk",
-"srcId": "88603",
-"name": "Desire 4 - 永恆開端演唱會香港站Ultimate Encore 2026",
-"nameEn": "Desire 4 -  The Eternal Beginning Concert in Hong Kong Ultimate Encore 2026",
-"start": "2026-11-21",
-"end": "2026-11-21",
-"venueText": "亞洲國際博覽館 Arena",
-"venueTextEn": "AsiaWorld-Expo Arena",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"entertainment",
-"concerts",
-"asiaworld-expo"
-],
-"url": "www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/desire-4-ultimate-encore-concert-in-hong-kong-2026/?event_type=Concert&ebmsid=28245",
-"srcUrl": "https://www.asiaworld-expo.com/en-us/whats-on/upcoming-events/events/desire-4-ultimate-encore-concert-in-hong-kong-2026/?event_type=Concert&ebmsid=28245",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/886/88603/dhk-concerts-p3_1024x768-1028162747.jpg"
-},
-{
-"src": "dhk",
-"srcId": "89482",
-"name": "樂施毅行者2026",
-"nameEn": "Oxfam Trailwalker 2026",
-"start": "2026-11-20",
-"end": "2026-11-22",
-"venueText": "西貢北潭涌至終點屯門哈羅香港國際學校",
-"venueTextEn": "From Pak Tam Chung, Sai Kung to Harrow International School Hong Kong, Tuen Mun\r\n\r\n",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "",
-"kinds": [
-"sports"
-],
-"url": "https://www.oxfamtrailwalker.org.hk/en",
-"srcUrl": "https://www.oxfamtrailwalker.org.hk/en",
-"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/894/89482/otw2026_aug-kv-banner_1024-x-768_layouts1-0827193815.jpg"
+"url": "https://www.mostown.com.hk/en/happenings/promotions/2538",
+"srcUrl": "https://www.mostown.com.hk/en/happenings/promotions/2538",
+"image": "https://www.discoverhongkong.com/content/dam/dhk/events/images/en/916/91682/mostown_1024-1110174107.png"
 },
 {
 "src": "dhk",
@@ -2745,8 +2640,8 @@
 "lcsd": {
 "status": {
 "ok": true,
-"count": 139,
-"fetched": "2026-11-13"
+"count": 120,
+"fetched": "2026-11-16"
 },
 "events": [
 {
@@ -2754,12 +2649,9 @@
 "srcId": "189753",
 "name": "「夢周文教基金會早期中國影像」巡迴展覽",
 "nameEn": "\"Early Chinese Photography Collection of Moonchu Foundation\" Roving Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -2791,40 +2683,30 @@
 },
 {
 "src": "lcsd",
-"srcId": "189352",
-"name": "「弦」外之音：聽見心中的聲音 慈善親子音樂會",
-"nameEn": "\"Feel the Music, Listen to your Heart\" Charity Concert",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "香港大會堂 (音樂廳)",
-"venueTextEn": "Hong Kong City Hall (Concert Hall)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "香港愛樂團主辦",
-"kinds": [
-"lcsd"
-],
-"url": "",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "190081",
+"srcId": "189849",
 "name": "「航向太空⸺中國載人航天之旅」巡迴展",
 "nameEn": "“A Voyage to Space: China’s Manned Space Expedition” Roving Exhibition",
-"start": "2026-11-13",
-"end": "2026-11-14",
+"start": "2026-11-16",
+"end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14"
+"2026-11-16",
+"2026-11-17",
+"2026-11-18",
+"2026-11-19",
+"2026-11-20",
+"2026-11-21",
+"2026-11-22",
+"2026-11-23",
+"2026-11-24",
+"2026-11-25",
+"2026-11-26",
+"2026-11-27",
+"2026-11-28",
+"2026-11-29",
+"2026-11-30"
 ],
-"venueText": "將軍澳公共圖書館",
-"venueTextEn": "Tseung Kwan O Public Library",
+"venueText": "藍田公共圖書館",
+"venueTextEn": "Lam Tin Public Library",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
@@ -2832,7 +2714,7 @@
 "kinds": [
 "lcsd"
 ],
-"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1014",
+"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1004",
 "srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
 "fee": ""
 },
@@ -2841,12 +2723,9 @@
 "srcId": "189746",
 "name": "「仁心育智：東華三院與香港醫教百年行」新聞故事系列專題展覽",
 "nameEn": "“Compassion and Wisdom: Tung Wah Group of Hospitals and a Century of Medical and Educational Practice in Hong Kong” History in News Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -2881,12 +2760,9 @@
 "srcId": "189922",
 "name": "「使香港成為一個宜居、具競爭力和可持續發展的亞洲國際都會」巡迴展覽",
 "nameEn": "“Making Hong Kong a Liveable‧Competitive‧Sustainable ASIA’S WORLD CITY” Roving Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-17",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17"
 ],
@@ -2908,12 +2784,9 @@
 "srcId": "189748",
 "name": "小型圖片展覽：記憶中的油尖旺",
 "nameEn": "“Memories of Yau Tsim Mong” Mini Photo Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -2949,7 +2822,7 @@
 "name": "《漢字的奧秘》巡迴展覽",
 "nameEn": "“Mystery of Chinese Writing” Roving Exhibition",
 "start": "2026-12-30",
-"end": "2027-01-08",
+"end": "2027-01-11",
 "dates": [
 "2026-12-30",
 "2026-12-31",
@@ -2960,7 +2833,10 @@
 "2027-01-05",
 "2027-01-06",
 "2027-01-07",
-"2027-01-08"
+"2027-01-08",
+"2027-01-09",
+"2027-01-10",
+"2027-01-11"
 ],
 "venueText": "屯門大會堂 (展覽廳)",
 "venueTextEn": "Tuen Mun Town Hall (Exhibition Gallery)",
@@ -2980,12 +2856,9 @@
 "srcId": "189897",
 "name": "「孫中山紀念館的誕生：甘棠第的保護與修繕」、「孫中山與家屬」及「孫中山與近代中國」展板展覽 － 「孫中山與家屬」展板展覽",
 "nameEn": "“The Birth of Dr Sun Yat-sen Museum: “Dr Sun Yat-sen and Family” Panel Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3020,12 +2893,9 @@
 "srcId": "189916",
 "name": "「孫中山紀念館的誕生：甘棠第的保護與修繕」、「孫中山與家屬」及「孫中山與近代中國」展板展覽 － 「孫中山與近代中國」展板展覽",
 "nameEn": "“The Birth of Dr Sun Yat-sen Museum: “Dr Sun Yat-sen and Family” Panel Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3060,12 +2930,9 @@
 "srcId": "189899",
 "name": "「孫中山紀念館的誕生：甘棠第的保護與修繕」、「孫中山與家屬」及「孫中山與近代中國」展板展覽 － 「孫中山與近代中國」工作紙",
 "nameEn": "“The Birth of Dr Sun Yat-sen Museum: “Dr Sun Yat-sen and Family” Panel Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3100,12 +2967,9 @@
 "srcId": "189918",
 "name": "「孫中山紀念館的誕生：甘棠第的保護與修繕」、「孫中山與家屬」及「孫中山與近代中國」展板展覽 － 「孫中山與近代中國」工作紙",
 "nameEn": "“The Birth of Dr Sun Yat-sen Museum: “Dr Sun Yat-sen and Family” Panel Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3140,12 +3004,9 @@
 "srcId": "189898",
 "name": "「孫中山紀念館的誕生：甘棠第的保護與修繕」、「孫中山與家屬」及「孫中山與近代中國」展板展覽 － 「孫中山與近代中國」書籍展覽",
 "nameEn": "“The Birth of Dr Sun Yat-sen Museum: “Dr Sun Yat-sen and Family” Panel Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3180,12 +3041,9 @@
 "srcId": "189917",
 "name": "「孫中山紀念館的誕生：甘棠第的保護與修繕」、「孫中山與家屬」及「孫中山與近代中國」展板展覽 － 「孫中山與近代中國」書籍展覽",
 "nameEn": "“The Birth of Dr Sun Yat-sen Museum: “Dr Sun Yat-sen and Family” Panel Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3220,12 +3078,9 @@
 "srcId": "189938",
 "name": "「孫中山紀念館的誕生：甘棠第的保護與修繕」、「孫中山與家屬」及「孫中山與近代中國」展板展覽 － 「孫中山與近代中國」工作紙",
 "nameEn": "“The Birth of Dr Sun Yat-sen Museum: “Dr Sun Yat-sen and Modern China” Book Display",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3260,12 +3115,9 @@
 "srcId": "189937",
 "name": "「孫中山紀念館的誕生：甘棠第的保護與修繕」、「孫中山與家屬」及「孫中山與近代中國」展板展覽 － 「孫中山與近代中國」書籍展覽",
 "nameEn": "“The Birth of Dr Sun Yat-sen Museum: “Dr Sun Yat-sen and Modern China” Book Display",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3292,6 +3144,41 @@
 "lcsd"
 ],
 "url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1021",
+"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
+"fee": ""
+},
+{
+"src": "lcsd",
+"srcId": "189739",
+"name": "「日新萬象 ─ 孫中山形象的塑造與呈現」巡迴圖板展覽",
+"nameEn": "“Timeless Impressions – The Shaping and Representation of Dr Sun Yat-sen’s Images” Roving Exhibition",
+"start": "2026-11-16",
+"end": "2026-11-28",
+"dates": [
+"2026-11-16",
+"2026-11-17",
+"2026-11-18",
+"2026-11-19",
+"2026-11-20",
+"2026-11-21",
+"2026-11-22",
+"2026-11-23",
+"2026-11-24",
+"2026-11-25",
+"2026-11-26",
+"2026-11-27",
+"2026-11-28"
+],
+"venueText": "香港中央圖書館",
+"venueTextEn": "Hong Kong Central Library",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "康樂及文化事務署‧香港公共圖書館主辦",
+"kinds": [
+"lcsd"
+],
+"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=77",
 "srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
 "fee": ""
 },
@@ -3527,12 +3414,9 @@
 "srcId": "190120",
 "name": "「第三十六屆全港詩詞創作比賽」得獎作品展覽華裳薈萃華服暨摺紙書籍展覽",
 "nameEn": "2026 Roving Exhibition on the Winning Entries of the 36th Chinese Poetry Writing Competition 2026",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-25",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3563,7 +3447,7 @@
 "name": "2026-27年度「十八有藝──中西區社區演藝計劃」《維多利亞3.0》音樂劇培訓計劃──《穿越中西》長衫親子創作工作坊",
 "nameEn": "2026-27 \"18dART — Community Arts Scheme in Central and Western District\" — \"Victoria 3.0\" Musical Theatre Project — Cheongsam Workshop",
 "start": "2026-11-28",
-"end": "2027-01-08",
+"end": "2027-01-11",
 "dates": [
 "2026-11-28",
 "2026-11-29",
@@ -3606,7 +3490,10 @@
 "2027-01-05",
 "2027-01-06",
 "2027-01-07",
-"2027-01-08"
+"2027-01-08",
+"2027-01-09",
+"2027-01-10",
+"2027-01-11"
 ],
 "venueText": "中西區區內場地",
 "venueTextEn": "Venues in Central & Western district",
@@ -3626,12 +3513,9 @@
 "srcId": "185811",
 "name": "2026-27年度「十八有藝──西貢社區演藝計劃」《琴聲貢聚》口琴計劃──口琴進階班(上期)：親子幼兒班",
 "nameEn": "2026-27 \"18dART — Community Arts Scheme in Sai Kung\" —  \"Harmonious Music Project in Sai Kung\" Harmonica Project — Advanced Harmonica Class (Phase I) for Young Children and Parents",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-22",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -3655,25 +3539,27 @@
 },
 {
 "src": "lcsd",
-"srcId": "189359",
-"name": "2026-27年度「十八有藝──沙田社區演藝計劃」《身體年輪》長者舞蹈計劃──社區展覽",
-"nameEn": "2026-27 \"18dART — Community Arts Scheme in Sha Tin\" — \"Body in Time\" Elderly Dance Project — Exhibition",
-"start": "2026-11-13",
-"end": "2026-11-14",
+"srcId": "190330",
+"name": "2026-27年度「十八有藝──西貢社區演藝計劃」《琴聲貢聚》口琴計劃──口琴進階班(下期)：親子幼兒班",
+"nameEn": "2026-27 \"18dART — Community Arts Scheme in Sai Kung\" —  \"Harmonious Music Project in Sai Kung\" Harmonica Project — Advanced Harmonica Class (Phase II) for Young Children and Parents",
+"start": "2026-12-06",
+"end": "2027-01-10",
 "dates": [
-"2026-11-13",
-"2026-11-14"
+"2026-12-06",
+"2026-12-13",
+"2027-01-03",
+"2027-01-10"
 ],
-"venueText": "沙田大會堂 (展覽廳)",
-"venueTextEn": "Sha Tin Town Hall (Exhibition Gallery)",
+"venueText": "香港單車館",
+"venueTextEn": "Hong Kong Velodrome",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
-"organiser": "不加鎖舞踊館主辦",
+"organiser": "香港口琴協會主辦",
 "kinds": [
 "lcsd"
 ],
-"url": "https://www.unlock.com.hk",
+"url": "https://www.hkharmonica.org/18dart-saikung/",
 "srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
 "fee": "免費節目"
 },
@@ -3854,31 +3740,6 @@
 },
 {
 "src": "lcsd",
-"srcId": "189738",
-"name": "山川毓秀 故紙含情—粵港澳圖書館藏孫中山文獻展",
-"nameEn": "A World of Beauty, Told Through Old Pages — Exhibition of Sun Yat-sen Documents from Libraries in Guangdong, Hong Kong and Macao",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15"
-],
-"venueText": "香港中央圖書館",
-"venueTextEn": "Hong Kong Central Library",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "與廣東省立中山圖書館、澳門公共圖書館和澳門科技大學圖書館合辦",
-"kinds": [
-"lcsd"
-],
-"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=77",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": ""
-},
-{
-"src": "lcsd",
 "srcId": "188498",
 "name": "峻嶺書畫會作品聯展",
 "nameEn": "Art Exhibition of Chung Ling Art Association",
@@ -3901,53 +3762,6 @@
 "url": "https://www.lcsd.gov.hk/clpss/tc/search/culture/DetailForm.do?id=188498",
 "srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
 "fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "185783",
-"name": "亞藝無疆2026︰眉月製作《圓》",
-"nameEn": "Asia+ Festival 2026: \"Teh Dar\" by Lune Production",
-"start": "2026-11-14",
-"end": "2026-11-15",
-"dates": [
-"2026-11-14",
-"2026-11-15"
-],
-"venueText": "屯門大會堂 (演奏廳)",
-"venueTextEn": "Tuen Mun Town Hall (Auditorium)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "康樂及文化事務署主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.asiaplus.gov.hk/2026/tc/teh-dar",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "$400, 320, 260, 200"
-},
-{
-"src": "lcsd",
-"srcId": "188578",
-"name": "亞藝無疆2026︰眉月製作《圓》– 雜技工作坊",
-"nameEn": "Asia+ Festival 2026: \"Teh Dar\" by Lune Production – Acrobatic Workshop",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "屯門大會堂 (演奏廳)",
-"venueTextEn": "Tuen Mun Town Hall (Auditorium)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "康樂及文化事務署主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.asiaplus.gov.hk/2026/tc/teh-dar",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "$220"
 },
 {
 "src": "lcsd",
@@ -3977,12 +3791,9 @@
 "srcId": "190175",
 "name": "書籍介紹 － 參考圖書館–藝術博覽",
 "nameEn": "Book Display - Reference Library – Art Exhibition and Exposition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -4017,12 +3828,9 @@
 "srcId": "189956",
 "name": "書籍展覽 － 2026年「4．23世界閱讀日創作比賽」–「書頁間的幸福時光」獲獎同",
 "nameEn": "Book Exhibition - Roving Exhibition on Books Read by Winning Students of \"4.23 World",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -4057,12 +3865,9 @@
 "srcId": "189678",
 "name": "「國家安全教育」書籍展覽",
 "nameEn": "Book Exhibition on \"National Security Education\"",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -4097,12 +3902,9 @@
 "srcId": "190040",
 "name": "書籍巡迴展 － 2026年「4．23世界閱讀日創作比賽」–「書頁間的幸福時光」獲獎同學閱讀書籍巡迴展",
 "nameEn": "Books Roving Exhibition - Roving Exhibition on Books Read by Winning Students of \"4.23 World Book Day Creative Competition\" in 2026 – \"Blissful Moments Between Pages\"",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -4137,12 +3939,9 @@
 "srcId": "189712",
 "name": "「香港記憶」簡介展覽",
 "nameEn": "Brief Introduction on \"Hong Kong Memory\" Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-29",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -4173,38 +3972,12 @@
 },
 {
 "src": "lcsd",
-"srcId": "188343",
-"name": "（音樂會）",
-"nameEn": "Carnival of World Music",
-"start": "2026-11-14",
-"end": "2026-11-14",
-"dates": [
-"2026-11-14"
-],
-"venueText": "香港大會堂 (音樂廳)",
-"venueTextEn": "Hong Kong City Hall (Concert Hall)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "香港青少年管弦協會主辦",
-"kinds": [
-"lcsd"
-],
-"url": "",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "$800, $560, $350"
-},
-{
-"src": "lcsd",
 "srcId": "190008",
 "name": "「愛在代代相傳」兒童藝術作品展覽",
 "nameEn": "Children’s Art Exhibition: Love Across Generations",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -4236,26 +4009,77 @@
 },
 {
 "src": "lcsd",
-"srcId": "188576",
-"name": "香港内地篆刻水墨藝術作品邀請展",
-"nameEn": "Chinese Seal and Ink Art Exhibition",
-"start": "2026-11-13",
-"end": "2026-11-13",
+"srcId": "189975",
+"name": "兒童書籍介紹 － 童話王國",
+"nameEn": "Children’s Book Display - Kingdom of Fairy Tales",
+"start": "2026-11-16",
+"end": "2026-11-30",
 "dates": [
-"2026-11-13"
+"2026-11-16",
+"2026-11-17",
+"2026-11-18",
+"2026-11-19",
+"2026-11-20",
+"2026-11-21",
+"2026-11-22",
+"2026-11-23",
+"2026-11-24",
+"2026-11-25",
+"2026-11-26",
+"2026-11-27",
+"2026-11-28",
+"2026-11-29",
+"2026-11-30"
 ],
-"venueText": "屯門大會堂 (展覽廳)",
-"venueTextEn": "Tuen Mun Town Hall (Exhibition Gallery)",
+"venueText": "慈雲山公共圖書館",
+"venueTextEn": "Tsz Wan Shan Public Library",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
-"organiser": "屯門文藝協進會主辦",
+"organiser": "康樂及文化事務署‧香港公共圖書館主辦",
 "kinds": [
 "lcsd"
 ],
-"url": "https://www.lcsd.gov.hk/clpss/tc/search/culture/DetailForm.do?id=188576",
+"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1038",
 "srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
+"fee": ""
+},
+{
+"src": "lcsd",
+"srcId": "189942",
+"name": "兒童書籍介紹 － 季節與天氣",
+"nameEn": "Children’s Book Display - Seasons and Weather",
+"start": "2026-11-16",
+"end": "2026-11-30",
+"dates": [
+"2026-11-16",
+"2026-11-17",
+"2026-11-18",
+"2026-11-19",
+"2026-11-20",
+"2026-11-21",
+"2026-11-22",
+"2026-11-23",
+"2026-11-24",
+"2026-11-25",
+"2026-11-26",
+"2026-11-27",
+"2026-11-28",
+"2026-11-29",
+"2026-11-30"
+],
+"venueText": "富山公共圖書館",
+"venueTextEn": "Fu Shan Public Library",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "康樂及文化事務署‧香港公共圖書館主辦",
+"kinds": [
+"lcsd"
+],
+"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1034",
+"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
+"fee": ""
 },
 {
 "src": "lcsd",
@@ -4292,52 +4116,6 @@
 ],
 "venueText": "屯門區內場地",
 "venueTextEn": "Venues in Tuen Mun district",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "香港非洲藝術文化協會主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.instagram.com/sankofa.hk",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "189295",
-"name": "2026社區文化大使: 香港非洲藝術文化協會「節拍部落」互動鼓舞巡演",
-"nameEn": "Community Cultural Ambassador 2026: Sankofa Hong Kong African Arts and Culture Association 'The Rhythm Tribe' Interactive Drumming and Dance Performance",
-"start": "2026-11-14",
-"end": "2026-11-14",
-"dates": [
-"2026-11-14"
-],
-"venueText": "屯門區內場地",
-"venueTextEn": "Venues in Tuen Mun district",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "香港非洲藝術文化協會主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.instagram.com/sankofa.hk",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "189296",
-"name": "2026社區文化大使: 香港非洲藝術文化協會「節拍部落」互動鼓舞巡演",
-"nameEn": "Community Cultural Ambassador 2026: Sankofa Hong Kong African Arts and Culture Association 'The Rhythm Tribe' Interactive Drumming and Dance Performance",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "灣仔區內場地",
-"venueTextEn": "Venues in Wan Chai district",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
@@ -4545,98 +4323,6 @@
 ],
 "venueText": "觀塘區內場地",
 "venueTextEn": "Venues in Kwun Tong district",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "人木主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.facebook.com/share/17hFjRZifv/",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "189622",
-"name": "2026社區文化大使—人木「《止戈為武》合家歡音樂劇」巡迴演出",
-"nameEn": "Community Cultural Ambassador 2026: The People's Theatre \"Family Musical 'The True Martial Way'\" Touring Performances",
-"start": "2026-11-14",
-"end": "2026-11-14",
-"dates": [
-"2026-11-14"
-],
-"venueText": "北區區內場地",
-"venueTextEn": "Venues in North district",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "人木主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.facebook.com/share/17hFjRZifv/",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "189623",
-"name": "2026社區文化大使—人木「《止戈為武》合家歡音樂劇」巡迴演出",
-"nameEn": "Community Cultural Ambassador 2026: The People's Theatre \"Family Musical 'The True Martial Way'\" Touring Performances",
-"start": "2026-11-14",
-"end": "2026-11-14",
-"dates": [
-"2026-11-14"
-],
-"venueText": "大埔區內場地",
-"venueTextEn": "Venues in Tai Po district",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "人木主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.facebook.com/share/17hFjRZifv/",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "189624",
-"name": "2026社區文化大使—人木「《止戈為武》合家歡音樂劇」巡迴演出",
-"nameEn": "Community Cultural Ambassador 2026: The People's Theatre \"Family Musical 'The True Martial Way'\" Touring Performances",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "元朗區內場地",
-"venueTextEn": "Venues in Yuen Long district",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "人木主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.facebook.com/share/17hFjRZifv/",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "189625",
-"name": "2026社區文化大使—人木「《止戈為武》合家歡音樂劇」巡迴演出",
-"nameEn": "Community Cultural Ambassador 2026: The People's Theatre \"Family Musical 'The True Martial Way'\" Touring Performances",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "屯門區內場地",
-"venueTextEn": "Venues in Tuen Mun district",
 "venueHint": "",
 "hall": "",
 "access": "公眾",
@@ -4968,12 +4654,9 @@
 "srcId": "189669",
 "name": "2025-26年度兒童及青少年閱讀計劃「閱讀超新星」得獎作品巡迴展覽",
 "nameEn": "Exhibition on Winning Entries of “Reading Supernova” of Reading Programme for Children and Youth in 2025-26",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-24",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5002,12 +4685,9 @@
 "srcId": "189804",
 "name": "「種族共融」系列：香港的少數族裔人士展覽",
 "nameEn": "Exhibitions - Exhibition on Racial Harmony Series: Ethnic Minorities in Hong Kong",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5042,10 +4722,9 @@
 "srcId": "190275",
 "name": "童樂故事會 / 小豆芽故事會",
 "nameEn": "Family Storytelling",
-"start": "2026-11-14",
+"start": "2026-11-21",
 "end": "2026-11-28",
 "dates": [
-"2026-11-14",
 "2026-11-21",
 "2026-11-28"
 ],
@@ -5067,10 +4746,9 @@
 "srcId": "190276",
 "name": "童樂故事會 / 小豆芽故事會",
 "nameEn": "Family Storytelling",
-"start": "2026-11-14",
+"start": "2026-11-21",
 "end": "2026-11-28",
 "dates": [
-"2026-11-14",
 "2026-11-21",
 "2026-11-28"
 ],
@@ -5092,12 +4770,9 @@
 "srcId": "189910",
 "name": "民族音樂展覽 : 巴西森巴嘉年華",
 "nameEn": "Folk Music Panels Exhibitions: Carnival Samba",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5132,12 +4807,9 @@
 "srcId": "189902",
 "name": "民族音樂展覽: 中亞傳統音樂",
 "nameEn": "Folk Music Panels Exhibitions: Classical Music of Central Asia",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5172,12 +4844,9 @@
 "srcId": "189933",
 "name": "民族音樂展覽 :中國西南地區民樂探索",
 "nameEn": "Folk Music Panels Exhibitions: Folk Music of the South-western Region of",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5212,12 +4881,9 @@
 "srcId": "189924",
 "name": "民族音樂展覽: 中國西南地區民樂探索",
 "nameEn": "Folk Music Panels Exhibitions: Folk Music of the South-western Region of China",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5252,12 +4918,9 @@
 "srcId": "189891",
 "name": "民族音樂展覽：印尼 峇里的嘉美蘭音樂",
 "nameEn": "Folk Music Panels Exhibitions: Indonesia – Balinese Gamelan",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5292,12 +4955,9 @@
 "srcId": "189691",
 "name": "幸福字在 - 開卷有聲 : 書籍巡迴展覽",
 "nameEn": "Happiness with Words-Voices Between the Pages: Roving Book Exhibitions",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-25",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5327,12 +4987,9 @@
 "srcId": "190210",
 "name": "幸福字在- 開卷有聲: 書籍巡迴展覽",
 "nameEn": "Happiness with Words-Voices Between the Pages: Roving Book Exhibitions",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-25",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5362,12 +5019,9 @@
 "srcId": "189819",
 "name": "幸福字在- 開卷有聲：書籍巡迴展覽",
 "nameEn": "Happiness with Words-Voices Between the Pages: Roving Book Exhibitions",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-25",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5397,12 +5051,9 @@
 "srcId": "190196",
 "name": "幸福字在-開卷有聲：書籍巡迴展覽",
 "nameEn": "Happiness with Words-Voices Between the Pages: Roving Book Exhibitions",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-25",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5424,56 +5075,6 @@
 "lcsd"
 ],
 "url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1031",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": ""
-},
-{
-"src": "lcsd",
-"srcId": "190233",
-"name": "2026古蹟周遊樂暨巡迴展覽—穿越北都",
-"nameEn": "Heritage Fiesta cum Roving Exhibition 2026 — Traversing Northern Metropolis (Jointly organised with Commissioner for Heritage's Office)",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15"
-],
-"venueText": "元朗公共圖書館",
-"venueTextEn": "Yuen Long Public Library",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "與文物保育專員辦事處合辦",
-"kinds": [
-"lcsd"
-],
-"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1045",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": ""
-},
-{
-"src": "lcsd",
-"srcId": "189863",
-"name": "2026古蹟周遊樂暨巡迴展覽⸺穿越北都",
-"nameEn": "Heritage Fiesta cum Roving Exhibition 2026 ⸺ Traversing Northern Metropolis",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15"
-],
-"venueText": "牛頭角公共圖書館",
-"venueTextEn": "Ngau Tau Kok Public Library",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "與文物保育專員辦事處合辦",
-"kinds": [
-"lcsd"
-],
-"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1006",
 "srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
 "fee": ""
 },
@@ -5506,12 +5107,9 @@
 "srcId": "181038",
 "name": "香港流行文化節2026：幸會25歲──香港電影資料館珍藏展 （香港電影資料館二十五周年誌慶節目）",
 "nameEn": "Hong Kong Pop Culture Festival 2026: Hong Kong Film Archive Stories: Treasure Hunting for 25 Years (Celebrating the 25th Anniversary of the Hong Kong Film Archive)",
-"start": "2026-11-13",
-"end": "2027-01-08",
+"start": "2026-11-16",
+"end": "2027-01-11",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5565,7 +5163,10 @@
 "2027-01-05",
 "2027-01-06",
 "2027-01-07",
-"2027-01-08"
+"2027-01-08",
+"2027-01-09",
+"2027-01-10",
+"2027-01-11"
 ],
 "venueText": "香港文化博物館 (專題展覽館一及二)",
 "venueTextEn": "Hong Kong Heritage Museum (Thematic Galleries 1 & 2)",
@@ -5585,12 +5186,9 @@
 "srcId": "188351",
 "name": "墨象畫會會員作品展2026",
 "nameEn": "Ink Dimension Exhibition 2026",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-19",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5611,63 +5209,12 @@
 },
 {
 "src": "lcsd",
-"srcId": "190007",
-"name": "齊支持2026人口普查巡迴展覽",
-"nameEn": "Let’s Support 2026 Population Census Roving Exhibition",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15"
-],
-"venueText": "北葵涌公共圖書館",
-"venueTextEn": "North Kwai Chung Public Library",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "政府統計處主辦",
-"kinds": [
-"lcsd"
-],
-"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1001",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": ""
-},
-{
-"src": "lcsd",
-"srcId": "190137",
-"name": "兒童及青少年閱讀計劃「月月讀書樂」月會 - 恐龍小學堂 (家庭組)",
-"nameEn": "Monthly Meeting of Joyful Reading of Reading Programme for Children and Youth - Dinosaur Fun Lab (Family)",
-"start": "2026-11-13",
-"end": "2026-11-13",
-"dates": [
-"2026-11-13"
-],
-"venueText": "沙田公共圖書館",
-"venueTextEn": "Sha Tin Public Library",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "康樂及文化事務署‧香港公共圖書館主辦",
-"kinds": [
-"lcsd"
-],
-"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1017",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": ""
-},
-{
-"src": "lcsd",
 "srcId": "190058",
 "name": "防控蚊子及預防登革熱傳播展覽",
 "nameEn": "Mosquito Control and Prevention of Dengue Fever",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5696,56 +5243,6 @@
 "url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1012",
 "srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
 "fee": ""
-},
-{
-"src": "lcsd",
-"srcId": "189872",
-"name": "音樂事務處音樂展覽 –《古琴篇》",
-"nameEn": "Music Office Music Exhibition – A Rendezvous with the Guqin",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15"
-],
-"venueText": "秀茂坪公共圖書館",
-"venueTextEn": "Sau Mau Ping Public Library",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "音樂事務處主辦",
-"kinds": [
-"lcsd"
-],
-"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1007",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": ""
-},
-{
-"src": "lcsd",
-"srcId": "188418",
-"name": "音樂劇《愛登士家庭》",
-"nameEn": "Musical \"The Addams Family\"",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15"
-],
-"venueText": "西灣河文娛中心 (劇院)",
-"venueTextEn": "Sai Wan Ho Civic Centre (Theatre)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "葉氏兒童合唱團主辦",
-"kinds": [
-"lcsd"
-],
-"url": "www.yipshk.com",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "$380"
 },
 {
 "src": "lcsd",
@@ -5863,12 +5360,9 @@
 "srcId": "190027",
 "name": "國民教育系列: 「國民教育」書籍展覽",
 "nameEn": "National Education Series: Book Exhibition on \"National Education\"",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5903,12 +5397,9 @@
 "srcId": "190028",
 "name": "國民教育系列:「小泥子夏日遊記」巡迴展覽",
 "nameEn": "National Education Series: Roving Exhibition on \"The Clay Family\"",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -5940,6 +5431,29 @@
 },
 {
 "src": "lcsd",
+"srcId": "190159",
+"name": "親子故事工作坊 ─ 閱樂成長",
+"nameEn": "Parent-child Storytelling Workshop: Joyful Reading, Happy Growth",
+"start": "2026-11-21",
+"end": "2026-11-21",
+"dates": [
+"2026-11-21"
+],
+"venueText": "大埔公共圖書館",
+"venueTextEn": "Tai Po Public Library",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "香港公共圖書館主辦，香港小童群益會賽馬會大埔青少年綜合服務中心協辦",
+"kinds": [
+"lcsd"
+],
+"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1026",
+"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
+"fee": ""
+},
+{
+"src": "lcsd",
 "srcId": "190160",
 "name": "親子故事工作坊 ─ 閱樂成長",
 "nameEn": "Parent-child Storytelling Workshop: Joyful Reading, Happy Growth",
@@ -5966,10 +5480,9 @@
 "srcId": "189762",
 "name": "親子故事工作坊：我做得到 (以普通話進行，適合3 – 7歲小朋友及其一位家長參加)",
 "nameEn": "Parent-child Storytelling Workshops: I Can Do It (Conducted in Putonghua, for children aged 3 – 7 with one of their parents)",
-"start": "2026-11-15",
+"start": "2026-11-22",
 "end": "2026-11-29",
 "dates": [
-"2026-11-15",
 "2026-11-22",
 "2026-11-29"
 ],
@@ -5985,98 +5498,6 @@
 "url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=77",
 "srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
 "fee": ""
-},
-{
-"src": "lcsd",
-"srcId": "189395",
-"name": "演藝同樂日2026：演戲家族 — 合家歡音樂劇表演工作坊",
-"nameEn": "Performing Arts Fun Day 2026: Actors' Family - Musical Performance Workshop for All Ages",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "荃灣大會堂 (文娛廳)",
-"venueTextEn": "Tsuen Wan Town Hall (Cultural Activities Hall)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "康樂及文化事務署主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.lcsd.gov.hk/tc/twth/programmes/pafd2026.html",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "189396",
-"name": "演藝同樂日2026：2026社區文化大使：匯樂團「古典亦時尚」社區音樂會",
-"nameEn": "Performing Arts Fun Day 2026: CCAS 2026: Music Assembly \"Classic Vogue\" Community Concert",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "荃灣大會堂 (展覽館)",
-"venueTextEn": "Tsuen Wan Town Hall (Exhibition Gallery)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "康樂及文化事務署主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.lcsd.gov.hk/tc/twth/programmes/pafd2026.html",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "189397",
-"name": "演藝同樂日2026：2026社區文化大使：竹韻小集「非遺好聲音」親子粵樂劇場：當帝女花遇上黃飛鴻",
-"nameEn": "Performing Arts Fun Day 2026: CCAS 2026: Windpipe Chinese Music Ensemble 'Voices of Our Intangible Cultural Heritage' \"Imperial Princess and the Kung Fu Master\" Cantonese Music Theatres",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "荃灣大會堂 (展覽館)",
-"venueTextEn": "Tsuen Wan Town Hall (Exhibition Gallery)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "康樂及文化事務署主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.lcsd.gov.hk/tc/twth/programmes/pafd2026.html",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
-},
-{
-"src": "lcsd",
-"srcId": "189394",
-"name": "演藝同樂日2026：音樂事務處「樂動社區」音樂會",
-"nameEn": "Performing Arts Fun Day 2026: Music Office \"Music All-Around\" Concerts",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "荃灣大會堂 (演奏廳)",
-"venueTextEn": "Tsuen Wan Town Hall (Auditorium)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "康樂及文化事務署主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.lcsd.gov.hk/tc/twth/programmes/pafd2026.html",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
 },
 {
 "src": "lcsd",
@@ -6126,31 +5547,6 @@
 },
 {
 "src": "lcsd",
-"srcId": "189880",
-"name": "「同禦鐵蹄 - 香港的抗戰歲月」圖片展",
-"nameEn": "Pictorial Exhibition on \"Braving the Storm: Hong Kong in the War of Resistance\"",
-"start": "2026-11-13",
-"end": "2026-11-15",
-"dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15"
-],
-"venueText": "瑞和街公共圖書館",
-"venueTextEn": "Shui Wo Street Public Library",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "康樂及文化事務署‧香港公共圖書館主辦",
-"kinds": [
-"lcsd"
-],
-"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1008",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": ""
-},
-{
-"src": "lcsd",
 "srcId": "188574",
 "name": "飛躍演奏香港 - 羅曼四重奏親子音樂會:奇妙音樂茶會",
 "nameEn": "PREMIERE PERFORMANCES - Romer String Quartet Family Concert: A Magical Tea Party",
@@ -6177,12 +5573,9 @@
 "srcId": "189711",
 "name": "「優質閱讀文化」書籍巡迴展覽",
 "nameEn": "Roving Book Exhibition of \"Quality Reading Culture\"",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-24",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6211,12 +5604,9 @@
 "srcId": "189846",
 "name": "「優質閱讀文化」書籍巡迴展覽",
 "nameEn": "Roving Book Exhibition of \"Quality Reading Culture\"",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-24",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6245,12 +5635,9 @@
 "srcId": "189979",
 "name": "「優質閱讀文化」書籍巡迴展覽",
 "nameEn": "Roving Book Exhibition of \"Quality Reading Culture\"",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-24",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6279,12 +5666,9 @@
 "srcId": "190212",
 "name": "「優質閱讀文化」書籍巡迴展覽",
 "nameEn": "Roving Book Exhibition of \"Quality Reading Culture\"",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-24",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6313,12 +5697,9 @@
 "srcId": "189923",
 "name": "「優質閱讀文化」書籍巡迴展覽",
 "nameEn": "Roving Book Exhibition of “Quality Reading Culture”",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-24",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6347,12 +5728,9 @@
 "srcId": "190094",
 "name": "「優質閱讀文化」書籍巡迴展覽",
 "nameEn": "Roving Book Exhibition of “Quality Reading Culture”",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-24",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6404,12 +5782,9 @@
 "srcId": "189670",
 "name": "2026年「4．23 世界閱讀日創作比賽」–「書頁間的幸福時光」獲獎同學閱讀書籍巡迴展",
 "nameEn": "Roving Exhibition on Books Read by Winning Students of \"4．23 World Book Day Creative Competition\" in 2026 - \"Blissful Moments Between Pages\"",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6444,12 +5819,9 @@
 "srcId": "189857",
 "name": "「第三十六屆全港詩詞創作比賽」得獎作品展覽",
 "nameEn": "Roving Exhibition on the Winning Entries of the 36th Chinese Poetry Writing Competition 2026",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-25",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6479,12 +5851,9 @@
 "srcId": "190173",
 "name": "「第三十六屆全港詩詞創作比賽」得獎作品展覽",
 "nameEn": "Roving Exhibition on the Winning Entries of the 36th Chinese Poetry Writing Competition 2026",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-25",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6514,12 +5883,9 @@
 "srcId": "189987",
 "name": "第三十六屆全港詩詞創作比賽得獎作品展覽",
 "nameEn": "Roving Exhibition on the Winning Entries of the 36th Chinese Poetry Writing Competition 2026",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-25",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6549,12 +5915,9 @@
 "srcId": "189787",
 "name": "「第三十六屆全港詩詞創作比賽」得奬作品展覽",
 "nameEn": "Roving Exhibition on the Winning Entries of The 36th Chinese Poetry Writing Competition 2026",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6589,12 +5952,9 @@
 "srcId": "189848",
 "name": "2026年「4．23 世界閱讀日創作比賽」–「書頁間的幸福時光」澳門區 初中組 獲獎作品巡迴展",
 "nameEn": "Roving Exhibition on Winning Entries (Macao) of \"4．23 World Book Day Creative Competition\" in 2026 - \"Blissful Moments Between Pages\" - Junior Secondary Category",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6629,12 +5989,9 @@
 "srcId": "190151",
 "name": "2026年「4．23 世界閱讀日創作比賽」–「書頁間的幸福時光」澳門區 高中組 獲獎作品巡迴展",
 "nameEn": "Roving Exhibition on Winning Entries (Macao) of \"4．23 World Book Day Creative Competition\" in 2026 - \"Blissful Moments Between Pages\" - Senior Secondary Category",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6669,12 +6026,9 @@
 "srcId": "189657",
 "name": "2026年「4．23世界閱讀日創作比賽」–「書頁間的幸福時光」獲獎作品巡迴展",
 "nameEn": "Roving Exhibition on Winning Entries of “4．23 World Book Day Creative Competition” in 2026 – “Blissful Moments Between Pages”",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6709,12 +6063,9 @@
 "srcId": "189741",
 "name": "世界獲獎兒童文學作品精選展覽",
 "nameEn": "Selected Award-winning Works of World Children's Literature Writers",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-24",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6737,29 +6088,6 @@
 "url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=77",
 "srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
 "fee": ""
-},
-{
-"src": "lcsd",
-"srcId": "188526",
-"name": "沙田節・文藝綜合匯演2026",
-"nameEn": "Sha Tin Festival: Variety Show of STAA 2026",
-"start": "2026-11-15",
-"end": "2026-11-15",
-"dates": [
-"2026-11-15"
-],
-"venueText": "沙田大會堂 (廣場)",
-"venueTextEn": "Sha Tin Town Hall (Plaza)",
-"venueHint": "",
-"hall": "",
-"access": "公眾",
-"organiser": "沙田文藝協會主辦",
-"kinds": [
-"lcsd"
-],
-"url": "https://www.staa.com.hk/",
-"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
-"fee": "免費節目"
 },
 {
 "src": "lcsd",
@@ -6812,12 +6140,9 @@
 "srcId": "190213",
 "name": "第三屆全港中小學生中文寫作比賽「我為甚麼喜歡這一本書」得獎作品巡迴展覽",
 "nameEn": "The 3rd Hong Kong Primary and Secondary School Students Chinese Writing Competition “Why I Love This Book” Outstanding Works Roving Exhibition",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-29",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6881,12 +6206,9 @@
 "srcId": "190110",
 "name": "華裳薈萃 - 華服暨摺紙書籍展覽",
 "nameEn": "Thematic Book Display on Chinese Costume and Origami",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6921,12 +6243,9 @@
 "srcId": "190121",
 "name": "華裳薈萃 - 華服暨摺紙書籍展覽",
 "nameEn": "Thematic Book Display on Chinese Costume and Origami",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6961,12 +6280,9 @@
 "srcId": "190131",
 "name": "華裳薈萃 - 華服暨摺紙書籍展覽",
 "nameEn": "Thematic Book Display on Chinese Costume and Origami",
-"start": "2026-11-13",
+"start": "2026-11-16",
 "end": "2026-11-30",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -6998,15 +6314,48 @@
 },
 {
 "src": "lcsd",
+"srcId": "189881",
+"name": "專題展覽：「一起走過的日子：六、七十年代香港社會」",
+"nameEn": "Thematic Exhibition on “Memories We Share: Hong Kong in the 1960s and 1970s”",
+"start": "2026-11-16",
+"end": "2026-11-29",
+"dates": [
+"2026-11-16",
+"2026-11-17",
+"2026-11-18",
+"2026-11-19",
+"2026-11-20",
+"2026-11-21",
+"2026-11-22",
+"2026-11-23",
+"2026-11-24",
+"2026-11-25",
+"2026-11-26",
+"2026-11-27",
+"2026-11-28",
+"2026-11-29"
+],
+"venueText": "瑞和街公共圖書館",
+"venueTextEn": "Shui Wo Street Public Library",
+"venueHint": "",
+"hall": "",
+"access": "公眾",
+"organiser": "香港歷史博物館主辨",
+"kinds": [
+"lcsd"
+],
+"url": "http://www.hkpl.gov.hk/tc/extension-activities/all-events/search?lib_id=1008",
+"srcUrl": "https://data.gov.hk/tc-data/dataset/hk-lcsd-event-event-cultural",
+"fee": ""
+},
+{
+"src": "lcsd",
 "srcId": "185897",
 "name": "香港電影資料館‧25搜影禮（香港電影資料館二十五周年誌慶節目）",
 "nameEn": "Treasure-Hunt Stories: A 25-Year Cinematic Journey (Celebrating the 25th Anniversary of the Hong Kong Film Archive)",
-"start": "2026-11-13",
-"end": "2027-01-08",
+"start": "2026-11-16",
+"end": "2027-01-11",
 "dates": [
-"2026-11-13",
-"2026-11-14",
-"2026-11-15",
 "2026-11-16",
 "2026-11-17",
 "2026-11-18",
@@ -7060,7 +6409,10 @@
 "2027-01-05",
 "2027-01-06",
 "2027-01-07",
-"2027-01-08"
+"2027-01-08",
+"2027-01-09",
+"2027-01-10",
+"2027-01-11"
 ],
 "venueText": "香港電影資料館 (展覽廳)",
 "venueTextEn": "Hong Kong Film Archive (Exhibition Hall)",
