@@ -83,4 +83,19 @@ ok(Math.abs(rd.rows[0].usd - data.plans.flexi.tables.find(t => t.sex === "M" && 
   const r95 = C.check(s95, C.parseIpgs(txt, 25), 25, 15, 95);
   ok(r95.rows.length === 70 && r95.rows[69].age === 95, "檢查計到 95 歲（" + (r95.ok ? "夠錢" : "唔夠：" + r95.problems[0]) + "）");
 }
+// 醫療通脹：第 n 年 = 保費表 ×（1 + r）^n；0% 同而家一樣
+{
+  const o = { planKey: "selectwise", age: 25, deductible: 18000, startYear: 15 };
+  const s0 = C.schedule(data, o), s0b = C.schedule(data, { ...o, inflation: 0 });
+  ok(JSON.stringify(s0.rows) === JSON.stringify(s0b.rows) && s0.desc.inflation === 0, "通脹 0% 同唔揀一樣");
+  const s3 = C.schedule(data, { ...o, inflation: 3 });
+  ok(s3.rows[0].usd === s0.rows[0].usd, "投保嗰年唔加通脹");
+  const r10 = s3.rows[10], b10 = s0.rows[10];
+  ok(Math.abs(r10.usd - b10.usd * Math.pow(1.03, 10)) < 0.02 && r10.base === b10.usd, "第 10 年 = 保費表 × 1.03^10（" + r10.usd + "）");
+  const w = s3.rows.find(r => r.paidBy === "withdrawal");
+  ok(w.withdrawal === Math.ceil(w.usd - 1e-9) && w.withdrawal > s0.rows[w.n].withdrawal, "提取金額用通脹後保費向上取整（" + w.age + " 歲 " + w.withdrawal + "）");
+  ok(s3.totals.all > s0.totals.all * 1.5, "3% 通脹令總保費明顯增加（" + C.fmt(s0.totals.all) + " → " + C.fmt(s3.totals.all) + "）");
+  const base = { name: "A", age: 25, sex: "M", savings: "GF", payYears: 5, premium: 5000, planKey: "selectwise", deductible: 18000, rider: false, startYear: 15 };
+  ok(C.validate(data, { ...base, inflation: 3 }).length === 0 && C.validate(data, { ...base, inflation: 25 }).length === 1 && C.validate(data, { ...base, inflation: NaN }).length === 1, "通脹 0–20% 先得，自訂唔填會攔");
+}
 process.exit(fail ? 1 : 0);

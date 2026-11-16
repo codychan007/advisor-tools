@@ -59,6 +59,14 @@
     var a = +$("f-age").value, s = +$("f-start").value;
     $("startHint").textContent = $("f-age").value && s ? "即係 " + (a + s) + " 歲開始用儲蓄計劃俾醫保；" + a + "–" + (a + s - 1) + " 歲客人自己俾" : "";
   }
+  document.querySelectorAll('input[name="infl"]').forEach(function (r) {
+    r.addEventListener("change", function () { $("f-infl").classList.toggle("hidden", radio("infl") !== "custom"); });
+  });
+  function inflation() {
+    var v = radio("infl");
+    if (v === "custom") return $("f-infl").value === "" ? NaN : +$("f-infl").value;
+    return +v || 0;
+  }
   $("f-age").addEventListener("input", startHint);
   $("f-start").addEventListener("input", startHint);
 
@@ -71,7 +79,8 @@
       planKey: $("f-plan").value, ward: $("f-ward").value || null,
       deductible: $("f-ded").value === "" ? null : +$("f-ded").value, area: $("f-area").value || null,
       rider: radio("rider") === "1", surname: $("f-surname").value.trim() || "VIP",
-      startYear: $("f-start").value === "" ? NaN : +$("f-start").value, endAge: $("f-end").value === "" ? C.END_AGE : +$("f-end").value
+      startYear: $("f-start").value === "" ? NaN : +$("f-start").value, endAge: $("f-end").value === "" ? C.END_AGE : +$("f-end").value,
+      inflation: inflation()
     };
   }
 
@@ -107,7 +116,8 @@
     var opt = [d.ward, d.deductibleHKD !== null ? "自付費 HK$" + C.fmt(d.deductibleHKD) : null, d.area, d.rider ? "附加契約" : null].filter(Boolean).join("／");
     var html = "";
     html += "<p><b>" + esc(d.plan) + "</b>" + (opt ? "（" + esc(opt) + "）" : "") + "，保費表生效 " + esc(d.effective)
-      + (d.rider ? "；附加契約按基本計劃表 × 90%" : "") + (d.convertedFromHKD ? "；港元 ÷ " + d.hkdRate + " 換美元" : "") + "</p>";
+      + (d.rider ? "；附加契約按基本計劃表 × 90%" : "") + (d.convertedFromHKD ? "；港元 ÷ " + d.hkdRate + " 換美元" : "")
+      + (d.inflation ? "；<b>已計醫療通脹每年 " + d.inflation + "%</b>（保費表保費 ×（1 + " + d.inflation + "%）^ 投保後年數）" : "；未計醫療通脹") + "</p>";
     html += '<div class="kpis">'
       + kpi("客人自己俾（" + f.age + "–" + (startAge - 1) + " 歲）", usd(s.totals.client))
       + kpi("儲蓄計劃提取（" + startAge + "–" + f.endAge + " 歲）", usd(s.totals.withdrawals))
@@ -120,7 +130,7 @@
       + "<li>基本計劃：供款年期 <b class='v'>" + C.termLabel(f.payYears) + "</b>，「預算每年保費」<b class='v'>" + usd(f.premium) + "</b> →「計算」→「下一步」。</li>"
       + (d.rider ? "<li>附加契約頁：剔 <b class='v'>" + esc(d.riderCode || "對應嘅醫保附加契約") + "</b>，「計劃」揀 <b class='v'>" + esc(riderOption()) + "</b> →「下一步」。</li>"
                  : "<li>附加契約頁：唔使剔 →「下一步」。</li>")
-      + "<li>概覽 →「保單選項」→「多次提取」→「開始設定」：揀「年齡」，開始 <b class='v'>" + startAge + "</b> 歲，終止 <b class='v'>" + f.endAge + "</b> 歲，提取金額 <b class='v'>" + usd(first.withdrawal) + "</b>，揀「減少基本金額」→ 確認；通脹率打 <b class='v'>0</b>（打完<b>唔好撳 Tab</b>）→「儲存」→「計算」。</li>"
+      + "<li>概覽 →「保單選項」→「多次提取」→「開始設定」：揀「年齡」，開始 <b class='v'>" + startAge + "</b> 歲，終止 <b class='v'>" + f.endAge + "</b> 歲，提取金額 <b class='v'>" + usd(first.withdrawal) + "</b>，揀「減少基本金額」→ 確認；「預期每年通脹率」打 <b class='v'>0</b>（打完<b>唔好撳 Tab</b>）" + (d.inflation ? "——醫療通脹已經計入下面每年金額，下一步「進階設定」會逐年填實數，所以呢格照打 0，唔好打 " + d.inflation + "，否則會重複計" : "") + "→「儲存」→「計算」。</li>"
       + "<li>結果頁 →「進階設定」：用下面「📌 填進階設定」書籤一撳填晒（或者照下面個表逐格打，其他年份 0）→ 睇一眼 →「計算及儲存」。見到「金額已自動被調整」即係錢唔夠。</li>"
       + "<li>「完成」→ 概覽「保單選項」→「詳細說明」，成個表複製去第三步。</li>"
       + "<li>夠錢先生成建議書：建議書選項「受保人姓氏」填 <b class='v'>" + esc(f.surname) + "</b> →「下一步」→ 確認提示 →「檢視詳盡建議書」下載。</li>"
@@ -138,9 +148,10 @@
       + "<span id='copyMsg' class='muted' style='align-self:center;font-size:14px'></span></div>"
       + "<p id='bmHelp' class='hidden' style='margin:8px 0 0;font-size:14px'>人手加：喺書籤列撳右鍵 →「新增網頁」→ 名稱打「填進階設定」，網址嗰格 Ctrl + V 貼上 → 儲存。</p></div>";
     html += "<h3 style='margin-top:16px'>每年醫保保費同提取金額</h3>";
-    html += "<div class='table-wrap'><table><thead><tr><th>歲數</th><th>保單年度</th><th>醫保保費</th><th>邊個俾</th><th>進階設定提取金額</th></tr></thead><tbody>";
+    var inf = !!d.inflation;
+    html += "<div class='table-wrap'><table><thead><tr><th>歲數</th><th>保單年度</th>" + (inf ? "<th>保費表保費</th><th>醫保保費（通脹 " + d.inflation + "%）</th>" : "<th>醫保保費</th>") + "<th>邊個俾</th><th>進階設定提取金額</th></tr></thead><tbody>";
     s.rows.forEach(function (r) {
-      html += "<tr class='" + (r.paidBy === "client" ? "client" : "") + "'><td>" + r.age + "</td><td>" + (r.n === 0 ? "投保時" : r.n) + "</td><td>" + usd(r.usd, 2) + "</td><td>"
+      html += "<tr class='" + (r.paidBy === "client" ? "client" : "") + "'><td>" + r.age + "</td><td>" + (r.n === 0 ? "投保時" : r.n) + "</td>" + (inf ? "<td>" + usd(r.base, 2) + "</td>" : "") + "<td>" + usd(r.usd, 2) + "</td><td>"
         + (r.paidBy === "client" ? "客人" : "提取") + "</td><td><b>" + (r.withdrawal ? C.fmt(r.withdrawal) : "0") + "</b></td></tr>";
     });
     html += "</tbody></table></div>";

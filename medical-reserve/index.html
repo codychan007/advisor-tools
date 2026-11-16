@@ -56,6 +56,10 @@
       <div class="field"><label for="f-end"><span class="no">16.</span>提取到幾多歲</label>
         <input id="f-end" type="number" inputmode="numeric" min="1" max="100" value="90">
         <div class="hint">預設 90，最高 100（AIA 保費表同 iPGS 都計到 100 歲）</div></div>
+      <div class="field"><label><span class="no">17.</span>醫療通脹（每年）</label>
+        <div class="seg" id="inflSeg"><label><input type="radio" name="infl" value="0" checked><span>唔計</span></label><label><input type="radio" name="infl" value="3"><span>3%</span></label><label><input type="radio" name="infl" value="5"><span>5%</span></label><label><input type="radio" name="infl" value="custom"><span>自訂</span></label></div>
+        <input id="f-infl" class="hidden" type="number" inputmode="decimal" min="0" max="20" step="0.1" placeholder="例：4" style="margin-top:8px">
+        <div class="hint">保費表嘅保費每年再加呢個 %（投保嗰年唔加），客人自己俾同提取嘅年份都計</div></div>
       <div class="full">
         <div class="note bad hidden" id="formErr"></div>
         <div class="actions"><button class="btn" type="submit">計醫保保費 →</button></div>
@@ -84,12 +88,12 @@
     <div id="s4body"><p class="muted">貼好 iPGS 數字就會出。</p></div>
   </section>
 </main>
-<footer class="site-footer"><div class="wrap">只供同事內部參考，以 AIA 正式建議書為準。醫保保費取自 AIA 官網保費表，未計醫療通脹及保費調整；儲蓄計劃數字為預期情景，非保證。</div></footer>
+<footer class="site-footer"><div class="wrap">只供同事內部參考，以 AIA 正式建議書為準。醫保保費取自 AIA 官網保費表，醫療通脹只係按揀咗嘅 % 假設，實際保費調整以 AIA 為準；儲蓄計劃數字為預期情景，非保證。</div></footer>
 
-<script src="/assets/js/medcalc.js"></script>
+<script src="/assets/js/medcalc.js?v=2"></script>
 <script src="/assets/js/ipgs-fill.js"></script>
 <script src="/assets/vendor/exceljs.min.js" defer></script>
-<script src="/assets/js/medexcel.js" defer></script>
-<script src="/assets/js/medical-reserve.js" defer></script>
+<script src="/assets/js/medexcel.js?v=2" defer></script>
+<script src="/assets/js/medical-reserve.js?v=2" defer></script>
 </body>
 </html>

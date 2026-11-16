@@ -34,10 +34,12 @@
     throw new Error("搵唔到保費表：" + plan.name);
   }
 
-  /* o = {planKey, age, sex:'M'|'F', ward, deductible(HKD 數字), area, rider:bool, startYear, endAge} */
+  /* o = {planKey, age, sex:'M'|'F', ward, deductible(HKD 數字), area, rider:bool, startYear, endAge, inflation(每年 %，預設 0)}
+     醫療通脹：第 n 年保費 = 保費表該歲保費 × (1 + r)^n（投保嗰年 n = 0 唔加） */
   function schedule(data, o) {
     var plan = data.plans[o.planKey];
     var endAge = o.endAge || END_AGE;
+    var infl = +o.inflation || 0;
     var ward = plan.wards.length === 1 ? plan.wards[0] : o.ward;
     var table = findTable(plan, { sex: o.sex, ward: ward, deductible: o.deductible, area: o.area });
     var factor = o.rider ? RIDER_FACTOR : 1;
@@ -46,10 +48,11 @@
       var cell = table.annual[String(Math.min(a, 100))];
       var usd = cell.USD;
       if (usd === null || usd === undefined) { usd = cell.HKD / HKD_RATE; converted = true; }
-      usd = Math.round(usd * factor * 100) / 100;
       var n = a - o.age;
+      var base = Math.round(usd * factor * 100) / 100;
+      usd = infl ? Math.round(usd * factor * Math.pow(1 + infl / 100, n) * 100) / 100 : base;
       var byWd = n >= o.startYear;
-      rows.push({ age: a, n: n, usd: usd, paidBy: byWd ? "withdrawal" : "client", withdrawal: byWd ? Math.ceil(usd - 1e-9) : 0 });
+      rows.push({ age: a, n: n, usd: usd, base: base, paidBy: byWd ? "withdrawal" : "client", withdrawal: byWd ? Math.ceil(usd - 1e-9) : 0 });
     }
     var dedUSD = table.deductible ? table.deductible.USD : null;
     var client = 0, wd = 0;
@@ -61,7 +64,7 @@
         area: plan.areas.length ? o.area : null, rider: !!o.rider,
         riderBasis: o.rider ? "基本計劃保費表 × 90%" : null, effective: table.effective,
         premiumPdf: plan.premiumPdf, brochure: plan.brochure, productPage: plan.page,
-        convertedFromHKD: converted, hkdRate: converted ? HKD_RATE : null, generatedFrom: data.generatedOn
+        convertedFromHKD: converted, hkdRate: converted ? HKD_RATE : null, generatedFrom: data.generatedOn, inflation: infl
       },
       rows: rows,
       totals: { client: client, withdrawals: wd, all: client + wd }
@@ -87,6 +90,7 @@
       if (f.rider && (plan.riderAvailable === false || f.planKey === "standard")) p.push("13. " + plan.name + " 冇附加契約版本");
     }
     if (!(f.startYear >= MIN_START_YEAR)) p.push("15. 最早由第 " + MIN_START_YEAR + " 年開始提取");
+    if (f.inflation !== undefined && f.inflation !== null && !(f.inflation >= 0 && f.inflation <= 20)) p.push("17. 醫療通脹要係 0–20%");
     var endAge = f.endAge || END_AGE;
     if (!(endAge >= 1 && endAge <= MAX_END_AGE && Math.floor(endAge) === endAge)) p.push("16. 提取到幾多歲要係整數，最高 " + MAX_END_AGE + " 歲");
     else if (f.startYear >= MIN_START_YEAR && f.age + f.startYear > endAge) p.push("15／16. 開始提取（" + (f.age + f.startYear) + " 歲）遲過提取到嘅歲數（" + endAge + " 歲）");
