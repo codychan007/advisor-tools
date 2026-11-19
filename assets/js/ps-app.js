@@ -281,6 +281,7 @@
   function applyAI(p, fields, from) {
     var n = 0;
     p.showFields = true;
+    fields = C.annualFields(fields, p.values.payMode);                                  // 月繳／季繳 → 年繳
     Object.keys(fields).forEach(function (k) {
       var v = String(fields[k] || "").trim();
       if (!v || p.from[k] === "manual" && !C.blank(p.values[k])) return;

@@ -110,4 +110,14 @@ ok(!r1.error && r1.fields.plan === "愛伴航2" && r1.warnings.length === 1, "�
 ok(!core.parseAIReply('{"policyNo":"U1","premium":"HK$1"}').error, "讀到平鋪（冇 fields）嘅回覆");
 ok(core.parseAIReply('{"policyNo":"U1"').error && core.parseAIReply("唔知").error, "唔完整／冇代碼會出中文提示");
 ok(!("owner" in core.parseAIReply('{"fields":{"owner":"X","plan":"A"}}').fields), "回覆入面嘅持有人唔會覆蓋同事填嘅");
+// ---------- 月繳 → 年繳 ----------
+ok(core.annualize("HK$1,234.50", "月") === "HK$14,814.00（月繳 HK$1,234.50 × 12）", "月繳 × 12：" + core.annualize("HK$1,234.50", "月"));
+ok(core.annualize("US$500", "季繳") === "US$2,000.00（季繳 US$500.00 × 4）" && core.annualize("US$500", "Semi-annual").startsWith("US$1,000.00"), "季繳 × 4、半年繳 × 2");
+ok(core.annualize("HK$3,900", "年") === "HK$3,900.00" && core.annualize("HK$3,900", "") === null && core.annualize("", "月") === null, "年繳照寫；冇繳費形式或金額就唔估");
+const af = core.annualFields({ premium: "", premiumModal: "HK$800", payMode: "月繳" });
+ok(af.premium === "HK$9,600.00（月繳 HK$800.00 × 12）" && !("premiumModal" in af), "AI 只寫月繳 → 自動填年繳，輔助欄唔入表");
+ok(core.annualFields({ premium: "HK$9,000", premiumModal: "HK$800", payMode: "月" }).premium === "HK$9,000", "文件已寫年繳就唔改");
+ok(core.annualFields({ premiumModal: "HK$800" }, "月").premium.startsWith("HK$9,600.00"), "繳費形式由同事填都計到");
+ok(core.AI_KEYS.includes("premiumModal") && core.buildPastePrompt("policy", "", [], 0).includes("premiumModal：每期保費"), "複製指令有每期保費欄");
+ok(buildRequest({ kind: "policy", texts: [] }).output_config.format.schema.properties.fields.required.includes("premiumModal"), "API 請求都有每期保費欄");
 process.exit(fail ? 1 : 0);

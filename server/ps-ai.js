@@ -7,7 +7,7 @@ import core from "../assets/js/ps-core.js";
 export const MODEL = "claude-sonnet-5-5"; // Cody 2026-11-08 揀
 const { FIELDS, PRICE } = core;
 
-const LABEL = Object.fromEntries(FIELDS.map((f) => [f.key, f.short]));
+const LABEL = Object.fromEntries(FIELDS.concat(core.EXTRA).map((f) => [f.key, f.short]));
 
 const RULES = core.RULES; // 同「複製去我嘅 AI」共用同一套規則
 

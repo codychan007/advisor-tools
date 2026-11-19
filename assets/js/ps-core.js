@@ -32,7 +32,9 @@
     { key: "premium", label: "Premium Total(Annual) 合計(每年)", short: "每年保費", scope: "policy", hint: "例：HK$3,900.00" },
     { key: "remark", label: "備註欄", short: "備註", scope: "policy", optional: true }
   ];
-  var AI_KEYS = FIELDS.filter(function (f) { return f.scope !== "manual"; }).map(function (f) { return f.key; });
+  // 唔入 Excel、只係俾 AI 填嘅輔助欄：月繳／季繳保單文件通常只寫每期保費，由程式換算做年繳
+  var EXTRA = [{ key: "premiumModal", short: "每期保費（文件寫嘅金額連貨幣，例如月繳嗰期；文件已寫年繳就同 premium 一樣）" }];
+  var AI_KEYS = FIELDS.filter(function (f) { return f.scope !== "manual"; }).map(function (f) { return f.key; }).concat(EXTRA.map(function (e) { return e.key; }));
   var PRODUCT_KEYS = FIELDS.filter(function (f) { return f.scope === "product"; }).map(function (f) { return f.key; });
 
   // Sonnet 5.5（2026-11）：輸入 US$2、輸出 US$10／每百萬 token
@@ -130,6 +132,30 @@
     });
     return { values: values, from: from };
   }
+  /* 月繳／季繳／半年繳 → 年繳：annualize("HK$1,234.50", "月") = "HK$14,814.00（月繳 HK$1,234.50 × 12）"；認唔到就回傳 null */
+  var MODES = [[/半年|semi/i, "半年", 2], [/季|quarter/i, "季", 4], [/月|month/i, "月", 12], [/年|annual|yearly/i, "年", 1]];
+  function annualize(modal, mode) {
+    var m = String(modal || "").match(/(HK\$|US\$|MOP\$?|RMB|HKD|USD|港元|美元|澳門幣|\$)?\s*([\d,]+(?:\.\d+)?)/i);
+    if (!m) return null;
+    var amt = parseFloat(m[2].replace(/,/g, "")), cur = m[1] || "";
+    if (!(amt > 0)) return null;
+    var hit = MODES.filter(function (x) { return x[0].test(String(mode || "")); })[0];
+    if (!hit) return null;
+    var fmt2 = function (v) { return v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+    var pre = /^(港元|美元|澳門幣|HKD|USD|RMB)$/i.test(cur) ? cur + " " : cur;
+    if (hit[2] === 1) return pre + fmt2(amt);
+    return pre + fmt2(Math.round(amt * hit[2] * 100) / 100) + "（" + hit[1] + "繳 " + pre + fmt2(amt) + " × " + hit[2] + "）";
+  }
+  /* AI 結果：premium 空、但有每期保費同繳費形式 → 自動計年繳 */
+  function annualFields(fields, payModeFallback) {
+    var f = {}; Object.keys(fields || {}).forEach(function (k) { f[k] = fields[k]; });
+    if (blank(f.premium) && !blank(f.premiumModal)) {
+      var a = annualize(f.premiumModal, blank(f.payMode) ? payModeFallback : f.payMode);
+      if (a) f.premium = a;
+    }
+    delete f.premiumModal;
+    return f;
+  }
   function missing(values) {
     return FIELDS.filter(function (f) { return !f.optional && blank(values[f.key]); }).map(function (f) { return f.key; });
   }
@@ -144,10 +170,11 @@
     + "- 用繁體中文。金額要寫貨幣，例如 \"HK$500,000\"、\"US$2,250\"；日期用 \"2026/9/1\" 格式。\n"
     + "- 長保障（醫療保障、意外醫療保障、永久傷殘保障）只寫一句重點，最多 40 個字，例如「實報實銷，終身限額 6,000 萬港元」。\n"
     + "- 文件入面 [客人姓名]、[身份證]、[電話]、[地址] 等係已經遮咗嘅個人資料，唔使理。\n"
+    + "- premium 係每年保費總額：文件有寫年繳保費先填；如果只寫月繳／季繳／半年繳嘅金額，premium 填 \"\"，將嗰期金額（連貨幣）填 premiumModal，payMode 寫清楚月／季／半年／年，系統會自動換算年繳。唔好自己乘。\n"
     + "- 一份文件可能有基本計劃同附加契約；只填 hint 指明嗰個計劃，冇 hint 就填基本計劃，喺 warnings 講有幾多個附加契約。\n"
     + "- warnings：列出有疑問、互相矛盾、或者睇唔清楚嘅地方（最多 5 條，每條一句）。";
   function keysFor(kind) { return kind === "brochure" ? ["company", "plan"].concat(PRODUCT_KEYS) : AI_KEYS; }
-  function shortOf(k) { return FIELDS.filter(function (f) { return f.key === k; })[0].short; }
+  function shortOf(k) { return FIELDS.concat(EXTRA).filter(function (f) { return f.key === k; })[0].short; }
   function intro(kind, hint) {
     return (kind === "brochure"
       ? "以下係一份保險產品小冊子／條款嘅重點頁。抽出同一個產品所有客人都一樣嘅保障描述（唔好填個別客人嘅金額）。\n"
@@ -175,7 +202,7 @@
     return { fields: out, warnings: Array.isArray(j.warnings) ? j.warnings.map(String).slice(0, 5) : [] };
   }
 
-  var api = { FIELDS: FIELDS, RULES: RULES, keysFor: keysFor, intro: intro, buildPastePrompt: buildPastePrompt, parseAIReply: parseAIReply, AI_KEYS: AI_KEYS, PRODUCT_KEYS: PRODUCT_KEYS, PRICE: PRICE, maskText: maskText, scorePage: scorePage, explainPage: explainPage, whyText: whyText,
+  var api = { FIELDS: FIELDS, EXTRA: EXTRA, annualize: annualize, annualFields: annualFields, shortOf: shortOf, RULES: RULES, keysFor: keysFor, intro: intro, buildPastePrompt: buildPastePrompt, parseAIReply: parseAIReply, AI_KEYS: AI_KEYS, PRODUCT_KEYS: PRODUCT_KEYS, PRICE: PRICE, maskText: maskText, scorePage: scorePage, explainPage: explainPage, whyText: whyText,
     pickPages: pickPages, estimateHKD: estimateHKD, estImageTokens: estImageTokens, merge: merge, missing: missing, blank: blank, productKey: productKey };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.PSCore = api;
 })(this);
