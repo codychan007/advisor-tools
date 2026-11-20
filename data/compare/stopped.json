@@ -3481,6 +3481,181 @@
      "url": "https://web.archive.org/web/20240513032328/https://www.axa.com.hk/zh/loveassure-plus-critical-illness-insurance"
     }
    ]
+  },
+  {
+   "id": "manulife-manuprime-care",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "樂健無憂危疾保",
+    "en": "ManuPrime Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2021-02",
+    "2021-02"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "2020 年起官網危疾目錄冇列出，而家亦唔喺現售產品之列。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210225131839/https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manuprime-care.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-manuessential-care",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "樂康無憂危疾保",
+    "en": "ManuEssential Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2021-03",
+    "2021-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "2020 年起官網危疾目錄冇列出，而家亦唔喺現售產品之列。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210308063535/https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manuessential-care.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-manuamber-care",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "珀齡關懷保障計劃",
+    "en": "ManuAmber Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2021-03",
+    "2021-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "2020 年起官網危疾目錄冇列出，而家亦唔喺現售產品之列。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210305170749/https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manuamber-care.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-manusilver-care",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "樂齡關懷保障計劃",
+    "en": "ManuSilver Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2021-03",
+    "2021-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "2020 年起官網危疾目錄冇列出，而家亦唔喺現售產品之列。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210306142210/https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manusilver-care.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-manubright-care",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": null,
+    "en": "ManuBright Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2021-03",
+    "2021-11"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "產品頁 2021 年已撤；而家有「活耀人生危疾保2」同「活耀人生危疾保 PRO」。中文名未能由存檔核實。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211130021313/https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manubright-care.html"
+    }
+   ]
   }
  ]
 }
