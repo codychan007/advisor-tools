@@ -159,7 +159,36 @@ def check_terms():
         err("標準計劃條款：verifiedOn 日期唔啱")
 
 
-for fn in (check_medical, check_ci, check_standard, check_terms):
+def check_stopped():
+    """已停售產品名錄（data/compare/stopped.json，2026-11-20 加）"""
+    f = ROOT / "data" / "compare" / "stopped.json"
+    if not f.exists():
+        return
+    D = json.loads(f.read_text(encoding="utf-8"))
+    if not DATE.match(D.get("updatedOn", "")):
+        err("已停售：updatedOn 要係 YYYY-MM-DD")
+    ids = set()
+    for p in D.get("products", []):
+        pid = p.get("id", "?")
+        if pid in ids:
+            err(f"已停售 {pid}：id 重複")
+        ids.add(pid)
+        if p.get("kind") not in ("med", "ci"):
+            err(f"已停售 {pid}：kind 只可以係 med / ci")
+        if p.get("status") not in ("stopped", "renewal-only"):
+            err(f"已停售 {pid}：status 只可以係 stopped / renewal-only")
+        if not ((p.get("name") or {}).get("zh") or (p.get("name") or {}).get("en")):
+            err(f"已停售 {pid}：冇產品名")
+        if not p.get("sources") or not all(str(s.get("url", "")).startswith("https://") for s in p["sources"]):
+            err(f"已停售 {pid}：一定要有 https 來源連結")
+        seen = p.get("seen")
+        if seen is not None and not (len(seen) == 2 and all(re.match(r"^\d{4}-\d{2}$", x or "") for x in seen) and seen[0] <= seen[1]):
+            err(f"已停售 {pid}：seen 要係 [YYYY-MM, YYYY-MM]")
+        if BANNED.search(text_of(p.get("note"))):
+            err(f"已停售 {pid}：note 有合規禁用字眼")
+
+
+for fn in (check_medical, check_ci, check_standard, check_terms, check_stopped):
     try:
         fn()
     except Exception as e:  # 格式錯到讀唔到

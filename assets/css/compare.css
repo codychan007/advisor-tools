@@ -531,3 +531,9 @@ table.compare td { text-align: left; }
 .head-link { font-size: 14px; color: var(--ink-2); text-decoration: none; }
 .brand small { display: block; line-height: 1.2; }
 .internal-note { font-size: 14px; }
+
+/* 已停售產品（2026-11-20） */
+#old-q { width: 100%; font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--card); color: var(--ink); }
+.plan.old .en { margin-top: -6px; }
+.badge.old { background: var(--warn-50); color: var(--danger); border-color: transparent; }
+.old-cov { font-size: 13px; }

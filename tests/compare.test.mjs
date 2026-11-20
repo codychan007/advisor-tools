@@ -41,4 +41,6 @@ row('預設選項：上限 $0 → 亞洲 $0', 0, P.pickVariant(vs, 0).deductible
 const med = J('medical/plans.compiled.json');
 assert.ok(med.plans.length >= 100 && med.plans.every(p => p.verified), '醫療 compiled：只可以有已核實計劃'); n++;
 assert.ok(ciD.plans.length >= 50 && ciD.plans.every(p => p.verified), '危疾 compiled：只可以有已核實計劃'); n++;
+const old = J('stopped.json');
+assert.ok(old.products.length >= 50 && old.products.every(p => p.sources?.length && (p.name.zh || p.name.en)), '已停售名錄：每項要有名同來源'); n++;
 console.log(`✅ 醫療及危疾比較：${n} 項通過`);

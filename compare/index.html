@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>醫療及危疾比較 – TC Team專屬AI工具箱</title>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/css/compare.css?v=1">
+<link rel="stylesheet" href="/assets/css/compare.css?v=2">
 </head>
 <body>
 <header class="site-header"><div class="wrap wide bar">
@@ -38,6 +38,7 @@
     <div class="seg tabs" role="tablist" aria-label="保險種類">
       <button type="button" role="tab" id="tab-med" aria-controls="panel-med" aria-selected="true">醫療保險</button>
       <button type="button" role="tab" id="tab-ci" aria-controls="panel-ci" aria-selected="false">危疾保險</button>
+      <button type="button" role="tab" id="tab-old" aria-controls="panel-old" aria-selected="false">已停售產品</button>
     </div>
 
     <!-- 分頁 A：醫療 -->
@@ -69,6 +70,19 @@
       <div id="ci-list" class="dir"></div>
     </section>
 
+    <!-- 分頁 C：已停售產品（2026-11-20 加） -->
+    <section id="panel-old" role="tabpanel" aria-labelledby="tab-old" class="stack" hidden>
+      <div class="callout warn"><b>已停售，只供參考</b>：呢度列出保險公司已經唔再接受新投保（或只供現有保單續保）嘅醫療同危疾產品，方便檢視客人舊保單時認返係咩產品。資料來自保險公司官網以前嘅網頁（網頁存檔）同政府自願醫保網站；保障內容、保費同條款一律<b>以客人保單為準</b>。</div>
+      <div class="card">
+        <div class="field"><span>產品種類</span>
+          <div class="chips" id="old-kind"><button type="button" class="chip" data-v="all" aria-pressed="true">全部</button><button type="button" class="chip" data-v="med" aria-pressed="false">醫療</button><button type="button" class="chip" data-v="ci" aria-pressed="false">危疾／癌症</button></div></div>
+        <label class="field"><span>搵產品名（中文或英文）</span><input type="search" id="old-q" placeholder="例如：至尊、Smart、守護" autocomplete="off"></label>
+      </div>
+      <div id="old-intro"></div>
+      <div class="list-head"><b id="old-count"></b></div>
+      <div id="old-list" class="dir"></div>
+    </section>
+
     <!-- 並排比較 -->
     <section class="card" id="compare-box" aria-live="polite">
       <h2>並排比較</h2>
@@ -90,6 +104,6 @@
   輸入嘅資料只會喺你部手機／電腦內計算，<strong>唔會儲存或上傳</strong>。</div>
   </div>
 </main>
-<script type="module" src="/assets/js/cmp/compare.js?v=2"></script>
+<script type="module" src="/assets/js/cmp/compare.js?v=3"></script>
 </body>
 </html>

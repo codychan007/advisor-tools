@@ -17,6 +17,13 @@ GitHub 每次改動都會自動行 1–3（`.github/workflows/compare-data.yml`�
 - **靈活計劃、危疾**：每月 2 號 11:00 Claude 雲端定時任務按 `scripts/compare/monthly-check-prompt.md` 檢查，有改動推去 `monthly-check-YYYY-MM` branch 等 Cody 核實，**唔會直接改 main**。
 - 未核實（`verified: false`）嘅計劃唔會入 compiled 檔，網站唔顯示。
 
+## 已停售產品（`data/compare/stopped.json`，2026-11-20 加）
+- 頁面「已停售產品」分頁：名錄形式（公司、產品名、類型、官網曾經出現嘅月份、來源連結），**冇保費、冇保障細節**。
+- 來源：保險公司官網以前嘅網頁（web.archive.org 網頁存檔）同政府自願醫保網站（「只供現有保單續保」）。每項都核對過而家官網冇再列出或頁面已撤。
+- 改完要行 `python scripts/compare/validate_compare.py`（有 `check_stopped`）同 `node tests/compare.test.mjs`；呢個檔唔使 compile。
+- 每間公司追溯到幾時寫喺 `coverage`；萬通前身美國萬通網站冇存到產品頁。
+- 新增停售產品：每月產品檢查發現「可能已停售」嘅計劃，核實後可以加入呢個檔（status `stopped`），同時由 plans.json 移走。
+
 ## 工具
 - `scripts/compare/flexi/`：由醫務衞生局官方 PDF 抽靈活計劃保費、條款（流程睇 `flexi/README.md`）；危疾新增用 `flexi/ci_upsert.py`、`flexi/ci_inv_update.py`
 - `scripts/compare/make_checklist.py`：生成核實清單

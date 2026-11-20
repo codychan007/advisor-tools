@@ -26,13 +26,14 @@ const S = {
   age: 30, sex: 'M', smoker: false, tab: 'med',
   ward: 'all', ded: 0, medSort: 'name',
   ciType: 'all', ciSort: 'name', ciSA: {},
-  open: { med: new Set(), ci: new Set() },   // 展開咗嘅公司
+  open: { med: new Set(), ci: new Set(), old: new Set() },   // 展開咗嘅公司
+  oldKind: 'all', oldQ: '',
   variant: {},                                // 計劃 id → 用戶喺卡入面揀嘅選項 id
   sel: [],                                    // [{kind, id}]
   trendEnd: 65,
 };
 
-let STD, TERMS, MED, CI;
+let STD, TERMS, MED, CI, OLD = null;   // OLD = 已停售產品（data/compare/stopped.json）
 
 async function init() {
   try {
@@ -46,8 +47,10 @@ async function init() {
   // 唔顯示任何示例（就算資料檔仲有，都喺呢度過濾）
   MED.plans = MED.plans.filter(p => !p.sample);
   CI.plans = CI.plans.filter(p => !p.sample);
+  OLD = await loadJSON('/data/compare/stopped.json').catch(() => null);
   bind();
   if (location.hash === '#ci') setTab('ci');
+  if (location.hash === '#old') setTab('old');
   render();
 }
 
@@ -324,6 +327,58 @@ function directory(kind, groups, cardFn, sortBy) {
 }
 
 // ------------------------------------------------------------
+// 已停售產品（名錄：公司、產品名、類型、官網曾經出現嘅年份、來源）
+// ------------------------------------------------------------
+const OLD_STATUS = { stopped: () => t('已停售', 'Discontinued'), 'renewal-only': () => t('只供現有保單續保', 'Renewal only') };
+const ym = s => (s ? s.replace(/^(\d{4})-?(\d{2}).*$/, '$1 年 $2 月') : '');
+
+function oldItems() {
+  if (!OLD) return [];
+  const q = S.oldQ.trim().toLowerCase();
+  return OLD.products.filter(p => (S.oldKind === 'all' || p.kind === S.oldKind) &&
+    (!q || [p.name.zh, p.name.en, L(p.category), p.brand.zh, p.brand.en].some(x => String(x || '').toLowerCase().includes(q))))
+    .map(p => ({ ...p, id: p.id, insurerKey: p.brand.en, insurer: p.brand }));
+}
+
+function oldCard(p) {
+  const seen = p.seen ? (p.seen[0] === p.seen[1] ? ym(p.seen[0]) : `${ym(p.seen[0])} 至 ${ym(p.seen[1])}`) : '';
+  const links = (p.sources || []).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(L(s.name))}</a>`).join('・');
+  return `<article class="card plan old">
+    <div class="tags">${badge(p.kind === 'med' ? t('醫療', 'Medical') : t('危疾／癌症', 'CI / cancer'))} ${badge(L(p.category))} ${badge(OLD_STATUS[p.status]?.() || p.status, 'old')}</div>
+    <h3>${esc(p.name.zh || p.name.en)}</h3>
+    ${p.name.zh && p.name.en ? `<div class="insurer muted en">${esc(p.name.en)}</div>` : ''}
+    <dl class="facts">
+      <div><dt>${t('狀態', 'Status')}</dt><dd>${esc(OLD_STATUS[p.status]?.() || p.status)}</dd></div>
+      ${seen ? `<div><dt>${t('官網曾經出現', 'Seen on insurer site')}</dt><dd>${esc(seen)}</dd></div>` : ''}
+      ${p.certNo ? `<div><dt>${t('自願醫保認可編號', 'VHIS cert. no.')}</dt><dd>${esc(p.certNo)}</dd></div>` : ''}
+    </dl>
+    ${p.note ? `<p class="note">${esc(L(p.note))}</p>` : ''}
+    <div class="source">${t('資料來源：', 'Source: ')}${links || '—'}<br>${t('整理日期：', 'Compiled: ')}${esc(OLD.updatedOn)}<br>${t('「官網曾經出現」係網頁存檔見到嘅時間，唔等於推出或停售日期。', '“Seen” is when archived copies of the insurer page exist, not the launch or withdrawal date.')}</div>
+  </article>`;
+}
+
+function renderOld() {
+  if (!OLD) { $('old-list').innerHTML = `<div class="card muted">${t('暫時讀唔到已停售產品資料。', 'Discontinued product data could not be loaded.')}</div>`; return; }
+  const items = oldItems();
+  const groups = groupByInsurer(items);
+  if (S.oldQ.trim()) groups.forEach(g => S.open.old.add(g.key));
+  $('old-intro').innerHTML = `<details class="card old-cov"><summary>${t('每間公司最早可以追溯到幾時？（撳開睇）', 'How far back each insurer can be traced')}</summary><ul>${
+    OLD.coverage.map(c => `<li><b>${esc(L(c.brand))}</b>：${esc(L(c.note))}</li>`).join('')}</ul></details>`;
+  $('old-count').textContent = t(`${groups.length} 間保險公司・${items.length} 個已停售產品`, `${groups.length} insurers · ${items.length} discontinued products`);
+  $('old-list').innerHTML = groups.map(g => {
+    const open = S.open.old.has(g.key);
+    const nMed = g.items.filter(i => i.kind === 'med').length, nCi = g.items.length - nMed;
+    const head = `<button type="button" class="ins-head" data-ins="${esc(g.key)}" data-kind="old" aria-expanded="${open}">
+        <span class="ins-name"><b>${esc(L(g.insurer))}</b>${EN ? '' : `<small>${esc(g.insurer.en)}</small>`}</span>
+        <span class="ins-meta">${t(`${g.items.length} 個產品`, `${g.items.length} products`)}${nMed ? `<span class="pill">${t(`醫療 ${nMed}`, `Medical ${nMed}`)}</span>` : ''}${nCi ? `<span class="pill">${t(`危疾 ${nCi}`, `CI ${nCi}`)}</span>` : ''}</span>
+        <span class="caret" aria-hidden="true"></span></button>`;
+    if (!open) return `<section class="ins">${head}</section>`;
+    const list = [...g.items].sort((a, b) => (a.kind === b.kind ? (a.seen?.[0] || '').localeCompare(b.seen?.[0] || '') : a.kind === 'med' ? -1 : 1));
+    return `<section class="ins open">${head}<div class="ins-body"><div class="plan-list">${list.map(oldCard).join('')}</div></div></section>`;
+  }).join('') || `<div class="card muted">${t('冇符合嘅產品，試下改搜尋字。', 'No matching products.')}</div>`;
+}
+
+// ------------------------------------------------------------
 // 畫面
 // ------------------------------------------------------------
 let LAST = { med: [], ci: [] };
@@ -352,7 +407,9 @@ function render() {
     : directory('ci', ciGroups, ciCard, S.ciSort) || `<div class="card muted">${t('呢個類型暫時未有核實咗嘅計劃，或者你嘅年齡唔接受投保。', 'No verified plans of this type yet, or your age is outside the issue ages.')}</div>`;
 
   LAST = { med, ci };
-  renderCompare();
+  renderOld();
+  $('compare-box').hidden = S.tab === 'old';
+  if (S.tab !== 'old') renderCompare();
 }
 
 function selectedItems() {
@@ -419,11 +476,11 @@ function renderTrend(items) {
 // ------------------------------------------------------------
 function setTab(tab) {
   S.tab = tab;
-  for (const k of ['med', 'ci']) {
+  for (const k of ['med', 'ci', 'old']) {
     $(`tab-${k}`).setAttribute('aria-selected', String(k === tab));
     $(`panel-${k}`).hidden = k !== tab;
   }
-  history.replaceState(null, '', tab === 'ci' ? '#ci' : location.pathname);
+  history.replaceState(null, '', tab === 'med' ? location.pathname : '#' + tab);
 }
 
 function chips(id, key, conv = v => v, after) {
@@ -452,6 +509,9 @@ function bind() {
   $('ci-sort').addEventListener('change', e => { S.ciSort = e.target.value; render(); });
   $('tab-med').addEventListener('click', () => { setTab('med'); render(); });
   $('tab-ci').addEventListener('click', () => { setTab('ci'); render(); });
+  $('tab-old').addEventListener('click', () => { setTab('old'); render(); });
+  chips('old-kind', 'oldKind');
+  $('old-q').addEventListener('input', e => { S.oldQ = e.target.value; render(); });
   document.addEventListener('change', e => {
     const s = e.target.closest('select[data-variant]');
     if (s) { S.variant[s.dataset.variant] = s.value; render(); }

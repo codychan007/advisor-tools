@@ -1,0 +1,3486 @@
+{
+ "_說明": "已停售醫療／危疾產品名錄（顧問內部參考）。來源：保險公司官網以前嘅網頁（web.archive.org 網頁存檔）同政府自願醫保網站；每項都核對過而家官網冇再列出（或頁面已撤），或政府標明只供續保。seen = 網頁存檔見到產品頁嘅月份（唔等於推出／停售日期）。唔包保費同保障細節（以客人保單為準）。生成：scripts/compare 以外，由 Claude 2026-11-20 整理。",
+ "updatedOn": "2026-11-20",
+ "coverage": [
+  {
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "note": {
+    "zh": "官網醫療產品頁存檔最早去到 2004 年（美國友邦年代）。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "note": {
+    "zh": "最早去到 2002 年（團體醫療）；個人醫療／危疾產品頁約由 2014 年起。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "note": {
+    "zh": "最早去到 2005 年；2014–2019 年有一段時間存檔較少。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "永明金融",
+    "en": "Sun Life"
+   },
+   "note": {
+    "zh": "2009 年有少量存檔，之後到 2020 年先再有產品頁存檔，中間嘅產品可能搵唔到。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "note": {
+    "zh": "最早去到 2013–2014 年（富衛接手後）。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "note": {
+    "zh": "舊網站約 2014–2019 年，新網站 2019 年起；另參考宏利「延伸醫療支援」頁列出嘅舊計劃。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "note": {
+    "zh": "富通年代約由 2016 年起；更早嘅 Ageas／Fortis 網站冇存檔。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "note": {
+    "zh": "前身美國萬通網站（2000–2019）冇存到個人醫療／危疾產品頁，只可以追溯到 2023 年；資料最少。",
+    "en": null
+   }
+  }
+ ],
+ "products": [
+  {
+   "id": "aia-aia-voluntary-health-insurance-prime-scheme",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "自願醫保",
+    "en": "VHIS"
+   },
+   "name": {
+    "zh": "AIA自願醫保尊尚計劃",
+    "en": "AIA Voluntary Health Insurance Prime Scheme"
+   },
+   "status": "renewal-only",
+   "seen": null,
+   "certNo": "F00025",
+   "note": {
+    "zh": "政府自願醫保網站標明「只供現有保單續保」，唔再接受新投保。（2019 年 4 月起認可）",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "自願醫保網站（醫務衞生局）",
+      "en": "VHIS website (Health Bureau)"
+     },
+     "url": "https://www.vhis.gov.hk/tc/consumer_corner/flexi-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-aia-voluntary-health-insurance-privilege-scheme",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "自願醫保",
+    "en": "VHIS"
+   },
+   "name": {
+    "zh": "AIA自願醫保尊顯計劃",
+    "en": "AIA Voluntary Health Insurance Privilege Scheme"
+   },
+   "status": "renewal-only",
+   "seen": null,
+   "certNo": "F00053",
+   "note": {
+    "zh": "政府自願醫保網站標明「只供現有保單續保」，唔再接受新投保。（2021 年 2 月起認可）",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "自願醫保網站（醫務衞生局）",
+      "en": "VHIS website (Health Bureau)"
+     },
+     "url": "https://www.vhis.gov.hk/tc/consumer_corner/flexi-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-aia-voluntary-health-insurance-privilege-plus-sche",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "自願醫保",
+    "en": "VHIS"
+   },
+   "name": {
+    "zh": "AIA自願醫保尊裕計劃",
+    "en": "AIA Voluntary Health Insurance Privilege Plus Scheme"
+   },
+   "status": "renewal-only",
+   "seen": null,
+   "certNo": "F00054",
+   "note": {
+    "zh": "政府自願醫保網站標明「只供現有保單續保」，唔再接受新投保。（2021 年 3 月起認可）",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "自願醫保網站（醫務衞生局）",
+      "en": "VHIS website (Health Bureau)"
+     },
+     "url": "https://www.vhis.gov.hk/tc/consumer_corner/flexi-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-bettercare-medical-insurance-plan",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "自願醫保",
+    "en": "VHIS"
+   },
+   "name": {
+    "zh": "「樂康保」醫療保障計劃",
+    "en": "BetterCare Medical Insurance Plan"
+   },
+   "status": "renewal-only",
+   "seen": null,
+   "certNo": "F00021",
+   "note": {
+    "zh": "政府自願醫保網站標明「只供現有保單續保」，唔再接受新投保。（2019 年 4 月起認可）",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "自願醫保網站（醫務衞生局）",
+      "en": "VHIS website (Health Bureau)"
+     },
+     "url": "https://www.vhis.gov.hk/tc/consumer_corner/flexi-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "yf-taxvantage-plus-medical-plan",
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "自願醫保",
+    "en": "VHIS"
+   },
+   "name": {
+    "zh": "「稅」安心醫療計劃",
+    "en": "TaxVantage Plus Medical Plan"
+   },
+   "status": "renewal-only",
+   "seen": null,
+   "certNo": "F00020",
+   "note": {
+    "zh": "政府自願醫保網站標明「只供現有保單續保」，唔再接受新投保。（2019 年 4 月起認可）",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "自願醫保網站（醫務衞生局）",
+      "en": "VHIS website (Health Bureau)"
+     },
+     "url": "https://www.vhis.gov.hk/tc/consumer_corner/flexi-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-medichoice",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": null,
+    "en": "MediChoice"
+   },
+   "status": "stopped",
+   "seen": [
+    "2004-06",
+    "2008-12"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "有醫療網絡服務嘅住院計劃；中文名未能由存檔核實。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20081210153912/http://www.aia.com.hk:80/product_c/p_medichoice.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-premium-refund-hospital-income",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "保費回贈－住院入息保障",
+    "en": "Premium Refund – Hospital Income"
+   },
+   "status": "stopped",
+   "seen": [
+    "2005-01",
+    "2012-01"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120108051340/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/premium-refund-hospital-Income"
+    }
+   ]
+  },
+  {
+   "id": "aia-health-100",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "「安心百歲保」",
+    "en": "Health 100"
+   },
+   "status": "stopped",
+   "seen": [
+    "2006-08",
+    "2011-08"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20110807234411/http://aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/health100"
+    }
+   ]
+  },
+  {
+   "id": "aia-super-good-health-medical-plan",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "特級「健康之寶」醫療保障計劃",
+    "en": "Super Good Health Medical Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-05",
+    "2012-06"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120615035354/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/super-goodhealth-medical-plan"
+    }
+   ]
+  },
+  {
+   "id": "aia-super-good-health-hospital-and-surgical-rider",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "醫療附加保障",
+    "en": "Medical rider"
+   },
+   "name": {
+    "zh": "特級「健康之寶」住院及手術賠償附加契約",
+    "en": "Super Good Health Hospital and Surgical Rider"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-05",
+    "2012-06"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120615025956/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/super-good-health-hospital-and-surgical-rider"
+    }
+   ]
+  },
+  {
+   "id": "aia-flexi-mediguard-hospital-income-plan",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "靈活住院惠益保障計劃",
+    "en": "Flexi MediGuard Hospital Income Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-05",
+    "2012-12"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20121228145448/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/flexi-mediguard-hospital-income-plan"
+    }
+   ]
+  },
+  {
+   "id": "aia-medishield-insurance-plan",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "「智護您」醫療回贈計劃",
+    "en": "MediShield Insurance Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-05",
+    "2012-01"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120101010604/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/medishield-Insurance-plan"
+    }
+   ]
+  },
+  {
+   "id": "aia-hospitalization-benefit-rider",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "醫療附加保障",
+    "en": "Medical rider"
+   },
+   "name": {
+    "zh": "「樂無憂」住院惠益附加契約",
+    "en": "Hospitalization Benefit Rider"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-05",
+    "2012-12"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20121223041528/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/hospitalization-benefit-rider"
+    }
+   ]
+  },
+  {
+   "id": "aia-executive-health-worldwide-plan",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "尊貴環球醫療計劃",
+    "en": "Executive Health Worldwide Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-05",
+    "2010-09"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20100906101147/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/executive-health-worldwide-plan"
+    }
+   ]
+  },
+  {
+   "id": "aia-outpatient-basic",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "門診",
+    "en": "Outpatient"
+   },
+   "name": {
+    "zh": "加倍關心門診保障",
+    "en": "Outpatient Basic"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-05",
+    "2012-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120704161406/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/outpatient-basic"
+    }
+   ]
+  },
+  {
+   "id": "aia-ceo-medical-plan-worldwide",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "至尊醫療計劃（環球）",
+    "en": "CEO Medical Plan (Worldwide)"
+   },
+   "status": "stopped",
+   "seen": [
+    "2011-01",
+    "2012-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120704161635/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/ceo-medical-plan-worldwide"
+    }
+   ]
+  },
+  {
+   "id": "aia-regal-health-plan-worldwide",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "富泰醫療計劃（環球）",
+    "en": "Regal Health Plan (Worldwide)"
+   },
+   "status": "stopped",
+   "seen": [
+    "2011-01",
+    "2012-06"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120627003644/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/medical-insurance/regal-health-plan-worldwide"
+    }
+   ]
+  },
+  {
+   "id": "aia-ceo-medical-plan-2-series",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "「至尊醫療計劃2」系列",
+    "en": "CEO Medical Plan 2 Series"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-03",
+    "2017-11"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20171101050107/http://www.aia.com.hk:80/zh-hk/our-products/medical-protection/ceo-medical-plan-2-series.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-ceo-essence-medical-plan",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "「亞洲至尊」醫療計劃",
+    "en": "CEO Essence Medical Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2015-06",
+    "2018-01"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20180104103337/http://www.aia.com.hk:80/zh-hk/our-products/medical-protection/ceo-essence-medical-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-ceo-essence-medical-plan-2",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "「亞洲至尊」醫療計劃 2",
+    "en": "CEO Essence Medical Plan 2"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-12",
+    "2023-10"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20231001161324/https://www.aia.com.hk/zh-hk/products/health/ceo-essence-medical-plan-2"
+    }
+   ]
+  },
+  {
+   "id": "aia-cancer-guardian-series",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "癌症醫療",
+    "en": "Cancer medical"
+   },
+   "name": {
+    "zh": "「癌症全方位保障」系列",
+    "en": "Cancer Guardian Series"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-03",
+    "2021-01"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210127043915/http://www.aia.com.hk/zh-hk/our-products/medical-protection/cancer-guardian-series.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-cancer-guardian-2",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "癌症醫療",
+    "en": "Cancer medical"
+   },
+   "name": {
+    "zh": "「癌症全方位保障2」",
+    "en": "Cancer Guardian 2"
+   },
+   "status": "stopped",
+   "seen": [
+    "2018-06",
+    "2022-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20221005212741/https://www.aia.com.hk/zh-hk/our-products/medical-protection/cancer-guardian-2.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-follow-me-always",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "醫療儲備",
+    "en": "Medical reserve"
+   },
+   "name": {
+    "zh": "「常‧伴我行」醫療儲備計劃",
+    "en": "Follow Me Always"
+   },
+   "status": "stopped",
+   "seen": [
+    "2014-04",
+    "2015-06"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "舊網站（2014–2015）有 Follow Me 產品頁；宏利官網產品頁冇再列出；宏利「延伸醫療支援」頁仍有為現有保單持有人而設嘅服務頁。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20150601045043/http://www.manulife.com.hk:80/wps/portal/pwshome/for-individual/insurance/quality-medical-care/detail/!ut/p/a0/04_Sj9CPykssy0xPLMnMz0vMAfGjzOJNAkxcDT0NjDwtAt1dDTz9zMLMPAKdDb1NjPQLsh0VAddgLms!/?urile=wcm%3Apath%3A%2Fpws%20content%20en%2Fpwshome%2Ffor-individual%2Four-solutions%2Finsurance%2Fquality-medical-care%2F_content%2Ffollow-me"
+    }
+   ]
+  },
+  {
+   "id": "manulife-follow-me-tomorrow",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "醫療儲備",
+    "en": "Medical reserve"
+   },
+   "name": {
+    "zh": "「來‧伴我行」醫療儲備計劃",
+    "en": "Follow Me Tomorrow"
+   },
+   "status": "stopped",
+   "seen": null,
+   "certNo": null,
+   "note": {
+    "zh": "宏利官網產品頁冇再列出；宏利「延伸醫療支援」頁仍有為現有保單持有人而設嘅服務頁。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "宏利延伸醫療支援頁（網頁存檔）",
+      "en": "Archived Manulife support page"
+     },
+     "url": "https://web.archive.org/web/2025/https://www.manulife.com.hk/zh-hk/individual/services/extended-medical-support/follow-me-tomorrow.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-golden-lifestyle-hospital-benefit",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "醫療附加保障",
+    "en": "Medical rider"
+   },
+   "name": {
+    "zh": "精彩生活住院附加保障計劃",
+    "en": "Golden Lifestyle Hospital Benefit"
+   },
+   "status": "stopped",
+   "seen": null,
+   "certNo": null,
+   "note": {
+    "zh": "宏利官網產品頁冇再列出；宏利「延伸醫療支援」頁仍有為現有保單持有人而設嘅服務頁。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "宏利延伸醫療支援頁（網頁存檔）",
+      "en": "Archived Manulife support page"
+     },
+     "url": "https://web.archive.org/web/2025/https://www.manulife.com.hk/zh-hk/individual/services/extended-medical-support/golden-lifestyle-hospital-benefit.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-premier-life-hospital-benefit",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "醫療附加保障",
+    "en": "Medical rider"
+   },
+   "name": {
+    "zh": "安康人生住院附加保障計劃",
+    "en": "Premier Life Hospital Benefit"
+   },
+   "status": "stopped",
+   "seen": null,
+   "certNo": null,
+   "note": {
+    "zh": "宏利官網產品頁冇再列出；宏利「延伸醫療支援」頁仍有為現有保單持有人而設嘅服務頁。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "宏利延伸醫療支援頁（網頁存檔）",
+      "en": "Archived Manulife support page"
+     },
+     "url": "https://web.archive.org/web/2025/https://www.manulife.com.hk/zh-hk/individual/services/extended-medical-support/premier-life-hospital-benefit.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-hospital-protector",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "住院保障計劃",
+    "en": "Hospital Protector"
+   },
+   "status": "stopped",
+   "seen": null,
+   "certNo": null,
+   "note": {
+    "zh": "宏利官網產品頁冇再列出；宏利「延伸醫療支援」頁仍有為現有保單持有人而設嘅服務頁。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "宏利延伸醫療支援頁（網頁存檔）",
+      "en": "Archived Manulife support page"
+     },
+     "url": "https://web.archive.org/web/2025/https://www.manulife.com.hk/zh-hk/individual/services/extended-medical-support/hospital-protector.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-hospital-benefit",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "醫療附加保障",
+    "en": "Medical rider"
+   },
+   "name": {
+    "zh": "住院附加保障",
+    "en": "Hospital Benefit"
+   },
+   "status": "stopped",
+   "seen": null,
+   "certNo": null,
+   "note": {
+    "zh": "宏利官網產品頁冇再列出；宏利「延伸醫療支援」頁仍有為現有保單持有人而設嘅服務頁。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "宏利延伸醫療支援頁（網頁存檔）",
+      "en": "Archived Manulife support page"
+     },
+     "url": "https://web.archive.org/web/2025/https://www.manulife.com.hk/zh-hk/individual/services/extended-medical-support/hospital-benefit.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-i-am-well",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "「我．健康」醫療計劃",
+    "en": "I am Well"
+   },
+   "status": "stopped",
+   "seen": null,
+   "certNo": null,
+   "note": {
+    "zh": "宏利官網產品頁冇再列出；宏利「延伸醫療支援」頁仍有為現有保單持有人而設嘅服務頁。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "宏利延伸醫療支援頁（網頁存檔）",
+      "en": "Archived Manulife support page"
+     },
+     "url": "https://web.archive.org/web/2025/https://www.manulife.com.hk/zh-hk/individual/services/extended-medical-support/i-am-well.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-manulife-supreme-medical-plan",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "宏利晉悅醫療保障計劃",
+    "en": "Manulife Supreme Medical Plan"
+   },
+   "status": "stopped",
+   "seen": null,
+   "certNo": null,
+   "note": {
+    "zh": "非自願醫保版本；宏利官網產品頁冇再列出；宏利「延伸醫療支援」頁仍有為現有保單持有人而設嘅服務頁。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "宏利延伸醫療支援頁（網頁存檔）",
+      "en": "Archived Manulife support page"
+     },
+     "url": "https://web.archive.org/web/2023/https://www.manulife.com.hk/zh-hk/individual/services/extended-medical-support/supreme-medical-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-cancer-treatment-benefit",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "癌症醫療",
+    "en": "Cancer medical"
+   },
+   "name": {
+    "zh": "癌症治療附加保障",
+    "en": "Cancer Treatment Benefit"
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-09",
+    "2025-04"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁 2025 年後冇再出現。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20250416093125/https://www.manulife.com.hk/zh-hk/individual/products/health/quality-medical-care/cancer-treatment-benefit.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruchoice-medical",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "保誠精選「醫療寶」",
+    "en": "PRUchoice Medical"
+   },
+   "status": "stopped",
+   "seen": [
+    "2015-01",
+    "2020-02"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20200218192113/http://www.prudential.com.hk:80/scws/pages/tc/products/general-insurance/accident-medical-00001/medical/index.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruchoice-health",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "保誠精選「健康寶」",
+    "en": "PRUchoice Health"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2019-09"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20190918203933/https://www.prudential.com.hk/scws/pages/tc/products/general-insurance/accident-medical-00001/mediextra/index.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruchoice-health-check-premier",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "身體檢查",
+    "en": "Health check"
+   },
+   "name": {
+    "zh": "保誠精選「尊尚康檢寶」醫療保障計劃",
+    "en": "PRUchoice Health Check Premier"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2019-09"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20190918203526/https://www.prudential.com.hk/scws/pages/tc/products/general-insurance/accident-medical-00001/healthcheck-deluxe/index.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-hospital-care-plan-kids-hospital-care-plan",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "住院護惠計劃／子女住院護惠計劃",
+    "en": "Hospital Care Plan / Kids Hospital Care Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2017-03",
+    "2019-12"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20191215124721/https://www.prudential.com.hk/scws/pages/tc/products/individual-life-insurance/health-insurance/prumed-hospital-care-plan/index.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruchoice-medical-series",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "保誠精選醫療保障系列",
+    "en": "PRUchoice Medical Series"
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-08",
+    "2021-04"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實 404）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210423023438/https://www.prudential.com.hk/tc/health-insurance/medical/pruchoice-medical-series/"
+    }
+   ]
+  },
+  {
+   "id": "pru-prucrisis-cover-smartchoice-pruhealth-critical-ill",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「智選」危疾保障計劃／守護健康智選危疾保",
+    "en": "PRUcrisis Cover SmartChoice / PRUhealth Critical Illness SmartChoice"
+   },
+   "status": "stopped",
+   "seen": [
+    "2015-04",
+    "2019-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20190716105259/https://www.prudential.com.hk/scws/pages/tc/products/individual-life-insurance/health-insurance/pruhealth-critical-illness-smartchoice/index.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-prumyhealth-cancer-protector",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "「癌症全護計劃」",
+    "en": "PRUmyhealth Cancer Protector"
+   },
+   "status": "stopped",
+   "seen": [
+    "2015-05",
+    "2019-12"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20191215125214/https://www.prudential.com.hk/scws/pages/tc/products/individual-life-insurance/health-insurance/prumyhealth-cancer-protector/index.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-100-refundable-crisis-cover",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「百分百」保費回贈危疾保障計劃",
+    "en": "100% Refundable Crisis Cover"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-11",
+    "2016-11"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20161112070225/http://www.prudential.com.hk:80/scws/pages/tc/products/individual-life-insurance/critical-illness-protection/100-refundable-crisis-cover/index.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruhealth-critical-illness-multi-care",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "守護健康危疾加倍保",
+    "en": "PRUhealth Critical Illness Multi-Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2017-06",
+    "2017-06"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20170614152308/http://www.prudential.com.hk:80/opencms/pages/tc/products/individual-life-insurance/health-insurance/pruhealth-critical-illness-multi-care/index.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruhealth-critical-illness-first-protect",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "危疾首護保",
+    "en": "PRUhealth Critical Illness First Protect"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2021-04"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "已由「危疾首護保II」取代。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210419210105/https://www.prudential.com.hk/tc/health-insurance/critical-illness/pruhealth-critical-illness-first-protect/"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruhealth-critical-illness-protector",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "守護健康危疾全護保",
+    "en": "PRUhealth Critical Illness Protector"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2020-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20201020145225/https://www.prudential.com.hk/tc/health-insurance/critical-illness/pruhealth-critical-illness-protector/"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruhealth-critical-illness-extended-care",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "守護健康危疾加護保",
+    "en": "PRUhealth Critical Illness Extended Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2019-11"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20191106142053/http://www.prudential.com.hk:80/scws/pages/tc/products/individual-life-insurance/health-insurance/pruhealth-critical-illness-extended-care/index.html"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruhealth-critical-illness-extended-care-ii",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "危疾加護保II",
+    "en": "PRUhealth Critical Illness Extended Care II"
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-01",
+    "2020-10"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "已由「危疾加護保III」取代。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20201023053740/https://www.prudential.com.hk/tc/health-insurance/critical-illness/pruhealth-critical-illness-extended-care-ii/"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruhealth-cancer-recover",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "癌症痊癒保",
+    "en": "PRUhealth Cancer Recover"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2019-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20190720142205/https://www.prudential.com.hk/scws/pages/tc/products/individual-life-insurance/health-insurance/pruhealth-cancer-recover/"
+    }
+   ]
+  },
+  {
+   "id": "pru-shero-breast-cancer-plan",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "SHEro乳癌保",
+    "en": "SHEro Breast Cancer Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2022-07",
+    "2023-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實 404）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20230320150710/https://www.prudential.com.hk/tc/health-insurance/critical-illness/shero-breast-cancer-plan/"
+    }
+   ]
+  },
+  {
+   "id": "pru-warm-heart-cardiovascular-protector",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "心血管",
+    "en": "Cardiovascular"
+   },
+   "name": {
+    "zh": "「有您心」心血管保障計劃",
+    "en": "Warm Heart Cardiovascular Protector"
+   },
+   "status": "stopped",
+   "seen": [
+    "2022-07",
+    "2023-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實 404）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20230320154519/https://www.prudential.com.hk/tc/health-insurance/critical-illness/warm-heart-cardiovascular-protector/"
+    }
+   ]
+  },
+  {
+   "id": "pru-cancer-no-fear",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "癌症洗乜驚",
+    "en": "Cancer No Fear"
+   },
+   "status": "stopped",
+   "seen": [
+    "2022-07",
+    "2023-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實 404）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20230320170606/https://www.prudential.com.hk/tc/health-insurance/critical-illness/cancer-no-fear/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-caring-family-medical-insurance-plan",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "「安康寶」家庭醫療保障計劃",
+    "en": "Caring Family Medical Insurance Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2014-01",
+    "2024-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20240715233355/https://www.fwd.com.hk/zh/medical-cover/caring-family-medical-insurance-plan/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-embrace-medical-plan",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "暖懷醫療保障計劃",
+    "en": "Embrace Medical Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-03",
+    "2021-05"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210511004746/https://www.fwd.com.hk/products/medical-cover/embrace-medical-plan/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-the-one-medical-solution",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "衛一醫療總匯",
+    "en": "The One Medical Solution"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-04",
+    "2022-05"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "高端醫療；而家官網只有自願醫保版「至．衛一醫療計劃」。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20220519082006/https://www.fwd.com.hk/products/medical-cover/the-one-medical-solution/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-medisaver-supreme",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "富衛醫存保（優越版）醫療計劃",
+    "en": "MediSaver Supreme"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2021-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211027063050/https://www.fwd.com.hk/products/medical-cover/medisaver-supreme/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-easy-health-refundable-hospital-income-plan",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "守衛您保費回贈住院保障計劃",
+    "en": "Easy Health Refundable Hospital Income Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2021-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211022230204/https://www.fwd.com.hk/products/medical-cover/easy-health-refundable-hospital-income-plan/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-cansurance-full-medical-plan",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "揀易保全面醫療計劃",
+    "en": "CANsurance Full Medical Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2021-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211022071810/https://www.fwd.com.hk/products/medical-cover/cansurance-fmp/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-crisis-vcover",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "危疾全攻略",
+    "en": "Crisis VCover"
+   },
+   "status": "stopped",
+   "seen": [
+    "2015-11",
+    "2019-09"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20190922120236/https://www.fwd.com.hk/tc/protect/health-accident/critical-illness/crisis-vcover/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-easy-defender-critical-illness-insurance-series",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "好安守危疾保障系列",
+    "en": "Easy Defender Critical Illness Insurance Series"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-04",
+    "2016-04"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20160410001226/http://www.fwd.com.hk:80/tc/protect/health-accident/critical-illness/easy-defender-critical-illness-insurance-series/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-crisis-xdefender-signature-supreme",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "危疾全守衛（卓越版）／（超卓版）",
+    "en": "Crisis XDefender Signature / Supreme"
+   },
+   "status": "stopped",
+   "seen": [
+    "2017-03",
+    "2023-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20230326210949/https://www.fwd.com.hk/products/critical-illness/crisis-xdefender-signature-series/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-crisis-xdefender-light",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "危疾全守衛（精裝版）",
+    "en": "Crisis XDefender Light"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-03",
+    "2024-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20240716003024/https://www.fwd.com.hk/zh/critical-illness/crisis-xdefender-light/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-fearless-cancer-protection-plan",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "攻守道癌症保障計劃",
+    "en": "Fearless Cancer Protection Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2021-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210725025654/https://www.fwd.com.hk/products/critical-illness/fearless-cancer-protection-plan/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-crisis-onecover",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "危疾晉御保",
+    "en": "Crisis OneCover"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-11",
+    "2021-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "而家官網有「危疾晉御保（尊尚版）」。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210303054309/https://www.fwd.com.hk/products/critical-illness/crisis-onecover/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-life-impact",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "生活守護保障",
+    "en": "Life Impact"
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-08",
+    "2021-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211022074036/https://www.fwd.com.hk/products/critical-illness/life-impact/"
+    }
+   ]
+  },
+  {
+   "id": "fwd-guardian-plus-refundable-critical-illness-plan",
+   "brand": {
+    "zh": "富衛",
+    "en": "FWD"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "健衛您保費回贈危疾保障計劃",
+    "en": "Guardian Plus Refundable Critical Illness Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-10",
+    "2021-10"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211027060531/https://www.fwd.com.hk/products/critical-illness/guardian-plus/"
+    }
+   ]
+  },
+  {
+   "id": "sun-sunhealth-medical-essential",
+   "brand": {
+    "zh": "永明金融",
+    "en": "Sun Life"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "永明精心醫療保",
+    "en": "SunHealth Medical Essential"
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-08",
+    "2025-02"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實轉回醫療保險目錄）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20250209205056/https://www.sunlife.com.hk/zh-hant/insurance/medical-and-critical-illness/sunhealth-medical-essential/"
+    }
+   ]
+  },
+  {
+   "id": "sun-sunhealth-ultracare-sunhealth-maxicare",
+   "brand": {
+    "zh": "永明金融",
+    "en": "Sun Life"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "永明危疾「全護」保／永明危疾「至尊」保",
+    "en": "SunHealth UltraCare / SunHealth MaxiCare"
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-08",
+    "2024-04"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實 404）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20240418171502/https://www.sunlife.com.hk/zh-hant/insurance/medical-and-critical-illness/sunhealth-ultracare-and-sunhealth-maxicare-video/"
+    }
+   ]
+  },
+  {
+   "id": "ctf-mediease-hospitalization-plan",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "「樂康健」住院醫療保障計劃",
+    "en": "MediEase Hospitalization Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-10",
+    "2016-11"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20161110063218/http://ftlife.com.hk:80/tc/products/life-insurance/health/mediease-hospitalization-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-lifecare-medical-account",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "醫療儲備",
+    "en": "Medical reserve"
+   },
+   "name": {
+    "zh": "守護終身醫療戶口",
+    "en": "LifeCare Medical Account"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-10",
+    "2016-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20161009144858/http://ftlife.com.hk:80/tc/products/life-insurance/health/lifecare-medical-account.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-mediease-surgical-plan",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "「樂康健」手術保障計劃",
+    "en": "MediEase Surgical Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-10",
+    "2023-11"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實轉回醫療目錄）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20231128183856/https://www.ftlife.com.hk/tc/product/health/mediease-surgical-benefit-plan"
+    }
+   ]
+  },
+  {
+   "id": "ctf-medizure-hospitalization-rider",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "醫療附加保障",
+    "en": "Medical rider"
+   },
+   "name": {
+    "zh": "樂康全面保住院醫療附加保障",
+    "en": "MediZure Hospitalization Rider"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-10",
+    "2016-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20161009144918/http://ftlife.com.hk:80/tc/products/life-insurance/health/medizure-hospitalization-rider.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-medigold-worldwide-medical-insurance-plan",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "裕醫保環球醫療保險計劃",
+    "en": "MediGold Worldwide Medical Insurance Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-10",
+    "2016-11"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20161121082301/http://www.ftlife.com.hk:80/tc/products/life-insurance/health/medigold-worldwide-medical-insurance-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-medipro-medical-insurance-plan",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "醫世保醫療保險計劃",
+    "en": "MediPro Medical Insurance Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-10",
+    "2016-11"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20161121082306/http://www.ftlife.com.hk:80/tc/products/life-insurance/health/medipro-medical-insurance-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-healthcare-100-critical-illness-protector",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "守護百分百危疾保障計劃",
+    "en": "HealthCare 100 Critical Illness Protector"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-09",
+    "2016-11"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20161110062855/http://ftlife.com.hk:80/tc/products/life-insurance/health/healthcare-100-critical-illness-protector.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-all-in-one-critical-illness-protector",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「全為您」危疾保障計劃",
+    "en": "All-in-One Critical Illness Protector"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-10",
+    "2021-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211017061751/https://www.ftlife.com.hk/tc/products/life-insurance/health/all-in-one-critical-illness-protector.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-extra-care-protector",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾附加保障",
+    "en": "CI rider"
+   },
+   "name": {
+    "zh": "「危疾全面保」附加保障",
+    "en": "Extra Care Protector"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-10",
+    "2021-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211017071612/https://www.ftlife.com.hk/tc/products/life-insurance/health/extra-care-protector.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-smiley-kid-critical-illness-insurance-plan",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "兒童危疾",
+    "en": "Children's CI"
+   },
+   "name": {
+    "zh": "「康健孩子」危疾保障計劃",
+    "en": "Smiley Kid Critical Illness Insurance Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-10",
+    "2021-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211017071058/https://www.ftlife.com.hk/tc/products/life-insurance/health/smiley-kid-critical-illness-insurance-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-healthcare-168-critical-illness-protector-2",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "守護168 危疾保障計劃2",
+    "en": "HealthCare 168 Critical Illness Protector 2"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2020-11"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "而家官網有「守護168」危疾保障計劃（加強版）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20201128101336/https://www.ftlife.com.hk/tc/products/life-insurance/health/healthcare-168-critical-illness-protector-2.html"
+    }
+   ]
+  },
+  {
+   "id": "ctf-health-ease-critical-illness-protector",
+   "brand": {
+    "zh": "周大福人壽（前身富通保險）",
+    "en": "CTF Life (formerly FTLife)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「康健易」危疾保障計劃",
+    "en": "Health@Ease Critical Illness Protector"
+   },
+   "status": "stopped",
+   "seen": [
+    "2021-06",
+    "2022-10"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20221006104024/https://www.ftlife.com.hk/tc/products/life-insurance/health/health@ease-critical-illness-protector.html"
+    }
+   ]
+  },
+  {
+   "id": "yf-primehealth-saver-1000",
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "首選健康保1000",
+    "en": "PrimeHealth Saver 1000"
+   },
+   "status": "stopped",
+   "seen": [
+    "2023-06",
+    "2024-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20240724142638/https://www.yflife.com/tc/Hong-Kong/Individual/Protect/Critical-Illness/PrimeHealth-Saver-1000/"
+    }
+   ]
+  },
+  {
+   "id": "yf-primehealth-cancer-saver",
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "首選癌症儲蓄保",
+    "en": "PrimeHealth Cancer Saver"
+   },
+   "status": "stopped",
+   "seen": [
+    "2023-09",
+    "2025-06"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20250613040303/https://www.yflife.com/tc/Hong-Kong/Individual/Protect/Critical-Illness/PrimeHealth-Cancer-Saver/"
+    }
+   ]
+  },
+  {
+   "id": "yf-primehealth-extra-saver",
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "首選健康多重保",
+    "en": "PrimeHealth Extra Saver"
+   },
+   "status": "stopped",
+   "seen": [
+    "2023-09",
+    "2023-09"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20230923042153/https://www.yflife.com/tc/Hong-Kong/Individual/Protect/Critical-Illness/PrimeHealth-Extra-Saver/"
+    }
+   ]
+  },
+  {
+   "id": "yf-primehealth-saver-100",
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "首選健康保100+保費回贈計劃",
+    "en": "PrimeHealth Saver 100"
+   },
+   "status": "stopped",
+   "seen": [
+    "2023-09",
+    "2023-09"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20230923045349/https://www.yflife.com/tc/Hong-Kong/Individual/Protect/Critical-Illness/PrimeHealth-Saver-100/"
+    }
+   ]
+  },
+  {
+   "id": "yf-primehealth-extra-care",
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "首選危疾保",
+    "en": "PrimeHealth Extra Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2023-09",
+    "2023-09"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20230923053440/https://www.yflife.com/tc/Hong-Kong/Individual/Protect/Critical-Illness/PrimeHealth-Extra-Care/"
+    }
+   ]
+  },
+  {
+   "id": "yf-primehealth-diabetes-care",
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "糖尿病",
+    "en": "Diabetes"
+   },
+   "name": {
+    "zh": "首選糖尿保",
+    "en": "PrimeHealth Diabetes Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2023-09",
+    "2026-02"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實轉回首頁）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20260216080847/https://www.yflife.com/tc/Hong-Kong/Individual/Protect/Critical-Illness/PrimeHealth-Diabetes-Care/"
+    }
+   ]
+  },
+  {
+   "id": "yf-primehealth-cancer-care",
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": null,
+    "en": "PrimeHealth Cancer Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2023-09",
+    "2025-06"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實）；中文名未能由存檔核實。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20250603071746/https://www.yflife.com/tc/Hong-Kong/Individual/Protect/Critical-Illness/PrimeHealth-Cancer-Care/"
+    }
+   ]
+  },
+  {
+   "id": "axa-smart-medical-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "真智醫療保障",
+    "en": "Smart Medical Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2005-11",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "而家官網有自願醫保版「真智安心醫療保障」。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723122209/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/smart_medical_insurance_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-healthsure-hospital-income-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "康綽住院現金保障",
+    "en": "HealthSure Hospital Income Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-11",
+    "2021-01"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210127195644/https://www.axa.com.hk/zh/healthsure-hospital-income-insurance"
+    }
+   ]
+  },
+  {
+   "id": "axa-global-elite-health-plan",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "寰宇特選醫療計劃",
+    "en": "Global Elite Health Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-11",
+    "2013-08"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20130825020705/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/global_elite_health_plan_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-global-elite-ii-health-plan",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "寰宇特選 II 醫療計劃",
+    "en": "Global Elite II Health Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2014-07",
+    "2024-12"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實）；而家官網有「臻尚環球醫療保障」。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20241203134123/https://www.axa.com.hk/zh/global-elite-ii-health-plan"
+    }
+   ]
+  },
+  {
+   "id": "axa-axa-executive-health-medical-plan",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "高端醫療",
+    "en": "High-end medical"
+   },
+   "name": {
+    "zh": "卓宇醫療保障計劃",
+    "en": "AXA Executive Health Medical Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2013-11",
+    "2013-11"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經銀行銷售。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20131103143815/http://axa.com.hk/html/AXA_PRO/chi/about/BCC/bancassurance/axa_executive_health_medical_plan_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-healthease-major-illness-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "康全嚴重疾病保障",
+    "en": "HealthEase Major Illness Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2011-11",
+    "2011-11"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20111103155327/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/Healthease_major_illness_insurance_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-healthpro-major-illness-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "康逸嚴重疾病保障",
+    "en": "HealthPro Major Illness Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-10",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723032621/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/healthpro_major_illness_insurance_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-healthselect-major-illness-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "康諾嚴重疾病保障",
+    "en": "HealthSelect Major Illness Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2013-08",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "已由「康諾 II 嚴重疾病保障」取代。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723125509/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/healthselect_major_illness_insurance_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-healthvital-major-illness-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "康采嚴重疾病保障",
+    "en": "HealthVital Major Illness Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2013-08",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "已由「康采 II 嚴重疾病保障」取代。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723132734/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/healthvital_major_illness_insurance_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-early-stage-major-illness-rider",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾附加保障",
+    "en": "CI rider"
+   },
+   "name": {
+    "zh": "早期嚴重疾病保障附加契約",
+    "en": "Early Stage Major Illness Rider"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-11",
+    "2012-11"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20121102140240/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/early_stage_major_illness_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-early-stage-major-illness-ii-rider",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾附加保障",
+    "en": "CI rider"
+   },
+   "name": {
+    "zh": "早期嚴重疾病保障 II 附加契約",
+    "en": "Early Stage Major Illness II Rider"
+   },
+   "status": "stopped",
+   "seen": [
+    "2013-08",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723124216/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/early_stage_major_illness_II_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-cancer-therapy-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "癌症治療保障",
+    "en": "Cancer Therapy Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2013-08",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723131626/http://www.axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/cancer_therapy_insurance_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-smart-lady-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "女性疾病",
+    "en": "Women's illness"
+   },
+   "name": {
+    "zh": "智倩女性保障",
+    "en": "Smart Lady Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2011-11",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723130907/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/smart_lady_insurance_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-smart-living-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "真智康寧保險",
+    "en": "Smart Living Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2011-11",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "而家只見「真智康寧保險 II」附加契約。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723133358/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/smart_living_insurance_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-living-insurance-plus",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "金裝康寧保險",
+    "en": "Living Insurance Plus"
+   },
+   "status": "stopped",
+   "seen": [
+    "2011-11",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "而家只見「金裝康寧保險 II」附加契約。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723133411/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/living_insurance_plus_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-extra-living-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "金裝康愉保險",
+    "en": "Extra Living Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2011-11",
+    "2014-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "而家只見「金裝康愉保險 II」附加契約。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140723114204/http://axa.com.hk/html/AXA_PRO/chi/insurance/health%20protection/extra_living_insurance_chi.html"
+    }
+   ]
+  },
+  {
+   "id": "axa-critipartner-critical-illness-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "愛護同行危疾保障",
+    "en": "CritiPartner Critical Illness Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2021-05"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "官網產品頁已撤（2026-11 核實轉回危疾目錄）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210514032530/https://www.axa.com.hk/zh/critipartner-critical-illness-insurance"
+    }
+   ]
+  },
+  {
+   "id": "axa-critipartner-plus-critical-illness-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "愛護同行危疾保障（加強版）",
+    "en": "CritiPartner Plus Critical Illness Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2021-04"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210418055102/https://www.axa.com.hk/zh/critipartner-plus-critical-illness-insurance"
+    }
+   ]
+  },
+  {
+   "id": "axa-loveassure-critical-illness-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "摯愛保危疾保障",
+    "en": "LoveAssure Critical Illness Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2021-09",
+    "2024-06"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "安盛現時危疾產品下載清單冇再列出。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20240616163945/https://www.axa.com.hk/zh/loveassure-critical-illness-insurance"
+    }
+   ]
+  },
+  {
+   "id": "axa-loveassure-plus-critical-illness-insurance",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "摯愛保危疾保障（升級版）",
+    "en": "LoveAssure Plus Critical Illness Insurance"
+   },
+   "status": "stopped",
+   "seen": [
+    "2021-09",
+    "2024-05"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "安盛現時危疾產品下載清單冇再列出。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20240513032328/https://www.axa.com.hk/zh/loveassure-plus-critical-illness-insurance"
+    }
+   ]
+  }
+ ]
+}
