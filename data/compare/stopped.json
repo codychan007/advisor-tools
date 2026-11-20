@@ -8,7 +8,7 @@
     "en": "AIA"
    },
    "note": {
-    "zh": "官網醫療產品頁存檔最早去到 2004 年（美國友邦年代）。",
+    "zh": "官網醫療產品頁存檔最早去到 2004 年（美國友邦年代）；2010–2012 年嘅危疾產品頁冇中文產品名，未列入。",
     "en": null
    }
   },
@@ -3539,7 +3539,7 @@
    ],
    "certNo": null,
    "note": {
-    "zh": "2020 年起官網危疾目錄冇列出，而家亦唔喺現售產品之列。",
+    "zh": "舊網站 2015 年已有產品頁；2020 年起官網危疾目錄冇列出，而家亦唔喺現售產品之列。",
     "en": null
    },
    "sources": [
@@ -3609,7 +3609,7 @@
    ],
    "certNo": null,
    "note": {
-    "zh": "2020 年起官網危疾目錄冇列出，而家亦唔喺現售產品之列。",
+    "zh": "舊網站 2017 年已有產品頁；2020 年起官網危疾目錄冇列出，而家亦唔喺現售產品之列。",
     "en": null
    },
    "sources": [
@@ -3654,6 +3654,338 @@
       "en": "Archived insurer page"
      },
      "url": "https://web.archive.org/web/20211130021313/https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manubright-care.html"
+    }
+   ]
+  },
+  {
+   "id": "manulife-manucritical-care",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": null,
+    "en": "ManuCritical Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2014-04",
+    "2015-09"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "舊網站（2014–2015）危疾產品；中文名未能由存檔核實。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20150908135911/http://www.manulife.com.hk:80/wps/portal/en/?1dmy&urile=wcm:path:/wps/wcm/connect/PWS+Content+EN/pwshome/for-individual/our-solutions/insurance/critical-illnesses/_content/manucritical-care"
+    }
+   ]
+  },
+  {
+   "id": "manulife-manutotal-care",
+   "brand": {
+    "zh": "宏利",
+    "en": "Manulife"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": null,
+    "en": "ManuTotal Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2015-01",
+    "2015-09"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "舊網站（2015）危疾產品；中文名未能由存檔核實。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20150908135918/http://www.manulife.com.hk:80/wps/wcm/connect/pws/PWS+Content+ZH/pwshome/for-individual/our-solutions/insurance/critical-illnesses/_content/manutotal-care?"
+    }
+   ]
+  },
+  {
+   "id": "aia-prime-care-pro",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「進泰安心保」",
+    "en": "Prime Care Pro"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-03",
+    "2017-05"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "已由「進泰安心保2」取代。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20170521221843/http://www.aia.com.hk:80/zh-hk/our-products/critical-illness-protection/prime-care-pro.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-protect-elevator-protect-elevator-plus",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「加裕倍安保」／「加裕倍安保（加強版）」",
+    "en": "Protect Elevator / Protect Elevator Plus"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-04",
+    "2018-01"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20180126192314/http://www.aia.com.hk:80/zh-hk/our-products/critical-illness-protection/protect-elevator-plus.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-superior-critical-illness-plan-pro",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「優越危疾保障計劃」",
+    "en": "Superior Critical Illness Plan Pro"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-04",
+    "2019-12"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20191206031145/https://www.aia.com.hk/zh-hk/our-products/critical-illness-protection/superior-critical-illness-plan-pro.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-smart-care-pro",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「多重進泰安心保」",
+    "en": "Smart Care Pro"
+   },
+   "status": "stopped",
+   "seen": [
+    "2017-03",
+    "2021-08"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210802144844/https://www.aia.com.hk/zh-hk/our-products/critical-illness-protection/smart-care-pro.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-protect-elite-ultra",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「加裕智倍保」",
+    "en": "Protect Elite Ultra"
+   },
+   "status": "stopped",
+   "seen": [
+    "2018-01",
+    "2019-01"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20190101053749/http://www.aia.com.hk:80/zh-hk/our-products/critical-illness-protection/protect-elite-ultra.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-protect-elite-ultra-2",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「加裕智倍保2」／「加裕智倍保2 – 首護摯寶」",
+    "en": "Protect Elite Ultra 2"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-08",
+    "2020-06"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20200628050155/https://www.aia.com.hk/zh-hk/our-products/critical-illness-protection/protect-elite-ultra-2.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-protect-elite-ultra-3",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「加裕智倍保3」／「加裕智倍保3 – 首護摯寶」",
+    "en": "Protect Elite Ultra 3"
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-08",
+    "2022-01"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20220125045630/https://www.aia.com.hk/zh-hk/our-products/critical-illness-protection/protect-elite-ultra-3.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-on-your-side-plan",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「愛伴航」／「愛伴航 – 首護摯寶」",
+    "en": "On Your Side Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2022-04",
+    "2022-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "而家有「愛伴航」保險計劃2。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20220707004404/https://www.aia.com.hk/zh-hk/our-products/critical-illness-protection/on-your-side-plan.html"
     }
    ]
   }
