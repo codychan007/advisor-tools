@@ -8,7 +8,7 @@
     "en": "AIA"
    },
    "note": {
-    "zh": "官網醫療產品頁存檔最早去到 2004 年（美國友邦年代）；2010–2012 年嘅危疾產品頁冇中文產品名，未列入。",
+    "zh": "官網醫療產品頁存檔最早去到 2004 年（美國友邦年代）；2010–2012 年危疾已由頁面內容讀返中文名。",
     "en": null
    }
   },
@@ -38,7 +38,7 @@
     "en": "Sun Life"
    },
    "note": {
-    "zh": "2009 年有少量存檔，之後到 2020 年先再有產品頁存檔，中間嘅產品可能搵唔到。",
+    "zh": "2009 年起有存檔；2011–2017 年舊網站（/hongkong/）都搵到部分產品頁，但未必齊。",
     "en": null
    }
   },
@@ -78,7 +78,7 @@
     "en": "YF Life (formerly MassMutual Asia)"
    },
    "note": {
-    "zh": "前身美國萬通網站（2000–2019）冇存到個人醫療／危疾產品頁，只可以追溯到 2023 年；資料最少。",
+    "zh": "前身美國萬通網站（2000–2019）冇存到個人醫療／危疾產品頁，產品頁只追溯到 2023 年；另外由萬通新聞稿（2019 年起）補。資料最少。",
     "en": null
    }
   }
@@ -3986,6 +3986,504 @@
       "en": "Archived insurer page"
      },
      "url": "https://web.archive.org/web/20220707004404/https://www.aia.com.hk/zh-hk/our-products/critical-illness-protection/on-your-side-plan.html"
+    }
+   ]
+  },
+  {
+   "id": "aia-executive-care",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "易達安心保",
+    "en": "Executive Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-04",
+    "2015-05"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20150502213907/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/critical-illness-insurance/executive-care"
+    }
+   ]
+  },
+  {
+   "id": "aia-enhanced-critical-illness-rider",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾附加保障",
+    "en": "CI rider"
+   },
+   "name": {
+    "zh": "「危疾錦囊」附加契約",
+    "en": "Enhanced Critical Illness Rider"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-04",
+    "2013-01"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20130116091742/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/critical-illness-insurance/enhanced-critical-Illness-rider"
+    }
+   ]
+  },
+  {
+   "id": "aia-superior-critical-illness-plan",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "萬應危疾錦囊計劃",
+    "en": "Superior Critical Illness Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-04",
+    "2012-02"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120202001455/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/critical-illness-insurance/superior-critical-lllness-plan"
+    }
+   ]
+  },
+  {
+   "id": "aia-superior-critical-illness-rider",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾附加保障",
+    "en": "CI rider"
+   },
+   "name": {
+    "zh": "「萬應危疾錦囊」附加契約",
+    "en": "Superior Critical Illness Rider"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-04",
+    "2013-01"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20130116110327/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/critical-illness-insurance/superior-critical-lllness-rider"
+    }
+   ]
+  },
+  {
+   "id": "aia-premium-refund-critical-illness",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "保費回贈—危疾保障",
+    "en": "Premium Refund – Critical Illness"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-04",
+    "2011-08"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20110810015802/http://aia.com.hk:80/ch/your-needs/for-individuals/protection/critical-illness-insurance/premium-refund-ci"
+    }
+   ]
+  },
+  {
+   "id": "aia-super-healthguard",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "特級倍康保危疾保障計劃",
+    "en": "Super HealthGuard"
+   },
+   "status": "stopped",
+   "seen": [
+    "2010-04",
+    "2011-08"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "而家有「進升危疾保障計劃」（Super HealthGuard Pro）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20110808162312/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/critical-illness-insurance/super-healthguard"
+    }
+   ]
+  },
+  {
+   "id": "aia-executive-care-pro",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "泰然安心保",
+    "en": "Executive Care Pro"
+   },
+   "status": "stopped",
+   "seen": [
+    "2011-12",
+    "2012-06"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "已由「泰然安心保2」取代。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120626055227/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/critical-illness-insurance/executive-care-pro"
+    }
+   ]
+  },
+  {
+   "id": "aia-multiple-care-pro",
+   "brand": {
+    "zh": "友邦保險",
+    "en": "AIA"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "多重安心保",
+    "en": "Multiple Care Pro"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-01",
+    "2012-08"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "已由「多重安心保2」取代。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120818100203/http://www.aia.com.hk:80/ch/your-needs/for-individuals/protection/critical-illness-insurance/multiple-care-pro"
+    }
+   ]
+  },
+  {
+   "id": "sun-sunhealth-critical-illness-care",
+   "brand": {
+    "zh": "永明金融",
+    "en": "Sun Life"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": null,
+    "en": "SunHealth Critical Illness Care"
+   },
+   "status": "stopped",
+   "seen": [
+    "2011-07",
+    "2016-10"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "舊網站（2011–2016）危疾產品；中文名未能由存檔核實。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20161016175724/http://www.sunlife.com.hk:80/hongkong/Products+and+Services/Individual+insurance/Protection/Critical+illness+insurance/SunHealth+Critical+Illness+Care?"
+    }
+   ]
+  },
+  {
+   "id": "sun-lavender-lady-s-benefit",
+   "brand": {
+    "zh": "永明金融",
+    "en": "Sun Life"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "女性疾病",
+    "en": "Women's illness"
+   },
+   "name": {
+    "zh": "薰衣草女性保障",
+    "en": "Lavender Lady's Benefit"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-06",
+    "2017-09"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20170922174157/http://www.sunlife.com.hk:80/hongkong/Products%20and%20Services/Individual%20Insurance/Health%20&%20Accident/Medical%20&%20Critical%20Illness/Lavender%20Lady%E2%80%99s%20Benefit?vgnLocale=en_CA"
+    }
+   ]
+  },
+  {
+   "id": "sun-multi-protection-benefit",
+   "brand": {
+    "zh": "永明金融",
+    "en": "Sun Life"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾附加保障",
+    "en": "CI rider"
+   },
+   "name": {
+    "zh": "「危疾多重保」附加保障",
+    "en": "Multi Protection Benefit"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-06",
+    "2012-08"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20120805061305/http://www.sunlife.com.hk/hongkong/Products+and+Services/Individual+insurance/Protection/Critical+illness+insurance/Multi+Protection+Benefit?vgnLocale=zh_TW"
+    }
+   ]
+  },
+  {
+   "id": "sun-critical-medical-care-insurance-plan",
+   "brand": {
+    "zh": "永明金融",
+    "en": "Sun Life"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "危疾護您保障計劃",
+    "en": "Critical Medical Care Insurance Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-06",
+    "2017-05"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "已由「危疾護您保障計劃II」取代。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20170504085406/http://www.sunlife.com.hk:80/hongkong/Products+and+Services/Individual+insurance/Protection/Critical+illness+insurance/Critical+Medical+Care+Insurance+Plan?"
+    }
+   ]
+  },
+  {
+   "id": "sun-bright-superb-health",
+   "brand": {
+    "zh": "永明金融",
+    "en": "Sun Life"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "明智顯耀醫療計劃",
+    "en": "BRIGHT Superb Health"
+   },
+   "status": "stopped",
+   "seen": [
+    "2015-03",
+    "2017-09"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20170924024022/http://www.sunlife.com.hk:80/hongkong/Products%20and%20Services/Individual%20Insurance/Health%20&%20Accident/Medical%20&%20Critical%20Illness/BRIGHT%20Superb%20Health?vgnLocale=en_CA"
+    }
+   ]
+  },
+  {
+   "id": "sun-child-accident-and-illness-benefits",
+   "brand": {
+    "zh": "永明金融",
+    "en": "Sun Life"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "兒童危疾",
+    "en": "Children's CI"
+   },
+   "name": {
+    "zh": "兒童安健保",
+    "en": "Child Accident and Illness Benefits"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-06",
+    "2017-10"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "兒童意外及疾病附加保障。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20171021154345/http://www.sunlife.com.hk/hongkong/Products+and+Services/Individual+Insurance/Health+&+Accident/Accident+&+Disability/Child+Accident+and+Illness+Benefits?vgnLocale=zh_TW"
+    }
+   ]
+  },
+  {
+   "id": "yf-primehealth-saver-500-plus",
+   "brand": {
+    "zh": "萬通保險（前身美國萬通）",
+    "en": "YF Life (formerly MassMutual Asia)"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「首選健康保500+」",
+    "en": "PrimeHealth Saver 500 Plus"
+   },
+   "status": "stopped",
+   "seen": null,
+   "certNo": null,
+   "note": {
+    "zh": "2019 年 11 月推出（萬通新聞稿）；而家官網危疾產品冇再列出。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "萬通新聞稿",
+      "en": "YF Life press release"
+     },
+     "url": "https://www.yflife.com/tc/about-us/newsroom/yf-life-launches-primehealth-saver-500-plus/"
     }
    ]
   }
