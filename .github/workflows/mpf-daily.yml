@@ -1,0 +1,64 @@
+# 強積金工具：每日由受託人官網拎最新基金價格（暫時：友邦、銀聯信託 BCT），commit 去 main，Cloudflare Pages 自動部署。
+# 唔使 AI、唔使錢（每次大約 1–2 分鐘）。
+# 某個受託人拎唔到或者價格同積金局月底價對唔上：嗰部分保留上次數據，其他照更新，但 workflow 會標示失敗，GitHub 會 email 通知。
+# 手動試：GitHub → Actions → 強積金每日價格 → Run workflow。
+name: 強積金每日價格
+
+on:
+  schedule:
+    - cron: "30 13 * * 1-6"     # 星期一至六 香港時間 21:30（基金分析 21:00 之後）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mpf-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 拎每日價格
+        id: build
+        run: |
+          set +e
+          python scripts/mpf/build_prices.py
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" = "1" ]; then exit 1; fi
+          exit 0
+
+      - name: 測試
+        run: node tests/mpf.test.js
+
+      - name: Commit 同 push
+        run: |
+          git config user.name "mpf-data-bot"
+          git config user.email "mpf-data-bot@users.noreply.github.com"
+          git add data/mpf/prices data/mpf/prices-index.json
+          if git diff --cached --quiet; then echo "冇新數據"; exit 0; fi
+          git commit -m "強積金每日價格 $(TZ=Asia/Hong_Kong date +%F)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 10
+          done
+          exit 1
+
+      - name: 有問題（已保留上次數據）
+        if: steps.build.outputs.code == '2'
+        run: |
+          python -c "import json; print('問題：', '; '.join(json.load(open('data/mpf/prices-index.json', encoding='utf-8'))['problems']))"
+          exit 1

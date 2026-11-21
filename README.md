@@ -28,3 +28,12 @@ TC Team專屬AI工具箱（同事內部用，有共用密碼）。上線同設�
 - 記錄成效同同事建議：`functions/api/roadshow-log.js`、`roadshow-suggest.js`（`server/roadshow-kv.js`），存 KV `ROADSHOW_KV`，每筆 1 年自動刪除，拒收電話／身份證／電郵。要先開 KV（`上線步驟.md` 4c）。
 - 自發企街（唔跟活動，Cody 2026-11-13 加）：`data/roadshow/ideas.json`（主題、月份、時段、地區站名、道具、舉牌字句、開場白、基本策略）。站名要喺 `spots.json` 有；加新站先加入 `scripts/build_spots.py` 嘅 `STATIONS_RAW` 再跑。記錄成效可以揀「自發：主題」，統計分「按活動／主題」同「按企位」。
 - 地圖：Leaflet 1.9.4（`assets/vendor/leaflet/`）＋地政總署地圖 API（免費、唔使 key）。海報：html2canvas。樣式：`assets/css/roadshow.css`。
+
+## 強積金工具（/mpf/）
+- 設計同 Cody 嘅選擇：`MPF-SPEC.md`（第 12 節係 Cody 2026-11-21 嘅答案，以呢節為準）。
+- 全行資料（積金局強積金基金平台：451 隻基金收費、回報、風險、持續成本）：`python scripts/mpf/build_market.py`（`--force` 強制重做）→ `data/mpf/market.json`。
+- 價格：`python scripts/mpf/build_prices.py`（每日：友邦 JSON、BCT 6 個計劃）；`--monthly` 加積金局月底價 Excel（要 `pip install xlrd`）；`--bct-backfill FROM TO --step N` 追 BCT 歷史；→ `data/mpf/prices/<積金局基金編號>.json`、`prices-index.json`。每個來源按「計劃＋英文基金名＋類別（A/H、D/I）」配對積金局編號，配唔到列 `unmatched`，唔估。
+- AIA 每月基金單張：`python scripts/mpf/build_factsheet.py`（`--back N` 追舊期）→ `data/mpf/factsheets/aia-YYYY-MM.json`；比較喺瀏覽器計（`assets/js/mpf-core.js` 嘅 `diffFactsheet`）。
+- 人手檔案：`data/mpf/allocation-rules.json`（配置數字）、`themes.json`（主題庫＋本月主題）、`offers.json`（優惠＋全自由行）。
+- 自動更新：`.github/workflows/mpf-daily.yml`（星期一至六 21:30）、`mpf-monthly.yml`（每月 10–28 號 10:00，有新先更新）。測試：`node tests/mpf.test.js`。
+- 其他受託人每日價（滙豐、宏利、永明、中銀保誠、東亞…）未做：滙豐嘅數據接口要特別標頭，自動模式安全檢查唔俾試；其他要逐間睇。

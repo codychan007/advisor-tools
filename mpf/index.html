@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>強積金工具 – TC Team專屬AI工具箱</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css?v=3">
+<link rel="stylesheet" href="/assets/css/mpf.css?v=1">
+</head>
+<body>
+<header class="site-header"><div class="wrap bar">
+  <a class="brand" href="/"><span class="seal">工</span><span>TC Team專屬AI工具箱<small>同事內部使用</small></span></a>
+  <a class="head-link" href="/">← 全部工具</a>
+</div></header>
+
+<main class="wrap mpf-main">
+  <h1><span class="brush">強積金工具</span></h1>
+  <p class="muted">全行 24 個計劃、四百幾隻成分基金：參考配置、同類跨公司比較、收費、回報、AIA 每月基金單張變化、轉移優惠。數據自動更新，全部喺你部機計，唔使錢。</p>
+  <p class="mpf-disc" id="topDisc">只供已登記強積金中介人內部參考，並非投資建議。</p>
+  <p id="dataInfo" class="muted" style="font-size:14px">載入緊數據…</p>
+
+  <div class="mpf-tabs" role="tablist">
+    <button type="button" role="tab" data-tab="alloc" aria-selected="true">參考配置</button>
+    <button type="button" role="tab" data-tab="peer" aria-selected="false">同類比較</button>
+    <button type="button" role="tab" data-tab="fees" aria-selected="false">全行收費</button>
+    <button type="button" role="tab" data-tab="ret" aria-selected="false">基金回報</button>
+    <button type="button" role="tab" data-tab="fs" aria-selected="false">每月單張變化</button>
+    <button type="button" role="tab" data-tab="offer" aria-selected="false">轉移優惠</button>
+  </div>
+
+  <!-- 參考配置 -->
+  <section class="card mpf-pane" id="tab-alloc">
+    <div class="mpf-form">
+      <div class="mpf-field">
+        <label for="alAge">客人年齡</label>
+        <div class="mpf-age"><input type="range" id="alAgeR" min="18" max="64" value="35" aria-label="年齡拉桿"><input type="number" id="alAge" min="18" max="64" value="35" inputmode="numeric"><span>歲</span></div>
+        <p class="hint" id="alYears"></p>
+      </div>
+      <div class="mpf-field">
+        <span class="mpf-lbl">風險取向</span>
+        <div class="seg mpf-prof" id="alProf"></div>
+        <div id="alCustomWrap" class="mpf-custom hidden"><label>股票比例 <b id="alCustomV">60%</b><input type="range" id="alCustom" min="0" max="100" step="5" value="60"></label></div>
+      </div>
+      <div class="mpf-field">
+        <label for="alScheme">強積金計劃</label>
+        <select id="alScheme"></select>
+        <p class="hint">同一個戶口只可以揀同一個計劃嘅基金；客人僱主用邊個計劃就揀邊個。</p>
+      </div>
+      <div class="mpf-field">
+        <span class="mpf-lbl">基金數目</span>
+        <div class="seg" id="alN">
+          <label><input type="radio" name="aln" value="2"><span>2 隻</span></label>
+          <label><input type="radio" name="aln" value="3" checked><span>3 隻</span></label>
+          <label><input type="radio" name="aln" value="4"><span>4 隻</span></label>
+          <label><input type="radio" name="aln" value="5"><span>5 隻</span></label>
+        </div>
+      </div>
+      <div class="mpf-field mpf-wide">
+        <span class="mpf-lbl">時事主題（可多選）<small id="alThemeInfo"></small></span>
+        <div class="mpf-themes" id="alThemes"></div>
+      </div>
+    </div>
+    <div id="alResult"></div>
+  </section>
+
+  <!-- 同類比較 -->
+  <section class="card mpf-pane hidden" id="tab-peer">
+    <div class="mpf-filters">
+      <label>積金局基金類別<select id="peCat"></select></label>
+      <label>標示計劃<select id="peHi"></select></label>
+    </div>
+    <p class="hint" id="peSummary"></p>
+    <div class="mpf-chartbox" id="peScatter"></div>
+    <div class="table-wrap mpf-table-wrap"><table class="mpf-table" id="peTable"></table></div>
+    <div id="peLine"></div>
+    <p class="hint">回報、收費、風險級別：積金局強積金基金平台，同一截至日、已扣除基金收費。剔選最多 4 隻基金睇價格走勢（同一起點 = 100）。</p>
+  </section>
+
+  <!-- 全行收費 -->
+  <section class="card mpf-pane hidden" id="tab-fees">
+    <div class="mpf-filters" id="feFilters"></div>
+    <p class="hint" id="feHint"></p>
+    <div class="table-wrap mpf-table-wrap"><table class="mpf-table" id="feTable"></table></div>
+    <details class="note" style="margin-top:12px"><summary><b>欄目點解讀</b></summary>
+      <ul>
+        <li><b>基金開支比率（FER）</b>：上一個財政年度基金實際總開支佔資產 %，最能反映「真正收費」，已包括管理費同其他開支。</li>
+        <li><b>管理費分項</b>：受託人／保管人費、積金易平台費、成員服務費、投資管理費（「最高」= 上限）。</li>
+        <li><b>持續成本</b>：積金局估計每投資 HK$1,000，一年／三年／五年大約要俾幾多錢收費。</li>
+        <li>計劃層面收費（參加費、年費、權益提取費等）大部分係 0，有收先會喺基金名下面顯示。</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- 基金回報 -->
+  <section class="card mpf-pane hidden" id="tab-ret">
+    <div class="mpf-filters" id="reFilters"></div>
+    <p class="hint" id="reHint"></p>
+    <div class="table-wrap mpf-table-wrap"><table class="mpf-table" id="reTable"></table></div>
+    <p class="hint">「最新價」有 <span class="mpf-daily">每日</span> 標記 = 受託人每日價（暫時：友邦、銀聯信託 BCT；其他受託人陸續加入）；其餘用積金局月底價。1 個月、3 個月、今年、1 年由我哋價格計；5 年、10 年、每年回報係積金局公佈。</p>
+  </section>
+
+  <!-- 每月單張變化 -->
+  <section class="card mpf-pane hidden" id="tab-fs">
+    <div class="mpf-filters"><label>期數<select id="fsMonth"></select></label></div>
+    <p class="hint" id="fsHint"></p>
+    <div id="fsList"></div>
+    <div id="fsDetail"></div>
+  </section>
+
+  <!-- 轉移優惠 -->
+  <section class="card mpf-pane hidden" id="tab-offer">
+    <div id="ofNews"></div>
+    <h2 class="mpf-h2">各受託人轉入優惠</h2>
+    <p class="hint" id="ofHint"></p>
+    <div class="mpf-offers" id="ofList"></div>
+  </section>
+</main>
+
+<div class="mpf-report-host" id="reportHost" aria-hidden="true"></div>
+<footer class="site-footer"><div class="wrap">只供同事內部參考，以積金局及受託人公佈為準。</div></footer>
+<script src="/assets/vendor/html2canvas.min.js"></script>
+<script src="/assets/js/fund-pdf.js?v=1"></script>
+<script src="/assets/js/mpf-core.js?v=1"></script>
+<script src="/assets/js/mpf.js?v=1"></script>
+</body>
+</html>

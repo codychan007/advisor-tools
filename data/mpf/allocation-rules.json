@@ -1,0 +1,33 @@
+{
+  "_note": "強積金工具「參考配置」規則（MPF-SPEC.md §4）。Cody 2026-11-21：預設數字先用住，之後按同事 feedback 調整。改呢個檔案就得，唔使改程式。類別用積金局基金類別入面嘅字眼配對（match 任何一個字眼即算）。",
+  "profiles": {
+    "conservative": { "name": "保守", "equity": 20, "riskMax": 3, "desc": "重視保本，接受較低回報" },
+    "balanced": { "name": "平穩", "equity": 50, "riskMax": 5, "desc": "可以接受中等波動" },
+    "growth": { "name": "進取", "equity": 80, "riskMax": 7, "desc": "年期長，追求長線增值" },
+    "custom": { "name": "自訂", "equity": null, "riskMax": 7, "desc": "同事自己定股票比例" }
+  },
+  "retireAge": 65,
+  "glide": { "startYears": 15, "fromEquity": 80, "toEquity": 20, "note": "距離 65 歲 15 年或以下：股票上限由 80% 每年直線減到 1 年時 20%（同積金局預設投資策略 50 歲開始減風險嘅道理一樣）" },
+  "equityCore": { "global": 40, "us": 25, "asia": 15, "chhk": 15, "europe": 5, "japan": 0 },
+  "bondSplit": { "gbond": 50, "abond": 50 },
+  "cashRamp": { "withinYears": 10, "perYear": 5, "note": "距離退休 10 年或以下：每近一年，債券部分其中 5% 轉去強積金保守基金" },
+  "tiltCap": 15,
+  "roundTo": 5,
+  "buckets": {
+    "global": { "name": "環球股票", "kind": "equity", "match": ["環球股票"], "fallback": ["us", "asia"] },
+    "us": { "name": "美國股票", "kind": "equity", "match": ["美國股票"], "fallback": ["global"] },
+    "asia": { "name": "亞洲股票", "kind": "equity", "match": ["亞洲股票"], "fallback": ["global"] },
+    "chhk": { "name": "中港股票", "kind": "equity", "match": ["香港股票", "大中華股票", "中國股票"], "fallback": ["asia", "global"] },
+    "europe": { "name": "歐洲股票", "kind": "equity", "match": ["歐洲股票"], "fallback": ["global"] },
+    "japan": { "name": "日本股票", "kind": "equity", "match": ["日本股票"], "fallback": ["asia", "global"] },
+    "gbond": { "name": "環球債券", "kind": "bond", "match": ["環球債券"], "fallback": ["abond"] },
+    "abond": { "name": "亞洲／港元債券", "kind": "bond", "match": ["亞洲債券", "港元債券", "人民幣債券"], "fallback": ["gbond"] },
+    "cash": { "name": "強積金保守基金", "kind": "cash", "match": ["強積金保守基金"], "fallback": ["abond", "gbond"] }
+  },
+  "mergeInto": { "equity": "global", "bond": "gbond", "cash": "gbond" },
+  "disclaimer": [
+    "只供已登記強積金中介人內部參考，並非投資建議；向客戶提供意見前須按公司程序完成風險評估。",
+    "投資涉及風險，過往表現不代表將來表現。基金回報已扣除基金收費。",
+    "時事主題由 TC Team 每月揀選，只作討論方向，並非市場預測。"
+  ]
+}

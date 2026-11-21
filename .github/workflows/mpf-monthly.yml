@@ -1,0 +1,83 @@
+# 強積金工具：每月全行資料（積金局強積金基金平台：收費、回報、風險；積金局月底價）同 AIA 每月基金單張。
+# 積金局大約每月中先出上個月數據、AIA 單張遲 2–3 個月，所以每月 10–28 號每日睇一次，有新先更新。
+# 唔使 AI、唔使錢（冇新數據時大約 1 分鐘；有新時大約 5 分鐘，要讀 450 隻基金嘅詳細頁）。
+# 手動試：GitHub → Actions → 強積金每月更新 → Run workflow（勾 force 會強制重做全行資料）。
+name: 強積金每月更新
+
+on:
+  schedule:
+    - cron: "0 2 10-28 * *"     # 每月 10–28 號 香港時間 10:00
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "強制重做全行資料"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mpf-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 安裝 pypdf、xlrd
+        run: pip install pypdf==6.21.1 xlrd==2.0.2
+
+      - name: 積金局全行資料
+        id: market
+        run: |
+          set +e
+          python scripts/mpf/build_market.py ${{ inputs.force && '--force' || '' }}
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: 積金局月底價
+        id: prices
+        run: |
+          set +e
+          python scripts/mpf/build_prices.py --monthly --mpfa-months 3
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: AIA 每月基金單張
+        id: fs
+        run: |
+          set +e
+          python scripts/mpf/build_factsheet.py --back 4
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: 測試
+        run: node tests/mpf.test.js
+
+      - name: Commit 同 push
+        run: |
+          git config user.name "mpf-data-bot"
+          git config user.email "mpf-data-bot@users.noreply.github.com"
+          git add data/mpf
+          if git diff --cached --quiet; then echo "冇新數據"; exit 0; fi
+          git commit -m "強積金每月更新 $(TZ=Asia/Hong_Kong date +%F)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 10
+          done
+          exit 1
+
+      - name: 有來源出錯
+        if: steps.market.outputs.code == '1' || steps.prices.outputs.code == '1' || steps.fs.outputs.code == '1'
+        run: |
+          echo "全行=${{ steps.market.outputs.code }} 月底價=${{ steps.prices.outputs.code }} 單張=${{ steps.fs.outputs.code }}（1 = 讀唔到，已保留上次數據）"
+          exit 1

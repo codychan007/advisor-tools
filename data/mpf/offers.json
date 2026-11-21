@@ -1,0 +1,37 @@
+{
+  "_note": "強積金轉移／整合優惠（人手檔案，只放公開資料）。每月由 Claude 雲端任務去各受託人優惠頁核對，有改動開 branch 等 Cody 批。checked = 最後核對日期；verified=false 即係只係由網上搜尋摘要抄，未逐條睇條款。",
+  "updated": "2026-11-21",
+  "news": [
+    { "title": "強積金「全自由行」首階段 2026年12月21日實施",
+      "body": "2025年5月1日或之後入職或轉職嘅僱員，每個公曆年可以一次將現職僱主強制性供款嘅累算權益全數轉去自選計劃嘅個人帳戶（計劃規則容許可以多過一次）。要經「積金易」平台辦理；2026年嘅轉移窗口係 12月21日至31日，2027年由 1月1日起。2025年5月1日之前已入職嘅僱員屬次階段，政府擬 2027年年中提交修訂。",
+      "source": "https://www.news.gov.hk/chi/2026/10/20261016/20261016_125849_950.html", "sourceName": "政府新聞網 2026-10-16" },
+    { "title": "轉移、整合要經「積金易」",
+      "body": "所有計劃已經加入「積金易」平台；開個人帳戶、整合、僱員自選安排轉移都要喺積金易（網站／App）或者受託人櫃位提交。轉移期間啲錢會賣出變現金再買入，有一段時間唔喺市場。",
+      "source": "https://www.mpfa.org.hk/mpf-system/mpf-account-management/transferring-mpf", "sourceName": "積金局：強積金的轉移" }
+  ],
+  "offers": [
+    { "trustee": "東亞", "scheme": "東亞（強積金）集成信託計劃／行業計劃", "title": "整合強積金資產獎賞",
+      "from": "2026-07-01", "to": "2026-12-31",
+      "reward": "雙重優惠最高 HK$88,888 單位獎賞（額外回贈 5,000 個名額先到先得）",
+      "conditions": "推廣期內登記，並於 2027-02-28 或之前由其他供應商轉入 HK$50,000 或以上",
+      "source": "https://www.hkbea.com/html/tc/bea-mpf-master-trust-industry-scheme-promo.html", "checked": "2026-11-21", "verified": false },
+    { "trustee": "HSBC（恒生）", "scheme": "恒生強積金智選計劃", "title": "恒生強積金獎賞優惠",
+      "from": "2026-10-01", "to": "2026-12-31",
+      "reward": "基本紅利單位回贈＋抽獎",
+      "conditions": "2027-02-28 或之前轉入個人帳戶（非供款帳戶）淨累積 HK$100,000 或以上",
+      "source": "https://cms.hangseng.com/cms/emkt/pmo/grp06/p64/chi/index1.html", "checked": "2026-11-21", "verified": false },
+    { "trustee": "中國人壽", "scheme": "中國人壽強積金集成信託計劃", "title": "整合賬戶基金單位回贈",
+      "from": "2026-05-01", "to": "2026-12-31",
+      "reward": "基金單位回贈最高 HK$99,999（2028-03-31 發放）",
+      "conditions": "推廣期內轉入指定金額",
+      "source": "https://www.chinalife.com.hk/zh-hk/mpf-rebate-promotion", "checked": "2026-11-21", "verified": false },
+    { "trustee": "HSBC（滙豐）", "scheme": "滙豐強積金智選計劃（可扣稅自願性供款）", "title": "TVC 轉入紅利回贈",
+      "from": "2026-04-01", "to": "2027-03-31",
+      "reward": "轉入 TVC 累積權益最高 HK$2,888 紅利單位（基本最高 HK$1,925；積金好僱主僱員額外 1.5 倍）",
+      "conditions": "轉入可扣稅自願性供款帳戶",
+      "source": "https://www.hsbc.com.hk/zh-hk/mpf/products/tvc-accounts/bonus-rebates", "checked": "2026-11-21", "verified": false },
+    { "trustee": "友邦", "scheme": "友邦強積金優選計劃", "title": "（未搵到公開嘅轉入優惠，請同事補充）",
+      "from": "", "to": "", "reward": "", "conditions": "",
+      "source": "https://www.aia.com.hk/zh-hk/products/mpf", "checked": "2026-11-21", "verified": false }
+  ]
+}

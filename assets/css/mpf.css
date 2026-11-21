@@ -1,0 +1,114 @@
+/* 強積金工具（/mpf/）— 用 style.css 嘅顏色同字體，呢度只加呢頁專用嘅樣式 */
+.mpf-main { max-width: 1160px; }
+.mpf-disc { font-size: 13px; color: #8A5F14; background: var(--ochre-50); border-left: 3px solid var(--ochre); padding: 6px 10px; border-radius: 4px; }
+.mpf-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0 14px; }
+.mpf-tabs button { font: inherit; font-weight: 700; min-height: 40px; padding: 0 16px; border: 1.5px solid var(--ink); border-radius: 999px; background: #fff; color: var(--ink); cursor: pointer; }
+.mpf-tabs button[aria-selected="true"] { background: var(--ink); color: var(--card); }
+.mpf-h2 { font-size: 18px; margin: 18px 0 6px; }
+.mpf-lbl { font-weight: 700; font-size: 14px; display: block; margin-bottom: 4px; }
+.mpf-lbl small { font-weight: 400; color: var(--ink-3); margin-left: 6px; }
+
+/* 表單 */
+.mpf-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px 20px; }
+.mpf-field > label { font-weight: 700; font-size: 14px; display: block; margin-bottom: 4px; }
+.mpf-wide { grid-column: 1 / -1; }
+.mpf-age { display: flex; align-items: center; gap: 8px; }
+.mpf-age input[type=range] { flex: 1; min-width: 0; }
+.mpf-age input[type=number] { width: 76px; text-align: right; }
+.mpf-prof span { min-height: 38px; font-size: 14px; }
+.mpf-custom { margin-top: 8px; font-size: 14px; }
+.mpf-custom input { width: 100%; }
+.mpf-themes { display: flex; flex-wrap: wrap; gap: 6px; }
+.mpf-theme { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 12px 4px 8px; font-size: 14px; cursor: pointer; background: #fff; }
+.mpf-theme input { margin: 0; }
+.mpf-theme.on { border-color: var(--shu); background: var(--shu-50); }
+.mpf-theme b { font-size: 11px; color: #fff; background: var(--shu); border-radius: 4px; padding: 0 4px; }
+.mpf-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px 12px; margin-bottom: 8px; }
+.mpf-filters label { font-size: 13px; font-weight: 700; display: flex; flex-direction: column; gap: 3px; }
+.mpf-filters .mpf-check { flex-direction: row; align-items: center; gap: 6px; font-weight: 400; }
+
+/* 配置結果 */
+.mpf-res { margin-top: 18px; border-top: 2px solid var(--ink); padding-top: 14px; }
+.mpf-bar { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1.5px solid var(--ink); margin: 8px 0 4px; }
+.mpf-bar span { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 700; white-space: nowrap; overflow: hidden; }
+.mpf-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; }
+.mpf-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+.mpf-picks { display: grid; gap: 10px; margin-top: 12px; }
+.mpf-pick { border: 1.5px solid var(--line); border-radius: 8px; padding: 10px 12px; background: #fff; }
+.mpf-pick-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mpf-pick-head b { font-size: 15px; }
+.mpf-pick-head input { width: 70px; text-align: right; }
+.mpf-pick select { width: 100%; margin-top: 6px; }
+.mpf-pick .mpf-facts { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+.mpf-pick .mpf-facts b { color: var(--ink); }
+.mpf-sumline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.mpf-sumline .ok { color: var(--matcha); font-weight: 700; } .mpf-sumline .bad { color: var(--danger); font-weight: 700; }
+.mpf-steps { margin: 6px 0; padding-left: 0; list-style: none; font-size: 14px; }
+.mpf-steps li { padding: 3px 0; }
+.mpf-why { background: var(--paper-2); border-radius: 8px; padding: 10px 12px; font-size: 14px; }
+.mpf-why p { margin: 4px 0; }
+.mpf-warn { color: var(--danger); font-weight: 700; }
+.mpf-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-top: 10px; }
+.mpf-kpi { border: 1.5px solid var(--line); border-radius: 8px; padding: 8px 10px; background: #fff; }
+.mpf-kpi small { display: block; font-size: 12px; color: var(--ink-3); }
+.mpf-kpi b { font-size: 18px; font-variant-numeric: tabular-nums; }
+.mpf-pdf { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 14px; }
+.mpf-pdf input[type=text], .mpf-pdf input[type=tel] { max-width: 180px; }
+
+/* 表格 */
+.mpf-table-wrap { max-height: 72vh; }
+.mpf-table td { vertical-align: top; font-variant-numeric: tabular-nums; }
+.mpf-table td.l, .mpf-table th.l { text-align: left; }
+.mpf-name { white-space: normal !important; min-width: 220px; max-width: 340px; text-align: left !important; }
+.mpf-name small, .mpf-table td small { display: block; font-size: 11px; color: var(--ink-3); line-height: 1.4; }
+.mpf-table tr.hi td { background: var(--shu-50); }
+.mpf-table tr.hi .mpf-name b { color: var(--shu-dark); }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:hover, th.sortable.on { color: var(--shu-dark); }
+td.pos { color: var(--matcha); } td.neg { color: var(--danger); }
+.mpf-daily { display: inline-block; font-size: 10px; font-weight: 700; color: #fff; background: var(--matcha); border-radius: 4px; padding: 0 4px; vertical-align: middle; }
+.mpf-rank { font-weight: 700; }
+
+/* 圖 */
+.mpf-chartbox svg { width: 100%; height: auto; display: block; border: 1.5px solid var(--line); border-radius: 6px; background: #fff; margin: 6px 0; }
+.mpf-chartbox .mpf-legend { margin-bottom: 6px; }
+
+/* 單張變化 */
+.mpf-fslist { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.mpf-fscard { text-align: left; font: inherit; border: 1.5px solid var(--line); border-radius: 8px; padding: 8px 10px; background: #fff; cursor: pointer; }
+.mpf-fscard:hover, .mpf-fscard.on { border-color: var(--shu); }
+.mpf-fscard.top { border-color: var(--ochre); }
+.mpf-fscard b { display: block; }
+.mpf-fscard small { color: var(--ink-2); font-size: 12px; line-height: 1.5; display: block; }
+.mpf-tag { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 4px; background: var(--paper-2); margin: 2px 4px 0 0; }
+.mpf-fsdetail { margin-top: 16px; border-top: 2px solid var(--ink); padding-top: 12px; }
+.mpf-fsgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.mpf-sent { margin: 0; line-height: 1.75; }
+.mpf-sent mark { background: #FCEBB6; padding: 0 1px; }
+.mpf-up { color: var(--matcha); font-weight: 700; } .mpf-down { color: var(--danger); font-weight: 700; }
+
+/* 優惠 */
+.mpf-news { border-left: 3px solid var(--shu); background: var(--shu-50); padding: 8px 12px; border-radius: 4px; margin-bottom: 8px; }
+.mpf-news p { margin: 4px 0; font-size: 14px; }
+.mpf-offers { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.mpf-offer { border: 1.5px solid var(--line); border-radius: 8px; padding: 10px 12px; background: #fff; font-size: 14px; }
+.mpf-offer.aia { border-color: var(--shu); }
+.mpf-offer.old { opacity: .55; }
+.mpf-offer h3 { font-size: 15px; margin: 0 0 4px; }
+.mpf-offer p { margin: 3px 0; }
+.mpf-offer small { color: var(--ink-3); }
+
+/* 客人報告（畫面外用 A4 闊度畫好，html2canvas 影低再變 PDF） */
+.mpf-report-host { position: fixed; left: -12000px; top: 0; width: 794px; pointer-events: none; }
+.mpf-report { width: 794px; padding: 40px 44px 36px; background: #fff; color: #1a1a1a; font-size: 12px; line-height: 1.55; }
+.mpf-report h1 { font-size: 22px; margin: 0; }
+.mpf-report h3 { font-size: 13px; margin: 12px 0 4px; }
+.mpf-rep-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 10px; }
+.mpf-rep-head p { margin: 2px 0 0; color: var(--ink-2); }
+.mpf-report table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.mpf-report th, .mpf-report td { border-bottom: 1px solid #ddd; padding: 4px 6px; text-align: right; }
+.mpf-report th:first-child, .mpf-report td:first-child { text-align: left; }
+.mpf-report .mpf-bar { height: 20px; }
+.mpf-rep-disc { font-size: 10px; color: var(--ink-2); margin-top: 12px; }
+.mpf-rep-disc p { margin: 2px 0; }
+@media (max-width: 560px) { .mpf-pick-head input { width: 60px; } }
