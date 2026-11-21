@@ -5074,6 +5074,427 @@
    "updatedOn": "2026-11-05",
    "verified": true,
    "verifiedBy": "Claude 複核 2026-11-06（Cody 授權代剔）：重新下載官方小冊子／產品頁，逐項對卡上數字（疾病數目、投保年齡、等候期、賠償百分比、多次賠償；有保費表嘅對 30／45／60 歲保費）；改正咗安盛 6 個等候期（90→60 日）、4 個改「見條款」、保誠延續保障 III 多次賠償寫法"
+  },
+  {
+   "rider": false,
+   "renewal": null,
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 0,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "涵蓋多達 76 種危疾；另保障末期疾病、完全及永久傷殘、不能獨立生活、重大醫療治療 4 種指定情況",
+    "en": "Up to 76 critical illnesses, plus terminal illness, TPD, loss of independent existence and major medical treatment"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "供款期內保費維持不變；保額港幣 10 萬至 250 萬（官網：每日港幣 7.7 元起）",
+    "en": "Premium level during payment term; sum insured HK$100k–2.5M (from HK$7.7 a day per website)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": null,
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由官方產品頁／小冊子抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」",
+   "id": "hsbc-swift-guard",
+   "insurer": {
+    "zh": "滙豐人壽保險（國際）有限公司",
+    "en": "HSBC Life (International) Limited"
+   },
+   "plan": {
+    "zh": "滙達保危疾保障計劃",
+    "en": "Swift Guard Critical Illness Plan"
+   },
+   "type": null,
+   "coverText": {
+    "zh": "10 年保障期；期滿未有索償可保證退回已繳總保費 101%",
+    "en": "10-year cover; 101% of total premiums returned at expiry if no claim"
+   },
+   "termsUrl": {
+    "zh": "https://www.hsbc.com.hk/content/dam/hsbc/hk/tc/docs/insurance/medical/swift-guard/2022-jul-product-brochure.pdf",
+    "en": "https://www.hsbc.com.hk/content/dam/hsbc/hk/tc/docs/insurance/medical/swift-guard/2022-jul-product-brochure.pdf"
+   },
+   "source": {
+    "zh": "滙豐官網：產品頁及小冊子",
+    "en": "HSBC website: product page and brochure"
+   },
+   "sourceUrl": "https://www.hsbc.com.hk/zh-hk/insurance/products/medical-and-critical-illness/swift-guard/"
+  },
+  {
+   "rider": false,
+   "renewal": null,
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 0,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": null,
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": null,
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": null,
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由官方產品頁／小冊子抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」",
+   "id": "hsbc-cancer-care",
+   "insurer": {
+    "zh": "滙豐人壽保險（國際）有限公司",
+    "en": "HSBC Life (International) Limited"
+   },
+   "plan": {
+    "zh": "癌症保障計劃",
+    "en": "Cancer Care"
+   },
+   "type": null,
+   "coverText": {
+    "zh": "癌症保障（詳情見產品摘要）",
+    "en": "Cancer cover (see product summary)"
+   },
+   "termsUrl": {
+    "zh": "https://www.hsbc.com.hk/content/dam/hsbc/hk/tc/docs/insurance/life/cancer-care/summary.pdf",
+    "en": "https://www.hsbc.com.hk/content/dam/hsbc/hk/tc/docs/insurance/life/cancer-care/summary.pdf"
+   },
+   "source": {
+    "zh": "滙豐官網：產品頁及產品摘要",
+    "en": "HSBC website: product page and summary"
+   },
+   "sourceUrl": "https://www.hsbc.com.hk/zh-hk/insurance/products/medical-and-critical-illness/cancer-care/"
+  },
+  {
+   "rider": false,
+   "renewal": null,
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 55,
+    "early": 39,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有兒童疾病保障；首 10 年升級保障",
+    "en": "Plus child diseases; upgrade benefit in first 10 years"
+   },
+   "earlyText": {
+    "zh": "非嚴重疾病每次賠投保額 20%，每種限 1 次；兒童疾病同非嚴重疾病合共最多投保額 80%",
+    "en": "Non-severe illness pays 20% of sum insured each, once per illness; child + non-severe capped at 80%"
+   },
+   "multiClaim": null,
+   "multiText": {
+    "zh": "另有額外癌症、中風、心臟病賠償；額外癌症賠償之間要相隔 3 年（見小冊子）",
+    "en": "Extra cancer, stroke and heart payouts; 3-year gap between extra cancer claims (see brochure)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": null,
+   "premiumGuaranteed": false,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "投保年齡：10 年供 0–65 歲、15 年供 0–60 歲、20 年供 0–55 歲（出生後 15 天起）",
+     "分紅：終期紅利（非保證）"
+    ],
+    "en": [
+     "Issue age: 0–65 (10-yr pay), 0–60 (15-yr), 0–55 (20-yr), from 15 days old",
+     "Participating: terminal bonus (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由官方產品頁／小冊子抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」",
+   "id": "boc-smartguard",
+   "insurer": {
+    "zh": "中銀集團人壽保險有限公司",
+    "en": "BOC Group Life Assurance Company Limited"
+   },
+   "plan": {
+    "zh": "非凡守護危疾保險計劃",
+    "en": "SmartGuard Critical Illness Plan"
+   },
+   "type": "savings",
+   "coverText": {
+    "zh": "保障至 100 歲；供款 10／15／20 年",
+    "en": "Cover to 100; premium terms 10/15/20 years"
+   },
+   "termsUrl": {
+    "zh": "https://www.boclife.com.hk/f/upload/2122/SmartGuard_Critical_Illness_PB_nonbank_TC.pdf",
+    "en": "https://www.boclife.com.hk/f/upload/2122/SmartGuard_Critical_Illness_PB_nonbank_TC.pdf"
+   },
+   "source": {
+    "zh": "中銀人壽官網：產品小冊子",
+    "en": "BOC Life website: product brochure"
+   },
+   "sourceUrl": "https://www.boclife.com.hk/tc/product/smartguard-critical-illness-plan.html"
+  },
+  {
+   "rider": false,
+   "renewal": null,
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 55,
+    "early": 39,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有兒童疾病保障；可加「摯危疾多重附加利益保障」（至 88 歲，覆蓋 52 種嚴重疾病多次賠償）",
+    "en": "Plus child diseases; optional multiple-claim rider to 88 covering 52 severe illnesses"
+   },
+   "earlyText": {
+    "zh": "非嚴重疾病每次賠投保額 20%，每種限 1 次；兒童疾病同非嚴重疾病合共最多投保額 80%",
+    "en": "Non-severe illness pays 20% each, once per illness; child + non-severe capped at 80%"
+   },
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": null,
+   "premiumGuaranteed": false,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "分紅：週年紅利、積存利息（非保證）"
+    ],
+    "en": [
+     "Participating: annual dividends and accumulated interest (non-guaranteed)"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由官方產品頁／小冊子抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」",
+   "id": "boc-bestcare-pro",
+   "insurer": {
+    "zh": "中銀集團人壽保險有限公司",
+    "en": "BOC Group Life Assurance Company Limited"
+   },
+   "plan": {
+    "zh": "摯守護危疾保險計劃",
+    "en": "BestCare-Pro Critical Illness Plan"
+   },
+   "type": "savings",
+   "coverText": {
+    "zh": "保障至 100 歲；供款 5／10／15／20 年",
+    "en": "Cover to 100; premium terms 5/10/15/20 years"
+   },
+   "termsUrl": {
+    "zh": "https://www.boclife.com.hk/f/upload/2122/BestCare_Pro_Critical_Illness_PB_nonbank_TC.pdf",
+    "en": "https://www.boclife.com.hk/f/upload/2122/BestCare_Pro_Critical_Illness_PB_nonbank_TC.pdf"
+   },
+   "source": {
+    "zh": "中銀人壽官網：產品小冊子",
+    "en": "BOC Life website: product brochure"
+   },
+   "sourceUrl": "https://www.boclife.com.hk/tc/product/bestcare-pro-critical-illness-plan.html"
+  },
+  {
+   "rider": false,
+   "renewal": null,
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 0,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "保障嚴重疾病、特別疾病、非嚴重疾病、兒童疾病；另有額外癌症、心臟病、中風、腎衰竭賠償及持續支援保障（疾病數目見小冊子）",
+    "en": "Severe, special, non-severe and child diseases; extra cancer, heart, stroke and kidney failure payouts (counts in brochure)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 60,
+   "premiumText": null,
+   "premiumGuaranteed": false,
+   "cashValue": true,
+   "extras": null,
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由官方產品頁／小冊子抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」",
+   "id": "boc-ci188-whole-life",
+   "insurer": {
+    "zh": "中銀集團人壽保險有限公司",
+    "en": "BOC Group Life Assurance Company Limited"
+   },
+   "plan": {
+    "zh": "危疾188終身保險計劃",
+    "en": "Critical Illness 188 Whole Life Insurance Plan"
+   },
+   "type": "savings",
+   "coverText": {
+    "zh": "終身保障",
+    "en": "Whole-life cover"
+   },
+   "termsUrl": {
+    "zh": "https://www.boclife.com.hk/f/upload/2122/Critical_Illness_188_Whole_Life_PB_nonbank_TC.pdf",
+    "en": "https://www.boclife.com.hk/f/upload/2122/Critical_Illness_188_Whole_Life_PB_nonbank_TC.pdf"
+   },
+   "source": {
+    "zh": "中銀人壽官網：產品小冊子",
+    "en": "BOC Life website: product brochure"
+   },
+   "sourceUrl": "https://www.boclife.com.hk/tc/product/critical-illness188-whole-life-insurance-plan.html"
+  },
+  {
+   "rider": false,
+   "renewal": {
+    "every": 5,
+    "to": 80
+   },
+   "issueAges": null,
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 0,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "保障癌症、中風、心臟疾病，另有身故賠償",
+    "en": "Covers cancer, stroke and heart disease, plus death benefit"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": {
+    "zh": "保費每五年保證不變；官網例子：男、18 歲、非吸煙、保額港幣 20 萬，每月保費低至港幣 14 元",
+    "en": "Premium guaranteed for each 5 years; website example: male 18 non-smoker, HK$200k, from HK$14 a month"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": null,
+   "extras": null,
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由官方產品頁／小冊子抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」",
+   "id": "boc-alongpro",
+   "insurer": {
+    "zh": "中銀集團人壽保險有限公司",
+    "en": "BOC Group Life Assurance Company Limited"
+   },
+   "plan": {
+    "zh": "隨身保危疾保險計劃（網上投保）",
+    "en": "AlongPro Critical Illness Plan (online)"
+   },
+   "type": "renewable",
+   "termsUrl": {
+    "zh": "https://www.boclife.com.hk/tc/product/alongpro-critical-illness-plan.html",
+    "en": "https://www.boclife.com.hk/tc/product/alongpro-critical-illness-plan.html"
+   },
+   "source": {
+    "zh": "中銀人壽官網：產品頁",
+    "en": "BOC Life website: product page"
+   },
+   "sourceUrl": "https://www.boclife.com.hk/tc/product/alongpro-critical-illness-plan.html"
+  },
+  {
+   "rider": false,
+   "renewal": null,
+   "issueAges": [
+    0,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 60,
+    "early": 58,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 14 種嚴重兒童疾病（合共 132 種）；首 10 年升級保障保額 60%；恩恤身故保障保額 5%",
+    "en": "Plus 14 severe child diseases (132 in total); 60% upgrade in first 10 years; 5% compassionate death benefit"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": {
+    "zh": "「多重嚴重疾病保障」：85 歲前已賠滿保額 100% 後，癌症、心臟病、中風最多再有 4 次額外賠償（要符合生存期）",
+    "en": "Multiple major illness benefit: after 100% paid before 85, up to 4 more payouts for cancer, heart attack, stroke (survival period applies)"
+   },
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": null,
+   "premiumText": null,
+   "premiumGuaranteed": null,
+   "cashValue": true,
+   "extras": {
+    "zh": [
+     "投保年齡：5 年供 90 日至 65 歲、10 年供至 60 歲、15 年供至 55 歲、20 年供至 50 歲",
+     "保證現金價值及非保證特別紅利",
+     "恒生銀行分行銷售"
+    ],
+    "en": [
+     "Issue age: 90 days–65 (5-yr pay), to 60 (10-yr), to 55 (15-yr), to 50 (20-yr)",
+     "Guaranteed cash value and non-guaranteed special bonus",
+     "Sold at Hang Seng Bank branches"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由官方產品頁／小冊子抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」",
+   "id": "hangseng-lifebetter",
+   "insurer": {
+    "zh": "恒生保險有限公司",
+    "en": "Hang Seng Insurance Company Limited"
+   },
+   "plan": {
+    "zh": "「愛‧生活」危疾人壽保險計劃",
+    "en": "LifeBetter Critical Illness Life Insurance Plan"
+   },
+   "type": "savings",
+   "coverText": {
+    "zh": "保障至 99 歲；供款 5／10／15／20 年",
+    "en": "Cover to 99; premium terms 5/10/15/20 years"
+   },
+   "termsUrl": {
+    "zh": "https://www.hangseng.com/content/dam/wpb/hase/rwd/personal/insurance-and-mpf/pdfs/product-brochure/LifeBetter_TC.pdf",
+    "en": "https://www.hangseng.com/content/dam/wpb/hase/rwd/personal/insurance-and-mpf/pdfs/product-brochure/LifeBetter_TC.pdf"
+   },
+   "source": {
+    "zh": "恒生銀行官網：產品頁",
+    "en": "Hang Seng Bank website: product page"
+   },
+   "sourceUrl": "https://www.hangseng.com/zh-hk/personal/insurance-mpf/medical-critical-illness/lifebetter/"
   }
  ]
 }

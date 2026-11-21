@@ -429,18 +429,26 @@
    "products": [
     {
      "name": "Swift Guard Critical Illness Plan 滙達保",
-     "status": "todo",
+     "status": "done",
      "page": "https://www.hsbc.com.hk/zh-hk/insurance/products/medical-and-critical-illness/swift-guard/"
     },
     {
      "name": "Health Goal Insurance Plan",
-     "status": "todo",
-     "page": "https://www.hsbc.com.hk/insurance/products/savings-and-retirement/health-goal/"
+     "status": "skip",
+     "page": "https://www.hsbc.com.hk/insurance/products/savings-and-retirement/health-goal/",
+     "note": "savings / life plan with CI option, not a CI plan (2026-11-21)"
     },
     {
      "name": "Family Protector (CI option)",
-     "status": "todo",
-     "page": "https://www.hsbc.com.hk/insurance/products/life/family-protector/"
+     "status": "skip",
+     "page": "https://www.hsbc.com.hk/insurance/products/life/family-protector/",
+     "note": "savings / life plan with CI option, not a CI plan (2026-11-21)"
+    },
+    {
+     "name": "Cancer Care 癌症保障計劃",
+     "status": "done",
+     "page": "https://www.hsbc.com.hk/zh-hk/insurance/products/medical-and-critical-illness/cancer-care/",
+     "note": "brochure text unreadable; page facts only"
     }
    ]
   },
@@ -449,23 +457,25 @@
    "products": [
     {
      "name": "Critical Illness 188 Whole Life Insurance Plan",
-     "status": "todo",
+     "status": "done",
      "page": "https://www.boclife.com.hk/en/product/critical-illness-188-whole-life-insurance-plan.html"
     },
     {
      "name": "BestCare-Pro Critical Illness Plan",
-     "status": "todo",
+     "status": "done",
      "page": "https://www.boclife.com.hk/en/product/bestcare-pro-critical-illness-plan.html"
     },
     {
      "name": "iProtect 10 Years Insurance Plan",
-     "status": "todo",
-     "brochure": "https://www.boclife.com.hk/en/iproduct/assets/pdf/iProtect-10-Years-Insurance-Plan-EN230608.pdf"
+     "status": "skip",
+     "brochure": "https://www.boclife.com.hk/en/iproduct/assets/pdf/iProtect-10-Years-Insurance-Plan-EN230608.pdf",
+     "note": "brochure text unreadable (font encoding), 2026-11-21"
     },
     {
      "name": "AlongPro / SmartGuard Critical Illness Plan",
-     "status": "todo",
-     "page": "https://www.boclife.com.hk/en/category/health-protection.html"
+     "status": "done",
+     "page": "https://www.boclife.com.hk/en/category/health-protection.html",
+     "note": "AlongPro done; SmartGuard done 2026-11-21"
     }
    ]
   },
@@ -605,6 +615,17 @@
     {
      "name": "（未搵到，要再搜尋）",
      "status": "todo"
+    }
+   ]
+  },
+  {
+   "insurer": "Hang Seng Insurance Company Limited",
+   "products": [
+    {
+     "name": "LifeBetter Critical Illness Life Insurance Plan 「愛‧生活」",
+     "status": "done",
+     "page": "https://www.hangseng.com/zh-hk/personal/insurance-mpf/medical-critical-illness/lifebetter/",
+     "note": "brochure PDF disallowed by robots.txt; facts from product page only"
     }
    ]
   }
