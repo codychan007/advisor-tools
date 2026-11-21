@@ -7,7 +7,7 @@
 <title>強積金工具 – TC Team專屬AI工具箱</title>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/css/style.css?v=3">
-<link rel="stylesheet" href="/assets/css/mpf.css?v=1">
+<link rel="stylesheet" href="/assets/css/mpf.css?v=2">
 </head>
 <body>
 <header class="site-header"><div class="wrap bar">
@@ -96,9 +96,13 @@
   <!-- 基金回報 -->
   <section class="card mpf-pane hidden" id="tab-ret">
     <div class="mpf-filters" id="reFilters"></div>
+    <div class="seg mpf-basis" id="reBasis">
+      <label><input type="radio" name="rebasis" value="m" checked><span>同一月底比較（公平）</span></label>
+      <label><input type="radio" name="rebasis" value="latest"><span>最新價（有每日價嘅基金較新）</span></label>
+    </div>
     <p class="hint" id="reHint"></p>
     <div class="table-wrap mpf-table-wrap"><table class="mpf-table" id="reTable"></table></div>
-    <p class="hint">「最新價」有 <span class="mpf-daily">每日</span> 標記 = 受託人每日價（暫時：友邦、銀聯信託 BCT；其他受託人陸續加入）；其餘用積金局月底價。1 個月、3 個月、今年、1 年由我哋價格計；5 年、10 年、每年回報係積金局公佈。</p>
+    <p class="hint">「同一月底比較」：全部公司嘅 1 個月、3 個月、今年、1 年都計到同一個月底，先公平。「最新價」：有 <span class="mpf-daily">每日</span> 標記嘅基金（友邦、銀聯信託 BCT、滙豐、恒生、中銀保誠、萬通；其他受託人陸續加入）計到最新一日，其餘只係到月底，唔好直接比。5 年、10 年、每年回報一律係積金局公佈。</p>
   </section>
 
   <!-- 每月單張變化 -->
@@ -123,6 +127,6 @@
 <script src="/assets/vendor/html2canvas.min.js"></script>
 <script src="/assets/js/fund-pdf.js?v=1"></script>
 <script src="/assets/js/mpf-core.js?v=1"></script>
-<script src="/assets/js/mpf.js?v=1"></script>
+<script src="/assets/js/mpf.js?v=2"></script>
 </body>
 </html>

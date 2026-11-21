@@ -36,4 +36,6 @@ TC Team專屬AI工具箱（同事內部用，有共用密碼）。上線同設�
 - AIA 每月基金單張：`python scripts/mpf/build_factsheet.py`（`--back N` 追舊期）→ `data/mpf/factsheets/aia-YYYY-MM.json`；比較喺瀏覽器計（`assets/js/mpf-core.js` 嘅 `diffFactsheet`）。
 - 人手檔案：`data/mpf/allocation-rules.json`（配置數字）、`themes.json`（主題庫＋本月主題）、`offers.json`（優惠＋全自由行）。
 - 自動更新：`.github/workflows/mpf-daily.yml`（星期一至六 21:30）、`mpf-monthly.yml`（每月 10–28 號 10:00，有新先更新）。測試：`node tests/mpf.test.js`。
-- 其他受託人每日價（滙豐、宏利、永明、中銀保誠、東亞…）未做：滙豐嘅數據接口要特別標頭，自動模式安全檢查唔俾試；其他要逐間睇。
+- 受託人網頁（自動瀏覽器讀公開價格頁，`scripts/mpf/browser_prices.py`，要 `pip install playwright` + `python -m playwright install chromium`）：滙豐、恒生、中銀保誠兩個計劃、萬通。加新一間：喺 `SITES` 加網址、等候字眼、日期位置；`--no-browser` 可以略過。
+- 未有每日價（用積金局月底價）：宏利、富達（網站拒絕自動瀏覽器，唔可以繞過）、永明（要先撳「接受」）、東亞、交通銀行、中國人壽、海通、AMTD、新地。
+- **唔好同時跑兩個 build_prices.py**（會互相覆蓋價格）。

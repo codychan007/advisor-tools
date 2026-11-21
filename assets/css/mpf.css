@@ -112,3 +112,4 @@ td.pos { color: var(--matcha); } td.neg { color: var(--danger); }
 .mpf-rep-disc { font-size: 10px; color: var(--ink-2); margin-top: 12px; }
 .mpf-rep-disc p { margin: 2px 0; }
 @media (max-width: 560px) { .mpf-pick-head input { width: 60px; } }
+.mpf-basis { margin-bottom: 8px; } .mpf-basis span { min-height: 34px; font-size: 14px; }

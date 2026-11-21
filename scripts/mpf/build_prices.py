@@ -119,8 +119,19 @@ def merge(rec, points, src):
 
 
 def save(rec):
+    """Write to a temp file then replace, so a crash or a second run can never leave half a file.
+    Do not run two copies of this script at the same time (they would overwrite each other's points)."""
     PRICES.mkdir(parents=True, exist_ok=True)
-    (PRICES / f"{rec['id']}.json").write_text(json.dumps(rec, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    f = PRICES / f"{rec['id']}.json"
+    tmp = f.with_suffix(".tmp")
+    tmp.write_text(json.dumps(rec, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    for i in range(5):
+        try:
+            tmp.replace(f)
+            return
+        except PermissionError:   # Windows: file briefly locked by antivirus / indexer
+            time.sleep(0.5)
+    tmp.replace(f)
 
 
 # ---------------- sources ----------------
@@ -176,6 +187,26 @@ def src_bct_day(mk, date, report):
                 un.append(f"BCT {scheme}: {f['name']} ({f.get('unitClass')})")
         time.sleep(0.3)
     return out, un
+
+
+def src_browser(mk):
+    """受託人公開價格頁（自動瀏覽器讀畫面）：scripts/mpf/browser_prices.py"""
+    import browser_prices as bp
+    out, un, broken = {}, [], []
+    res = bp.fetch_all()
+    for s in bp.SITES:
+        d, rows, err = res.get(s["key"], (None, [], "冇結果"))
+        if err or not d:
+            broken.append(f"{s['name']}：{err}")
+            continue
+        m, miss = bp.match_rows(mk, s, rows)
+        if len(m) < max(1, len([f for f in mk.funds.values() if f.get('schemeEn') == s['scheme']]) // 2):
+            broken.append(f"{s['name']}：只配對到 {len(m)} 隻")
+            continue
+        for cf, price in m.items():
+            out.setdefault(cf, {})[d] = price
+        un += [f"{s['name']}：{x}" for x in miss]
+    return out, un, broken
 
 
 def parse_mpfa_xls(path, mk):
@@ -244,28 +275,45 @@ def ret(d, p, days=None, since=None):
         return None
     last = dt.date.fromisoformat(d[-1])
     target = since or (last - dt.timedelta(days=days))
-    i = None
-    for k in range(len(d) - 1, -1, -1):
-        if dt.date.fromisoformat(d[k]) <= target:
-            i = k
-            break
-    if i is None or (target - dt.date.fromisoformat(d[i])).days > 7:
+    # nearest price within 5 days either side of the target (month-end files can be the 30th or the 31st);
+    # for year-to-date the base must be on or before 31 Dec
+    best = None
+    for k in range(len(d) - 1):
+        gap = (dt.date.fromisoformat(d[k]) - target).days
+        if abs(gap) <= 5 and not (since and gap > 0) and (best is None or abs(gap) < best[0]):
+            best = (abs(gap), k)
+    if best is None:
         return None
-    return round((p[-1] / p[i] - 1) * 100, 2)
+    return round((p[-1] / p[best[1]] - 1) * 100, 2)
 
 
 def summary(mk, problems, unmatched):
-    idx = {}
+    idx, recs = {}, {}
     for cf in mk.funds:
         r = load(cf)
-        if not r["d"]:
-            continue
-        last = dt.date.fromisoformat(r["d"][-1])
+        if r["d"]:
+            recs[cf] = r
+    # common month end = the date most funds have as their last point on or before MPFA's "as at" month end:
+    # short-term returns at that date let daily-priced and monthly-priced funds be compared on the same day
+    from collections import Counter
+    cnt = Counter(next((d for d in reversed(r["d"]) if d <= mk.asof), None) for r in recs.values())
+    cnt.pop(None, None)
+    me = cnt.most_common(1)[0][0] if cnt else None
+
+    def metrics(d, p):
+        last = dt.date.fromisoformat(d[-1])
+        return {"r1m": ret(d, p, 30), "r3m": ret(d, p, 91), "r1y": ret(d, p, 365),
+                "ytd": ret(d, p, since=dt.date(last.year - 1, 12, 31))}
+
+    for cf, r in recs.items():
         daily = r["src"].get(r["d"][-1][:7]) not in (None, "mpfa")
         idx[cf] = {"date": r["d"][-1], "price": r["p"][-1], "daily": daily, "first": r["d"][0], "n": len(r["d"]),
-                   "r1m": ret(r["d"], r["p"], 30), "r3m": ret(r["d"], r["p"], 91), "r1y": ret(r["d"], r["p"], 365),
-                   "ytd": ret(r["d"], r["p"], since=dt.date(last.year - 1, 12, 31))}
-    out = {"updated": dt.datetime.now().strftime("%Y-%m-%d %H:%M"), "funds": idx,
+                   **metrics(r["d"], r["p"])}
+        if me:
+            k = max((i for i, d in enumerate(r["d"]) if d <= me), default=None)
+            if k is not None and r["d"][k] == me:
+                idx[cf]["m"] = metrics(r["d"][:k + 1], r["p"][:k + 1])
+    out = {"updated": dt.datetime.now().strftime("%Y-%m-%d %H:%M"), "monthEnd": me, "funds": idx,
            "dailyCount": sum(1 for v in idx.values() if v["daily"]), "problems": problems, "unmatched": unmatched}
     (DATA / "prices-index.json").write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     return out
@@ -292,6 +340,7 @@ def main():
     ap.add_argument("--bct-backfill", nargs=2, metavar=("FROM", "TO"))
     ap.add_argument("--step", type=int, default=7)
     ap.add_argument("--mpfa-xls", nargs="+")
+    ap.add_argument("--no-browser", action="store_true", help="skip trustee pages read with the headless browser")
     ap.add_argument("--mpfa-months", type=int, default=14, help="how many past months of MPFA month-end files to read")
     a = ap.parse_args()
     mk = Market()
@@ -327,6 +376,18 @@ def main():
             unmatched += sorted(set(u))
         except Exception as e:
             broken.append(f"積金局月底價：{e}")
+    if not a.no_browser:
+        try:
+            sys.path.insert(0, str(Path(__file__).parent))
+            o, u, br = src_browser(mk)
+            n = check_and_merge(mk, "web", o, problems)
+            unmatched += u
+            broken += br
+            print(f"受託人網頁: {n} 隻基金有新價")
+        except ImportError:
+            print("未裝 playwright：略過受託人網頁（滙豐、恒生…）")
+        except Exception as e:
+            broken.append(f"受託人網頁：{e}")
     for name, fn in (("aia", src_aia), ("bct", src_bct)):
         try:
             o, u = fn(mk)

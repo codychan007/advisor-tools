@@ -1,5 +1,5 @@
-# 強積金工具：每日由受託人官網拎最新基金價格（暫時：友邦、銀聯信託 BCT），commit 去 main，Cloudflare Pages 自動部署。
-# 唔使 AI、唔使錢（每次大約 1–2 分鐘）。
+# 強積金工具：每日由受託人官網拎最新基金價格（友邦、銀聯信託 BCT、滙豐、恒生、中銀保誠、萬通），commit 去 main，Cloudflare Pages 自動部署。
+# 唔使 AI、唔使錢（每次大約 3–4 分鐘，包括裝自動瀏覽器）。
 # 某個受託人拎唔到或者價格同積金局月底價對唔上：嗰部分保留上次數據，其他照更新，但 workflow 會標示失敗，GitHub 會 email 通知。
 # 手動試：GitHub → Actions → 強積金每日價格 → Run workflow。
 name: 強積金每日價格
@@ -30,6 +30,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: 安裝自動瀏覽器（讀滙豐、恒生、中銀保誠、萬通嘅公開價格頁）
+        run: |
+          pip install playwright==1.49.1
+          python -m playwright install --with-deps chromium
 
       - name: 拎每日價格
         id: build

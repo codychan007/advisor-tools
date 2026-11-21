@@ -115,8 +115,10 @@
   function renderRet() {
     var P = D.prices.funds, Y = D.market.calYears;
     var rows = D.market.funds.filter(reFilter);
-    $("reHint").textContent = rows.length + " 隻基金 · 每日價 " + D.prices.dailyCount + " 隻（更新：" + D.prices.updated + "）· 積金局截至 " + D.market.asof;
-    var p = function (f) { return P[f.id] || {}; };
+    var basis = (document.querySelector("input[name=rebasis]:checked") || {}).value || "m";
+    $("reHint").textContent = rows.length + " 隻基金 · " + (basis === "m" ? "短期回報計到 " + D.prices.monthEnd + "（同一月底）" : "短期回報計到各基金最新價") +
+      " · 每日價 " + D.prices.dailyCount + " 隻（更新：" + D.prices.updated + "）· 積金局截至 " + D.market.asof;
+    var p = function (f) { var q = P[f.id] || {}; return basis === "m" ? Object.assign({ price: q.price, date: q.date, daily: q.daily }, q.m || {}) : q; };
     var cols = [
       { key: "name", label: "基金", cls: "l", val: function (f) { return f.fund; } },
       { key: "px", label: "最新價", val: null },
@@ -171,7 +173,7 @@
       { key: "a1", label: "1 年", desc: true, val: a1 },
       { key: "a5", label: "5 年<small>每年</small>", desc: true, val: a5 },
       { key: "a10", label: "10 年<small>每年</small>", desc: true, val: function (f) { return f.ann[2]; } },
-      { key: "ytd", label: "今年", desc: true, val: function (f) { return (P[f.id] || {}).ytd; } },
+      { key: "ytd", label: "今年<small>至月底</small>", desc: true, val: function (f) { return ((P[f.id] || {}).m || {}).ytd; } },
       { key: "risk", label: "風險", val: function (f) { return f.risk; } },
       { key: "ri", label: "風險標記", val: function (f) { return parseFloat((f.detail || {}).riskIndicator); } },
       { key: "size", label: "規模<small>百萬</small>", desc: true, val: function (f) { return f.sizeM; } }
@@ -179,7 +181,7 @@
     sortTable($("peTable"), cols, rows, peState, function (f) {
       var on = pePicked.indexOf(f.id) >= 0;
       return "<tr class='" + (f.schId === hi ? "hi" : "") + "'><td><input type='checkbox' data-pick='" + f.id + "'" + (on ? " checked" : "") + " aria-label='加入走勢圖'></td><td class='mpf-name'>" + fundName(f) + "</td>" +
-        "<td><b>" + pct(f.fer) + "</b></td>" + [f.ann[0], f.ann[1], f.ann[2], (P[f.id] || {}).ytd].map(function (v) { return "<td class='" + sgn(v) + "'>" + pct(v) + "</td>"; }).join("") +
+        "<td><b>" + pct(f.fer) + "</b></td>" + [f.ann[0], f.ann[1], f.ann[2], ((P[f.id] || {}).m || {}).ytd].map(function (v) { return "<td class='" + sgn(v) + "'>" + pct(v) + "</td>"; }).join("") +
         "<td>" + (f.risk || "–") + "</td><td>" + esc((f.detail || {}).riskIndicator || "–") + "</td><td>" + num(f.sizeM, 0) + "</td></tr>";
     });
     $("peTable").onchange = function (e) {
@@ -472,7 +474,11 @@
     if (tab === "alloc") initAlloc();
     if (tab === "peer") { initPeer(); renderPeer(); }
     if (tab === "fees") { feFilter = filterBar($("feFilters"), renderFees); renderFees(); }
-    if (tab === "ret") { reFilter = filterBar($("reFilters"), renderRet); renderRet(); }
+    if (tab === "ret") {
+      reFilter = filterBar($("reFilters"), renderRet);
+      document.querySelectorAll("input[name=rebasis]").forEach(function (i) { i.onchange = renderRet; });
+      renderRet();
+    }
     if (tab === "fs") initFs();
     if (tab === "offer") renderOffers();
   }
