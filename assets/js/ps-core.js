@@ -181,10 +181,10 @@
       : "以下係客人一份保單（合約、保單附表或者週年報表）嘅重點頁。\n") + (hint ? "要填嘅計劃：" + hint + "\n" : "");
   }
   /* 「複製去我嘅 AI」：一段可以直接貼去 Claude／ChatGPT／Gemini 等嘅文字 */
-  function buildPastePrompt(kind, hint, texts, imageCount) {
+  function buildPastePrompt(kind, hint, texts, imageCount, facts) {
     var keys = keysFor(kind), example = {};
     keys.forEach(function (k) { example[k] = ""; });
-    return RULES + "\n\n" + intro(kind, hint)
+    return RULES + "\n\n" + intro(kind, hint) + (facts || "")
       + (imageCount ? "（另外我會上載 " + imageCount + " 張已經遮咗個人資料嘅相，一齊睇。）\n" : "")
       + "\n要填嘅欄（左邊英文 key 唔好改）：\n" + keys.map(function (k) { return "- " + k + "：" + shortOf(k); }).join("\n")
       + "\n\n只回覆一段 JSON，唔好其他字，格式：\n" + JSON.stringify({ fields: example, warnings: [] })
@@ -202,7 +202,108 @@
     return { fields: out, warnings: Array.isArray(j.warnings) ? j.warnings.map(String).slice(0, 5) : [] };
   }
 
-  var api = { FIELDS: FIELDS, EXTRA: EXTRA, annualize: annualize, annualFields: annualFields, shortOf: shortOf, RULES: RULES, keysFor: keysFor, intro: intro, buildPastePrompt: buildPastePrompt, parseAIReply: parseAIReply, AI_KEYS: AI_KEYS, PRODUCT_KEYS: PRODUCT_KEYS, PRICE: PRICE, maskText: maskText, scorePage: scorePage, explainPage: explainPage, whyText: whyText,
+  /* ---------- 認產品（2026-11-21）：同醫療及危疾比較嘅產品名索引（data/compare/ps-index.json）對 ----------
+     次序：自願醫保認可編號 > 產品名完全一樣 > 名包含 > 字面相似；有懷疑就俾同事揀，唔會亂認。全部喺瀏覽器做，唔送客人資料去邊。 */
+  function normName(s) {
+    s = String(s || "").normalize ? String(s || "").normalize("NFKC") : String(s || "");
+    s = s.replace(/([一-鿿」』）)])\s*(?!(?:I{1,3}|IV|V)\s*$)[A-Z][A-Z0-9]{1,5}\s*$/, "$1");   // 名尾嘅計劃代號，例如「… AVSW」（II／III 唔當代號）
+    s = s.toLowerCase().replace(/[（(][^）)]{0,10}(?:舊版|網上|手機|銀行)[^）)]{0,10}[）)]\s*$/, "");   // 尾巴（舊版）（網上投保）之類；（加強版）要保留
+    s = s.replace(/\b(iii|ii|iv)\b/g, function (m) { return { ii: "2", iii: "3", iv: "4" }[m]; });
+    return s.replace(/保險計劃|計劃|insuranceplan|insurance|plan|scheme/g, "").replace(/[\s「」『』"'()（）\-–—_.,，。・·‧•\/：:&＆+＋]/g, "");
+  }
+  function bigrams(s) { var o = {}; for (var i = 0; i < s.length - 1; i++) o[s.slice(i, i + 2)] = (o[s.slice(i, i + 2)] || 0) + 1; return o; }
+  function dice(a, b) {
+    if (a.length < 2 || b.length < 2) return 0;
+    var A = bigrams(a), B = bigrams(b), n = 0, t = 0, k;
+    for (k in A) { t += A[k]; if (B[k]) n += Math.min(A[k], B[k]); }
+    for (k in B) t += B[k];
+    return 2 * n / t;
+  }
+  function coScore(item, company) {      // 1 = 公司對；0 = 冇寫公司；-1 = 寫咗另一間
+    var c = normName(company); if (!c) return 0;
+    return item.co.some(function (a) { var x = normName(a); return x && (c.indexOf(x) >= 0 || x.indexOf(c) >= 0); }) ? 1 : -1;
+  }
+  function stripCo(x, item) {             // 名前面嘅公司名（AIA自願醫保… → 自願醫保…）
+    (item.co || []).forEach(function (a) { var c = normName(a); if (c && c.length < x.length - 1 && x.indexOf(c) === 0) x = x.slice(c.length); });
+    return x;
+  }
+  function nameScore(item, plan) {
+    var q = stripCo(normName(plan), item), best = 0;
+    if (q.length < 2) return 0;
+    item.names.forEach(function (n) {
+      var raw = normName(n), x = stripCo(raw, item), s = 0;
+      if (!x) return;
+      if (raw === normName(plan)) s = 100;
+      else if (x === q) s = 92;                 // 要拎走公司名先一樣：唔算完全一樣（例如「危疾保」唔可以自動認做「保泰危疾保」）
+      else if (x.length >= 4 && q.length >= 4 && (q.indexOf(x) >= 0 || x.indexOf(q) >= 0)) s = 70 + 25 * Math.min(x.length, q.length) / Math.max(x.length, q.length);
+      else s = 75 * dice(x, q);
+      if (s > best) best = s;
+    });
+    return best;
+  }
+  var CODE_RE = /\b([FS]\d{5})(?:-(\d{2})-(\d{3})-(\d{2}))?\b/g;
+  function codesIn(text) {
+    var out = [], m; CODE_RE.lastIndex = 0;
+    while ((m = CODE_RE.exec(String(text || "")))) out.push(m[0].toUpperCase());
+    return out;
+  }
+  /* q = {company, plan, text}；回覆 {pick: item|null, how, candidates: [item…]（最多 4 個，俾同事揀）} */
+  function matchProduct(index, q) {
+    var items = (index && index.items) || [], none = { pick: null, how: "", candidates: [] };
+    if (!items.length) return none;
+    // 1. 認可編號：完整選項編號（F00022-01-000-03）一定準；淨係 F00022 就可能要揀選項
+    var codes = codesIn((q.plan || "") + " " + (q.text || ""));
+    if (codes.length && !q.list && !q.exclude) {
+      var full = items.filter(function (it) { return it.codes.some(function (c) { return codes.indexOf(c) >= 0 && c.length > 6; }); });
+      if (full.length === 1) return { pick: full[0], how: "認可編號 " + full[0].codes.filter(function (c) { return codes.indexOf(c) >= 0 && c.length > 6; })[0], candidates: [] };
+      var grp = items.filter(function (it) { return codes.some(function (c) { return it.group === c.slice(0, 6) || it.codes.indexOf(c.slice(0, 6)) >= 0; }); });
+      if (grp.length === 1) return { pick: grp[0], how: "認可編號 " + grp[0].group, candidates: [] };
+      if (grp.length > 1) {   // 同一個自願醫保有幾個選項：再用名收窄
+        var named = grp.map(function (it) { return { it: it, s: nameScore(it, q.plan) }; }).sort(function (a, b) { return b.s - a.s; });
+        if (named[0].s >= 95 && (named.length < 2 || named[0].s - named[1].s >= 8)) return { pick: named[0].it, how: "認可編號＋選項名", candidates: [] };
+        return { pick: null, how: "認可編號 " + grp[0].group + "（有幾個選項）", candidates: named.slice(0, 6).map(function (x) { return x.it; }) };
+      }
+    }
+    // 2. 產品名（加公司核對）
+    if (normName(q.plan).length < 2) return none;
+    var scored = items.map(function (it) {
+      var s = nameScore(it, q.plan), c = coScore(it, q.company);
+      return { it: it, ex: s >= 100 && c >= 0, s: c < 0 ? s * 0.5 : s + (c > 0 ? 5 : 0) };
+    }).filter(function (x) { return x.s >= 50; }).sort(function (a, b) { return b.s - a.s; });
+    if (q.exclude) scored = scored.filter(function (x) { return x.it.id !== q.exclude; });   // 同事撳咗「唔係呢個」：淨係列其他
+    if (q.list) return { pick: null, how: "其他可能", candidates: scored.slice(0, 5).map(function (x) { return x.it; }) };
+    if (!scored.length) return none;
+    var top = scored[0], second = scored[1];
+    // 同一個自願醫保嘅唔同選項（同 group）唔算互相競爭，但要揀選項
+    var rivals = scored.filter(function (x) { return x.it.group !== top.it.group && x.s >= top.s - 12; });
+    var sameGroup = scored.filter(function (x) { return x.it.group === top.it.group && x.s >= top.s - 12; });
+    var exact = scored.filter(function (x) { return x.ex; });
+    if (exact.length === 1 || top.s >= 95 && !rivals.length && sameGroup.length === 1) return { pick: top.it, how: "產品名", candidates: [] };
+    if (exact.length > 1 && exact.every(function (x) { return x.it.group === top.it.group; })) {   // 自願醫保淨係寫計劃名：揀選項
+      return { pick: null, how: "要揀選項", candidates: scored.filter(function (x) { return x.it.group === top.it.group; }).slice(0, 8).map(function (x) { return x.it; }) };
+    }
+    var cand = [], seen = {};
+    scored.forEach(function (x) { if (!seen[x.it.id] && cand.length < (sameGroup.length > 1 && !rivals.length ? 6 : 4)) { seen[x.it.id] = 1; cand.push(x.it); } });
+    return { pick: null, how: second ? "名似，要揀" : "名似一半，要確認", candidates: cand };
+  }
+  /* AI 讀之前：喺（已遮資料嘅）保單文字入面搵產品，攞嚟做 AI 參考 */
+  function findInText(index, text) {
+    var items = (index && index.items) || [], t = normName(text);
+    var r = matchProduct(index, { text: text });
+    if (r.pick) return r.pick;
+    var best = null, bl = 0;
+    items.forEach(function (it) {
+      it.names.forEach(function (n) { var x = normName(n); if (x.length >= 5 && x.length > bl && t.indexOf(x) >= 0) { best = it; bl = x.length; } });
+    });
+    return best;
+  }
+  /* 交俾 AI 嘅參考（API 同「複製去我嘅 AI」共用） */
+  function factsNote(item) {
+    if (!item) return "";
+    return "\n參考（由產品比較資料自動認出，只係幫你對照產品名同保障類型；填欄仍然要以文件為準，文件冇寫就留空）：" + String(item.facts || "").slice(0, 400) + "\n";
+  }
+
+  var api = { normName: normName, matchProduct: matchProduct, findInText: findInText, codesIn: codesIn, factsNote: factsNote, FIELDS: FIELDS, EXTRA: EXTRA, annualize: annualize, annualFields: annualFields, shortOf: shortOf, RULES: RULES, keysFor: keysFor, intro: intro, buildPastePrompt: buildPastePrompt, parseAIReply: parseAIReply, AI_KEYS: AI_KEYS, PRODUCT_KEYS: PRODUCT_KEYS, PRICE: PRICE, maskText: maskText, scorePage: scorePage, explainPage: explainPage, whyText: whyText,
     pickPages: pickPages, estimateHKD: estimateHKD, estImageTokens: estImageTokens, merge: merge, missing: missing, blank: blank, productKey: productKey };
   if (typeof module !== "undefined" && module.exports) module.exports = api; else root.PSCore = api;
 })(this);

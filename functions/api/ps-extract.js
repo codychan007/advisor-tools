@@ -30,7 +30,7 @@ export async function handleExtract({ request, env }, makeClient) {
     return json({ error: `今個月 AI 預算（HK$${Math.round(cap * core.PRICE.hkd)}）已經用晒，下個月 1 號重新開始；而家可以人手輸入。`, budget: true }, 402);
   }
 
-  const req = buildRequest({ kind, texts, images, hint: body.hint });
+  const req = buildRequest({ kind, texts, images, hint: body.hint, facts: kind === "policy" ? body.facts : "" });   // facts：產品比較資料認出嘅參考（可以冇）
   const r = await callClaude(env, req, makeClient);
   if (r.error) return json({ error: r.error }, r.status);
   const usd = costUSD(r.msg.usage);

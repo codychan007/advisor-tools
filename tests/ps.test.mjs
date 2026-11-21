@@ -120,4 +120,29 @@ ok(core.annualFields({ premium: "HK$9,000", premiumModal: "HK$800", payMode: "�
 ok(core.annualFields({ premiumModal: "HK$800" }, "月").premium.startsWith("HK$9,600.00"), "繳費形式由同事填都計到");
 ok(core.AI_KEYS.includes("premiumModal") && core.buildPastePrompt("policy", "", [], 0).includes("premiumModal：每期保費"), "複製指令有每期保費欄");
 ok(buildRequest({ kind: "policy", texts: [] }).output_config.format.schema.properties.fields.required.includes("premiumModal"), "API 請求都有每期保費欄");
+// ---------- 認產品（產品比較資料 data/compare/ps-index.json） ----------
+{
+  const { readFileSync } = await import("node:fs");
+  const I = JSON.parse(readFileSync(new URL("../data/compare/ps-index.json", import.meta.url), "utf8"));
+  const pick = (q) => core.matchProduct(I, q).pick?.label || null;
+  const cands = (q) => core.matchProduct(I, q).candidates.map((c) => c.label);
+  ok(pick({ company: "友邦", plan: "進泰安心危疾保險計劃 2" }) === "「進泰安心」危疾保險計劃2", "名寫法唔同（冇「」、II／2、空格）都自動認到");
+  ok(pick({ company: "AIA", plan: "x", text: "認可產品編號 F00022-01-000-03" }) === "AIA自願醫保靈活計劃・普通房", "自願醫保認可編號一定認到選項");
+  ok(pick({ company: "AIA", plan: "AIA自願醫保靈活計劃" }) === null && cands({ company: "AIA", plan: "AIA自願醫保靈活計劃" }).length === 3, "自願醫保淨係寫計劃名：俾同事揀 3 個病房選項");
+  ok(pick({ company: "中銀人壽", plan: "摯守護危疾保險計劃" }) === null && cands({ company: "中銀人壽", plan: "摯守護危疾保險計劃" }).includes("摯守護危疾保險計劃（舊版）"), "新舊版同名：唔自動認，俾同事揀");
+  ok(pick({ company: "AIA", plan: "自願醫保睿選計劃 AVSW" }) === "AIA自願醫保睿選計劃", "名尾計劃代號、名前公司名唔影響");
+  ok(pick({ company: "Prudential", plan: "PRUHealth Critical Illness Extended Care Insurance Plan III" }) === "危疾加護保險計劃 III", "英文名都認到，唔會撈亂 II／III");
+  ok(pick({ company: "", plan: "危疾保" }) === null, "太短太普通嘅名唔會亂認");
+  ok(pick({ company: "Manulife", plan: "加裕智倍保" }) === null, "公司唔啱就唔自動認");
+  ok(pick({ company: "AIA", plan: "Some Unknown Savings Plan" }) === null && !cands({ company: "AIA", plan: "Some Unknown Savings Plan" }).length, "比較資料冇嘅產品：乜都唔認");
+  const r = core.matchProduct(I, { company: "宏利", plan: "活耀人生危疾保2(加強版)" });
+  ok(r.pick?.label === "活耀人生危疾保2（加強版）" && r.pick.fill.coverage, "（加強版）唔會同普通版撈亂，有預填保障類型");
+  const ex = core.matchProduct(I, { company: "AIA", plan: "「進泰安心」危疾保險計劃2", exclude: r.pick && I.items.find((i) => i.label === "「進泰安心」危疾保險計劃2").id, list: true });
+  ok(!ex.pick && !ex.candidates.some((c) => c.label === "「進泰安心」危疾保險計劃2"), "撳「唔係呢個」：列其他，唔再出返同一個");
+  ok(core.findInText(I, "保單附表 計劃名稱：「進泰安心」危疾保險計劃2 基本計劃")?.label === "「進泰安心」危疾保險計劃2", "AI 讀之前喺文件文字認到產品");
+  const old = I.items.find((i) => i.src === "old" && i.seen);
+  ok(old && old.status && old.fill.coverage && !("medical" in old.fill), "已停售產品淨係預填保障類型（冇保障細節）");
+  ok(buildRequest({ kind: "policy", texts: [], facts: core.factsNote(I.items[0]) }).messages[0].content.at(-1).text.includes("參考（由產品比較資料"), "API 請求有產品參考");
+  ok(core.buildPastePrompt("policy", "", [], 0, core.factsNote(I.items[0])).includes("填欄仍然要以文件為準"), "複製指令有產品參考，並提醒以文件為準");
+}
 process.exit(fail ? 1 : 0);

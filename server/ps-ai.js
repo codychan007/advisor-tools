@@ -26,7 +26,7 @@ function schemaFor(keys) {
 }
 
 // kind: "policy"（客人保單／週年報表）或 "brochure"（產品小冊子 → 入產品庫）
-export function buildRequest({ kind, texts, images, hint }) {
+export function buildRequest({ kind, texts, images, hint, facts }) {
   const keys = core.keysFor(kind);
   const want = keys.map((k) => `${k}=${LABEL[k]}`).join("、");
   const content = [];
@@ -36,7 +36,7 @@ export function buildRequest({ kind, texts, images, hint }) {
   const textPart = (texts || []).map((t) => `--- ${t.name || "文件"} 第 ${t.page} 頁 ---\n${t.text}`).join("\n\n");
   content.push({
     type: "text",
-    text: core.intro(kind, hint) + `要填嘅欄：${want}\n\n${textPart}`,
+    text: core.intro(kind, hint) + String(facts || "").slice(0, 600) + `要填嘅欄：${want}\n\n${textPart}`,
   });
   return {
     model: MODEL,

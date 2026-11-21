@@ -208,3 +208,13 @@ label.btn input[type=file] { display: none; }
 .qz-src { display: block; font-size: 12px; color: var(--ink-3); margin-top: 2px; }
 button:disabled { opacity: .45; cursor: not-allowed; }
 .ps-why { font-size: 11px; line-height: 1.35; color: var(--ink-2); }
+/* 保單整理器：認產品（產品比較資料） */
+.ps-match { margin: 10px 0 12px; padding: 10px 12px; border: 1.5px solid var(--ochre); background: var(--ochre-50); border-radius: 8px; font-size: 14.5px; }
+.ps-match-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.ps-match-sub { margin: 6px 0 0; font-size: 13px; }
+.ps-cands { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.ps-cands .btn { text-align: left; white-space: normal; }
+.ps-st { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 10px; font-size: 12px; font-weight: 700; }
+.ps-st.on { background: var(--matcha-50); color: var(--matcha); }
+.ps-st.old { background: var(--danger-50); color: var(--danger); }
+.ps-f.cmp .ps-in { background: var(--ochre-50); border-color: var(--ochre); }

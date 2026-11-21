@@ -13,7 +13,22 @@
   function names() {
     return [S.client.name].concat(String(S.client.other || "").split(/[,，、]/)).map(function (s) { return (s || "").trim(); }).filter(Boolean);
   }
-  var SRC = { manual: "", doc: "文件", library: "產品庫" };
+  var SRC = { manual: "", doc: "文件", library: "產品庫", compare: "比較資料・請核對" };
+
+  /* ---------- 產品比較資料（認產品用；2026-11-21 本機試） ---------- */
+  var IDX = null, IDXP = null;
+  function getIndex() {
+    if (IDX) return Promise.resolve(IDX);
+    if (!IDXP) IDXP = fetch("/data/compare/ps-index.json").then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (d) { d.byId = {}; d.items.forEach(function (it) { d.byId[it.id] = it; }); IDX = d; return d; })
+      .catch(function () { IDXP = null; return { items: [], byId: {} }; });
+    return IDXP;
+  }
+  /* AI 讀之前，喺已遮資料嘅文字入面搵產品，做 AI 參考 */
+  function factsFor(masked) {
+    if (!IDX || !masked.length) return "";
+    return C.factsNote(C.findInText(IDX, masked.map(function (m) { return m.text; }).join("\n")));
+  }
 
   /* ---------- AI 狀態 ---------- */
   function refreshBudget() {
@@ -24,7 +39,7 @@
   }
   function showAI() {
     var el = $("aiStatus");
-    el.className = "note" + (AI.ready ? " good" : "");
+    el.className = "note hidden";   // Cody 2026-11-21：唔顯示 AI 用量／狀態呢行（每月上限照舊由伺服器控制）
     el.innerHTML = AI.ready
       ? "🤖 AI 讀文件：今個月全組用咗 <b>HK$" + (AI.monthHKD || 0).toFixed(2) + "</b>／上限 HK$" + AI.capHKD + (MOCK ? "（試用模式：假資料，唔收錢）" : "")
       : AI.offline ? "呢度連唔到網站 AI（本機預覽冇伺服器）。上載文件之後可以用「📋 複製去我嘅 AI」免費做；網址加 <b>?mock=1</b> 可以試假資料。"
@@ -85,12 +100,13 @@
       + '<div class="ps-step2"><div class="ps-step2-head"><b>第 2 步：核對同補資料</b>'
       + '<span class="muted ps-step2-hint">AI 填完會自動喺度展開；冇文件就撳右邊自己填。</span>'
       + '<button class="btn ghost small" data-a="manual" type="button">✍️ 自己逐格填</button></div>'
+      + '<div class="ps-match hidden"></div>'
       + '<div class="ps-fieldswrap"><div class="form ps-fields">' + f + "</div>"
       + '<div class="actions"><label class="btn small ghost" data-upload>📘 上載產品小冊子（補保障描述）<input type="file" multiple accept="application/pdf,image/*" hidden data-kind="brochure"></label>'
       + '<button class="btn ghost small hidden" data-a="saveLib" type="button">將保障描述存入產品庫（全組共用）</button></div></div></div>'
       + "</div>";
     el.querySelector(".ps-title").textContent = "保單 " + idx;
-    wire(p, el); refreshCard(p); showAI();
+    wire(p, el); refreshCard(p); showAI(); renderMatch(p);
   }
 
   function refreshCard(p) {
@@ -109,6 +125,7 @@
     C.FIELDS.forEach(function (fd) {
       var box = el.querySelector('[data-k="' + fd.key + '"]');
       box.classList.toggle("miss", miss.indexOf(fd.key) >= 0);
+      box.classList.toggle("cmp", p.from[fd.key] === "compare");
       box.querySelector(".ps-src").textContent = SRC[p.from[fd.key] || "manual"] || "";
     });
     var canSave = p.values.plan && C.PRODUCT_KEYS.some(function (k) { return p.values[k] && p.from[k] !== "library"; });
@@ -189,6 +206,8 @@
       html += '<details style="margin-top:8px"><summary>睇會送出嘅文字（已遮 ' + masked.reduce(function (a, m) { return a + m.count; }, 0) + " 處個人資料）</summary><pre class=\"ps-pre\">"
         + esc(masked.map(function (m) { return m.text; }).join("\n\n—\n\n").slice(0, 6000)) + "</pre></details>";
     }
+    var pre = doc.kind === "policy" && IDX && masked.length ? C.findInText(IDX, masked.map(function (m) { return m.text; }).join("\n")) : null;
+    if (pre) html += '<p class="muted" style="margin:8px 0 0;font-size:14px">🔎 文件入面認到「' + esc(pre.label) + "」（產品比較資料），會一齊交俾 AI 做參考。</p>";
     if (imgs.length) html += '<label class="ps-confirm"><input type="checkbox" id="cf-' + esc(p.id) + '"> 我已經用「遮資料」遮好圖片入面嘅姓名、身份證、地址、電話</label>';
     html += '<div class="actions">'
       + (AI.ready ? '<button class="btn" type="button" data-send' + (on.length ? "" : " disabled") + ">🤖 送去網站 AI（" + on.length + " 頁，約 HK$" + Math.max(0.01, est.hkd).toFixed(2) + "）</button>" : "")
@@ -215,7 +234,8 @@
     box.querySelector("[data-cancel]").addEventListener("click", function () { delete DOCS[p.id]; renderPages(p); });
     var prompt = function () {
       var texts = doc.pages.filter(function (x) { return x.on && x.kind === "text"; }).map(function (x, i) { return { name: x.file, page: x.n, text: masked[i].text }; });
-      return C.buildPastePrompt(doc.kind, p.values.plan || "", texts, imgs.length);
+      rememberCodes(p, doc, masked);
+      return C.buildPastePrompt(doc.kind, p.values.plan || "", texts, imgs.length, doc.kind === "policy" ? factsFor(masked) : "");
     };
     var copyIt = function () {
       if (imgs.length && !document.getElementById("cf-" + p.id).checked) { alert("請先用「遮資料」遮好相入面嘅個人資料，再剔確認。"); return false; }
@@ -260,7 +280,9 @@
     btn.disabled = true; btn.textContent = "AI 讀緊，大約 10–30 秒…";
     var texts = doc.pages.filter(function (x) { return x.on && x.kind === "text"; }).map(function (x, i) { return { name: x.file, page: x.n, text: masked[i].text }; });
     var images = imgs.map(function (x) { return D.toJpeg(D.applyRects(x)); });
-    var body = { kind: doc.kind, texts: texts, images: images, hint: p.values.plan || "", company: p.values.company, plan: p.values.plan };
+    rememberCodes(p, doc, masked);
+    var body = { kind: doc.kind, texts: texts, images: images, hint: p.values.plan || "", company: p.values.company, plan: p.values.plan,
+      facts: doc.kind === "policy" ? factsFor(masked) : "" };
     try {
       var d = MOCK ? mockReply(doc.kind) : await fetch("/api/ps-extract", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
         .then(function (r) { return r.json().catch(function () { return { error: "伺服器回覆唔啱（" + r.status + "）" }; }); });
@@ -294,7 +316,8 @@
 
   /* ---------- 產品庫 ---------- */
   function lookupLibrary(p, afterAI) {
-    if (AI.offline || !p.values.plan) return;
+    var done = function () { matchCompare(p); };   // 產品庫（同事核對過）行先，之後先用比較資料補仲空嘅格
+    if (AI.offline || !p.values.plan) { done(); return; }
     var q = MOCK ? Promise.resolve({ found: false }) : fetch("/api/ps-product?company=" + encodeURIComponent(p.values.company || "") + "&plan=" + encodeURIComponent(p.values.plan))
       .then(function (r) { return r.json(); });
     q.then(function (d) {
@@ -307,7 +330,86 @@
       } else if (afterAI && needs.length) {
         appendMsg(p, "📘 產品庫未有呢個產品。保障描述仲欠 " + needs.length + " 格：可以撳「上載產品小冊子」等 AI 補（之後全組免費），或者自己填。");
       }
-    }).catch(function () {});
+    }).catch(function () {}).then(done);
+  }
+
+  /* ---------- 認產品：同產品比較資料對（自動；有懷疑先俾同事揀） ---------- */
+  function rememberCodes(p, doc, masked) {      // 只記低自願醫保認可編號（唔係個人資料），俾認產品用
+    if (doc.kind !== "policy") return;
+    p.docCodes = C.codesIn(masked.map(function (m) { return m.text; }).join("\n")).slice(0, 6).join(" ");
+  }
+  function matchKey(p) { return [p.values.company || "", p.values.plan || "", p.docCodes || ""].join("|"); }
+  function setField(p, k, v, from) {
+    p.values[k] = v; p.from[k] = from;
+    var i = fieldInput(p.id, k); if (i) i.value = v;
+  }
+  function clearCompare(p) {
+    Object.keys(p.from || {}).forEach(function (k) { if (p.from[k] === "compare") { setField(p, k, "", "manual"); } });
+  }
+  function useMatch(p, item, how, manual) {
+    clearCompare(p);
+    var n = 0;
+    Object.keys(item.fill || {}).forEach(function (k) {
+      if (C.blank(p.values[k]) && item.fill[k]) { setField(p, k, item.fill[k], "compare"); n++; }
+    });
+    p.match = { id: item.id, how: how, manual: !!manual, filled: n, key: matchKey(p) };
+    p.cands = [];
+    p.showFields = true;
+  }
+  function matchCompare(p) {
+    if (!p.values.plan && !p.docCodes) { renderMatch(p); return; }
+    getIndex().then(function (I) {
+      if (p.match && p.match.key === matchKey(p) && I.byId[p.match.id]) { renderMatch(p); return; }        // 冇變：保留（包括同事自己揀嗰個）
+      if (p.matchOff === matchKey(p)) { renderMatch(p); return; }                                      // 同事撳咗「都唔係」
+      var r = C.matchProduct(I, { company: p.values.company, plan: p.values.plan, text: p.docCodes || "" });
+      if (r.pick) useMatch(p, r.pick, r.how, false);
+      else { if (p.match) clearCompare(p); p.match = null; p.cands = r.candidates.map(function (c) { return c.id; }); p.candsKey = matchKey(p); }
+      p.matchTried = true;
+      renderMatch(p); afterChange(p);
+    });
+  }
+  function statusText(it) {
+    if (it.status === "renewal-only") return '<span class="ps-st old">只供現有保單續保</span>';
+    if (it.src === "old") return '<span class="ps-st old">已停售' + (it.seen ? "（官網 " + esc(it.seen[0]) + " 至 " + esc(it.seen[1]) + " 出現）" : "") + "</span>";
+    return '<span class="ps-st on">現售</span>';
+  }
+  function kindText(it) { return { med: "自願醫保", std: "自願醫保標準計劃", ci: "危疾", old: "已停售產品" }[it.src] || ""; }
+  function renderMatch(p) {
+    var box = document.querySelector("#p-" + CSS.escape(p.id) + " .ps-match"); if (!box) return;
+    var I = IDX, html = "";
+    if (I && p.match && I.byId[p.match.id]) {
+      var it = I.byId[p.match.id];
+      html = '<div class="ps-match-row"><span>🔎 認到產品：<b>' + esc(it.label) + "</b>（" + esc(kindText(it)) + "）" + statusText(it)
+        + (it.url ? ' <a href="' + esc(it.url) + '" target="_blank" rel="noopener">舊網頁</a>' : "") + "</span>"
+        + '<button class="btn ghost small" type="button" data-m="not">唔係呢個</button></div>'
+        + '<p class="muted ps-match-sub">根據：' + esc(p.match.manual ? "你揀" : p.match.how) + "。"
+        + (p.match.filled ? "已經預填 " + p.match.filled + " 格（黃色「比較資料・請核對」）。" : "保障格已經有資料，冇改。")
+        + (it.src === "old" ? "已停售產品冇保障細節，保障範圍要睇保單。" : "保額、保費等每份唔同嘅格，仍然要睇保單。") + "</p>";
+    } else if (I && (p.cands || []).length) {
+      html = '<div class="ps-match-row"><span>🔎 產品比較資料入面有幾個似嘅產品，<b>揀一個</b>（揀咗會預填保障類型等格）：</span></div><div class="ps-cands">'
+        + p.cands.map(function (id) {
+          var c = I.byId[id]; if (!c) return "";
+          return '<button class="btn ghost small" type="button" data-pick="' + esc(id) + '">' + esc(c.label) + ' <span class="muted">· ' + esc(c.co[0] || "") + " · " + esc(kindText(c)) + (c.src === "old" ? "" : c.status === "renewal-only" ? "（只供續保）" : "") + "</span></button>";
+        }).join("") + '<button class="btn ghost small" type="button" data-m="none">都唔係</button></div>';
+    } else if (p.matchTried && p.values.plan && p.matchOff !== matchKey(p)) {
+      html = '<p class="muted ps-match-sub">🔎 產品比較資料未有「' + esc(p.values.plan) + "」（例如好舊嘅產品或者附加保障），照舊由文件同產品庫填。</p>";
+    }
+    box.innerHTML = html;
+    box.classList.toggle("hidden", !html);
+    var not = box.querySelector('[data-m="not"]');
+    if (not) not.addEventListener("click", function () {
+      var old = p.match ? p.match.id : "";
+      clearCompare(p); p.match = null;
+      var r = C.matchProduct(IDX, { company: p.values.company, plan: p.values.plan, exclude: old, list: true });
+      p.cands = r.candidates.map(function (c) { return c.id; });
+      if (!p.cands.length) p.matchOff = matchKey(p);
+      renderMatch(p); afterChange(p);
+    });
+    var none = box.querySelector('[data-m="none"]');
+    if (none) none.addEventListener("click", function () { p.cands = []; p.matchOff = matchKey(p); renderMatch(p); afterChange(p); });
+    box.querySelectorAll("[data-pick]").forEach(function (b) {
+      b.addEventListener("click", function () { useMatch(p, IDX.byId[b.getAttribute("data-pick")], "你揀", true); renderMatch(p); afterChange(p); });
+    });
   }
   function appendMsg(p, html) {
     var m = document.querySelector("#p-" + CSS.escape(p.id) + " .ps-msg");
@@ -363,6 +465,7 @@
 
   /* ---------- 開始 ---------- */
   load();
+  getIndex().then(function () { S.policies.forEach(renderMatch); });   // 預先載入產品比較資料（約 300KB，一次）
   S.policies.forEach(function (p) { var n = parseInt(p.id, 10); if (n > seq) seq = n; });
   initClient();
   refreshBudget();
