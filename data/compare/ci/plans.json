@@ -5495,6 +5495,215 @@
     "en": "Hang Seng Bank website: product page"
    },
    "sourceUrl": "https://www.hangseng.com/zh-hk/personal/insurance-mpf/medical-critical-illness/lifebetter/"
+  },
+  {
+   "rider": false,
+   "renewal": null,
+   "issueAges": [
+    0,
+    17
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 26,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "另有 10 種兒童危疾（例如自閉症、嚴重哮喘、嚴重癲癇症）",
+    "en": "Plus 10 child illnesses (e.g. autism, severe asthma, severe epilepsy)"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 75,
+   "premiumText": {
+    "zh": "官網：每日港幣 1.8 元起（首年 75 折優惠）",
+    "en": "Website: from HK$1.8 a day (25% off first year)"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "投保年齡：出生後 15 天至 18 歲以下",
+     "一般保險產品，致電 DBS 安達保險熱線投保"
+    ],
+    "en": [
+     "Issue age: 15 days to under 18",
+     "General insurance product; apply via the DBS Chubb hotline"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由星展銀行官網產品頁抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」",
+   "id": "chubb-dbs-juniorshield",
+   "insurer": {
+    "zh": "安達保險香港有限公司（經星展銀行銷售）",
+    "en": "Chubb Insurance Hong Kong Limited (sold via DBS Bank)"
+   },
+   "plan": {
+    "zh": "JuniorShield 子女危疾保障",
+    "en": "JuniorShield Illness Protection"
+   },
+   "type": "renewable",
+   "coverText": {
+    "zh": "一筆過現金賠償港幣 15 萬",
+    "en": "Lump sum HK$150,000"
+   },
+   "termsUrl": {
+    "zh": "https://www.dbs.com.hk/personal-zh/insurance/health-and-medical/juniorshield-illness-protection",
+    "en": "https://www.dbs.com.hk/personal-zh/insurance/health-and-medical/juniorshield-illness-protection"
+   },
+   "source": {
+    "zh": "星展銀行官網：產品頁",
+    "en": "DBS Bank website: product page"
+   },
+   "sourceUrl": "https://www.dbs.com.hk/personal-zh/insurance/health-and-medical/juniorshield-illness-protection"
+  },
+  {
+   "rider": false,
+   "renewal": null,
+   "issueAges": [
+    18,
+    59
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 28,
+    "early": 0,
+    "mid": 0
+   },
+   "otherCover": {
+    "zh": "標準計劃保 8 種常見危疾（癌症、中風、心肌梗塞、冠狀動脈手術、腎衰竭、柏金遜症、多發性硬化、運動神經原疾病）；周全計劃最多 28 種",
+    "en": "Standard plan: 8 common illnesses; Comprehensive plan: up to 28"
+   },
+   "earlyText": null,
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "官網：首年保費 75 折優惠",
+    "en": "Website: 25% off first-year premium"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "受保人及配偶投保年齡 18–59 歲，續保至 65 歲",
+     "一般保險產品，致電 DBS 安達保險熱線投保"
+    ],
+    "en": [
+     "Insured and spouse issue age 18–59, renewable to 65",
+     "General insurance product; apply via the DBS Chubb hotline"
+    ]
+   },
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由星展銀行官網產品頁抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」",
+   "id": "chubb-dbs-mastershield",
+   "insurer": {
+    "zh": "安達保險香港有限公司（經星展銀行銷售）",
+    "en": "Chubb Insurance Hong Kong Limited (sold via DBS Bank)"
+   },
+   "plan": {
+    "zh": "MasterShield 危疾保障",
+    "en": "MasterShield Illness Protection"
+   },
+   "type": "renewable",
+   "coverText": {
+    "zh": "一筆過現金賠償港幣 25 萬；標準計劃或周全計劃",
+    "en": "Lump sum HK$250,000; Standard or Comprehensive plan"
+   },
+   "termsUrl": {
+    "zh": "https://www.dbs.com.hk/personal-zh/insurance/health-and-medical/mastershield-illness-protection",
+    "en": "https://www.dbs.com.hk/personal-zh/insurance/health-and-medical/mastershield-illness-protection"
+   },
+   "source": {
+    "zh": "星展銀行官網：產品頁",
+    "en": "DBS Bank website: product page"
+   },
+   "sourceUrl": "https://www.dbs.com.hk/personal-zh/insurance/health-and-medical/mastershield-illness-protection"
+  },
+  {
+   "id": "allianz-scb-cancer-protect",
+   "insurer": {
+    "zh": "安聯環球企業及專項保險－香港分公司（經渣打銀行銷售）",
+    "en": "Allianz Global Corporate & Specialty SE, Hong Kong Branch (sold via Standard Chartered)"
+   },
+   "plan": {
+    "zh": "安聯癌症保障",
+    "en": "Allianz Cancer Protection"
+   },
+   "type": "renewable",
+   "rider": false,
+   "renewal": null,
+   "issueAges": [
+    18,
+    65
+   ],
+   "pricing": "quote",
+   "premiumFile": null,
+   "diseases": {
+    "severe": 0,
+    "early": 0,
+    "mid": 0
+   },
+   "coverText": {
+    "zh": "只保癌症；基本／銀／金／白金 4 個計劃，主要癌症賠港幣 20 萬至 120 萬",
+    "en": "Cancer only; 4 plans, major cancer HK$200k–1.2M"
+   },
+   "otherCover": {
+    "zh": "原位癌或初期癌症每次賠港幣 6 萬至 36 萬（最多 2 次）；確診主要癌症後連續 12 個月每月入息津貼港幣 2,000 至 12,000；預支癌症治療保障港幣 2 萬至 12 萬",
+    "en": "Carcinoma in situ / early cancer HK$60k–360k per claim (max 2); monthly income HK$2k–12k for 12 months; advance treatment HK$20k–120k"
+   },
+   "earlyText": {
+    "zh": "原位癌或初期癌症最多可索償 2 次；主要癌症賠償會扣除已付嘅原位癌／初期癌症賠償",
+    "en": "Up to 2 early-cancer claims; deducted from major cancer benefit"
+   },
+   "multiClaim": null,
+   "multiText": null,
+   "totalCapPct": null,
+   "capText": null,
+   "waitingDays": 90,
+   "premiumText": {
+    "zh": "官網：經渣打投保 9 折",
+    "en": "Website: 10% off via Standard Chartered"
+   },
+   "premiumGuaranteed": null,
+   "cashValue": false,
+   "extras": {
+    "zh": [
+     "投保年齡 18–65 歲，續保最高至 79 歲；子女 30 日至 18 歲（全日制學生至 24 歲）",
+     "確診後 14 日內身故唔賠",
+     "一般保險產品"
+    ],
+    "en": [
+     "Issue age 18–65, renewable to 79; children 30 days–18 (24 if full-time student)",
+     "No benefit if death within 14 days of diagnosis",
+     "General insurance product"
+    ]
+   },
+   "termsUrl": {
+    "zh": "https://av.sc.com/hk/content/docs/hk-banca-az-ca-policy-wording.pdf",
+    "en": "https://av.sc.com/hk/content/docs/hk-banca-az-ca-policy-wording.pdf"
+   },
+   "source": {
+    "zh": "渣打銀行官網：產品頁",
+    "en": "Standard Chartered website: product page"
+   },
+   "sourceUrl": "https://www.sc.com/hk/zh/insurance/general-insurance/cancer-protect/",
+   "premiumSourceUrl": null,
+   "updatedOn": "2026-11-21",
+   "verified": true,
+   "verifiedBy": "Claude 2026-11-21 由渣打銀行官網產品頁抄錄（Cody 授權直接上載）；讀唔到嘅欄位寫「見條款」"
   }
  ]
 }

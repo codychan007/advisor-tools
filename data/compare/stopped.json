@@ -1,6 +1,6 @@
 {
  "_說明": "已停售醫療／危疾產品名錄（顧問內部參考）。來源：保險公司官網以前嘅網頁（web.archive.org 網頁存檔）同政府自願醫保網站；每項都核對過而家官網冇再列出（或頁面已撤），或政府標明只供續保。seen = 網頁存檔見到產品頁嘅月份（唔等於推出／停售日期）。唔包保費同保障細節（以客人保單為準）。生成：scripts/compare 以外，由 Claude 2026-11-20 整理。",
- "updatedOn": "2026-11-20",
+ "updatedOn": "2026-11-21",
  "coverage": [
   {
    "brand": {
@@ -69,6 +69,76 @@
    },
    "note": {
     "zh": "富通年代約由 2016 年起；更早嘅 Ageas／Fortis 網站冇存檔。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "大都會人壽",
+    "en": "MetLife"
+   },
+   "note": {
+    "zh": "只係由花旗銀行舊網頁（2012–2015）搵到經銀行賣嘅產品，唔係大都會人壽自己官網嘅完整清單。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "中銀人壽",
+    "en": "BOC Life"
+   },
+   "note": {
+    "zh": "舊網站 2016–2018 年同新網站 2019 年起都有存檔；呢段期間嘅醫療／危疾產品唔多。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "恒生保險",
+    "en": "Hang Seng Insurance"
+   },
+   "note": {
+    "zh": "恒生銀行網站 2019 年 12 月起有存檔；更早嘅舊網站未有搵到產品頁。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "安聯保險",
+    "en": "Allianz"
+   },
+   "note": {
+    "zh": "只係渣打銀行網頁（2019 年起）見到經銀行賣嘅產品。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "三井住友保險",
+    "en": "MSIG"
+   },
+   "note": {
+    "zh": "只係渣打銀行網頁（2022 年起）見到經銀行賣嘅產品。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "昆士蘭保險",
+    "en": "QBE"
+   },
+   "note": {
+    "zh": "只係恒生銀行網頁（2020 年）見到經銀行賣嘅產品。",
+    "en": null
+   }
+  },
+  {
+   "brand": {
+    "zh": "保柏",
+    "en": "Bupa"
+   },
+   "note": {
+    "zh": "只係恒生銀行網頁（2021–2024）見到經銀行賣嘅自願醫保；保柏自己官網未查。",
     "en": null
    }
   },
@@ -4484,6 +4554,738 @@
       "en": "YF Life press release"
      },
      "url": "https://www.yflife.com/tc/about-us/newsroom/yf-life-launches-primehealth-saver-500-plus/"
+    }
+   ]
+  },
+  {
+   "id": "pru-citi-all-for-you-hospital",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "全為您－住院保障計劃",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-05",
+    "2012-11"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經花旗銀行銷售（花旗舊網頁，英國保誠保險有限公司承保）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20121106230047/http://citibank.com.hk/chinese/insurance/hospital-insurance-plan.htm"
+    }
+   ]
+  },
+  {
+   "id": "pru-citi-all-for-you-health-check",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "身體檢查",
+    "en": "Health check"
+   },
+   "name": {
+    "zh": "全為您－康檢保障計劃",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-05",
+    "2015-10"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經花旗銀行銷售（花旗舊網頁，保誠財險有限公司承保）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20151004054258/http://www.citibank.com.hk:80/chinese/insurance/healthcheck-insurance.htm"
+    }
+   ]
+  },
+  {
+   "id": "metlife-serenemind-refundable-hospital-cash-insurance-plan",
+   "brand": {
+    "zh": "大都會人壽",
+    "en": "MetLife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "安心無憂「保費退還」住院現金保障計劃",
+    "en": "SereneMind Refundable Hospital Cash Insurance Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2012-11",
+    "2015-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經花旗銀行銷售（花旗舊網頁，大都會人壽保險有限公司承保）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20150325110831/http://www.citibank.com.hk:80/chinese/insurance/serenemind-refundable-hospital-cash.htm"
+    }
+   ]
+  },
+  {
+   "id": "metlife-serenemind-refundable-surgical-cash-insurance-plan",
+   "brand": {
+    "zh": "大都會人壽",
+    "en": "MetLife"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "安心無憂「保費退還」手術現金保障計劃",
+    "en": "SereneMind Refundable Surgical Cash Insurance Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2013-03",
+    "2015-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經花旗銀行銷售（花旗舊網頁，大都會人壽保險有限公司承保）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20150325110911/http://www.citibank.com.hk:80/chinese/insurance/serenemind-refundable-surgical-cash-insurance-plan.htm"
+    }
+   ]
+  },
+  {
+   "id": "metlife-splendidcare-lifelong-health-plan",
+   "brand": {
+    "zh": "大都會人壽",
+    "en": "MetLife"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "康悅終身健康（癌症保障）計劃",
+    "en": "SplendidCare Lifelong Health Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2013-03",
+    "2014-04"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經花旗銀行銷售（花旗舊網頁，大都會人壽保險有限公司承保）。保障至 100 歲，有早期癌症同第二次癌症保障。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140424085714/http://citibank.com.hk/chinese/insurance/splendidcare-lifelong-health-plan.htm"
+    }
+   ]
+  },
+  {
+   "id": "metlife-splendidcare-ci-rider",
+   "brand": {
+    "zh": "大都會人壽",
+    "en": "MetLife"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾附加保障",
+    "en": "CI rider"
+   },
+   "name": {
+    "zh": "康悅危疾保障",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2013-03",
+    "2014-04"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經花旗銀行銷售（花旗舊網頁，大都會人壽保險有限公司承保）。只可以附加喺康悅終身健康（癌症保障）計劃。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20140424085714/http://citibank.com.hk/chinese/insurance/splendidcare-lifelong-health-plan.htm"
+    }
+   ]
+  },
+  {
+   "id": "axa-hsbc-firstcare",
+   "brand": {
+    "zh": "安盛",
+    "en": "AXA"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "摯關懷超卓醫療計劃",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2021-03"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經滙豐銀行銷售（銀行舊網頁寫明由安盛保險有限公司承保）。一般保險產品，分標準／優選／尊尚計劃。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210307095156/https://www.hsbc.com.hk/zh-hk/insurance/products/medical/firstcare/"
+    }
+   ]
+  },
+  {
+   "id": "hs-preciouslife",
+   "brand": {
+    "zh": "恒生保險",
+    "en": "Hang Seng Insurance"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「愛·健康」危疾人壽保險計劃",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-12",
+    "2019-12"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經恒生銀行銷售（銀行舊網頁寫明由恒生保險有限公司承保）。128 種疾病（60 種嚴重、56 種早期、12 種兒童）。而家有「愛‧生活」。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20191216061012/https://www.hangseng.com/zh-hk/personal/insurance-mpf/medical-critical-illness/preciouslife/"
+    }
+   ]
+  },
+  {
+   "id": "hs-refundable-ci",
+   "brand": {
+    "zh": "恒生保險",
+    "en": "Hang Seng Insurance"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "「倍加安」保費回贈危疾保障人壽保險計劃",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-09",
+    "2021-04"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經恒生銀行銷售（銀行舊網頁寫明由恒生保險有限公司承保）。保癌症、心臟病、中風；20 年期滿回贈已繳保費 103%。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210420173719/https://www.hangseng.com/zh-hk/personal/insurance-mpf/medical-critical-illness/refundable-critical-illness/"
+    }
+   ]
+  },
+  {
+   "id": "hs-ecancerpro",
+   "brand": {
+    "zh": "恒生保險",
+    "en": "Hang Seng Insurance"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "癌症",
+    "en": "Cancer"
+   },
+   "name": {
+    "zh": "「易安康」癌症保障計劃",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-12",
+    "2026-06"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經恒生銀行銷售（銀行舊網頁寫明由恒生保險有限公司承保）。網上投保，保額最高港幣 500 萬；2026 年中起恒生網頁已撤。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20260609143217/https://www.hangseng.com/zh-hk/personal/insurance-mpf/life/ecancerpro/"
+    }
+   ]
+  },
+  {
+   "id": "hs-surgicalguard-ii",
+   "brand": {
+    "zh": "恒生保險",
+    "en": "Hang Seng Insurance"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "「倍安康」II 手術現金保費回贈人壽保險計劃",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-08",
+    "2021-04"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經恒生銀行銷售（銀行舊網頁寫明由恒生保險有限公司承保）。期滿回贈已繳保費 103%。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210421072851/https://www.hangseng.com/zh-hk/personal/insurance-mpf/medical-critical-illness/surgicalguard-ii-refundable/"
+    }
+   ]
+  },
+  {
+   "id": "hs-easyrefund-hospital-cash",
+   "brand": {
+    "zh": "恒生保險",
+    "en": "Hang Seng Insurance"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "「極醫時」全保費回贈環球住院現金計劃（三年）",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2022-10",
+    "2026-05"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經恒生銀行銷售（銀行舊網頁寫明由恒生保險有限公司承保）。網上投保，3 年期，期滿最高回贈 103%；2026 年中起恒生網頁已撤。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20260508091031/https://www.hangseng.com/zh-hk/personal/insurance-mpf/medical-critical-illness/easyrefund-hospital-cash/"
+    }
+   ]
+  },
+  {
+   "id": "qbe-hangseng-hospital",
+   "brand": {
+    "zh": "昆士蘭保險",
+    "en": "QBE"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "住院保障計劃（恒生銀行）",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2020-08",
+    "2020-08"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經恒生銀行銷售（銀行舊網頁寫明由昆士蘭保險（香港）有限公司承保）。一般保險住院現金。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20200814112743/https://www.hangseng.com/zh-hk/personal/insurance-mpf/medical-critical-illness/hospital/"
+    }
+   ]
+  },
+  {
+   "id": "bupa-hangseng-global-prestige",
+   "brand": {
+    "zh": "保柏",
+    "en": "Bupa"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "自願醫保",
+    "en": "VHIS"
+   },
+   "name": {
+    "zh": "環球優越自願醫保計劃",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2021-04",
+    "2024-10"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經恒生銀行銷售（銀行舊網頁寫明由保柏（亞洲）有限公司承保）。恒生同保柏嘅合作 2024 年 10 月結束，現有保單按原有條款續保。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20241008211838/https://www.hangseng.com/zh-hk/personal/insurance-mpf/medical-critical-illness/vhis/global-prestige/"
+    }
+   ]
+  },
+  {
+   "id": "pru-pruhealth-critical-illness-multi-care-prestige",
+   "brand": {
+    "zh": "保誠保險",
+    "en": "Prudential"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "尊尚危疾加倍保",
+    "en": "PRUHealth Critical Illness Multi-Care Prestige"
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-07",
+    "2021-12"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經渣打銀行銷售（銀行舊網頁寫明由保誠保險有限公司承保）。保誠官網而家冇再列出。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211203041358/https://www.sc.com/hk/zh/insurance/life-insurance/critical-illness-insurance/multicare-prestige/"
+    }
+   ]
+  },
+  {
+   "id": "allianz-scb-vhis",
+   "brand": {
+    "zh": "安聯保險",
+    "en": "Allianz"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "自願醫保",
+    "en": "VHIS"
+   },
+   "name": {
+    "zh": "安聯醫療保障／安聯特級醫療保障",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-08",
+    "2021-10"
+   ],
+   "certNo": "F00033",
+   "note": {
+    "zh": "經渣打銀行銷售（銀行舊網頁寫明由安聯環球企業及專項保險－香港分公司承保）。自願醫保產品，而家政府現售名單冇呢個編號。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20211024113426/https://www.sc.com/hk/zh/insurance/general-insurance/voluntary-health-insurance/"
+    }
+   ]
+  },
+  {
+   "id": "allianz-scb-premium-medical",
+   "brand": {
+    "zh": "安聯保險",
+    "en": "Allianz"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院醫療",
+    "en": "Hospital & surgical"
+   },
+   "name": {
+    "zh": "安聯極上醫療保障",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2019-08",
+    "2021-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經渣打銀行銷售（銀行舊網頁寫明由安聯環球企業及專項保險－香港分公司承保）。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20210731223503/https://www.sc.com/hk/zh/insurance/general-insurance/premium-medical-protect/"
+    }
+   ]
+  },
+  {
+   "id": "msig-scb-ci",
+   "brand": {
+    "zh": "三井住友保險",
+    "en": "MSIG"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "危疾保障（三井住友）",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2022-06",
+    "2025-09"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經渣打銀行銷售（銀行舊網頁寫明由三井住友海上火災保險（香港）有限公司承保）。一般保險產品。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20250906111539/https://www.sc.com/hk/zh/insurance/general-insurance/msig-critical-illness-protection/"
+    }
+   ]
+  },
+  {
+   "id": "msig-scb-health-cash",
+   "brand": {
+    "zh": "三井住友保險",
+    "en": "MSIG"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "健康現金保保單",
+    "en": null
+   },
+   "status": "stopped",
+   "seen": [
+    "2022-07",
+    "2022-07"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "經渣打銀行銷售（銀行舊網頁寫明由三井住友海上火災保險（香港）有限公司承保）。一般保險產品，18 歲起投保，續保至 64 歲。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20220701134239/https://www.sc.com/hk/zh/insurance/general-insurance/msig-criticalcare/"
+    }
+   ]
+  },
+  {
+   "id": "boc-healthassure-refundable-surgical-cash-plan",
+   "brand": {
+    "zh": "中銀人壽",
+    "en": "BOC Life"
+   },
+   "kind": "med",
+   "category": {
+    "zh": "住院現金",
+    "en": "Hospital cash"
+   },
+   "name": {
+    "zh": "康逸保費回贈手術現金計劃",
+    "en": "HealthAssure Refundable Surgical Cash Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2017-04",
+    "2018-05"
+   ],
+   "certNo": null,
+   "note": null,
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20180523074747/http://www.boclife.com.hk/tc/life_insurance_plan/products/HealthAssure_Refundable_Surgical_Cash_Plan.html"
+    }
+   ]
+  },
+  {
+   "id": "boc-bestcare-critical-illness-plan",
+   "brand": {
+    "zh": "中銀人壽",
+    "en": "BOC Life"
+   },
+   "kind": "ci",
+   "category": {
+    "zh": "危疾",
+    "en": "Critical illness"
+   },
+   "name": {
+    "zh": "摯守護危疾保險計劃（舊版）",
+    "en": "BestCare Critical Illness Plan"
+   },
+   "status": "stopped",
+   "seen": [
+    "2016-07",
+    "2018-06"
+   ],
+   "certNo": null,
+   "note": {
+    "zh": "2016–2018 年舊網站版本；而家賣緊嘅係新版（中文名一樣叫「摯守護危疾保險計劃」，英文名多咗「-Pro」），睇保單要對英文名或計劃編號。",
+    "en": null
+   },
+   "sources": [
+    {
+     "name": {
+      "zh": "官網舊網頁（網頁存檔）",
+      "en": "Archived insurer page"
+     },
+     "url": "https://web.archive.org/web/20180616062421/http://www.boclife.com.hk/tc/life_insurance_plan/products/bestcare_ci_plan-TA.html"
     }
    ]
   }
