@@ -113,3 +113,6 @@ td.pos { color: var(--matcha); } td.neg { color: var(--danger); }
 .mpf-rep-disc p { margin: 2px 0; }
 @media (max-width: 560px) { .mpf-pick-head input { width: 60px; } }
 .mpf-basis { margin-bottom: 8px; } .mpf-basis span { min-height: 34px; font-size: 14px; }
+/* 頂部工具列：呢頁用實色底，捲落去時下面啲字唔會透出嚟 */
+.site-header { background: #F3ECDD; }
+.mpf-chartbox svg { max-width: 920px; }

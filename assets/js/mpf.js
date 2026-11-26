@@ -197,21 +197,41 @@
   function scatter(rows, hi) {
     var pts = rows.filter(function (f) { return f.fer != null && f.ann[1] != null; });
     if (pts.length < 2) return "<p class='hint'>未夠 5 年數據嘅基金唔會出現喺圖入面。</p>";
-    var W = 760, H = 260, L = 48, R = 12, T = 14, B = 34;
+    // 畫圖區四邊留位：軸標題放喺圖外面，數據範圍上下左右加少少空位，點唔會貼邊或者疊住刻度字
+    var W = 760, H = 300, L = 56, R = 24, T = 30, B = 44;
     var xs = pts.map(function (f) { return f.fer; }), ys = pts.map(function (f) { return f.ann[1]; });
-    var x0 = Math.min.apply(0, xs), x1 = Math.max.apply(0, xs), y0 = Math.min(0, Math.min.apply(0, ys)), y1 = Math.max.apply(0, ys);
-    if (x1 - x0 < 0.2) { x0 -= 0.1; x1 += 0.1; } if (y1 - y0 < 1) y1 = y0 + 1;
+    var x0 = Math.min.apply(0, xs), x1 = Math.max.apply(0, xs), y0 = Math.min(0, Math.min.apply(0, ys)), y1 = Math.max(0, Math.max.apply(0, ys));
+    if (x1 - x0 < 0.2) { x0 -= 0.1; x1 += 0.1; }
+    if (y1 - y0 < 1) y1 = y0 + 1;
+    var px = (x1 - x0) * 0.06, py = (y1 - y0) * 0.1;
+    x0 -= px; x1 += px; y1 += py; if (y0 < 0) y0 -= py;
     var X = function (v) { return L + (v - x0) / (x1 - x0) * (W - L - R); }, Yf = function (v) { return T + (y1 - v) / (y1 - y0) * (H - T - B); };
     var g = "<svg viewBox='0 0 " + W + " " + H + "' role='img' aria-label='收費同 5 年回報'>";
-    g += "<line x1='" + L + "' x2='" + (W - R) + "' y1='" + Yf(0) + "' y2='" + Yf(0) + "' stroke='#bbb' stroke-dasharray='3 3'/>";
-    for (var i = 0; i <= 4; i++) { var yv = y0 + (y1 - y0) * i / 4; g += "<text x='" + (L - 6) + "' y='" + (Yf(yv) + 4) + "' font-size='11' text-anchor='end' fill='#666'>" + yv.toFixed(1) + "%</text>"; }
-    for (i = 0; i <= 4; i++) { var xv = x0 + (x1 - x0) * i / 4; g += "<text x='" + X(xv) + "' y='" + (H - 14) + "' font-size='11' text-anchor='middle' fill='#666'>" + xv.toFixed(2) + "%</text>"; }
-    g += "<text x='" + (W / 2) + "' y='" + (H - 2) + "' font-size='11' text-anchor='middle' fill='#444'>基金開支比率（FER，越左越平）</text>";
-    g += "<text x='12' y='" + (T + 4) + "' font-size='11' fill='#444'>5 年每年回報</text>";
-    pts.forEach(function (f) {
-      var me = f.schId === hi;
-      g += "<circle cx='" + X(f.fer).toFixed(1) + "' cy='" + Yf(f.ann[1]).toFixed(1) + "' r='" + (me ? 6 : 4) + "' fill='" + (me ? "#B8442E" : "#2E4A6B") + "' fill-opacity='" + (me ? 1 : .45) + "'><title>" + esc(f.fund + "（" + f.scheme + "）FER " + f.fer.toFixed(2) + "%，5 年 " + f.ann[1] + "%") + "</title></circle>";
-      if (me) g += "<text x='" + (X(f.fer) + 8).toFixed(1) + "' y='" + (Yf(f.ann[1]) + 4).toFixed(1) + "' font-size='11' fill='#B8442E'>" + esc(f.fund) + "</text>";
+    g += "<rect x='" + L + "' y='" + T + "' width='" + (W - L - R) + "' height='" + (H - T - B) + "' fill='none' stroke='#e6e0d2'/>";
+    g += "<text x='" + L + "' y='16' font-size='12' fill='#444'>↑ 5 年每年回報</text>";
+    for (var i = 0; i <= 4; i++) {
+      var yv = y0 + (y1 - y0) * i / 4, yy = Yf(yv);
+      g += "<line x1='" + L + "' x2='" + (W - R) + "' y1='" + yy.toFixed(1) + "' y2='" + yy.toFixed(1) + "' stroke='#f0ebe0'/>";
+      g += "<text x='" + (L - 8) + "' y='" + (yy + 4).toFixed(1) + "' font-size='11' text-anchor='end' fill='#666'>" + yv.toFixed(1) + "%</text>";
+    }
+    if (y0 < 0) g += "<line x1='" + L + "' x2='" + (W - R) + "' y1='" + Yf(0) + "' y2='" + Yf(0) + "' stroke='#bbb' stroke-dasharray='3 3'/>";
+    for (i = 0; i <= 4; i++) {
+      var xv = x0 + (x1 - x0) * i / 4;
+      g += "<text x='" + X(xv).toFixed(1) + "' y='" + (H - B + 16) + "' font-size='11' text-anchor='" + (i === 0 ? "start" : i === 4 ? "end" : "middle") + "' fill='#666'>" + xv.toFixed(2) + "%</text>";
+    }
+    g += "<text x='" + ((L + W - R) / 2) + "' y='" + (H - 6) + "' font-size='12' text-anchor='middle' fill='#444'>基金開支比率（FER）→ 越左越平</text>";
+    var others = pts.filter(function (f) { return f.schId !== hi; }), mine = pts.filter(function (f) { return f.schId === hi; });
+    others.forEach(function (f) {
+      g += "<circle cx='" + X(f.fer).toFixed(1) + "' cy='" + Yf(f.ann[1]).toFixed(1) + "' r='4' fill='#2E4A6B' fill-opacity='.45'><title>" + esc(f.fund + "（" + f.scheme + "）FER " + f.fer.toFixed(2) + "%，5 年 " + f.ann[1] + "%") + "</title></circle>";
+    });
+    var used = [];
+    mine.forEach(function (f) {          // 所選計劃畫最後（喺最上面）；名字近右邊就放左邊，同其他名字撞就上下移
+      var cx = X(f.fer), cy = Yf(f.ann[1]), right = cx > L + (W - L - R) * 0.7;
+      var ty = cy + 4;
+      used.forEach(function (u) { if (Math.abs(u - ty) < 13) ty = u + 14; });
+      ty = Math.max(T + 12, Math.min(H - B - 4, ty)); used.push(ty);
+      g += "<circle cx='" + cx.toFixed(1) + "' cy='" + cy.toFixed(1) + "' r='6' fill='#B8442E'><title>" + esc(f.fund + " FER " + f.fer.toFixed(2) + "%，5 年 " + f.ann[1] + "%") + "</title></circle>";
+      g += "<text x='" + (right ? cx - 10 : cx + 10).toFixed(1) + "' y='" + ty.toFixed(1) + "' font-size='12' font-weight='700' text-anchor='" + (right ? "end" : "start") + "' fill='#B8442E' stroke='#fff' stroke-width='3' paint-order='stroke'>" + esc(f.fund) + "</text>";
     });
     return "<div class='mpf-legend'><span><i style='background:#B8442E'></i>所選計劃</span><span><i style='background:#2E4A6B;opacity:.5'></i>其他計劃</span></div>" + g + "</svg>";
   }
